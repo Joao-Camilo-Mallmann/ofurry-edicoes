@@ -1,0 +1,95 @@
+{
+  "id": "177-trecho-11",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@é construída-0.1", "until": "@Vai parecer muito-0.1", "entry": "pop", "y": 0.84 },
+    { "from": "@Vai parecer muito-0.1", "until": "@seu dinheiro-0.1", "entry": "pop", "y": 0.72 },
+    { "from": "@Mas aqui o papo-0.1", "until": "@É literalmente-0.1", "entry": "whip" },
+    { "from": "@E aquele seu mil-0.1", "until": "@Muita gente aqui-0.1", "entry": "pop", "y": 0.12 },
+    { "from": "@Muita gente aqui-0.1", "until": "@fim", "entry": "pop", "y": 0.72 }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "black" },
+    { "at": "@essa base", "backdrop": "stars" },
+    { "at": "@Vai parecer muito", "backdrop": "grid" },
+    { "at": "@seu dinheiro", "backdrop": "black" },
+    { "at": "@Mas aqui o papo", "backdrop": "grid" },
+    { "at": "@É literalmente", "backdrop": "stars" },
+    { "at": "@É a partir do quinto", "backdrop": "black" },
+    { "at": "@Aqui por mês", "backdrop": "stars" },
+    { "at": "@E é aqui que muita", "backdrop": "black" },
+    { "at": "@E aquele seu mil", "backdrop": "stars" },
+    { "at": "@Muita gente aqui", "backdrop": "grid" }
+  ],
+  "sfx": [
+    {"at": "@nenhuma virada", "file": "@sfx/General/Click.wav", "gain": -22},
+    {"at": "@essa base", "file": "@sfx/Mechanical/Gadget 05.wav", "gain": -22, "len": 0.8, "fadeOut": 0.2},
+    {"at": "@seu dinheiro", "file": "@sfx/Foley/Coins Thrown 01.wav", "gain": -22, "len": 1.2, "fadeOut": 0.3},
+    {"at": "@paciência", "file": "@sfx/General/Clock Tick.mp3", "gain": -22, "len": 1.6, "fadeOut": 0.3},
+    {"at": "@até aqui", "file": "@sfx/General/Click.wav", "gain": -20},
+    {"at": "@71 mil", "file": "@sfx/General/cash ting.mp3", "gain": -20},
+    {"at": "@400", "file": "@sfx/Foley/Coins in Hand 01.wav", "gain": -22, "len": 1.0},
+    {"at": "@seu aporte", "file": "@sfx/General/Pop sound.mp3", "gain": -22},
+    {"at": "@muita gente desiste", "file": "@sfx/General/Clock ticking fast.mp3", "gain": -24, "len": 1.4, "fadeOut": 0.3},
+    {"at": "@5 anos", "file": "@sfx/General/Lose.wav", "gain": -24},
+    {"at": "@não rendeu", "file": "@sfx/Mechanical/Gadget 02.wav", "gain": -22, "len": 1.0, "fadeOut": 0.3}
+  ],
+  "beats": [
+    { "kind": "cena", "tipo": "grafico", "at": "@inicio", "until": "@essa base",
+      "modo": "rendimento", "meses": 48, "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
+      "revela": [{ "at": 0, "mes": 12 }, { "at": "@segundo", "mes": 24, "dur": 0.8 }, { "at": "@terceiro", "mes": 36, "dur": 0.9 }],
+      "vista": [{ "at": 0, "x": 48, "y": 1200 }],
+      "marcos": [{ "mes": 36, "at": "@nenhuma virada", "rotulo": "NENHUMA VIRADA", "cor": "loss", "lado": "dir" }] },
+
+    { "kind": "icon", "at": "@essa base", "until": "@Vai parecer muito", "icon": "brick-wall", "tone": "brand", "label": "base sólida", "y": 0.4 },
+
+    { "kind": "mascot", "at": "@Vai parecer muito", "until": "@seu dinheiro", "placement": "center",
+      "poses": [
+        { "at": "@Vai parecer muito", "pose": "../../../../public/mascote/fox3.png" },
+        { "at": "@E que você só", "pose": "../../../../public/mascote/fox4.png" }
+      ] },
+
+    { "kind": "icons", "at": "@seu dinheiro", "until": "@Mas aqui o papo",
+      "items": [
+        { "icon": "banknote", "label": "seu dinheiro", "at": "@seu dinheiro" },
+        { "icon": "telescope", "label": "futuro distante", "at": "@futuro", "tone": "info" },
+        { "icon": "undo-2", "label": "voltar pra você", "at": "@voltar", "tone": "gain" }
+      ] },
+
+    { "kind": "icon", "at": "@É literalmente", "until": "@É a partir do quinto", "icon": "hourglass", "tone": "highlight", "label": "paciência e esperar", "animated": false },
+
+    { "kind": "cena", "tipo": "grafico", "at": "@É a partir do quinto", "until": "@Aqui por mês",
+      "modo": "patrimonio", "meses": 66, "rotuloCabeca": false,
+      "revela": [{ "at": 0, "mes": 36 }, { "at": "@quinto", "mes": 54, "dur": 1.6 }, { "at": "@manter a constância", "mes": 60, "dur": 1.2 }],
+      "vista": [{ "at": 0, "x": 66, "y": 80000 }, { "at": "@considerando", "x": 62, "y": 76000, "dur": 1.5 }],
+      "marcos": [
+        { "mes": 60, "at": "@até aqui", "rotulo": "ANO 5", "cor": "text", "lado": "baixo", "ate": "@71 mil" },
+        { "mes": 60, "at": "@71 mil", "rotulo": "R$ 71 MIL", "cor": "hl", "lado": "baixo" }
+      ] },
+
+    { "kind": "cena", "tipo": "grafico", "at": "@Aqui por mês", "until": "@E é aqui que muita",
+      "modo": "rendimento", "meses": 66, "aporteAt": "@seu aporte", "rotuloCabeca": false,
+      "revela": [{ "at": 0, "mes": 0 }, { "at": "@Aqui por mês+0.1", "mes": 60, "dur": 2.6 }],
+      "vista": [{ "at": 0, "x": 66, "y": 600 }, { "at": "@E repara", "x": 66, "y": 1200, "dur": 1.5 }],
+      "marcos": [{ "mes": 60, "at": "@400", "rotulo": "R$ 400 POR MÊS", "cor": "gain", "lado": "cima" }] },
+
+    { "kind": "cena", "tipo": "calendario", "at": "@E é aqui que muita", "until": "@E aquele seu mil",
+      "preenche": [{ "at": 0, "m": 0 }, { "at": "@muita gente desiste", "m": 60, "dur": 1.4 }],
+      "marcos": [{ "mes": 60, "at": "@5 anos", "cor": "loss", "rotulo": "DESISTE" }] },
+
+    { "kind": "cena", "tipo": "balanca", "at": "@E aquele seu mil", "until": "@Muita gente aqui",
+      "esquerda": "VOCÊ INVESTE", "direita": "RENDE",
+      "valores": [{ "at": 0, "v": 0 }, { "at": "@não rendeu", "v": 400, "dur": 1.2 }] },
+
+    { "kind": "mascot", "at": "@Muita gente aqui", "until": "@fim", "placement": "center",
+      "poses": [
+        { "at": "@Muita gente aqui", "pose": "../../../../public/mascote/fox3.png" },
+        { "at": "@investimento não", "pose": "../../../../public/mascote/fox4.png" },
+        { "at": "@Mas é#2", "pose": "../../../../public/mascote/fox2.png" },
+        { "at": "@mas é#3", "pose": "../../../../public/mascote/fox1.png" }
+      ] }
+  ]
+}

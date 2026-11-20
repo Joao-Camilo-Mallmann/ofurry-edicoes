@@ -1,0 +1,85 @@
+{
+  "id": "177-trecho-10",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@inicio", "until": "@Digamos-0.1", "entry": "pop", "y": 0.72 },
+    { "from": "@Digamos-0.1", "until": "@mil reais-0.1", "entry": "whip" },
+    { "from": "@Mas a gente-0.1", "until": "@já de uma-0.1", "entry": "pop", "y": 0.72 }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "grid" },
+    { "at": "@Digamos", "backdrop": "stars" },
+    { "at": "@mil reais", "backdrop": "black" },
+    { "at": "@já descontando", "backdrop": "grid" },
+    { "at": "@Eu montei", "backdrop": "black" },
+    { "at": "@Literalmente", "backdrop": "stars" },
+    { "at": "@No final", "backdrop": "black" },
+    { "at": "@E desses", "backdrop": "grid" },
+    { "at": "@E nesse mês", "backdrop": "black" },
+    { "at": "@Olha", "backdrop": "stars" },
+    { "at": "@Mas a gente", "backdrop": "grid" }
+  ],
+  "sfx": [
+    {"at": "@mil reais", "file": "@sfx/Foley/Coins in Hand 01.wav", "gain": -22, "len": 0.8, "fadeOut": 0.2},
+    {"at": "@7%", "file": "@sfx/General/Pop sound.mp3", "gain": -22},
+    {"at": "@Eu montei", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.6},
+    {"at": "@mês 2", "file": "@sfx/General/Click.wav", "gain": -20},
+    {"at": "@o rendimento", "file": "@sfx/General/Click.wav", "gain": -20},
+    {"at": "@Literalmente", "file": "@sfx/General/Pop sound.mp3", "gain": -22},
+    {"at": "@No final", "file": "@sfx/General/Digital counting.mp3", "gain": -24, "len": 1.4, "fadeOut": 0.3},
+    {"at": "@12 mil", "file": "@sfx/General/Ding.mp3", "gain": -22},
+    {"at": "@380 reais", "file": "@sfx/Foley/Coins in Hand 02.wav", "gain": -22, "len": 1.0},
+    {"at": "@64 reais", "file": "@sfx/General/cash ting.mp3", "gain": -20},
+    {"at": "@uma pizza", "file": "@sfx/General/Pop sound.mp3", "gain": -22}
+  ],
+  "beats": [
+    { "kind": "mascot", "at": "@inicio", "until": "@Digamos", "placement": "center",
+      "poses": [ { "at": "@inicio", "pose": "../../../../public/mascote/fox1.png" } ] },
+
+    { "kind": "number", "at": "@mil reais", "until": "@7%", "value": "R$ 1.000", "caption": "TODOS OS MESES", "tone": "neutral" },
+    { "kind": "number", "at": "@7%", "until": "@já descontando", "value": "7%", "caption": "AO ANO", "tone": "highlight" },
+
+    { "kind": "icons", "at": "@já descontando", "until": "@Eu montei", "relation": "+",
+      "items": [
+        { "icon": "flame", "label": "inflação", "at": "@já descontando", "tone": "loss" },
+        { "icon": "landmark", "label": "imposto", "at": "@e demais", "tone": "loss" }
+      ] },
+
+    { "kind": "cena", "tipo": "tabela", "at": "@Eu montei", "until": "@Literalmente",
+      "meses": 130, "titulo": "R$ 1.000 POR MÊS A 7% AO ANO",
+      "rolar": [{ "at": "@Eu montei", "mes": 1 }, { "at": "@simulação", "mes": 30, "dur": 2.2 }, { "at": "@as primeiras", "mes": 1, "dur": 1.0 }],
+      "destaques": [{ "at": "@mês 2", "mes": 2, "cor": "hl" }],
+      "colunaDestaque": [{ "at": "@o rendimento", "col": 2 }] },
+
+    { "kind": "icon", "at": "@Literalmente", "until": "@No final", "icon": "croissant", "tone": "highlight", "label": "um pão de queijo" },
+
+    { "kind": "cena", "tipo": "tabela", "at": "@No final", "until": "@E desses",
+      "meses": 130, "titulo": "NO FINAL DO ANO",
+      "rolar": [{ "at": "@No final", "mes": 2 }, { "at": "@No final+0.2", "mes": 12, "dur": 1.6 }],
+      "destaques": [{ "at": "@12 mil", "mes": 12, "cor": "hl" }],
+      "colunaDestaque": [{ "at": "@12 mil", "col": 3 }] },
+
+    { "kind": "cena", "tipo": "barra", "at": "@E desses", "until": "@E nesse mês",
+      "total": "R$ 12 MIL", "totalAt": "@E desses",
+      "partes": [
+        { "at": "@E desses+0.3", "valor": 12000, "rotulo": "INVESTIDO", "cor": "text" },
+        { "at": "@380 reais", "valor": 380, "rotulo": "RENDIMENTOS", "cor": "gain" }
+      ] },
+
+    { "kind": "cena", "tipo": "tabela", "at": "@E nesse mês", "until": "@Olha",
+      "meses": 130, "titulo": "NESSE MÊS",
+      "rolar": [{ "at": "@E nesse mês", "mes": 12 }],
+      "destaques": [{ "at": "@E nesse mês", "mes": 12, "cor": "gain" }, { "at": "@64 reais", "mes": 12, "cor": "hl" }],
+      "colunaDestaque": [{ "at": "@render", "col": 2 }] },
+
+    { "kind": "number", "at": "@Olha", "until": "@Mas a gente", "value": "R$ 64", "countFrom": 0, "caption": "NÃO É MUITA COISA", "tone": "gain" },
+
+    { "kind": "mascot", "at": "@Mas a gente", "until": "@uma pizza", "placement": "center",
+      "poses": [ { "at": "@Mas a gente", "pose": "../../../../public/mascote/fox4.png" } ] },
+
+    { "kind": "icon", "at": "@uma pizza", "until": "@fim", "icon": "pizza", "tone": "brand", "label": "uma pizza" }
+  ]
+}

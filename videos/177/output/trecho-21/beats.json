@@ -1,0 +1,75 @@
+{
+  "id": "177-trecho-21",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@Isso vai ajudar-0.1", "until": "@mais gente-0.1", "entry": "pop" },
+    { "from": "@Ou achando-0.1", "until": "@E olha se a sua-0.1", "entry": "glitch", "y": 0.72 },
+    { "from": "@Eu destrincho-0.1", "until": "@E meu Deus-0.1", "entry": "pop", "y": 0.9 },
+    { "from": "@Mas por hoje-0.1", "until": "@Bom eu sou-0.1", "entry": "whip" }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "black" },
+    { "at": "@deixa um like", "backdrop": "stars" },
+    { "at": "@Isso vai ajudar", "backdrop": "black" },
+    { "at": "@Ou achando", "backdrop": "grid" },
+    { "at": "@E olha se a sua", "backdrop": "stars" },
+    { "at": "@com taxa", "backdrop": "black" },
+    { "at": "@E relaxa", "backdrop": "stars" },
+    { "at": "@E meu Deus", "backdrop": "grid" },
+    { "at": "@Mas por hoje", "backdrop": "black" },
+    { "at": "@Bom eu sou", "backdrop": "grid" }
+  ],
+  "sfx": [
+    { "at": "@esse número", "file": "@sfx/General/Ding.mp3", "gain": -22 },
+    { "at": "@like", "file": "@sfx/General/Pop sound.mp3", "gain": -20 },
+    { "at": "@compartilhe", "file": "@sfx/General/Pop sound.mp3", "gain": -20 },
+    { "at": "@travado", "file": "@sfx/Mechanical/Switch 02.wav", "gain": -22 },
+    { "at": "@taxa", "file": "@sfx/General/Click.wav", "gain": -20 },
+    { "at": "@aporte", "file": "@sfx/General/Click.wav", "gain": -20 },
+    { "at": "@número mágico", "file": "@sfx/General/Click.wav", "gain": -20 },
+    { "at": "@E relaxa", "file": "@sfx/General/Ding.mp3", "gain": -22 },
+    { "at": "@bastante coisa", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.5 }
+  ],
+  "beats": [
+    { "kind": "number", "at": "@inicio", "until": "@deixa um like", "value": "R$ 177 MIL", "caption": "NÃO TÃO ALEATÓRIO", "tone": "highlight" },
+
+    { "kind": "icons", "at": "@deixa um like", "until": "@Isso vai ajudar",
+      "items": [
+        { "icon": "thumbs-up", "label": "like", "at": "@like", "tone": "brand" },
+        { "icon": "share-2", "label": "compartilhe", "at": "@compartilhe", "tone": "info" }
+      ] },
+
+    { "kind": "icon", "at": "@mais gente", "until": "@travado", "icon": "users", "tone": "neutral", "label": "mais gente", "y": 0.42 },
+    { "kind": "icon", "at": "@travado", "until": "@Ou achando", "icon": "lock", "tone": "loss", "label": "travado na fase inicial", "animated": false, "y": 0.42 },
+
+    { "kind": "mascot", "at": "@Ou achando", "until": "@E olha se a sua", "placement": "center",
+      "poses": [
+        { "at": "@Ou achando", "pose": "../../../../public/mascote/fox3.png" },
+        { "at": "@quando na real", "pose": "../../../../public/mascote/fox1.png" }
+      ] },
+
+    { "kind": "icon", "at": "@E olha se a sua", "until": "@com taxa", "icon": "brain", "tone": "loss", "label": "cabeça fritando", "y": 0.42 },
+
+    { "kind": "number", "at": "@com taxa", "until": "@aporte", "value": "TAXA", "tone": "brand" },
+    { "kind": "number", "at": "@aporte", "until": "@número mágico", "value": "APORTE", "tone": "neutral" },
+    { "kind": "number", "at": "@número mágico", "until": "@E relaxa", "value": "NÚMERO MÁGICO", "tone": "highlight" },
+
+    { "kind": "cena", "tipo": "fim", "at": "@E relaxa", "until": "@E meu Deus",
+      "titulo": "COMO INVESTIR MELHOR QUE 90% DAS PESSOAS", "chamada": "PRÓXIMO VÍDEO", "tituloAt": "@como investir" },
+
+    { "kind": "cena", "tipo": "lista", "at": "@E meu Deus", "until": "@Mas por hoje", "titulo": "FOI BASTANTE COISA",
+      "itens": [
+        { "at": "@E meu Deus", "n": "1", "texto": "QUANTO RENDE HOJE" },
+        { "at": "@E meu Deus+0.25", "n": "2", "texto": "MANTER OS APORTES" },
+        { "at": "@E meu Deus+0.5", "n": "3", "texto": "RENDA PREVISÍVEL" }
+      ] },
+
+    { "kind": "mascot", "at": "@Bom eu sou", "until": "@fim", "placement": "center", "nameTag": true,
+      "poses": [
+        { "at": "@Bom eu sou", "pose": "../../../../public/mascote/fox2.png" }
+      ] }
+  ]
+}

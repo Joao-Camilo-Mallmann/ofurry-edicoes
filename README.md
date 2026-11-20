@@ -1,15 +1,18 @@
-# 🎬 OFurry Motion Engine (`ofurry-motion`)
+# 🎬 OFurry Edições (`ofurry-edicoes`)
 
-Motion design engine for the **OFurry Investidor** YouTube channel. It turns a recorded narration into the
-channel's motion track (kinetic captions on black, perspective grid, starfield, mascot beats, Lucide icons,
-numbers, proof screenshots, chapter cards) and renders two files per section of the video:
+**The editing hub of the OFurry YouTube channel** (personal finance, pt-BR, fox mascot "Furry"). The channel owner
+brings a script + recorded narration; this repo cuts it by sentence, builds the motion scenes in the channel's style
+(kinetic captions on black, icon "stages" where icons move and interact, data scenes like charts/tables/scales,
+the animated mascot, flash jokes), mixes a continuous music bed and event-based sound effects, and renders the
+finished **1920x1080 MP4** on the GPU.
 
-- an **MP4 on black with the narration**, to review timing;
-- a **transparent ProRes 4444 MOV**, to drop over the footage in Premiere, DaVinci Resolve or CapCut.
+> **Start at [`INDEX.md`](INDEX.md)** (pt-BR): how to navigate the repo and the asset folders on the PC.
+> Editing standard: [`docs/padrao-edicao-ofurry.md`](docs/padrao-edicao-ofurry.md). Owner's taste, in his own words:
+> [`docs/preferencias-do-joao.md`](docs/preferencias-do-joao.md). Full example: [`videos/177/`](videos/177/).
 
 Scenes are rendered with **[HyperFrames](https://github.com/heygen-com/hyperframes)** (HTML + GSAP).
 The visual style is not invented: it was measured frame by frame on the channel's 7 published videos
-(`docs/referencias/analise-canal-2026-10.md`).
+(`docs/referencias/analise-canal-2026-10.md`) and refined with the owner's feedback.
 
 ---
 
@@ -30,7 +33,7 @@ bun run hf:build demo-gancho 1
 bun run hf:render demo-gancho 1
 ```
 
-Output: `videos/demo-gancho/output/trecho-01/render/` (`.mp4` and `-alpha.mov`).
+Output: `videos/demo-gancho/output/trecho-01/render/` (`.mp4`; plus `-alpha.mov` with `--alpha`).
 
 ---
 
@@ -48,10 +51,10 @@ Output: `videos/demo-gancho/output/trecho-01/render/` (`.mp4` and `-alpha.mov`).
                ▼
  ┌───────────────────────────┐   ofurry-fazer-cenas
  │ 2. Make the scenes         │   beats.json -> HyperFrames project (house kit)
- │    check + snapshot review │   -> MP4 on black + transparent MOV
+ │    check + snapshot review │   -> finished 1080p MP4 (GPU)
  └─────────────┬─────────────┘
                ▼
-   drag the MOV into the editor timeline
+   join the sections into the final video
 ```
 
 Both steps follow **`ofurry-house-motion`**, the channel's style guide (rules, recipes H1-H10, hook template,
@@ -82,6 +85,12 @@ The agent presents every plan in prose and waits for your approval before writin
 
 ## 📋 Step by step (manual commands)
 
+> **Editing standard v2 (20/11/2026):** the repo edits the whole video. Read `docs/padrao-edicao-ofurry.md`
+> (pt-BR). Short version: `video:novo` -> `video:transcrever` -> `midia/revisao.json` -> sections with a `de`
+> (opening sentence) in `video.json` -> `video:sincronizar` -> `storyboard.md` + 1-2 pilots approved ->
+> `beats.json` with `"@sentence"` anchors and `sfx` -> `trilha.json` -> `video:produzir` -> `final/<id>-final.mp4`.
+> Example: `videos/177/`.
+
 ### 1. Organize the video
 
 ```bash
@@ -108,7 +117,7 @@ cd videos/bitcoin-2030/output/trecho-01/hf
 npx hyperframes@0.8.193 check --json      # render contract, layout, contrast
 npx hyperframes@0.8.193 preview           # HyperFrames Studio in the browser, edit by hand if needed
 cd -
-bun run hf:render bitcoin-2030 01         # MP4 on black + transparent MOV (add --draft for a quick pass)
+bun run hf:render bitcoin-2030 01         # finished 1080p MP4 on the GPU (--draft for a quick pass, --alpha for the transparent MOV too)
 ```
 
 Running `hf:build` again **overwrites** `hf/compositions/`. Make structural changes in `beats.json` and fine-tune
@@ -217,9 +226,12 @@ ofurry-motion/
 | `bun run video:buscar <id> "start" ["end"]` | Find when a script sentence was said |
 | `bun run video:cortar <id> <XX> <start> <end>` | Create a section: cut audio, words, `plano.md`, `beats.json` |
 | `bun run video:status <id>` | Where each section is in the pipeline |
+| `bun run video:sincronizar <id> [--audio new.wav]` | Re-apply `revisao.json` and re-cut every section by its opening sentence (after a re-recording) |
+| `bun run video:montar <id> [--trechos 01,12]` | Whole-video audio (narration + continuous music + sfx, -14 LUFS) + join the section MP4s |
+| `bun run video:produzir <id>` | Build all sections, render only what changed visually, then `video:montar` |
 | `bun run house:lint <id> <XX>` | Check a section's `beats.json` against the house rules |
 | `bun run hf:build <id> <XX>` | Generate the HyperFrames project for a section |
-| `bun run hf:render <id> <XX> [--draft] [--so-preto \| --so-alpha]` | Check and render MP4 + transparent MOV |
+| `bun run hf:render <id> <XX> [--draft] [--alpha \| --so-alpha] [--cpu]` | Check and render the finished MP4 on the GPU (`--alpha` adds the transparent MOV; `--cpu` only if the GPU fails) |
 | `bun run skills:link` | Link `.agents/skills` into `.claude/skills` for Claude Code |
 | `bun run sync:lucide-animated` | Re-download and adapt the Lucide Animated icons |
 | `bun run reference:extract <folder>` | Analyse a reference video |

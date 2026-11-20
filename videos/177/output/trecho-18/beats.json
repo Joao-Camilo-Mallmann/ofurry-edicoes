@@ -1,0 +1,55 @@
+{
+  "id": "177-trecho-18",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@inicio", "until": "@olha você vai-0.1", "entry": "glitch", "y": 0.72 },
+    { "from": "@olha você vai-0.1", "until": "@valor do seu-0.1", "entry": "pop" },
+    { "from": "@esse é o valor-0.1", "until": "@valor que você+0.12", "entry": "whip" }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "grid" },
+    { "at": "@olha você vai", "backdrop": "stars" },
+    { "at": "@multiplicar por", "backdrop": "black" },
+    { "at": "@Bom não vai", "backdrop": "grid" },
+    { "at": "@mas vai ser", "backdrop": "stars" },
+    { "at": "@esse é o valor", "backdrop": "black" }
+  ],
+  "sfx": [
+    { "at": "@preguiçoso", "file": "@sfx/General/Pop sound.mp3", "gain": -24 },
+    { "at": "@seu aporte", "file": "@sfx/Foley/Coins in Hand 01.wav", "gain": -22, "len": 0.9, "fadeOut": 0.3 },
+    { "at": "@multiplicar por", "file": "@sfx/General/Digital counting.mp3", "gain": -24, "len": 0.8, "fadeOut": 0.2 },
+    { "at": "@177", "file": "@sfx/General/cash ting.mp3", "gain": -20 },
+    { "at": "@177+0.6", "file": "@sfx/General/Ding.mp3", "gain": -24 },
+    { "at": "@exato", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4 },
+    { "at": "@bem similar", "file": "@sfx/General/Pop sound.mp3", "gain": -22 },
+    { "at": "@virada acontecer", "file": "@sfx/General/correct sfx.mp3", "gain": -20 }
+  ],
+  "beats": [
+    { "kind": "mascot", "at": "@inicio", "until": "@olha você vai", "placement": "center", "nameTag": false,
+      "poses": [
+        { "at": "@inicio", "pose": "../../../../public/mascote/fox1.png" },
+        { "at": "@preguiçoso", "pose": "../../../../public/mascote/fox2.png" },
+        { "at": "@não entendeu", "pose": "../../../../public/mascote/fox4.png" }
+      ] },
+
+    { "kind": "icon", "at": "@valor do seu", "until": "@multiplicar por", "icon": "piggy-bank", "tone": "gain", "label": "seu aporte", "y": 0.42 },
+
+    { "kind": "cena", "tipo": "formula", "at": "@multiplicar por", "until": "@Bom não vai", "titulo": "SEU APORTE × 177", "operador": "× 177 =",
+      "linhas": [
+        { "at": "@multiplicar por", "a": "R$ 500", "b": "R$ 88 MIL", "cor": "gain" },
+        { "at": "@177", "a": "R$ 1.000", "b": "R$ 177 MIL", "cor": "hl" },
+        { "at": "@177+0.6", "a": "R$ 2.000", "b": "R$ 354 MIL", "cor": "gain" }
+      ] },
+
+    { "kind": "icon", "at": "@Bom não vai", "until": "@mas vai ser", "icon": "target", "tone": "neutral", "label": "valor exato", "strikeAt": "@exato", "animated": false },
+
+    { "kind": "number", "at": "@mas vai ser", "until": "@esse é o valor", "value": "≈ R$ 177 MIL", "caption": "BEM SIMILAR", "tone": "highlight" },
+
+    { "kind": "cena", "tipo": "balanca", "at": "@valor que você", "until": "@fim",
+      "esquerda": "SEU APORTE", "direita": "O PATRIMÔNIO RENDE",
+      "valores": [{ "at": 0, "v": 956 }, { "at": "@virada acontecer", "v": 1001, "dur": 0.8 }] }
+  ]
+}

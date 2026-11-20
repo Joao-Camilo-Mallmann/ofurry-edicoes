@@ -11,6 +11,7 @@ import { dirname, join, resolve } from 'node:path';
 import type { BeatSheet } from '../src/house/beats';
 import { cardsFromSubtitle } from '../src/house/captions';
 import { lintBeatSheet } from '../src/house/lint';
+import { loadResolvedSheet } from './video/ancoras';
 import { HOUSE_SHEETS } from '../src/house/sheets';
 
 const root = join(import.meta.dir, '..');
@@ -19,14 +20,14 @@ const jobs: { sheet: BeatSheet; base: string }[] = [];
 
 if (args[0]?.endsWith('.json')) {
   const p = resolve(args[0]);
-  jobs.push({ sheet: JSON.parse(readFileSync(p, 'utf8')), base: dirname(p) });
+  jobs.push({ sheet: loadResolvedSheet(p).sheet, base: dirname(p) });
 } else if (args.length === 2) {
   const p = join(root, 'videos', args[0], 'output', `trecho-${args[1].padStart(2, '0')}`, 'beats.json');
   if (!existsSync(p)) {
     console.error(`Nao achei ${p}`);
     process.exit(1);
   }
-  jobs.push({ sheet: JSON.parse(readFileSync(p, 'utf8')), base: dirname(p) });
+  jobs.push({ sheet: loadResolvedSheet(p).sheet, base: dirname(p) });
 } else {
   for (const s of HOUSE_SHEETS.filter((s) => !args[0] || s.id === args[0])) jobs.push({ sheet: s, base: join(root, 'public') });
 }

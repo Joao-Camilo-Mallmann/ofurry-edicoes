@@ -1,0 +1,109 @@
+<template>
+  <style>
+    @font-face { font-family: 'Bebas Neue'; src: url('assets/fonts/BebasNeue-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Medium.otf') format('opentype'); font-weight: 500; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-SemiBold.otf') format('opentype'); font-weight: 600; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Bold.otf') format('opentype'); font-weight: 700; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-ExtraBold.otf') format('opentype'); font-weight: 800; font-display: block; }
+    @font-face { font-family: 'Caveat'; src: url('assets/fonts/caveat-latin.woff2') format('woff2'); font-weight: 400 700; font-display: block; }
+    @font-face { font-family: 'Garamond'; src: url('assets/fonts/eb-garamond-italic-400-latin.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: block; }
+    #root { position: absolute; inset: 0; color: #ede8de; }
+    #root .bloco { position: absolute; }
+    #root .w { display: inline-block; }
+    #root .big { font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: 0.95; }
+    #root .rot { font-family: 'MontserratLocal', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.45em; }
+    #root .canto { position: absolute; left: 150px; top: 110px; }
+    #root .canto .big { font-size: 150px; }
+    #t10-vio-in { position: absolute; left: 150px; top: 110px; height: 160px; width: 1200px; }
+    #t10-vio-in .big { position: absolute; left: 0; top: 0; font-size: 150px; }
+    #t10-amor-in { position: absolute; left: 150px; top: 660px; }
+    #t10-amor-in .big { font-size: 170px; }
+    #t10-gri-in { position: absolute; left: 0; right: 0; top: 760px; text-align: center; }
+    #t10-gri-in .big { font-size: 170px; }
+    #t10-sil-in { position: absolute; left: 0; right: 0; top: 330px; text-align: center; }
+    #t10-sil-in .big { font-size: 280px; margin-top: 18px; }
+    #t10-fri-in { position: absolute; left: 150px; top: 120px; }
+    #t10-fri-in .big { font-size: 140px; }
+    #t10-mor-in { position: absolute; left: 0; right: 0; top: 720px; text-align: center; }
+    #t10-mor-in .big { font-size: 150px; color: #16120e; }
+    #t10-viva-in { position: absolute; left: 150px; top: 120px; }
+    #t10-viva-in .big { font-size: 300px; color: #f2c230; }
+    #t10-tit-in { position: absolute; left: 0; right: 0; top: 100px; text-align: center; }
+    #t10-tit-h { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 150px; letter-spacing: 0.03em; line-height: 1; }
+  </style>
+  <div id="root" data-composition-id="textos" data-width="1920" data-height="1080">
+    <div id="t10-ident" class="clip bloco sombra" data-start="1.6" data-duration="2.5" data-track-index="8" style="inset:0">
+      <div id="t10-ident-in" class="canto"><div class="rot">SE VOCÊ SE IDENTIFICOU</div><div class="rot" style="margin-top:12px">COM ESSA MÚSICA</div></div>
+    </div>
+    <div id="t10-vio" class="clip bloco sombra" data-start="4.1" data-duration="3.7" data-track-index="0" style="inset:0">
+      <div id="t10-vio-in">
+        <div id="t10-v1" class="big">PEGA SEU VIOLÃO</div>
+        <div id="t10-v2" class="big">ESCREVA ALGO</div>
+        <div id="t10-v3" class="big" style="color:#f2c230">EXPRESSE ALGO</div>
+      </div>
+    </div>
+    <div id="t10-amor" class="clip bloco sombra" data-start="8.4" data-duration="1.6" data-track-index="1" style="inset:0">
+      <div id="t10-amor-in"><div class="big"><span id="t10-a1" class="w">AMOR</span> <span id="t10-a2" class="w" style="margin-left:0.12em">AFETO</span></div></div>
+    </div>
+    <div id="t10-grite" class="clip bloco sombra" data-start="10.08" data-duration="1.5" data-track-index="2" style="inset:0">
+      <div id="t10-gri-in"><div class="big">GRITE SE PRECISAR</div></div>
+    </div>
+    <div id="t10-sil" class="clip bloco" data-start="11.6" data-duration="1.85" data-track-index="3" style="inset:0">
+      <div id="t10-sil-in"><div id="t10-sil-pre" class="rot">SÓ NÃO FIQUE EM</div><div id="t10-sil-w" class="big">SILÊNCIO</div></div>
+    </div>
+    <div id="t10-fri" class="clip bloco sombra" data-start="13.7" data-duration="6.6" data-track-index="4" style="inset:0">
+      <div id="t10-fri-in">
+        <div class="big"><span id="t10-f1" class="w">O SILÊNCIO</span></div>
+        <div class="big"><span id="t10-f2" class="w">A FRIEZA</span></div>
+        <div class="big"><span id="t10-f3" class="w">A APATIA</span></div>
+      </div>
+    </div>
+    <div id="t10-mor" class="clip bloco" data-start="21.1" data-duration="1.8" data-track-index="5" style="inset:0">
+      <div id="t10-mor-in"><div class="big"><span id="t10-m1" class="w">JÁ MORREU</span> <span id="t10-m2" class="w">POR DENTRO</span></div></div>
+    </div>
+    <div id="t10-viva" class="clip bloco sombra" data-start="24.6" data-duration="2.75" data-track-index="6" style="inset:0">
+      <div id="t10-viva-in"><div id="t10-viva-pre" class="rot" style="line-height:1.75">NÃO MORRA<br>QUE ELE</div><div id="t10-viva-w" class="big">VIVA</div></div>
+    </div>
+    <div id="t10-tit" class="clip bloco sombra" data-start="38.2" data-duration="3.3" data-track-index="7" style="inset:0">
+      <div id="t10-tit-in"><div id="t10-tit-h">NA HORA DO ALMOÇO</div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      var entra = function (el, at, d) { tl.fromTo(el, { opacity: 0, y: 26, filter: 'blur(8px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: d || 0.4, ease: 'power3.out' }, at); };
+      var sai = function (el, at, d) { tl.to(el, { opacity: 0, y: -14, filter: 'blur(8px)', duration: d || 0.25, ease: 'power2.in' }, at); };
+
+      tl.fromTo($('t10-ident-in'), { opacity: 0, y: 12 }, { opacity: 0.9, y: 0, duration: 0.5, ease: 'power2.out' }, 1.7);
+      sai($('t10-ident-in'), 3.85);
+      // pega seu violao / escreva algo / expresse algo: uma frase de cada vez
+      entra($('t10-v1'), 4.2); sai($('t10-v1'), 5.25);
+      entra($('t10-v2'), 5.46); sai($('t10-v2'), 6.45);
+      entra($('t10-v3'), 6.66); sai($('t10-v3'), 7.55);
+      A.words(tl, [$('t10-a1'), $('t10-a2')], [8.5, 9.22], { y: 26, dur: 0.4 });
+      sai($('t10-amor-in'), 9.8);
+      tl.fromTo($('t10-gri-in'), { opacity: 0, scale: 1.3, filter: 'blur(14px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.25, ease: 'expo.out' }, 10.1);
+      sai($('t10-gri-in'), 11.35);
+
+      // so nao fique em silencio: corte seco no fim, direto para a proxima frase (o 1 s de silencio saiu em 12/11)
+      tl.fromTo($('t10-sil-pre'), { opacity: 0, y: 10 }, { opacity: 0.9, y: 0, duration: 0.4, ease: 'power2.out' }, 11.64);
+      entra($('t10-sil-w'), 12.74, 0.35);
+
+      A.words(tl, [$('t10-f1'), $('t10-f2'), $('t10-f3')], [13.8, 15.0, 15.8], { y: 26, dur: 0.45 });
+      sai($('t10-fri-in'), 19.95, 0.35);
+      A.words(tl, [$('t10-m1'), $('t10-m2')], [21.24, 21.95], { y: 26, dur: 0.45 });
+      sai($('t10-mor-in'), 22.6);
+      tl.fromTo($('t10-viva-pre'), { opacity: 0, y: 10 }, { opacity: 0.9, y: 0, duration: 0.4 }, 24.68);
+      tl.fromTo($('t10-viva-w'), { opacity: 0, scale: 1.15, filter: 'blur(12px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.5, ease: 'expo.out' }, 26.5);
+      sai($('t10-viva-in'), 27.0, 0.3);
+
+      // "na hora do almoco": o titulo da abertura volta
+      A.letters(tl, $('t10-tit-h'), 38.28, 1.2, { y: 18, each: 0.6 });
+      tl.to($('t10-tit-in'), { opacity: 0, duration: 0.8, ease: 'sine.in' }, 40.65);
+      window.__timelines['textos'] = tl;
+    })();
+  </script>
+</template>

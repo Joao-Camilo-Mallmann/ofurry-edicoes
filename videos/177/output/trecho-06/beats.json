@@ -1,0 +1,65 @@
+{
+  "id": "177-trecho-06",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@inicio", "until": "@O que esse-0.1", "entry": "whip" },
+    { "from": "@Olha a conta-0.1", "until": "@Vamos supor-0.1", "entry": "pop", "y": 0.72 },
+    { "from": "@Vamos supor-0.1", "until": "@7%-0.1", "entry": "whip" },
+    { "from": "@E se agora-0.1", "until": "@100 mil-0.1", "entry": "whip" }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "grid" },
+    { "at": "@O que esse", "backdrop": "stars" },
+    { "at": "@Olha a conta", "backdrop": "grid" },
+    { "at": "@Vamos supor", "backdrop": "black" },
+    { "at": "@Com essa taxa", "backdrop": "stars" },
+    { "at": "@E se agora", "backdrop": "black" },
+    { "at": "@100 mil", "backdrop": "grid" },
+    { "at": "@É um valor", "backdrop": "black" },
+    { "at": "@E é por isso", "backdrop": "stars" }
+  ],
+  "sfx": [
+    {"at": "@O que esse", "file": "@sfx/General/Typewriter.mp3", "gain": -22, "len": 1.3, "fadeOut": 0.2},
+    {"at": "@7%", "file": "@sfx/General/Pop sound.mp3", "gain": -20},
+    {"at": "@0,56%", "file": "@sfx/General/Digital counting.mp3", "gain": -24, "len": 0.7, "fadeOut": 0.2},
+    {"at": "@mil reais", "file": "@sfx/General/cash ting.mp3", "gain": -20},
+    {"at": "@565", "file": "@sfx/General/Coins.wav", "gain": -22, "len": 0.5, "fadeOut": 0.2},
+    {"at": "@os mil reais", "file": "@sfx/Foley/Coins in Hand 01.wav", "gain": -22, "len": 0.8, "fadeOut": 0.3},
+    {"at": "@quanto mais perto", "file": "@sfx/Mechanical/Hydraulics 01.wav", "gain": -24, "len": 1.2, "fadeOut": 0.4},
+    {"at": "@virar", "file": "@sfx/General/Ding.mp3", "gain": -22}
+  ],
+  "beats": [
+    { "kind": "type-on", "at": "@O que esse", "until": "@Olha a conta", "text": "O QUE ESSE 177 MIL TEM A VER" },
+
+    { "kind": "mascot", "at": "@Olha a conta", "until": "@Vamos supor", "placement": "center",
+      "poses": [
+        { "at": "@Olha a conta", "pose": "../../../../public/mascote/fox1.png" },
+        { "at": "@bem simples", "pose": "../../../../public/mascote/fox2.png" }
+      ] },
+
+    { "kind": "cena", "tipo": "formula", "at": "@7%", "until": "@Com essa taxa",
+      "titulo": "DESCONTADA A INFLAÇÃO", "tituloAt": "@descontado",
+      "linhas": [{ "at": "@7%", "a": "7% A.A.", "op": "→", "b": "0,56% A.M.", "bAt": "@0,56%", "cor": "hl" }] },
+
+    { "kind": "cena", "tipo": "formula", "at": "@Com essa taxa", "until": "@E se agora",
+      "titulo": "RENDIMENTO POR MÊS", "tituloAt": "@aproximadamente",
+      "linhas": [{ "at": "@Com essa taxa", "a": "R$ 177 MIL", "op": "× 0,56% =", "b": "R$ 1.000", "bAt": "@mil reais" }] },
+
+    { "kind": "cena", "tipo": "formula", "at": "@100 mil", "until": "@É um valor",
+      "titulo": "RENDIMENTO POR MÊS", "tituloAt": "@rendimento mensal",
+      "linhas": [{ "at": "@100 mil", "a": "R$ 100 MIL", "op": "× 0,56% =", "b": "R$ 565", "bAt": "@565", "cor": "text" }] },
+
+    { "kind": "cena", "tipo": "comparar", "at": "@É um valor", "until": "@E é por isso", "vs": "VS",
+      "itens": [
+        { "at": "@É um valor", "titulo": "R$ 100 MIL", "valor": "R$ 565", "sub": "POR MÊS", "cor": "text" },
+        { "at": "@os mil reais", "titulo": "R$ 177 MIL", "valor": "R$ 1.000", "sub": "POR MÊS", "cor": "gain" }
+      ] },
+
+    { "kind": "cena", "tipo": "balanca", "at": "@E é por isso", "until": "@fim",
+      "esquerda": "VOCÊ COLOCA", "direita": "O DINHEIRO RENDE",
+      "valores": [{ "at": 0, "v": 565 }, { "at": "@quanto mais perto", "v": 800, "dur": 1.5 }, { "at": "@177 mil#2", "v": 956, "dur": 1.0 }, { "at": "@virar", "v": 1000, "dur": 0.8 }] }
+  ]
+}

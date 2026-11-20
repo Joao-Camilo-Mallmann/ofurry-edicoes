@@ -1,0 +1,38 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0e0c0a; }
+    /* fotos 3D no painel da direita (tela dividida com a folha) */
+    #root .foto { position: absolute; left: 960px; top: 0; width: 960px; height: 1080px; }
+  </style>
+  <div data-hf-id="hf-9py6" id="root" data-composition-id="fotos" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-nuou" id="f5-fundo" class="clip" data-start="0" data-duration="17.3" data-track-index="0" style="position:absolute;inset:0;background:#0e0c0a"></div>
+    <canvas data-hf-id="hf-xhjn" id="f5-pai" class="clip foto" data-start="7.3" data-duration="2.16" data-track-index="1"></canvas>
+    <canvas data-hf-id="hf-9ysa" id="f5-irma" class="clip foto" data-start="11.46" data-duration="3.36" data-track-index="2"></canvas>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var I = function (n) { return 'assets/img/' + n + '.png'; };
+      var D = function (n) { return 'assets/depth/' + n + '-depth.png'; };
+      var shots = [
+        { id: 'f5-pai', img: 'F90-pai-bebendo', start: 7.3, dur: 2.16, keys: [
+          { t: 0, zoom: 1.42, x: 0.02, px: 0.6, py: -0.2, focus: 0.55, blurX: 0.05 },
+          { t: 0.3, zoom: 1.24, blurX: 0, ease: 'expo.out' },
+          { t: 2.16, zoom: 1.32, px: -0.5, py: 0.2, ease: 'sine.inOut' } ] },
+        { id: 'f5-irma', img: 'F7-irma', start: 11.46, dur: 3.36, keys: [
+          { t: 0, zoom: 1.4, x: -0.02, px: -0.6, py: 0.2, focus: 0.55, blurX: 0.05 },
+          { t: 0.3, zoom: 1.2, blurX: 0, ease: 'expo.out' },
+          { t: 1.6, zoom: 1.34, ease: 'expo.out' },
+          { t: 3.36, zoom: 1.42, px: 0.5, py: -0.2, ease: 'sine.inOut' } ] }
+      ];
+      Promise.all(shots.map(function (s) {
+        return A.photo(document.getElementById(s.id), { src: I(s.img), depth: D(s.img), width: 960, height: 1080 })
+          .then(function (c) { A.camera(tl, c, s.start, s.dur, s.keys); });
+      })).catch(function (e) { console.error(e); }).then(function () {
+        tl.set({}, {}, 17.3);
+        window.__timelines['fotos'] = tl;
+      });
+    })();
+  </script>
+</template>

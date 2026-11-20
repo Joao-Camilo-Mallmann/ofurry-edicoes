@@ -1,0 +1,49 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0e0c0a; overflow: hidden; }
+    #f6-palco { position: absolute; inset: 0; }
+    #root .foto { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+  </style>
+  <div id="root" data-composition-id="fotos" data-width="1920" data-height="1080">
+    <div id="f6-palco">
+      <canvas id="f6-jovem" class="clip foto" data-start="24.6" data-duration="3.8" data-track-index="2"></canvas>
+      <canvas id="f6-mesa" class="clip foto" data-start="35.0" data-duration="4.3" data-track-index="0"></canvas>
+      <canvas id="f6-cadeiras" class="clip foto" data-start="39.3" data-duration="5.8" data-track-index="1"></canvas>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var I = function (n) { return 'assets/img/' + n + '.png'; };
+      var D = function (n) { return 'assets/depth/' + n + '-depth.png'; };
+      var shots = [
+        // "a perspectiva de alguem jovem": o Belchior cantando, em 3D, a camera chega devagar
+        { id: 'f6-jovem', img: 'F10-cantando', start: 24.6, dur: 3.8, o: {}, keys: [
+          { t: 0, zoom: 1.34, x: 0.02, px: 0.6, py: -0.2, focus: 0.55, blurX: 0.05 },
+          { t: 0.3, zoom: 1.18, blurX: 0, ease: 'expo.out' },
+          { t: 3.8, zoom: 1.3, px: -0.5, py: 0.2, ease: 'sine.inOut' } ] },
+        // "medo da morte, da separacao": a mesa vazia gira devagar
+        { id: 'f6-mesa', img: 'A2-mesa-vazia', start: 35.0, dur: 4.3, o: {}, keys: [
+          { t: 0, zoom: 1.45, rot: 4, px: 0.8, blurX: 0.05, sat: 0.7 },
+          { t: 0.2, zoom: 1.32, blurX: 0, ease: 'expo.out' },
+          { t: 4.3, zoom: 1.06, rot: -3, px: -0.8, sat: 0.45, ease: 'sine.inOut' } ] },
+        // "um fim": as cadeiras se afastam -> a camera recua rapido e tudo escurece
+        { id: 'f6-cadeiras', img: 'A7-cadeiras-distantes', start: 39.3, dur: 5.8, o: {}, keys: [
+          { t: 0, zoom: 1.7, rot: -5, px: -0.9, py: 0.3, sat: 0.55, blurY: 0.04 },
+          { t: 0.25, blurY: 0, ease: 'expo.out' },
+          { t: 3.4, zoom: 1.0, rot: 2, px: 0.9, py: -0.2, ease: 'expo.inOut' },
+          { t: 4.9, fade: 0.2, sat: 0.3 },
+          { t: 5.8, zoom: 0.98, fade: 1, ease: 'power2.in' } ] }
+      ];
+      Promise.all(shots.map(function (s) {
+        return A.photo(document.getElementById(s.id), Object.assign({ src: I(s.img), depth: D(s.img) }, s.o))
+          .then(function (c) { A.camera(tl, c, s.start, s.dur, s.keys); });
+      })).catch(function (e) { console.error(e); }).then(function () {
+        A.treme(tl, document.getElementById('f6-palco'), 42.97, 0.35, 18, 63);
+        tl.set({}, {}, 45.1);
+        window.__timelines['fotos'] = tl;
+      });
+    })();
+  </script>
+</template>

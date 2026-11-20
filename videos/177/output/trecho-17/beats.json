@@ -1,0 +1,93 @@
+{
+  "id": "177-trecho-17",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@extremamente-0.1", "until": "@os seus-0.1", "entry": "pop", "y": 0.8 },
+    { "from": "@E eu sei-0.1", "until": "@Você vai investir-0.1", "entry": "whip" },
+    { "from": "@Mas bom-0.1", "until": "@Depois eu te-0.1", "entry": "glitch", "y": 0.72 },
+    { "from": "@Depois eu te-0.1", "until": "@você do futuro-0.1", "entry": "pop" },
+    { "from": "@prefira algum-0.1", "until": "@Como exemplo-0.1", "entry": "whip" },
+    { "from": "@calcular de forma-0.1", "until": "@quando que de fato-0.1", "entry": "pop", "y": 0.8 }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "grid" },
+    { "at": "@E eu sei", "backdrop": "black" },
+    { "at": "@Você vai investir", "backdrop": "stars" },
+    { "at": "@Mas bom", "backdrop": "grid" },
+    { "at": "@Depois eu te", "backdrop": "black" },
+    { "at": "@E última dica", "backdrop": "grid" },
+    { "at": "@prefira algum", "backdrop": "black" },
+    { "at": "@Como exemplo", "backdrop": "stars" },
+    { "at": "@Por exatamente", "backdrop": "grid" },
+    { "at": "@você pode pegar", "backdrop": "black" },
+    { "at": "@quando que de fato", "backdrop": "grid" },
+    { "at": "@E transformar", "backdrop": "black" }
+  ],
+  "sfx": [
+    { "at": "@segundo", "file": "@sfx/General/Click.wav", "gain": -20 },
+    { "at": "@valor absurdo", "file": "@sfx/Foley/Coins Poured Out 01.wav", "gain": -22, "len": 1.2, "fadeOut": 0.4 },
+    { "at": "@migalha", "file": "@sfx/General/Lose.wav", "gain": -24 },
+    { "at": "@agradecer", "file": "@sfx/General/Ding.mp3", "gain": -22 },
+    { "at": "@última dica", "file": "@sfx/General/Click.wav", "gain": -20 },
+    { "at": "@CDI", "file": "@sfx/General/Pop sound.mp3", "gain": -22 },
+    { "at": "@tesouro direto", "file": "@sfx/General/Pop sound.mp3", "gain": -22 },
+    { "at": "@calcular", "file": "@sfx/General/Digital counting.mp3", "gain": -24, "len": 0.8, "fadeOut": 0.2 },
+    { "at": "@cruzar uma linha", "file": "@sfx/General/correct sfx.mp3", "gain": -20 },
+    { "at": "@uma data", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4 }
+  ],
+  "beats": [
+    { "kind": "cena", "tipo": "lista", "at": "@inicio", "until": "@extremamente", "titulo": "3 PASSOS",
+      "itens": [
+        { "at": "@inicio", "n": "1", "texto": "QUANTO RENDE HOJE" },
+        { "at": "@inicio", "n": "2", "texto": "MANTER OS APORTES" },
+        { "at": "@inicio", "n": "3", "texto": "RENDA PREVISÍVEL" }
+      ],
+      "ativo": [{ "at": "@inicio", "i": 0 }, { "at": "@segundo", "i": 1 }] },
+
+    { "kind": "icon", "at": "@extremamente", "until": "@E eu sei", "icon": "repeat", "tone": "brand", "label": "manter os aportes", "y": 0.38 },
+
+    { "kind": "icons", "at": "@Você vai investir", "until": "@Mas bom", "relation": "→",
+      "items": [
+        { "icon": "banknote", "label": "valor absurdo", "at": "@Você vai investir", "tone": "gain" },
+        { "icon": "cookie", "label": "migalha", "at": "@migalha", "tone": "neutral" }
+      ] },
+
+    { "kind": "mascot", "at": "@Mas bom", "until": "@Depois eu te", "placement": "center",
+      "poses": [
+        { "at": "@Mas bom", "pose": "../../../../public/mascote/fox4.png" },
+        { "at": "@Essa parte", "pose": "../../../../public/mascote/fox3.png" }
+      ] },
+
+    { "kind": "icon", "at": "@você do futuro", "until": "@E última dica", "icon": "hand-heart", "tone": "gain", "label": "você do futuro", "y": 0.45 },
+
+    { "kind": "cena", "tipo": "lista", "at": "@E última dica", "until": "@prefira algum", "titulo": "3 PASSOS",
+      "itens": [
+        { "at": "@E última dica", "n": "1", "texto": "QUANTO RENDE HOJE" },
+        { "at": "@E última dica", "n": "2", "texto": "MANTER OS APORTES" },
+        { "at": "@E última dica", "n": "3", "texto": "RENDA PREVISÍVEL" }
+      ],
+      "ativo": [{ "at": "@E última dica", "i": 1 }, { "at": "@última dica", "i": 2 }] },
+
+    { "kind": "icons", "at": "@Como exemplo", "until": "@Por exatamente", "relation": "OU",
+      "items": [
+        { "icon": "percent", "label": "CDI", "at": "@CDI", "tone": "info" },
+        { "icon": "landmark", "label": "tesouro direto", "at": "@tesouro direto", "tone": "highlight" }
+      ] },
+
+    { "kind": "type-on", "at": "@Por exatamente", "until": "@você pode pegar", "text": "As taxas valendo muito" },
+
+    { "kind": "icon", "at": "@você pode pegar", "until": "@quando que de fato", "icon": "calculator", "tone": "info", "label": "esse valor", "y": 0.38 },
+
+    { "kind": "cena", "tipo": "grafico", "at": "@quando que de fato", "until": "@E transformar",
+      "modo": "rendimento", "meses": 132, "rotuloCabeca": false, "viradaTexto": "CRUZOU A LINHA",
+      "revela": [{ "at": 0, "mes": 96 }, { "at": "@quando que de fato+0.2", "mes": 132, "dur": 1.4 }],
+      "vista": [{ "at": 0, "x": 132, "y": 1200 }] },
+
+    { "kind": "cena", "tipo": "calendario", "at": "@E transformar", "until": "@fim", "meses": 132, "titulo": "DA META PARA UMA DATA",
+      "preenche": [{ "at": "@E transformar", "m": 0 }, { "at": "@E transformar+0.2", "m": 124, "dur": 2.8 }],
+      "marcos": [{ "mes": 124, "at": "@uma data", "cor": "hl", "rotulo": "SUA DATA" }] }
+  ]
+}

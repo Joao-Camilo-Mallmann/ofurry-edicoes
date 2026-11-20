@@ -1,0 +1,26 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; pointer-events: none; }
+    #fx-creme { position: absolute; inset: 0; background: #f6ecd6; opacity: 0; }
+    #fx-branco { position: absolute; inset: 0; background: #ffffff; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="fx" data-width="1920" data-height="1080">
+    <div id="fx-camada" class="clip" data-start="0" data-duration="32.4" data-track-index="0" style="position:absolute;inset:0">
+      <div id="fx-creme"></div>
+      <div id="fx-branco"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      // flashes creme nos cortes da rajada (no ritmo da musica) e nas viradas de bloco
+      [0.5, 1.0, 1.5, 2.0, 2.5].forEach(function (t) { A.flash(tl, $('fx-creme'), t, { pico: 0.8, dur: 0.12 }); });
+      [3.13, 5.53, 8.18, 11.28, 14.26, 15.58, 18.78, 22.58].forEach(function (t) { A.flash(tl, $('fx-creme'), t, { pico: 0.6, dur: 0.22 }); });
+      // flashes brancos fortes nas pancadas
+      [4.44, 6.68, 7.0, 8.76, 9.48, 10.44, 13.0, 15.4].forEach(function (t) { A.flash(tl, $('fx-branco'), t, { pico: 0.55, dur: 0.16 }); });
+      window.__timelines['fx'] = tl;
+    })();
+  </script>
+</template>

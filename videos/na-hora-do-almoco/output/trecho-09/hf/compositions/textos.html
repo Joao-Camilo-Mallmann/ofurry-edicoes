@@ -1,0 +1,109 @@
+<template>
+  <style>
+    @font-face { font-family: 'Bebas Neue'; src: url('assets/fonts/BebasNeue-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Medium.otf') format('opentype'); font-weight: 500; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-SemiBold.otf') format('opentype'); font-weight: 600; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Bold.otf') format('opentype'); font-weight: 700; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-ExtraBold.otf') format('opentype'); font-weight: 800; font-display: block; }
+    @font-face { font-family: 'Caveat'; src: url('assets/fonts/caveat-latin.woff2') format('woff2'); font-weight: 400 700; font-display: block; }
+    #root { position: absolute; inset: 0; color: #ede8de; }
+    #root .bloco { position: absolute; }
+    #root .w { display: inline-block; }
+    #root .big { font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: 0.95; }
+    #root .rot { font-family: 'MontserratLocal', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.45em; }
+    #t9-simples-in { position: absolute; left: 150px; top: 330px; }
+    #t9-simples-in .big { font-size: 170px; }
+    #root .canto { position: absolute; left: 150px; top: 110px; }
+    #root .canto .big { font-size: 150px; }
+    #root .baixo { position: absolute; left: 150px; top: 690px; }
+    #root .baixo .big { font-size: 130px; }
+    #t9-arte-in .rot { margin-top: 18px; }
+    #t9-alm-in { position: absolute; left: 0; right: 0; top: 80px; text-align: center; }
+    #t9-alm-in .big { font-size: 130px; }
+    #t9-trans-in { position: absolute; left: 150px; top: 330px; }
+    #t9-trans-in .big { font-size: 230px; }
+    #t9-amor-in { position: absolute; left: 150px; top: 110px; }
+    #t9-amor-in .big { font-size: 230px; color: #f2c230; }
+    #t9-amor-in .rot { margin-top: 10px; }
+  </style>
+  <div id="root" data-composition-id="textos" data-width="1920" data-height="1080">
+    <div id="t9-simples" class="clip bloco" data-start="4.9" data-duration="1.75" data-track-index="0" style="inset:0">
+      <div id="t9-simples-in"><div class="big"><span id="t9-s1" class="w">UMA</span> <span id="t9-s2" class="w">SIMPLES</span></div><div class="big"><span id="t9-s3" class="w" style="color:#f2c230">MÚSICA</span></div></div>
+    </div>
+    <div id="t9-radio" class="clip bloco sombra" data-start="6.62" data-duration="1.13" data-track-index="1" style="inset:0"><div id="t9-radio-in" class="canto"><div class="big">RÁDIO</div></div></div>
+    <div id="t9-vinil" class="clip bloco sombra" data-start="7.77" data-duration="1.33" data-track-index="2" style="inset:0"><div id="t9-vinil-in" class="canto"><div class="big">VINIL</div></div></div>
+    <div id="t9-revela" class="clip bloco sombra" data-start="14.3" data-duration="3.1" data-track-index="10" style="inset:0">
+      <div id="t9-rev-in" class="canto"><div class="rot">ESSA SIMPLES MÚSICA</div><div id="t9-rev-w" class="big" style="margin-top:14px">REVELA</div></div>
+    </div>
+    <div id="t9-arte" class="clip bloco sombra" data-start="17.5" data-duration="1.8" data-track-index="3" style="inset:0">
+      <div id="t9-arte-in" class="canto"><div class="big">A ARTE</div><div id="t9-arte-sub" class="rot">É UM MEIO PARA EXPLICAR</div></div>
+    </div>
+    <div id="t9-lagrima" class="clip bloco sombra" data-start="19.6" data-duration="1.95" data-track-index="4" style="inset:0">
+      <div id="t9-lag-in" class="baixo"><div class="big"><span id="t9-l1" class="w">A LÁGRIMA</span></div><div class="big"><span id="t9-l2" class="w">QUE JÁ SECOU</span></div></div>
+    </div>
+    <div id="t9-grito" class="clip bloco sombra" data-start="21.85" data-duration="2.4" data-track-index="5" style="inset:0">
+      <div id="t9-gri-in" class="canto"><div class="big"><span id="t9-g1" class="w">O GRITO ENTALADO</span></div><div class="big"><span id="t9-g2" class="w">NA GARGANTA</span></div></div>
+    </div>
+    <div id="t9-peito" class="clip bloco sombra" data-start="24.3" data-duration="1.55" data-track-index="6" style="inset:0">
+      <div id="t9-pei-in" class="canto"><div class="big">A DOR NO PEITO</div></div>
+    </div>
+    <div id="t9-almoco" class="clip bloco sombra" data-start="26.3" data-duration="2.5" data-track-index="7" style="inset:0">
+      <div id="t9-alm-in"><div class="big"><span id="t9-a1" class="w" style="margin-right:0.25em">O ALMOÇO</span> <span id="t9-a2" class="w">ENGOLIDO A SECO</span></div></div>
+    </div>
+    <div id="t9-trans" class="clip bloco sombra" data-start="29.2" data-duration="3.55" data-track-index="8" style="inset:0">
+      <div id="t9-trans-in">
+        <div id="t9-trans-pre" class="rot">TUDO ISSO TRANSFORMADO EM</div>
+        <div style="position:relative;height:230px">
+          <div id="t9-trans-w1" class="big" style="position:absolute;left:0;top:0">ARTE</div>
+          <div id="t9-trans-w2" class="big" style="position:absolute;left:0;top:0;color:#f2c230">SENTIMENTO</div>
+        </div>
+      </div>
+    </div>
+    <div id="t9-amor" class="clip bloco sombra" data-start="32.8" data-duration="5.1" data-track-index="9" style="inset:0">
+      <div id="t9-amor-in"><div id="t9-amor-w" class="big">AMOR</div><div id="t9-amor-sub" class="rot">POR FAZER O QUE FAZEMOS DE MELHOR</div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      var entra = function (el, at) { A.pancada(tl, el, at, { de: 1.4, dur: 0.2 }); };
+      var sai = function (el, at) { tl.to(el, { opacity: 0, y: -24, duration: 0.15, ease: 'expo.in' }, at); };
+      var bate = function (els, ts) { els.forEach(function (el, i) { A.pancada(tl, el, ts[i], { de: 1.5, dur: 0.18 }); }); };
+
+      bate([$('t9-s1'), $('t9-s2'), $('t9-s3')], [5.07, 5.39, 5.79]);
+      sai($('t9-simples-in'), 6.35);
+      entra($('t9-radio-in'), 6.62);
+      entra($('t9-vinil-in'), 7.77);
+
+      tl.fromTo($('t9-rev-in'), { opacity: 0, y: 14 }, { opacity: 0.9, y: 0, duration: 0.5, ease: 'power2.out' }, 14.4);
+      entra($('t9-rev-w'), 16.67);
+      sai($('t9-rev-in'), 17.15);
+      entra($('t9-arte-in'), 17.55);
+      tl.fromTo($('t9-arte-sub'), { opacity: 0 }, { opacity: 0.9, duration: 0.4 }, 17.85);
+      sai($('t9-arte-in'), 19.08);
+
+      bate([$('t9-l1'), $('t9-l2')], [19.71, 20.43]);
+      sai($('t9-lag-in'), 21.3);
+      bate([$('t9-g1'), $('t9-g2')], [21.95, 23.15]);
+      sai($('t9-gri-in'), 24.0);
+      entra($('t9-pei-in'), 24.33);
+      sai($('t9-pei-in'), 25.6);
+      bate([$('t9-a1'), $('t9-a2')], [26.43, 27.15]);
+      sai($('t9-alm-in'), 28.55);
+
+      tl.fromTo($('t9-trans-pre'), { opacity: 0 }, { opacity: 0.9, duration: 0.4 }, 29.3);
+      entra($('t9-trans-w1'), 30.51);
+      tl.to($('t9-trans-w1'), { opacity: 0, y: -20, filter: 'blur(8px)', duration: 0.25 }, 31.3);
+      entra($('t9-trans-w2'), 31.47);
+      sai($('t9-trans-in'), 32.45);
+
+      A.pancada(tl, $('t9-amor-w'), 32.86, { de: 1.8 });
+      tl.fromTo($('t9-amor-sub'), { opacity: 0, y: 10 }, { opacity: 0.9, y: 0, duration: 0.4 }, 33.62);
+      tl.to($('t9-amor-in'), { opacity: 0, duration: 0.6 }, 37.2);
+      window.__timelines['textos'] = tl;
+    })();
+  </script>
+</template>

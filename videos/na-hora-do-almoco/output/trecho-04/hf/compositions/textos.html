@@ -1,0 +1,106 @@
+<template>
+  <style>
+    @font-face { font-family: 'Bebas Neue'; src: url('assets/fonts/BebasNeue-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Bold.otf') format('opentype'); font-weight: 700; font-display: block; }
+    @font-face { font-family: 'Garamond'; src: url('assets/fonts/eb-garamond-italic-400-latin.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: block; }
+    #root { position: absolute; inset: 0; color: #ede8de; overflow: hidden; }
+    #t4-palco { position: absolute; inset: 0; }
+    #root .bloco { position: absolute; inset: 0; }
+    #root .bebas { font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: 0.9; letter-spacing: 0.01em; }
+    #root .rot { font-family: 'MontserratLocal', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.5em; }
+    #root .centro { position: absolute; left: 0; right: 0; text-align: center; }
+    #root .w { display: inline-block; }
+    #root .tag { display: inline-block; background: #f2c230; color: #0e0c0a; padding: 6px 22px 2px; }
+    #root .eco { position: absolute; left: 0; right: 0; text-align: center; opacity: 0; }
+    #root .risco { position: absolute; left: -4%; width: 108%; top: 46%; height: 12px; background: #c42a1c; transform-origin: 0 50%; }
+  </style>
+  <div id="root" data-composition-id="textos" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div id="t4-palco">
+      <!-- vem o MEDO + o muro de ecos -->
+      <div id="t4-medo" class="clip bloco" data-start="2.0" data-duration="5.3" data-track-index="0" data-layout-allow-overlap>
+        <div class="centro" style="top:300px"><span id="t4-vem" class="rot sombra w">VEM O</span></div>
+        <div id="t4-e4" class="eco bebas" style="top:250px;font-size:620px;color:#e0362a">MEDO</div>
+      </div>
+      <!-- uma palavra por imagem -->
+      <div id="t4-mao1" class="clip bloco" data-start="11.85" data-duration="1.33" data-track-index="2">
+        <div class="centro" style="top:680px"><span id="t4-mao1-in" class="bebas sombra w" style="font-size:300px">MÃO</span></div>
+      </div>
+      <div id="t4-boca" class="clip bloco" data-start="13.7" data-duration="1.24" data-track-index="3">
+        <div class="centro" style="top:680px"><span id="t4-boca-in" class="bebas sombra w" style="font-size:300px">BOCA</span></div>
+      </div>
+      <div id="t4-peito" class="clip bloco" data-start="15.3" data-duration="1.64" data-track-index="4">
+        <div class="centro" style="top:680px"><span id="t4-peito-in" class="bebas sombra w" style="font-size:300px">PEITO</span></div>
+      </div>
+      <div id="t4-mao2" class="clip bloco" data-start="17.38" data-duration="1.32" data-track-index="5">
+        <div class="centro" style="top:680px"><span id="t4-mao2-in" class="bebas sombra w" style="font-size:300px">MÃO</span></div>
+      </div>
+      <!-- o ultimo MEDO -->
+      <div id="t4-medo2" class="clip bloco" data-start="21.95" data-duration="0.83" data-track-index="6">
+        <div class="centro" style="top:200px"><span id="t4-medo2-in" class="bebas w" style="font-size:700px;color:#e0362a">MEDO</span></div>
+      </div>
+      <!-- inseguranca / dificuldade -->
+      <div id="t4-inseg" class="clip bloco" data-start="24.4" data-duration="1.58" data-track-index="7">
+        <div class="centro" style="top:90px"><span id="t4-inseg-in" class="sombra w" style="font-family:'Garamond',Georgia,serif;font-style:italic;font-size:220px;line-height:1">insegurança</span></div>
+      </div>
+      <div id="t4-dific" class="clip bloco" data-start="26.7" data-duration="1.76" data-track-index="8" data-layout-allow-overlap>
+        <div class="centro" style="top:90px">
+          <div id="t4-dific-in" class="bebas sombra" style="font-size:230px">DIFICULDADE</div>
+          <div style="margin-top:6px"><span id="t4-dific-tag" class="bebas tag w" style="font-size:90px">DA FAMÍLIA</span></div>
+        </div>
+      </div>
+      <!-- demonstrar, expressar: riscados; sentimentos: se desfaz -->
+      <div id="t4-dem" class="clip bloco" data-start="28.6" data-duration="1.0" data-track-index="9">
+        <div class="centro" style="top:400px"><span id="t4-dem-in" class="bebas sombra w" style="font-size:240px;position:relative">DEMONSTRAR<span id="t4-dem-x" class="risco"></span></span></div>
+      </div>
+      <div id="t4-exp" class="clip bloco" data-start="29.6" data-duration="1.28" data-track-index="10">
+        <div class="centro" style="top:400px"><span id="t4-exp-in" class="bebas sombra w" style="font-size:240px;position:relative">EXPRESSAR<span id="t4-exp-x" class="risco"></span></span></div>
+      </div>
+      <div id="t4-sent" class="clip bloco" data-start="30.9" data-duration="1.24" data-track-index="11">
+        <div class="centro" style="top:400px"><div id="t4-sent-in" class="bebas sombra" style="font-size:240px;color:#f2c230">SENTIMENTOS</div></div>
+      </div>
+      <div id="t4-almoco" class="clip bloco" data-start="32.3" data-duration="2.9" data-track-index="12">
+        <div class="centro" style="top:100px"><span id="t4-almoco-in" class="rot sombra w" style="font-size:34px">NA HORA DO ALMOÇO</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+
+      tl.fromTo($('t4-vem'), { opacity: 0, y: 10 }, { opacity: 0.9, y: 0, duration: 0.2, ease: 'expo.out' }, 2.05);
+      tl.to($('t4-vem'), { opacity: 0, duration: 0.15 }, 3.6);
+      // cada "medo" pisa e empurra os anteriores para tras (eco)
+      A.pancada(tl, $('t4-e4'), 6.45, { de: 1.9, dur: 0.2 });
+      A.treme(tl, $('t4-palco'), 6.45, 0.4, 18, 42);
+      A.treme(tl, $('t4-palco'), 2.63, 0.3, 16, 41);
+      tl.to($('t4-e4'), { opacity: 0, scale: 1.3, duration: 0.25, ease: 'expo.in' }, 7.05);
+
+      A.pancada(tl, $('t4-mao1-in'), 11.9);
+      A.pancada(tl, $('t4-boca-in'), 13.74);
+      A.pancada(tl, $('t4-peito-in'), 15.34);
+      A.pancada(tl, $('t4-mao2-in'), 17.42);
+
+      A.pancada(tl, $('t4-medo2-in'), 21.98, { de: 2.0, dur: 0.18 });
+      A.treme(tl, $('t4-palco'), 21.98, 0.45, 20, 43);
+      tl.to($('t4-medo2-in'), { opacity: 0, scale: 1.25, duration: 0.2, ease: 'expo.in' }, 22.55);
+
+      A.pancada(tl, $('t4-inseg-in'), 24.46, { de: 1.4 });
+      A.pancada(tl, $('t4-dific-in'), 26.78, { de: 1.4 });
+      A.pancada(tl, $('t4-dific-tag'), 27.74, { de: 1.5 });
+
+      A.pancada(tl, $('t4-dem-in'), 28.7, { de: 1.4 });
+      tl.fromTo($('t4-dem-x'), { scaleX: 0 }, { scaleX: 1, duration: 0.18, ease: 'expo.out' }, 29.25);
+      A.pancada(tl, $('t4-exp-in'), 29.66, { de: 1.4 });
+      tl.fromTo($('t4-exp-x'), { scaleX: 0 }, { scaleX: 1, duration: 0.18, ease: 'expo.out' }, 30.4);
+      A.pancada(tl, $('t4-sent-in'), 30.94, { de: 1.4 });
+      A.dissolve(tl, $('t4-sent-in'), 31.45, 0.7, { seed: 44 });
+
+      tl.fromTo($('t4-almoco-in'), { opacity: 0, y: 12 }, { opacity: 0.9, y: 0, duration: 0.3, ease: 'expo.out' }, 32.38);
+      tl.to($('t4-almoco-in'), { opacity: 0, duration: 0.3 }, 34.9);
+
+      window.__timelines['textos'] = tl;
+    })();
+  </script>
+</template>

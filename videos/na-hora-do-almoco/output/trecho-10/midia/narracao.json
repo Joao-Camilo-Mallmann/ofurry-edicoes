@@ -1,0 +1,536 @@
+[
+ {
+  "id": "w0",
+  "text": "Bom,",
+  "start": 0.2,
+  "end": 0.92
+ },
+ {
+  "id": "w1",
+  "text": "se",
+  "start": 0.92,
+  "end": 1.16
+ },
+ {
+  "id": "w2",
+  "text": "você",
+  "start": 1.16,
+  "end": 1.48
+ },
+ {
+  "id": "w3",
+  "text": "se",
+  "start": 1.48,
+  "end": 1.72
+ },
+ {
+  "id": "w4",
+  "text": "identificou",
+  "start": 1.72,
+  "end": 2.52
+ },
+ {
+  "id": "w5",
+  "text": "com",
+  "start": 2.52,
+  "end": 2.68
+ },
+ {
+  "id": "w6",
+  "text": "essa",
+  "start": 2.68,
+  "end": 2.84
+ },
+ {
+  "id": "w7",
+  "text": "música,",
+  "start": 2.84,
+  "end": 3.48
+ },
+ {
+  "id": "w8",
+  "text": "sei",
+  "start": 3.48,
+  "end": 3.8
+ },
+ {
+  "id": "w9",
+  "text": "lá.",
+  "start": 3.8,
+  "end": 4.2
+ },
+ {
+  "id": "w10",
+  "text": "Pega",
+  "start": 4.2,
+  "end": 4.44
+ },
+ {
+  "id": "w11",
+  "text": "seu",
+  "start": 4.6,
+  "end": 4.76
+ },
+ {
+  "id": "w12",
+  "text": "violão,",
+  "start": 4.76,
+  "end": 5.48
+ },
+ {
+  "id": "w13",
+  "text": "escreve",
+  "start": 5.48,
+  "end": 6.12
+ },
+ {
+  "id": "w14",
+  "text": "algo,",
+  "start": 6.12,
+  "end": 6.68
+ },
+ {
+  "id": "w15",
+  "text": "expresse",
+  "start": 6.68,
+  "end": 7.4
+ },
+ {
+  "id": "w16",
+  "text": "algo.",
+  "start": 7.4,
+  "end": 7.88
+ },
+ {
+  "id": "w17",
+  "text": "Demonstre",
+  "start": 7.88,
+  "end": 8.52
+ },
+ {
+  "id": "w18",
+  "text": "amor,",
+  "start": 8.52,
+  "end": 9.24
+ },
+ {
+  "id": "w19",
+  "text": "afeto,",
+  "start": 9.24,
+  "end": 10.12
+ },
+ {
+  "id": "w20",
+  "text": "grite",
+  "start": 10.12,
+  "end": 10.68
+ },
+ {
+  "id": "w21",
+  "text": "se",
+  "start": 10.76,
+  "end": 10.92
+ },
+ {
+  "id": "w22",
+  "text": "precisar.",
+  "start": 10.92,
+  "end": 11.64
+ },
+ {
+  "id": "w23",
+  "text": "Só",
+  "start": 11.64,
+  "end": 11.96
+ },
+ {
+  "id": "w24",
+  "text": "não",
+  "start": 11.96,
+  "end": 12.12
+ },
+ {
+  "id": "w25",
+  "text": "fique",
+  "start": 12.12,
+  "end": 12.52
+ },
+ {
+  "id": "w26",
+  "text": "em",
+  "start": 12.52,
+  "end": 12.76
+ },
+ {
+  "id": "w27",
+  "text": "silêncio.",
+  "start": 12.76,
+  "end": 13.56
+ },
+ {
+  "id": "w28",
+  "text": "O",
+  "start": 13.56,
+  "end": 13.8
+ },
+ {
+  "id": "w29",
+  "text": "silêncio,",
+  "start": 13.8,
+  "end": 14.76
+ },
+ {
+  "id": "w30",
+  "text": "a",
+  "start": 14.76,
+  "end": 15
+ },
+ {
+  "id": "w31",
+  "text": "frieza,",
+  "start": 15,
+  "end": 15.64
+ },
+ {
+  "id": "w32",
+  "text": "a",
+  "start": 15.64,
+  "end": 15.8
+ },
+ {
+  "id": "w33",
+  "text": "apatia",
+  "start": 15.8,
+  "end": 16.44
+ },
+ {
+  "id": "w34",
+  "text": "não",
+  "start": 16.6,
+  "end": 16.84
+ },
+ {
+  "id": "w35",
+  "text": "são",
+  "start": 16.84,
+  "end": 17.08
+ },
+ {
+  "id": "w36",
+  "text": "características",
+  "start": 17.08,
+  "end": 17.88
+ },
+ {
+  "id": "w37",
+  "text": "do",
+  "start": 17.88,
+  "end": 18.04
+ },
+ {
+  "id": "w38",
+  "text": "ser",
+  "start": 18.04,
+  "end": 18.28
+ },
+ {
+  "id": "w39",
+  "text": "humano",
+  "start": 18.28,
+  "end": 18.6
+ },
+ {
+  "id": "w40",
+  "text": "saudável,",
+  "start": 18.6,
+  "end": 19.48
+ },
+ {
+  "id": "w41",
+  "text": "são",
+  "start": 19.48,
+  "end": 19.64
+ },
+ {
+  "id": "w42",
+  "text": "características",
+  "start": 19.8,
+  "end": 20.52
+ },
+ {
+  "id": "w43",
+  "text": "de",
+  "start": 20.52,
+  "end": 20.68
+ },
+ {
+  "id": "w44",
+  "text": "um",
+  "start": 20.68,
+  "end": 20.84
+ },
+ {
+  "id": "w45",
+  "text": "ser",
+  "start": 20.84,
+  "end": 21.08
+ },
+ {
+  "id": "w46",
+  "text": "que",
+  "start": 21.08,
+  "end": 21.24
+ },
+ {
+  "id": "w47",
+  "text": "já",
+  "start": 21.24,
+  "end": 21.4
+ },
+ {
+  "id": "w48",
+  "text": "morreu",
+  "start": 21.4,
+  "end": 21.96
+ },
+ {
+  "id": "w49",
+  "text": "por",
+  "start": 21.96,
+  "end": 22.12
+ },
+ {
+  "id": "w50",
+  "text": "dentro.",
+  "start": 22.12,
+  "end": 22.92
+ },
+ {
+  "id": "w51",
+  "text": "Bom,",
+  "start": 22.92,
+  "end": 23.24
+ },
+ {
+  "id": "w52",
+  "text": "eu",
+  "start": 23.24,
+  "end": 23.48
+ },
+ {
+  "id": "w53",
+  "text": "espero",
+  "start": 23.48,
+  "end": 23.88
+ },
+ {
+  "id": "w54",
+  "text": "que",
+  "start": 23.88,
+  "end": 24.12
+ },
+ {
+  "id": "w55",
+  "text": "esse",
+  "start": 24.12,
+  "end": 24.36
+ },
+ {
+  "id": "w56",
+  "text": "ser",
+  "start": 24.36,
+  "end": 24.68
+ },
+ {
+  "id": "w57",
+  "text": "não",
+  "start": 24.68,
+  "end": 24.84
+ },
+ {
+  "id": "w58",
+  "text": "morra,",
+  "start": 24.84,
+  "end": 25.64
+ },
+ {
+  "id": "w59",
+  "text": "e",
+  "start": 25.64,
+  "end": 25.8
+ },
+ {
+  "id": "w60",
+  "text": "sim",
+  "start": 25.8,
+  "end": 26.12
+ },
+ {
+  "id": "w61",
+  "text": "que",
+  "start": 26.12,
+  "end": 26.28
+ },
+ {
+  "id": "w62",
+  "text": "ele",
+  "start": 26.28,
+  "end": 26.52
+ },
+ {
+  "id": "w63",
+  "text": "viva",
+  "start": 26.52,
+  "end": 26.92
+ },
+ {
+  "id": "w64",
+  "text": "pela",
+  "start": 27.08,
+  "end": 27.4
+ },
+ {
+  "id": "w65",
+  "text": "música,",
+  "start": 27.4,
+  "end": 28.2
+ },
+ {
+  "id": "w66",
+  "text": "pela",
+  "start": 28.2,
+  "end": 28.52
+ },
+ {
+  "id": "w67",
+  "text": "arte,",
+  "start": 28.52,
+  "end": 29.24
+ },
+ {
+  "id": "w68",
+  "text": "pela",
+  "start": 29.24,
+  "end": 29.56
+ },
+ {
+  "id": "w69",
+  "text": "alma,",
+  "start": 29.56,
+  "end": 30.12
+ },
+ {
+  "id": "w70",
+  "text": "pelo",
+  "start": 30.12,
+  "end": 30.44
+ },
+ {
+  "id": "w71",
+  "text": "espírito,",
+  "start": 30.44,
+  "end": 31.16
+ },
+ {
+  "id": "w72",
+  "text": "pelos amigos,",
+  "start": 31.16,
+  "end": 32.12
+ },
+ {
+  "id": "w73",
+  "text": "pela",
+  "start": 32.12,
+  "end": 32.44
+ },
+ {
+  "id": "w74",
+  "text": "família",
+  "start": 32.44,
+  "end": 33.08
+ },
+ {
+  "id": "w75",
+  "text": "e",
+  "start": 33.08,
+  "end": 33.4
+ },
+ {
+  "id": "w76",
+  "text": "por",
+  "start": 33.4,
+  "end": 33.64
+ },
+ {
+  "id": "w77",
+  "text": "Deus.",
+  "start": 33.64,
+  "end": 34.44
+ },
+ {
+  "id": "w78",
+  "text": "E",
+  "start": 34.44,
+  "end": 34.68
+ },
+ {
+  "id": "w79",
+  "text": "que",
+  "start": 34.68,
+  "end": 35
+ },
+ {
+  "id": "w80",
+  "text": "todos",
+  "start": 35,
+  "end": 35.32
+ },
+ {
+  "id": "w81",
+  "text": "estejam",
+  "start": 35.32,
+  "end": 35.88
+ },
+ {
+  "id": "w82",
+  "text": "bem.",
+  "start": 36.04,
+  "end": 36.68
+ },
+ {
+  "id": "w83",
+  "text": "Para",
+  "start": 37,
+  "end": 37.32
+ },
+ {
+  "id": "w84",
+  "text": "até",
+  "start": 37.32,
+  "end": 37.64
+ },
+ {
+  "id": "w85",
+  "text": "na",
+  "start": 38.28,
+  "end": 38.6
+ },
+ {
+  "id": "w86",
+  "text": "hora",
+  "start": 38.6,
+  "end": 39
+ },
+ {
+  "id": "w87",
+  "text": "do",
+  "start": 39,
+  "end": 39.32
+ },
+ {
+  "id": "w88",
+  "text": "almoço.",
+  "start": 39.32,
+  "end": 40.52
+ }
+]

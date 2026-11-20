@@ -1,0 +1,80 @@
+{
+  "id": "177-trecho-01",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@a máquina", "until": "@Olha esse número", "entry": "pop", "y": 0.88 },
+    { "from": "@Ele vai parecer", "until": "@E o pior", "entry": "pop", "y": 0.72 }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "grid" },
+    { "at": "@Mas existe", "backdrop": "black" },
+    { "at": "@É a partir dele", "backdrop": "stars" },
+    { "at": "@Olha esse número", "backdrop": "black" },
+    { "at": "@Ele vai parecer", "backdrop": "grid" },
+    { "at": "@E o pior", "backdrop": "black" },
+    { "at": "@Fica comigo", "backdrop": "stars" }
+  ],
+  "sfx": [
+    {"at": "@o primeiro milhão", "file": "@sfx/General/Ding.mp3", "gain": -22},
+    {"at": "@muito mais cedo", "file": "@sfx/General/Ding.mp3", "gain": -22},
+    {"at": "@imprimir dinheiro", "file": "@sfx/Mechanical/Gadget 03.wav", "gain": -18, "len": 1.0},
+    {"at": "@trabalha", "file": "@sfx/Foley/Coins Poured Out 02.wav", "gain": -22, "len": 1.6, "fadeOut": 0.6},
+    {"at": "@e também", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
+    {"at": "@mil>", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
+    {"at": "@chegando perto", "file": "@sfx/General/Lose.wav", "gain": -24},
+    {"at": "@qual é esse número", "file": "@sfx/General/Click.wav", "gain": -20},
+    {"at": "@de onde", "file": "@sfx/General/Click.wav", "gain": -20},
+    {"at": "@quanto tempo", "file": "@sfx/General/Click.wav", "gain": -20}
+  ],
+  "beats": [
+    { "kind": "cena", "tipo": "palco", "at": "@inicio", "until": "@Mas existe",
+      "atores": [
+        { "id": "meta", "icone": "flag", "rotulo": "1 MILHÃO", "cor": "hl", "tam": 230, "entra": "pop", "keys": [{ "at": "@incrível", "x": 0.82, "y": 0.4 }], "pulsaAt": ["@o primeiro milhão"] },
+        { "id": "p1", "icone": "user", "tam": 150, "entra": "whip", "keys": [{ "at": "@todo mundo", "x": 0.1, "y": 0.44 }, { "at": "@todo mundo+0.05", "x": 0.42, "dur": 2.2 }] },
+        { "id": "p2", "icone": "user", "tam": 150, "entra": "whip", "keys": [{ "at": "@sempre", "x": 0.06, "y": 0.62 }, { "at": "@sempre+0.05", "x": 0.36, "dur": 2.0 }] },
+        { "id": "p3", "icone": "user", "tam": 150, "entra": "whip", "keys": [{ "at": "@persegue", "x": 0.04, "y": 0.26 }, { "at": "@persegue+0.05", "x": 0.3, "dur": 1.8 }] }
+      ],
+      "setas": [{ "de": "p1", "para": "meta", "at": "@persegue", "cor": "hl" }],
+      "textos": [{ "at": "@o primeiro milhão", "texto": "R$ 1.000.000", "fonte": "num", "tam": 150, "cor": "hl", "x": 0.5, "y": 0.84 }] },
+
+    { "kind": "cena", "tipo": "grafico", "at": "@Mas existe", "until": "@É a partir dele",
+      "modo": "patrimonio", "meses": 340, "rotuloCabeca": false,
+      "revela": [{ "at": "@Mas existe", "mes": 0 }, { "at": "@Mas existe+0.1", "mes": 340, "dur": 1.6 }],
+      "vista": [{ "at": 0, "x": 340, "y": 1100000 }, { "at": "@faz o seu jogo", "x": 190, "y": 420000, "dur": 1.8 }],
+      "marcos": [
+        { "mes": 337, "at": "@Mas existe+1.6", "rotulo": "1 MILHÃO", "cor": "text" },
+        { "mes": 124, "at": "@muito mais cedo", "rotulo": "???", "cor": "hl" }
+      ] },
+
+    { "kind": "cena", "tipo": "maquina", "at": "@É a partir dele", "until": "@Olha esse número",
+      "ligaAt": "@imprimir dinheiro", "ritmo": [{ "at": 0, "v": 3 }], "contador": [{ "at": "@imprimir dinheiro", "v": 0 }, { "at": "@trabalha", "v": 1000, "dur": 1.8 }], "escala": 0.85 },
+
+    { "kind": "cena", "tipo": "numeros", "at": "@Olha esse número", "until": "@Ele vai parecer",
+      "itens": [
+        { "at": "@um milhão", "valor": "1 MILHÃO", "riscaAt": "@e também" },
+        { "at": "@o 100 mil", "valor": "100 MIL", "riscaAt": "@mil>" }
+      ] },
+
+    { "kind": "mascot", "at": "@Ele vai parecer", "until": "@E o pior", "placement": "center", "nameTag": true,
+      "poses": [
+        { "at": "@Ele vai parecer", "pose": "../../../../public/mascote/fox3.png" },
+        { "at": "@achar que", "pose": "../../../../public/mascote/fox4.png" },
+        { "at": "@Mas eu não errei", "pose": "../../../../public/mascote/fox1.png" }
+      ] },
+
+    { "kind": "cena", "tipo": "calendario", "at": "@E o pior", "until": "@Fica comigo", "titulo": "ANOS SEM SABER",
+      "preenche": [{ "at": "@E o pior", "m": 0 }, { "at": "@muita gente", "m": 100, "dur": 5.2 }],
+      "marcos": [{ "mes": 100, "at": "@chegando perto", "cor": "loss", "rotulo": "DESISTIU" }] },
+    { "kind": "cena", "tipo": "piada", "at": "@chegando perto+0.6", "until": "@Fica comigo", "texto": "(faltavam só 24 meses)", "x": 0.6, "y": 0.9 },
+
+    { "kind": "cena", "tipo": "lista", "at": "@Fica comigo", "until": "@fim",
+      "itens": [
+        { "at": "@qual é esse número", "n": "1", "texto": "QUAL É O NÚMERO" },
+        { "at": "@de onde", "n": "2", "texto": "DE ONDE ELE VEM" },
+        { "at": "@quanto tempo", "n": "3", "texto": "QUANTO TEMPO FALTA" }
+      ] }
+  ]
+}

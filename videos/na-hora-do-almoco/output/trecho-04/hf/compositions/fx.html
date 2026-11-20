@@ -1,0 +1,32 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; pointer-events: none; }
+    #fx4-creme { position: absolute; inset: 0; background: #f6ecd6; opacity: 0; }
+    #fx4-branco { position: absolute; inset: 0; background: #ffffff; opacity: 0; }
+    #fx4-preto { position: absolute; inset: 0; background: #0e0c0a; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="fx" data-width="1920" data-height="1080">
+    <div id="fx4-camada" class="clip" data-start="0" data-duration="35.4" data-track-index="0" style="position:absolute;inset:0">
+      <div id="fx4-creme"></div>
+      <div id="fx4-branco"></div>
+      <div id="fx4-preto"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      // flashes creme nas viradas de plano
+      [1.98, 6.36, 8.28, 11.32, 13.16, 14.92, 16.92, 18.68, 19.28, 19.88, 20.48, 21.08, 22.76, 25.96, 28.44, 32.12].forEach(function (t) {
+        A.flash(tl, $('fx4-creme'), t, { pico: (t === 1.98 || t === 8.28) ? 0.3 : 0.5, dur: 0.18 });
+      });
+      // flashes brancos nos "medo"
+      [6.45, 21.98].forEach(function (t) { A.flash(tl, $('fx4-branco'), t, { pico: 0.6, dur: 0.14 }); });
+      // preto seco antes do ultimo medo
+      tl.set($('fx4-preto'), { opacity: 1 }, 21.8);
+      tl.set($('fx4-preto'), { opacity: 0 }, 21.97);
+      window.__timelines['fx'] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,29 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; pointer-events: none; }
+    #fx-creme { position: absolute; inset: 0; background: #f6ecd6; opacity: 0; }
+    #fx-branco { position: absolute; inset: 0; background: #ffffff; opacity: 0; }
+    #fx-preto { position: absolute; inset: 0; background: #0e0c0a; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="fx" data-width="1920" data-height="1080">
+    <div id="fx-camada" class="clip" data-start="0" data-duration="38.26" data-track-index="0" style="position:absolute;inset:0">
+      <div id="fx-creme"></div>
+      <div id="fx-branco"></div>
+      <div id="fx-preto"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      // sai do preto da cena anterior (saude mental) e a rajada vai ganhando forca
+      tl.set($('fx-preto'), { opacity: 1 }, 0);
+      tl.to($('fx-preto'), { opacity: 0, duration: 1.0, ease: 'power2.out' }, 0.15);
+      [1.1, 1.65, 2.2, 2.75, 3.3, 3.85, 4.4, 4.95, 5.5, 6.05].forEach(function (t, i) { A.flash(tl, $('fx-creme'), t, { pico: Math.min(0.5, 0.15 + i * 0.05), dur: 0.1 }); });
+      [6.58, 9.08, 13.73, 19.28, 25.83, 28.78, 32.73].forEach(function (t) { A.flash(tl, $('fx-creme'), t, { pico: 0.6, dur: 0.2 }); });
+      [5.79, 16.67, 21.95, 32.86].forEach(function (t) { A.flash(tl, $('fx-branco'), t, { pico: 0.5, dur: 0.16 }); });
+      window.__timelines['fx'] = tl;
+    })();
+  </script>
+</template>

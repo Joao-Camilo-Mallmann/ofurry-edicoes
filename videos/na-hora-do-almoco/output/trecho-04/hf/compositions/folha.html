@@ -1,0 +1,49 @@
+<template>
+  <style>
+    @font-face { font-family: 'Maquina'; src: url('assets/fonts/special-elite-latin.woff2') format('woff2'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'Caveat'; src: url('assets/fonts/caveat-latin.woff2') format('woff2'); font-weight: 400 700; font-display: block; }
+    #root { position: absolute; inset: 0; }
+    #fo4 { position: absolute; inset: 0; opacity: 0; }
+    #fo4-cena { position: absolute; inset: 0; }
+    #fo4-verm { position: absolute; inset: 0; background: #8e1b12; mix-blend-mode: multiply; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="folha" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <!-- o medo na folha: 2.0-6.4 cada "medo" circulado em vermelho; 8.3-11.34 "cada um guarda mais o seu segredo" marcado -->
+    <div id="fo4">
+      <div id="fo4-cena"></div>
+      <div id="fo4-verm"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      A.fontes().then(function () {
+        var F = A.folhaPalco($('fo4-cena'), window.LETRA, { tilt: 10, giro: -2, zoomInicial: 1.5 });
+        var medo = F.acha('medo medo medo'), seg = F.acha('Cada um guarda mais o seu segredo');
+        F.camera(tl, 0, 0.05, medo.linha, { zoom: 1.5, oy: 10, tilt: 10, giro: -2, ease: 'none' });
+        tl.set($('fo4'), { opacity: 0 }, 0);
+        // 2.0: entra com um empurrao (a camera chega no "medo")
+        tl.set($('fo4'), { opacity: 1 }, 2.0);
+        F.camera(tl, 2.0, 0.6, medo.linha, { zoom: 1.62, oy: 10, tilt: 6, giro: -1.5, ease: 'expo.out' });
+        // a cada "medo" a folha tinge de vermelho um pouco mais
+        [2.63, 3.66, 4.46, 5.02, 5.5].forEach(function (t, i) {
+          tl.to($('fo4-verm'), { opacity: 0.12 + i * 0.09, duration: 0.12, ease: 'expo.out' }, t);
+        });
+        A.treme(tl, $('fo4-cena'), 5.5, 0.4, 16, 42);
+        tl.set($('fo4'), { opacity: 0 }, 6.4);
+        tl.set($('fo4-verm'), { opacity: 0 }, 6.4);
+        // reposiciona escondida e volta em 8.3 no "segredo"
+        F.camera(tl, 6.5, 1.0, seg.linha, { zoom: 1.5, oy: 0, tilt: 8, giro: -1.5, ease: 'none' });
+        tl.set($('fo4'), { opacity: 1 }, 8.3);
+        F.camera(tl, 8.3, 2.8, seg.linha, { zoom: 1.58, oy: 0, tilt: 5, giro: -1, ease: 'sine.out' });
+        tl.set($('fo4'), { opacity: 0 }, 11.34);
+        F.tremor(tl, 35.4, 1.2);
+        A.marcasAte(tl, F, 'trecho-04');
+        tl.set({}, {}, 35.4);
+        window.__timelines['folha'] = tl;
+      });
+    })();
+  </script>
+</template>

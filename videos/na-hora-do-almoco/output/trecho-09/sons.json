@@ -1,0 +1,153 @@
+{
+ "dur": 38.26,
+ "cues": [
+  {
+   "file": "@narr",
+   "at": 0,
+   "gain": 0
+  },
+  {
+   "file": "@sfx/Communications/AM Radio Buzz 01.wav",
+   "at": 6.6,
+   "len": 1.15,
+   "fadeIn": 0.05,
+   "fadeOut": 0.25,
+   "gain": -20
+  },
+  {
+   "file": "@sfx/General/Vinyl.wav",
+   "at": 7.75,
+   "len": 1.35,
+   "fadeOut": 0.3,
+   "gain": -16
+  },
+  {
+   "file": "@sfx/General/Click.wav",
+   "at": 9.12,
+   "gain": -18
+  },
+  {
+   "file": "@sfx/General/Click.wav",
+   "at": 10.98,
+   "gain": -18
+  },
+  {
+   "file": "@sfx/General/Heartbeat.wav",
+   "at": 24.3,
+   "len": 1.6,
+   "fadeOut": 0.4,
+   "gain": -16
+  },
+  {
+   "file": "@sfx/Kitchen/Silverware Placed on Table 01.wav",
+   "at": 27.9,
+   "gain": -19
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/Yacoby - Schwartzy.mp3",
+   "at": 0,
+   "from": 47.6,
+   "len": 3,
+   "fadeIn": 0,
+   "fadeOut": 1.5,
+   "env": [
+    [
+     0,
+     -31.44
+    ],
+    [
+     0.81,
+     -34.2
+    ],
+    [
+     1.21,
+     -38.55
+    ],
+    [
+     1.5,
+     -39.54
+    ],
+    [
+     2.4,
+     -47.16
+    ],
+    [
+     3,
+     -90.96
+    ]
+   ]
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/No.10 _A New Beginning - Esther Abrami.mp3",
+   "at": 0,
+   "from": 3,
+   "len": 38.26,
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "env": [
+    [
+     0,
+     -19.18
+    ],
+    [
+     0.81,
+     -18.51
+    ],
+    [
+     1.21,
+     -21.19
+    ],
+    [
+     1.5,
+     -20.95
+    ],
+    [
+     9,
+     -22.78
+    ],
+    [
+     12,
+     -24.95
+    ],
+    [
+     15,
+     -26.51
+    ],
+    [
+     18,
+     -26.31
+    ],
+    [
+     21,
+     -25.39
+    ],
+    [
+     24,
+     -25.71
+    ],
+    [
+     27,
+     -25.47
+    ],
+    [
+     30,
+     -25.63
+    ],
+    [
+     33,
+     -27.58
+    ],
+    [
+     36,
+     -27.66
+    ],
+    [
+     38.26,
+     -26.86
+    ]
+   ]
+  }
+ ]
+}

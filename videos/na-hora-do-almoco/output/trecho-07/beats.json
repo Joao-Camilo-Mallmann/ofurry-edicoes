@@ -1,0 +1,18 @@
+{
+  "id": "na-hora-do-almoco-trecho-07",
+  "duration": 70.5,
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": {
+    "maxWords": 2,
+    "maxChars": 16
+  },
+  "backdrops": [
+    {
+      "at": 0,
+      "backdrop": "black"
+    }
+  ],
+  "beats": []
+}

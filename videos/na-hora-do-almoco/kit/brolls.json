@@ -1,0 +1,140 @@
+{
+  "10": [
+    {
+      "img": "A26-papeis-escritos",
+      "start": 5.4,
+      "dur": 2.45,
+      "camera": "push",
+      "momento": "escreva algo"
+    },
+    {
+      "img": "A25-janela-noite-sozinho",
+      "start": 17.4,
+      "dur": 3.9,
+      "camera": "push",
+      "momento": "a apatia nao sao caracteristicas do ser humano saudavel"
+    },
+    {
+      "img": "A28-parede-retratos",
+      "start": 32.3,
+      "dur": 1.6,
+      "camera": "pull",
+      "momento": "pela familia"
+    }
+  ],
+  "_como": "Onde cada B-roll entra. Tempo em segundos do trecho. camera: 'push' (aproxima), 'pull' (afasta) ou '3d' (atravessa a profundidade, para as cenas A31-A36). Depois de mudar: bun kit/brolls.mjs && bun kit/preparar.mjs XX",
+  "01": [
+    {
+      "img": "A31-3d-copo-mesa-sal",
+      "start": 26.3,
+      "dur": 3.02,
+      "camera": "3d",
+      "momento": "por mais que estejam juntos numa mesa"
+    }
+  ],
+  "02": [
+    {
+      "img": "A21-corredor-mesa-posta",
+      "start": 22.75,
+      "dur": 2.4,
+      "camera": "push",
+      "momento": "um cenario comum em todas as familias"
+    }
+  ],
+  "03": [
+    {
+      "img": "A27-estrada-sertao",
+      "start": 21.6,
+      "dur": 1.7,
+      "camera": "pull",
+      "momento": "da terra de Belchior"
+    }
+  ],
+  "05": [
+    {
+      "img": "A20-fogao-panela",
+      "start": 4.4,
+      "dur": 2.9,
+      "camera": "push",
+      "momento": "tradicional brasileira, cearense"
+    }
+  ],
+  "06": [
+    {
+      "img": "A30-jovem-no-degrau",
+      "start": 26.3,
+      "dur": 2.6,
+      "camera": "push",
+      "momento": "a perspectiva de alguem jovem"
+    },
+    {
+      "img": "A23-cabeceira-chapeu",
+      "start": 35.6,
+      "dur": 3.3,
+      "camera": "pull",
+      "momento": "medo da morte, ou da separacao"
+    }
+  ],
+  "07": [
+    {
+      "img": "A33-3d-cortina-janela",
+      "start": 27,
+      "dur": 2.1,
+      "camera": "3d",
+      "momento": "voce se identifica com a letra"
+    }
+  ],
+  "08": [
+    {
+      "img": "A36-3d-corredor-portas",
+      "start": 13,
+      "dur": 2.4,
+      "camera": "3d",
+      "momento": "a opressao de um lugar"
+    },
+    {
+      "img": "A24-copo-derramado",
+      "start": 29.95,
+      "dur": 1.2,
+      "camera": "push",
+      "momento": "as perdas"
+    },
+    {
+      "img": "A22-porta-fechada-fresta",
+      "start": 35.95,
+      "dur": 1.5,
+      "camera": "push",
+      "momento": "se guardar"
+    }
+  ],
+  "09": [
+    {
+      "img": "A19-relogio-meio-dia",
+      "start": 2.75,
+      "dur": 1.1,
+      "camera": "push",
+      "momento": "na hora do almoco"
+    },
+    {
+      "img": "A34-3d-radio-janela",
+      "start": 6.6,
+      "dur": 1.15,
+      "camera": "3d",
+      "momento": "tocou num radio"
+    },
+    {
+      "img": "A35-3d-vinil-sala",
+      "start": 7.75,
+      "dur": 1.35,
+      "camera": "3d",
+      "momento": "num disco de vinil"
+    },
+    {
+      "img": "A29-prato-esfriando",
+      "start": 25.85,
+      "dur": 2.95,
+      "camera": "pull",
+      "momento": "aquele almoco engolido a seco"
+    }
+  ]
+}

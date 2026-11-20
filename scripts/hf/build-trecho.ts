@@ -6,7 +6,7 @@
  *   bun run hf:build <caminho/beats.json>
  *
  * Saida: <pasta-do-trecho>/hf/  (index.html, compositions/*.html, assets/)
- * Depois: bun run hf:render <video> <trecho>   (check + MP4 preto + MOV transparente)
+ * Depois: bun run hf:render <video> <trecho>   (check + MP4 pronto; --alpha para gerar tambem o MOV transparente)
  *
  * O HTML gerado e um primeiro corte editavel: ajuste a mao no app do HyperFrames ou nos arquivos,
  * seguindo a skill ofurry-fazer-cenas. Rodar o build de novo SOBRESCREVE compositions/.
@@ -19,6 +19,7 @@ import { CaptionCard, cardsFromSubtitle } from '../../src/house/captions';
 import { House, HouseTone, toneColor, toneFromValue } from '../../src/house/theme';
 import { lintBeatSheet } from '../../src/house/lint';
 import { iconSvg } from './lucide-svg';
+import { loadResolvedSheet } from '../video/ancoras';
 
 const ROOT = resolve(import.meta.dir, '..', '..');
 const KIT = join(ROOT, 'hf', 'kit');
@@ -46,7 +47,14 @@ if (!existsSync(beatsPath)) {
   process.exit(1);
 }
 const baseDir = dirname(beatsPath);
-const sheet = JSON.parse(readFileSync(beatsPath, 'utf8')) as BeatSheet;
+// Ancoras "@frase" (scripts/video/ancoras.ts): resolvidas contra as palavras do trecho antes de tudo.
+const loaded = loadResolvedSheet(beatsPath);
+if (loaded.errors.length) {
+  console.error(`${loaded.errors.length} ancora(s) com problema em ${beatsPath}:`);
+  for (const e of loaded.errors) console.error('  ' + e);
+  process.exit(1);
+}
+const sheet = loaded.sheet as BeatSheet;
 const OUT = join(baseDir, 'hf');
 const COMP = join(OUT, 'compositions');
 const ASSETS = join(OUT, 'assets');
@@ -99,8 +107,7 @@ ${markup}
     (function () {
       var tl = gsap.timeline({ paused: true });
       var $ = function (id) { return document.getElementById(id); };
-${script}
-      window.__timelines["${id}"] = tl;
+${script}${script.includes('/*async*/') ? '' : `      window.__timelines["${id}"] = tl;`}
     })();
   </script>
 </template>
@@ -207,7 +214,9 @@ function buildCaptions(): string {
   let script = '';
   let n = 0;
   cards.forEach((c, idx) => {
-    const w = windows.find((x) => c.start >= x.from && c.start < x.until);
+    // o cartao comeca ~0,05 s antes da palavra (leadIn): janela ancorada em "@frase" nao pode perder o 1o cartao,
+    // e cartao que comecaria a menos de 0,1 s do fim da janela so piscaria: fica de fora
+    const w = windows.find((x) => c.start >= x.from - 0.15 && c.start < x.until - 0.1);
     if (!w) return;
     n++;
     const id = `leg-${String(n).padStart(3, '0')}`;
@@ -300,7 +309,7 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
         const x = Math.round((n === 1 ? 0.5 : 0.2 + (0.6 * i) / (n - 1)) * W);
         const pid = `${id}-i${i + 1}`;
         const start = rel(it.at);
-        const ib = await iconBlock(pid, it.icon, size, it.tone, it.label, undefined, start, r3(dur - start));
+        const ib = await iconBlock(pid, it.icon, size, it.tone, it.label, (it as { animated?: boolean }).animated, start, r3(dur - start));
         const st = it.strikeAt !== undefined ? strike(pid, size, rel(it.strikeAt)) : { markup: '', script: '' };
         markup += `    <div id="${pid}" class="clip" data-start="${start}" data-duration="${r3(dur - start)}" data-track-index="${i}" style="position:absolute;left:${x - 300}px;width:600px;top:${y - size / 2}px;display:flex;justify-content:center">
       <div style="position:relative">${ib.markup}${st.markup}</div>
@@ -350,19 +359,29 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
       poses.forEach((p, i) => {
         const s = rel(Math.max(beat.at, p.at));
         const e = i < poses.length - 1 ? rel(poses[i + 1].at) : dur;
-        const src = asset(p.pose);
+        // Mascote animado: se existir o loop .webm (alfa) ao lado do PNG, usa o loop (pedido do João, 20/11/2026:
+        // "usar os animados dele, nao os png"). O loop e 1920x1080 com a raposa no centro do quadro.
+        const webmRel = p.pose?.replace(/\.png$/i, '.webm');
+        const loop = webmRel && webmRel !== p.pose && existsSync(join(baseDir, webmRel)) ? asset(webmRel) : undefined;
+        const src = loop ? undefined : asset(p.pose);
         const pid = `${id}-pose${i + 1}`;
+        if (loop) {
+          const vw = Math.round((h * 16) / 9);
+          posesHtml += `<video id="${pid}" class="clip" src="${loop}" muted playsinline data-start="${s}" data-duration="${r3(e - s)}" data-track-index="${i + 1}" style="position:absolute;bottom:0;left:50%;height:${h}px;width:${vw}px;margin-left:${-Math.round(vw / 2)}px${beat.flip ? ';transform:scaleX(-1)' : ''}"></video>`;
+          return;
+        }
         posesHtml += src
-          ? `<img id="${pid}" class="clip" src="${src}" alt="" data-start="${s}" data-duration="${r3(e - s)}" data-track-index="${i + 1}" style="position:absolute;bottom:0;left:50%;height:${h}px;margin-left:${-Math.round(h * 0.31)}px">`
+          ? `<img id="${pid}" class="clip" src="${src}" alt="" data-start="${s}" data-duration="${r3(e - s)}" data-track-index="${i + 1}" style="position:absolute;bottom:0;left:50%;height:${h}px;width:${h}px;margin-left:${-Math.round(h / 2)}px;object-fit:contain${beat.flip ? ';transform:scaleX(-1)' : ''}">`
           : `<div id="${pid}" class="clip house-placeholder" data-start="${s}" data-duration="${r3(e - s)}" data-track-index="${i + 1}" style="position:absolute;bottom:0;left:50%;height:${h}px;width:${Math.round(h * 0.62)}px;margin-left:${-Math.round(h * 0.31)}px;border-radius:40% 40% 8% 8%;font-size:${Math.max(18, Math.round(h / 22))}px">MASCOTE ${i + 1}</div>`;
       });
-      markup = `    <div id="${id}-m" class="clip" data-start="0" data-duration="${dur}" data-track-index="0" style="position:absolute;inset:0" data-layout-allow-overflow>
+      // wrapper SEM data-start: o extrator de quadros do HyperFrames nao soma o offset de um pai temporizado a um <video>
+      markup = `    <div id="${id}-m" style="position:absolute;inset:0" data-layout-allow-overflow>
       <div id="${id}-pos" style="position:absolute;left:${Math.round(place * W - 300)}px;width:600px;bottom:0;height:${h}px">
         <div id="${id}-enter" style="position:absolute;inset:0">
           <div id="${id}-sway" style="position:absolute;inset:0">${posesHtml}</div>
         </div>
       </div>
-      ${beat.nameTag ? `<div id="${id}-tag" class="clip house-center" data-start="0.4" data-duration="${r3(Math.min(2.3, dur - 0.4))}" data-track-index="9" style="top:${H - Math.round(h * 0.16) - 30}px"><span id="${id}-tag-in" class="house-inline" style="background:#fff;color:#B35C00;font-family:var(--font-caption);font-weight:800;font-size:30px;padding:8px 28px;border-radius:40px">OFurry</span></div>` : ''}
+      ${beat.nameTag ? `<div id="${id}-tag" class="clip" data-start="0.4" data-duration="${r3(Math.min(2.3, dur - 0.4))}" data-track-index="9" style="position:absolute;left:${Math.round(place * W - 300)}px;width:600px;text-align:center;top:${H - Math.round(h * 0.16) - 30}px"><span id="${id}-tag-in" class="house-inline" style="background:#fff;color:#B35C00;font-family:var(--font-caption);font-weight:800;font-size:30px;padding:8px 28px;border-radius:40px">OFurry</span></div>` : ''}
     </div>\n`;
       script = `      House.entry(tl, $("${id}-enter"), "rise", 0, { distance: 260, frames: 8 });
       House.drive(tl, 0, ${dur}, function (t) { $("${id}-sway").style.transform = "translateY(" + (Math.sin(t * 1.3) * 4).toFixed(2) + "px) scale(" + (1 + Math.sin(t * 2.4) * 0.01).toFixed(4) + ")"; });\n`;
@@ -417,6 +436,26 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
       tl.fromTo($("${id}-t-in"), { opacity: 1 }, { opacity: 0, duration: 0.66, ease: "power2.in", immediateRender: false }, ${r3(Math.max(0, dur - 0.7))});\n`;
       break;
     }
+    case 'cena': {
+      // Cena de dados/metafora do kit ofurry-cenas.js: funcao pura do tempo (OF.<tipo>)
+      const { kind: _k, at: _a, until: _u, tipo, opcional: _o, ...params } = beat as Record<string, any>;
+      // arquivos citados pela cena (foto3d: src/depth) vao para assets/media
+      for (const key of ['src', 'depth']) if (typeof params[key] === 'string') params[key] = asset(params[key]) ?? '';
+      // icones Lucide citados pela cena (palco: atores[].icone, fluxos[].icone) viram SVG estatico injetado
+      for (const list of [params.atores, params.fluxos]) {
+        if (!Array.isArray(list)) continue;
+        for (const it of list) if (typeof it.icone === 'string') it.svg = (await iconSvg(it.icone, it.tam ?? (list === params.fluxos ? 100 : 260), false)).svg;
+      }
+      markup = `    <div id="${id}-cena" class="clip" data-start="0" data-duration="${dur}" data-track-index="0" style="position:absolute;inset:0" data-layout-allow-overflow></div>
+`;
+      if (tipo === 'foto3d') {
+        // assincrona: a timeline so e registrada depois que imagem e mapa carregam
+        script = `      /*async*/ OF.foto3d($("${id}-cena"), ${js(params)}, ${r3(beat.at)}, ${dur}).then(function (render) { House.drive(tl, 0, ${dur}, render); }).catch(function (e) { console.error(e); }).then(function () { window.__timelines["${id}"] = tl; });
+`;
+      } else script = `      House.drive(tl, 0, ${dur}, OF.${tipo}($("${id}-cena"), ${js(params)}, ${r3(beat.at)}, ${dur}));
+`;
+      break;
+    }
     case 'broll': {
       const src = asset(beat.src);
       markup = src
@@ -451,6 +490,7 @@ function buildIndex(beatIds: { id: string; beat: Beat }[], audioSrc?: string): s
     <meta name="viewport" content="width=${W}, height=${H}" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <script src="assets/house/house-runtime.js"></script>
+    <script src="assets/house/ofurry-cenas.js"></script>
     <link rel="stylesheet" href="assets/house/house.css" />
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -489,6 +529,7 @@ async function main() {
   mkdirSync(join(ASSETS, 'house'), { recursive: true });
   copyFileSync(join(KIT, 'house.css'), join(ASSETS, 'house', 'house.css'));
   copyFileSync(join(KIT, 'house-runtime.js'), join(ASSETS, 'house', 'house-runtime.js'));
+  copyFileSync(join(KIT, 'ofurry-cenas.js'), join(ASSETS, 'house', 'ofurry-cenas.js'));
   copyFileSync(join(ROOT, 'node_modules', '@fontsource', 'bebas-neue', 'files', 'bebas-neue-latin-400-normal.woff2'), join(ASSETS, 'fonts', 'bebas-neue-400.woff2'));
 
   let audioSrc: string | undefined;

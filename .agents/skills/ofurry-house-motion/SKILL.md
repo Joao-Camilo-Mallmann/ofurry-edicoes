@@ -19,13 +19,15 @@ Archivo Black, "zero mascote"), **esta skill vence**: ela descreve o que o publi
 
 ## 1. Fluxo de trabalho
 
-Esta skill define o **visual**. A producao acontece em duas skills que a seguem:
+Esta skill define o **visual**. O **jeito de editar** (estrutura do video, ritmo, cenas de dados C1-C12, som,
+fluxo do roteiro ao render) esta em `docs/padrao-edicao-ofurry.md` (padrao v2, 20/11/2026, ADR-007).
+A producao acontece em duas skills que a seguem:
 
 1. **`ofurry-organizar-video`**: cria a pasta do video, transcreve a narracao com tempo por palavra, corta em
    trechos e monta o `plano.md` de cada trecho (checkpoint em prosa, aprovado pelo usuario).
 2. **`ofurry-fazer-cenas`**: transforma o plano aprovado em `beats.json`, gera o projeto **HyperFrames**
-   (`bun run hf:build <video> <XX>`), checa, revisa e renderiza MP4 preto + MOV transparente
-   (`bun run hf:render <video> <XX>`).
+   (`bun run hf:build <video> <XX>`), checa, revisa e renderiza o MP4 pronto do trecho, em Full HD e na
+   placa de video (`bun run hf:render <video> <XX>`; `--alpha` so se pedirem o MOV transparente).
 
 O formato da folha de batidas (`src/house/beats.ts`) e o mesmo nos dois motores: HyperFrames (padrao para
 videos novos, kit em `hf/kit/`) e Remotion (`src/house/`, para os trechos antigos do COE).
@@ -46,8 +48,9 @@ videos novos, kit em `hf/kit/`) e Remotion (`src/house/`, para os trechos antigo
    estrelas, B-roll desfocado como placa atras do mascote/icones. Saida tambem em alpha.
 6. **Mascote e o respiro, nao o conteudo.** A raposa aparece em 20-30% do tempo, depois de rajadas densas e
    antes de uma explicacao nova. Entra de baixo com desfoque (8 qd), troca de pose por corte seco a cada 2-4 s,
-   nunca parada mais que 4 s, e encolhe para o canto quando o conteudo volta. Use os PNGs do proprio canal em
-   `public/mascote/` (o kit so carrega o arquivo; sem arquivo mostra um marcador cinza).
+   nunca parada mais que 4 s, e encolhe para o canto quando o conteudo volta. Use as poses do proprio canal em
+   `public/mascote/` (fox1-4): o build do HyperFrames usa o loop animado `foxN.webm` (alfa) quando existe, no lugar
+   do PNG citado (padrao desde 20/11/2026). Sem arquivo, mostra um marcador cinza.
 7. **Um icone por substantivo falado.** Icones de traco brancos (Lucide) com brilho, entram em pop na palavra
    exata, grandes (sozinho 380 px, ~20% da largura; em fila 320/260/200 px), com rotulo curto embaixo. Relacoes por posicao e simbolo (`>`, `=`, seta). Se a fala
    nega ou elimina algo, risque o icone em vermelho ou tire-o da tela. Movimento especial: Lucide Animated.
@@ -56,7 +59,9 @@ videos novos, kit em `hf/kit/`) e Remotion (`src/house/`, para os trechos antigo
    d'agua (Veo, "Low Budget Stories") nem aviso de software queimado na imagem.
 9. **Gancho denso, capitulo com silencio.** Primeiros 30 s com 9+ mudancas (o melhor video tem ~40):
    pergunta direta digitada -> rajada de cartoes -> primeiro objeto sem nome -> payoff da thumbnail ->
-   mascote com a tag OFurry -> prova. Capitulos: 1 s de preto em silencio, numeral + titulo, impacto sonoro.
+   mascote com a tag OFurry -> prova -> loop aberto (lista 1-2-3 do que o video vai responder).
+   Capitulos: **sem** o 1 s de preto em silencio e sem impacto (reprovado em 11/2026: "pula essa parte que nao
+   acontece nada"; impacto so 1-2 por video). Troca de capitulo = troca de fundo + titulo de secao (H8).
 10. **Zero tela vazia com voz.** Tela preta com narracao apareceu em todos os videos (ate 40 s somados).
     No maximo 0,6 s de preto, e so como respiro antes de capitulo ou virada.
 

@@ -1,0 +1,56 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #tv7-cena { position: absolute; inset: 0; opacity: 0; transform-origin: 50% 50%; }
+    #tv7-foto { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    /* a tela da TV: o clipe e deformado para o quadrilatero da tela na imagem gerada (QUAD no script) */
+    #tv7-tela { position: absolute; left: 0; top: 0; width: 800px; height: 600px; transform-origin: 0 0; overflow: hidden; border-radius: 44px / 36px; }
+    #tv7-video { position: absolute; left: 0; top: 0; width: 800px; height: 600px; object-fit: cover; }
+    #tv7-linhas { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(0,0,0,0.18) 0px, rgba(0,0,0,0.18) 2px, rgba(0,0,0,0) 2px, rgba(0,0,0,0) 5px); }
+    #tv7-vidro { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 25%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 45%), radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.5) 100%); }
+    #tv7-flash { position: absolute; inset: 0; background: #f4efe4; }
+  </style>
+  <div data-hf-id="hf-tke1" id="root" data-composition-id="tv" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-9gxg" id="tv7-cena">
+      <canvas data-hf-id="hf-739q" id="tv7-foto" class="clip" data-start="18.7" data-duration="5.6" data-track-index="0"></canvas>
+      <div data-hf-id="hf-gytj" id="tv7-tela">
+        <video data-hf-id="hf-t9nc" id="tv7-video" class="clip" data-start="18.7" data-duration="5.6" data-track-index="1" src="assets/video/tv-clipe.mp4" muted playsinline></video>
+        <div data-hf-id="hf-zgas" id="tv7-linhas"></div>
+        <div data-hf-id="hf-lh2h" id="tv7-vidro"></div>
+        <div data-hf-id="hf-kwjz" id="tv7-flash"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      // cantos da tela da TV na imagem A15 (1920x1080): TL, TR, BR, BL
+      var QUAD = [[607, 258], [1233, 255], [1228, 765], [609, 760]];
+      var W = 800, H = 600;
+      function adj(m) { return [m[4]*m[8]-m[5]*m[7], m[2]*m[7]-m[1]*m[8], m[1]*m[5]-m[2]*m[4], m[5]*m[6]-m[3]*m[8], m[0]*m[8]-m[2]*m[6], m[2]*m[3]-m[0]*m[5], m[3]*m[7]-m[4]*m[6], m[1]*m[6]-m[0]*m[7], m[0]*m[4]-m[1]*m[3]]; }
+      function mul(a, b) { var c = []; for (var i = 0; i < 3; i++) for (var j = 0; j < 3; j++) { var s = 0; for (var k = 0; k < 3; k++) s += a[3*i+k] * b[3*k+j]; c[3*i+j] = s; } return c; }
+      function mulv(m, v) { return [m[0]*v[0]+m[1]*v[1]+m[2]*v[2], m[3]*v[0]+m[4]*v[1]+m[5]*v[2], m[6]*v[0]+m[7]*v[1]+m[8]*v[2]]; }
+      function basis(p) { var m = [p[0][0], p[1][0], p[2][0], p[0][1], p[1][1], p[2][1], 1, 1, 1]; var v = mulv(adj(m), [p[3][0], p[3][1], 1]); return mul(m, [v[0], 0, 0, 0, v[1], 0, 0, 0, v[2]]); }
+      function homografia(src, dst) { var t = mul(basis(dst), adj(basis(src))); for (var i = 0; i < 9; i++) t[i] /= t[8]; return 'matrix3d(' + [t[0], t[3], 0, t[6], t[1], t[4], 0, t[7], 0, 0, 1, 0, t[2], t[5], 0, t[8]].join(',') + ')'; }
+      $('tv7-tela').style.transform = homografia([[0, 0], [W, 0], [W, H], [0, H]], QUAD);
+
+      A.photo($('tv7-foto'), { src: 'assets/img/A15-sala-tv-anos-70.png', depth: 'assets/depth/A15-sala-tv-anos-70-depth.png', strength: 0 })
+        .then(function (c) {
+          // foto parada (o clipe esta colado na tela); o movimento vem do zoom lento da cena inteira
+          A.camera(tl, c, 18.7, 5.6, [{ t: 0, zoom: 1.0 }, { t: 5.6, zoom: 1.0 }]);
+        }).catch(function (e) { console.error(e); }).then(function () {
+          tl.set($('tv7-cena'), { opacity: 0 }, 0);
+          tl.set($('tv7-cena'), { opacity: 1 }, 18.7);
+          // a TV liga (clarao que encolhe) e a camera se aproxima devagar
+          tl.fromTo($('tv7-flash'), { opacity: 1, scaleY: 0.02 }, { scaleY: 1, duration: 0.18, ease: 'power2.out' }, 18.7);
+          tl.to($('tv7-flash'), { opacity: 0, duration: 0.35, ease: 'power2.out' }, 18.88);
+          tl.fromTo($('tv7-cena'), { scale: 1.0, x: 0, y: 0 }, { scale: 1.16, x: -30, y: 10, duration: 5.6, ease: 'sine.inOut' }, 18.7);
+          tl.to($('tv7-cena'), { opacity: 0, duration: 0.3 }, 24.0);
+          tl.set({}, {}, 70.5);
+          window.__timelines['tv'] = tl;
+        });
+    })();
+  </script>
+</template>

@@ -32,6 +32,22 @@ export function lintBeatSheet(sheet: BeatSheet, cards: CaptionCard[] = []): Lint
     if (b.kind === 'icons') b.items.forEach((it) => it.strikeAt !== undefined && events.push(it.strikeAt));
     if (b.kind === 'chapter') events.push(b.at + House.timing.chapterSilence);
     if (b.kind === 'type-on' && b.eraseAt !== undefined) events.push(b.eraseAt);
+    if (b.kind === 'cena') {
+      // cenas de dados (hf/kit/ofurry-cenas.js): todo tempo interno conta como novidade; keyframe com `dur`
+      // e movimento continuo (curva se desenhando, camera), conta a cada 2 s; a maquina nunca para.
+      const walk = (v: unknown) => {
+        if (Array.isArray(v)) return v.forEach(walk);
+        if (!v || typeof v !== 'object') return;
+        for (const [k, x] of Object.entries(v as Record<string, unknown>)) {
+          if (typeof x === 'number' && /^(at|.+At)$/.test(k) && x >= b.at && x <= b.until) events.push(x);
+          else walk(x);
+        }
+        const o = v as { at?: number; dur?: number };
+        if (typeof o.at === 'number' && typeof o.dur === 'number') for (let t = o.at; t < o.at + o.dur; t += 2) events.push(t);
+      };
+      walk(b);
+      if (b.tipo === 'maquina') for (let t = b.at; t < b.until; t += 2) events.push(t);
+    }
     if (b.at < 0 || b.until > sheet.duration + 0.01) {
       issues.push({ at: b.at, until: b.until, rule: 'fora-do-tempo', message: `${b.kind} passa da duracao do video` });
     }

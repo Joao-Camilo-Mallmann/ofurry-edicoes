@@ -1,0 +1,61 @@
+{
+  "id": "177-trecho-12",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@a primeira vez", "until": "@coloca nele>", "entry": "pop", "y": 0.12, "whisper": false }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "grid" },
+    { "at": "@E a partir do sexto", "backdrop": "black" },
+    { "at": "@guarda esse número", "backdrop": "grid", "opcional": true },
+    { "at": "@Então é agora", "backdrop": "black" },
+    { "at": "@É a partir desse ponto", "backdrop": "stars" }
+  ],
+  "sfx": [
+    {"at": "@primeiros 500", "file": "@sfx/General/Ding.mp3", "gain": -22},
+    {"at": "@primeiros 100 mil", "file": "@sfx/General/cash ting.mp3", "gain": -20},
+    {"at": "@Então é agora", "file": "@sfx/General/Ascending sound effect.mp3", "gain": -22, "len": 3.4, "fadeOut": 0.4},
+    {"at": "@177 mil", "file": "@sfx/General/correct sfx.mp3", "gain": -18},
+    {"at": "@rende mais", "file": "@sfx/Foley/Coins in Hand 02.wav", "gain": -20, "len": 1.0},
+    {"at": "@máquina", "file": "@sfx/Mechanical/Gadget 03.wav", "gain": -18, "len": 1.0},
+    {"at": "@imprimir dinheiro", "file": "@sfx/Foley/Coins Poured Out 04.wav", "gain": -21, "len": 2.2, "fadeOut": 0.8}
+  ],
+  "beats": [
+    { "kind": "number", "at": "@inicio", "until": "@E a partir do sexto", "value": "7%", "caption": "AO ANO, ACIMA DA INFLAÇÃO", "tone": "highlight" },
+
+    { "kind": "cena", "tipo": "grafico", "at": "@E a partir do sexto", "until": "@guarda esse número|@Então é agora",
+      "modo": "rendimento", "meses": 130, "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
+      "revela": [{ "at": 0, "mes": 60 }, { "at": "@sexto", "mes": 73, "dur": 4.5 }, { "at": "@E também", "mes": 80, "dur": 1.6 }],
+      "vista": [{ "at": 0, "x": 96, "y": 1200 }],
+      "marcos": [
+        { "mes": 73, "at": "@primeiros 500", "rotulo": "R$ 500 · METADE DO APORTE", "cor": "hl", "lado": "esq", "ate": "@E também" },
+        { "mes": 80, "at": "@primeiros 100 mil", "rotulo": "R$ 100 MIL GUARDADOS", "cor": "text", "lado": "baixo" }
+      ] },
+
+    { "kind": "mascot", "opcional": true, "at": "@guarda esse número", "until": "@Então é agora", "placement": "corner-right",
+      "poses": [
+        { "at": "@guarda esse número", "pose": "../../../../public/mascote/fox1.png" },
+        { "at": "@guarda esse número+1.5", "pose": "../../../../public/mascote/fox2.png" }
+      ] },
+    { "kind": "number", "opcional": true, "at": "@guarda esse número", "until": "@Então é agora", "value": "80", "caption": "MESES", "tone": "highlight" },
+
+    { "kind": "cena", "tipo": "grafico", "at": "@Então é agora", "until": "@E é aqui a primeira vez",
+      "modo": "rendimento", "meses": 132, "semMes": false,
+      "revela": [{ "at": 0, "mes": 80 }, { "at": "@ano 10", "mes": 124, "dur": 4.2 }],
+      "vista": [{ "at": 0, "x": 96, "y": 1200 }, { "at": "@ano 10", "x": 132, "y": 1200, "dur": 2.5 }],
+      "viradaTexto": "A VIRADA · R$ 177 MIL" },
+
+    { "kind": "cena", "tipo": "balanca", "at": "@E é aqui a primeira vez", "until": "@É a partir desse ponto",
+      "esquerda": "VOCÊ COLOCA", "direita": "O DINHEIRO RENDE",
+      "valores": [{ "at": 0, "v": 956 }, { "at": "@rende mais", "v": 1001, "dur": 0.8 }] },
+    { "kind": "cena", "tipo": "piada", "at": "@coloca nele", "until": "@É a partir desse ponto", "texto": "(ganhou por 1 real, mas ganhou)", "x": 0.56, "y": 0.9 },
+
+    { "kind": "cena", "tipo": "maquina", "at": "@É a partir desse ponto", "until": "@fim",
+      "ligaAt": "@máquina", "ritmo": [{ "at": 0, "v": 2 }, { "at": "@trabalhar", "v": 5, "dur": 1.5 }],
+      "contador": [{ "at": "@máquina", "v": 0 }, { "at": "@imprimir dinheiro", "v": 1000, "dur": 2 }],
+      "rotulo": "TRABALHANDO A SEU FAVOR", "rotuloAt": "@a seu favor", "escala": 1 }
+  ]
+}

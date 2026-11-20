@@ -1,0 +1,84 @@
+{
+  "id": "177-trecho-03",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@inicio", "until": "@existe-0.1", "entry": "whip" },
+    { "from": "@nunca para-0.1", "until": "@A maior parte-0.1", "entry": "pop", "y": 0.72 },
+    { "from": "@A maior parte-0.1", "until": "@normalmente-0.1", "entry": "whip" },
+    { "from": "@Você sua-0.1", "until": "@colocar-0.1", "entry": "whip" },
+    { "from": "@Tá sendo-0.1", "until": "@Dois pão-0.1", "entry": "pop", "y": 0.72 }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "grid" },
+    { "at": "@existe", "backdrop": "black" },
+    { "at": "@nunca para", "backdrop": "grid" },
+    { "at": "@A maior parte", "backdrop": "black" },
+    { "at": "@normalmente", "backdrop": "stars" },
+    { "at": "@olhando", "backdrop": "black" },
+    { "at": "@Você basicamente", "backdrop": "grid" },
+    { "at": "@Você sua", "backdrop": "black" },
+    { "at": "@colocar", "backdrop": "stars" },
+    { "at": "@Tá sendo", "backdrop": "grid" },
+    { "at": "@Dois pão", "backdrop": "black" }
+  ],
+  "sfx": [
+    {"at": "@o primeiro e", "file": "@sfx/General/Clock Tick.mp3", "gain": -22, "len": 2.4, "fadeOut": 0.4},
+    {"at": "@olhando", "file": "@sfx/General/Click.wav", "gain": -21},
+    {"at": "@o extrato", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.5},
+    {"at": "@guardar mil", "file": "@sfx/Foley/Coins in Hand 01.wav", "gain": -21, "len": 1.0, "fadeOut": 0.3},
+    {"at": "@5 reais", "file": "@sfx/General/cash ting.mp3", "gain": -22},
+    {"at": "@colocar", "file": "@sfx/Foley/Coins in Hand 02.wav", "gain": -22, "len": 0.9, "fadeOut": 0.3},
+    {"at": "@o mercado", "file": "@sfx/General/Click.wav", "gain": -21},
+    {"at": "@uma bala", "file": "@sfx/General/Pop sound.mp3", "gain": -20},
+    {"at": "@Dois pão", "file": "@sfx/General/Pop sound.mp3", "gain": -21},
+    {"at": "@de queijo", "file": "@sfx/General/Pop sound.mp3", "gain": -21}
+  ],
+  "beats": [
+    { "kind": "cena", "tipo": "grafico", "at": "@existe", "until": "@nunca para",
+      "modo": "rendimento", "meses": 30, "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
+      "revela": [{ "at": "@existe", "mes": 0 }, { "at": "@existe+0.2", "mes": 24, "dur": 5.4 }],
+      "vista": [{ "at": 0, "x": 24, "y": 1200 }] },
+
+    { "kind": "mascot", "at": "@nunca para", "until": "@A maior parte", "placement": "center",
+      "poses": [
+        { "at": "@nunca para", "pose": "../../../../public/mascote/fox1.png" },
+        { "at": "@observar", "pose": "../../../../public/mascote/fox4.png" }
+      ] },
+
+    { "kind": "cena", "tipo": "calendario", "at": "@normalmente", "until": "@olhando",
+      "titulo": "O PRIMEIRO E O SEGUNDO ANO",
+      "preenche": [{ "at": "@normalmente", "m": 0 }, { "at": "@o primeiro e", "m": 24, "dur": 2.5 }] },
+
+    { "kind": "icons", "at": "@olhando", "until": "@Você basicamente",
+      "items": [
+        { "icon": "eye", "label": "olhando", "at": "@olhando" },
+        { "icon": "receipt", "label": "o extrato", "at": "@o extrato" },
+        { "icon": "microscope", "label": "rendimento ridículo", "at": "@rendimento ridículo", "tone": "highlight" }
+      ] },
+
+    { "kind": "cena", "tipo": "comparar", "at": "@Você basicamente", "until": "@Você sua", "vs": "VS",
+      "itens": [
+        { "at": "@Você basicamente", "titulo": "TRABALHO", "valor": "R$ 1.000", "valorAt": "@guardar mil", "sub": "O MÊS INTEIRO", "cor": "text" },
+        { "at": "@rendimento#2", "titulo": "RENDIMENTO", "valor": "R$ 5", "valorAt": "@5 reais", "sub": "NO MÊS SEGUINTE", "cor": "gain" }
+      ] },
+
+    { "kind": "icons", "at": "@colocar", "until": "@Tá sendo", "relation": "→",
+      "items": [
+        { "icon": "hand-coins", "label": "mil reais", "at": "@colocar" },
+        { "icon": "landmark", "label": "o mercado", "at": "@o mercado" },
+        { "icon": "candy", "label": "uma bala", "at": "@uma bala", "tone": "highlight" }
+      ] },
+
+    { "kind": "mascot", "at": "@Tá sendo", "until": "@Dois pão", "placement": "center",
+      "poses": [{ "at": "@Tá sendo", "pose": "../../../../public/mascote/fox4.png" }] },
+
+    { "kind": "icons", "at": "@Dois pão", "until": "@fim", "relation": "+",
+      "items": [
+        { "icon": "croissant", "label": "pão de queijo", "at": "@Dois pão", "tone": "highlight" },
+        { "icon": "croissant", "label": "pão de queijo", "at": "@de queijo", "tone": "highlight" }
+      ] }
+  ]
+}

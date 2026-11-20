@@ -1,0 +1,95 @@
+{
+  "id": "177-trecho-07",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@Na prática-0.1", "until": "@dobrou-0.1", "entry": "whip" },
+    { "from": "@E a cada-0.1", "until": "@aporte e-0.1", "entry": "whip" },
+    { "from": "@E quando você-0.1", "until": "@fim", "entry": "pop", "y": 0.72 }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "black" },
+    { "at": "@Se você aporta", "backdrop": "grid" },
+    { "at": "@Na prática", "backdrop": "black" },
+    { "at": "@sem trabalhar", "backdrop": "grid" },
+    { "at": "@E é literalmente", "backdrop": "black" },
+    { "at": "@liga a máquina", "backdrop": "stars" },
+    { "at": "@E ela não", "backdrop": "black" },
+    { "at": "@Ela só trabalha", "backdrop": "stars" },
+    { "at": "@E a cada", "backdrop": "black" },
+    { "at": "@essa máquina", "backdrop": "stars" },
+    { "at": "@Se você continuar", "backdrop": "black" },
+    { "at": "@E quando você", "backdrop": "grid" }
+  ],
+  "sfx": [
+    {"at": "@vira", "file": "@sfx/Mechanical/Hydraulics 02.wav", "gain": -22, "len": 0.9, "fadeOut": 0.3},
+    {"at": "@gerando mil", "file": "@sfx/General/cash ting.mp3", "gain": -20},
+    {"at": "@dobrou", "file": "@sfx/General/Ding.mp3", "gain": -21},
+    {"at": "@hora a mais", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
+    {"at": "@a partir desse", "file": "@sfx/General/Ascending sound effect.mp3", "gain": -20, "len": 2.3, "fadeOut": 0.2},
+    {"at": "@liga a máquina", "file": "@sfx/Mechanical/Switch 05.wav", "gain": -16, "len": 0.6},
+    {"at": "@máquina de imprimir", "file": "@sfx/Mechanical/Gadget 03.wav", "gain": -17, "len": 1.2},
+    {"at": "@imprimir dinheiro", "file": "@sfx/Foley/Coins Poured Out 04.wav", "gain": -19, "len": 2.2, "fadeOut": 0.8},
+    {"at": "@aumento", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -23, "len": 0.35},
+    {"at": "@férias", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -23, "len": 0.35},
+    {"at": "@ruim", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -23, "len": 0.35},
+    {"at": "@mais forte", "file": "@sfx/Mechanical/Gadget 07.wav", "gain": -19, "len": 1.2, "fadeOut": 0.3},
+    {"at": "@render mais grana", "file": "@sfx/General/correct sfx.mp3", "gain": -20}
+  ],
+  "beats": [
+    { "kind": "cena", "tipo": "balanca", "at": "@inicio", "until": "@Se você aporta",
+      "esquerda": "VOCÊ COLOCA", "direita": "O DINHEIRO RENDE",
+      "valores": [{ "at": 0, "v": 1000 }, { "at": "@vira", "v": 1001, "dur": 0.6 }] },
+
+    { "kind": "cena", "tipo": "comparar", "at": "@Se você aporta", "until": "@Na prática", "vs": "+",
+      "itens": [
+        { "at": "@Se você aporta", "titulo": "VOCÊ APORTA", "valor": "R$ 1.000", "valorAt": "@mil reais", "sub": "POR MÊS", "cor": "text" },
+        { "at": "@o seu patrimônio", "titulo": "SEU PATRIMÔNIO", "valor": "R$ 1.000", "valorAt": "@gerando mil", "sub": "SOZINHO", "cor": "gain" }
+      ] },
+
+    { "kind": "number", "at": "@dobrou", "until": "@sem trabalhar", "value": "2×", "caption": "CAPACIDADE DE INVESTIR", "tone": "gain" },
+    { "kind": "icon", "at": "@sem trabalhar", "until": "@E é literalmente", "icon": "clock", "label": "uma hora a mais", "strikeAt": "@hora a mais" },
+
+    { "kind": "cena", "tipo": "maquina", "at": "@E é literalmente", "until": "@E ela não",
+      "ligaAt": "@liga a máquina", "ritmo": [{ "at": 0, "v": 4 }, { "at": "@imprimir dinheiro", "v": 7, "dur": 0.8 }],
+      "contador": [{ "at": "@liga a máquina", "v": 0 }, { "at": "@máquina de imprimir", "v": 1000, "dur": 1.0 }], "escala": 1 },
+    { "kind": "section", "at": "@máquina de imprimir", "until": "@E ela não", "text": "MÁQUINA DE IMPRIMIR DINHEIRO" },
+
+    { "kind": "icons", "at": "@E ela não", "until": "@Ela só trabalha",
+      "items": [
+        { "icon": "hand-coins", "label": "aumento", "at": "@pede aumento", "strikeAt": "@aumento>" },
+        { "icon": "tree-palm", "label": "férias", "at": "@pede férias", "strikeAt": "@férias>" },
+        { "icon": "calendar-x", "label": "segunda-feira ruim", "at": "@tem uma", "strikeAt": "@ruim>" }
+      ] },
+
+    { "kind": "cena", "tipo": "maquina", "at": "@Ela só trabalha", "until": "@E a cada",
+      "ritmo": [{ "at": 0, "v": 4 }],
+      "contador": [{ "at": 0, "v": 1000 }, { "at": "@aumentando", "v": 1240, "dur": 3.0 }], "escala": 1 },
+    { "kind": "section", "at": "@todos os meses", "until": "@E a cada", "text": "TODOS OS MESES" },
+
+    { "kind": "icons", "at": "@aporte e", "until": "@essa máquina", "relation": "+",
+      "items": [
+        { "icon": "hand-coins", "label": "aporte", "at": "@aporte e", "tone": "gain" },
+        { "icon": "repeat", "label": "reinvestimento", "at": "@reinvestimento", "tone": "gain" }
+      ] },
+
+    { "kind": "cena", "tipo": "maquina", "at": "@essa máquina", "until": "@Se você continuar",
+      "ritmo": [{ "at": 0, "v": 4 }, { "at": "@mais forte", "v": 10, "dur": 1.0 }],
+      "contador": [{ "at": 0, "v": 1240 }, { "at": "@mais forte", "v": 1940, "dur": 1.2 }], "escala": 1 },
+    { "kind": "section", "at": "@mais forte", "until": "@Se você continuar", "text": "MAIS FORTE COM O TEMPO" },
+
+    { "kind": "cena", "tipo": "grafico", "at": "@Se você continuar", "until": "@E quando você",
+      "modo": "rendimento", "meses": 200, "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
+      "viradaTexto": "A VIRADA · R$ 177 MIL",
+      "revela": [{ "at": 0, "mes": 124 }, { "at": "@daqui a alguns", "mes": 192, "dur": 3.5 }],
+      "vista": [{ "at": 0, "x": 200, "y": 2400 }] },
+
+    { "kind": "mascot", "at": "@E quando você", "until": "@fim", "placement": "center",
+      "poses": [
+        { "at": "@E quando você", "pose": "../../../../public/mascote/fox1.png" },
+        { "at": "@o dinheiro já", "pose": "../../../../public/mascote/fox2.png" }
+      ] }
+  ]
+}

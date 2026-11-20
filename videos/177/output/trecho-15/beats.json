@@ -1,0 +1,92 @@
+{
+  "id": "177-trecho-15",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@inicio", "until": "@a solução-0.1", "entry": "pop", "y": 0.84 },
+    { "from": "@a solução-0.1", "until": "@ser nenhum-0.1", "entry": "pop", "y": 0.72 },
+    { "from": "@Em vez de-0.1", "until": "@perseguir-0.1", "entry": "whip" },
+    { "from": "@mirar-0.1", "until": "@Ou qual-0.1", "entry": "pop", "y": 0.84 },
+    { "from": "@esse número mágico-0.1", "until": "@é o 177-0.1", "entry": "whip" },
+    { "from": "@realidade vai-0.1", "until": "@calcular-0.1", "entry": "pop", "y": 0.72 }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "grid" },
+    { "at": "@a solução", "backdrop": "stars" },
+    { "at": "@nenhum produto", "backdrop": "black" },
+    { "at": "@começar", "backdrop": "grid" },
+    { "at": "@Só que pra isso", "backdrop": "black" },
+    { "at": "@Em vez de", "backdrop": "stars" },
+    { "at": "@mirar", "backdrop": "grid" },
+    { "at": "@Ou qual", "backdrop": "black" },
+    { "at": "@todos os meses", "backdrop": "stars" },
+    { "at": "@esse número mágico", "backdrop": "grid" },
+    { "at": "@o 177", "backdrop": "black" },
+    { "at": "@realidade vai", "backdrop": "grid" },
+    { "at": "@calcular", "backdrop": "stars" }
+  ],
+  "sfx": [
+    {"at": "@ou nenhuma", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
+    {"at": "@esconde", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
+    {"at": "@começar", "file": "@sfx/General/Click.wav", "gain": -20},
+    {"at": "@manter a", "file": "@sfx/General/Click.wav", "gain": -20},
+    {"at": "@esperar", "file": "@sfx/General/Click.wav", "gain": -20},
+    {"at": "@aonde você está", "file": "@sfx/General/Pop sound.mp3", "gain": -22},
+    {"at": "@a gente tem que", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
+    {"at": "@aportar por você", "file": "@sfx/Foley/Coins in Hand 02.wav", "gain": -22, "len": 1.0},
+    {"at": "@177", "file": "@sfx/General/Digital counting.mp3", "gain": -24, "len": 0.9, "fadeOut": 0.2},
+    {"at": "@177 mil>", "file": "@sfx/General/correct sfx.mp3", "gain": -20}
+  ],
+  "beats": [
+    { "kind": "icon", "at": "@inicio", "until": "@a solução", "icon": "calendar-days", "tone": "highlight", "label": "calendário", "y": 0.38 },
+
+    { "kind": "mascot", "at": "@a solução", "until": "@nenhum produto", "placement": "center",
+      "poses": [
+        { "at": "@a solução", "pose": "../../../../public/mascote/fox2.png" },
+        { "at": "@Não vai ser", "pose": "../../../../public/mascote/fox1.png" }
+      ] },
+
+    { "kind": "icons", "at": "@nenhum produto", "until": "@começar",
+      "items": [
+        { "icon": "sparkles", "label": "produto milagroso", "at": "@nenhum produto", "tone": "highlight", "strikeAt": "@ou nenhuma" },
+        { "icon": "lock", "label": "fórmula secreta", "at": "@fórmula", "animated": false, "strikeAt": "@esconde" }
+      ] },
+
+    { "kind": "cena", "tipo": "lista", "at": "@começar", "until": "@Só que pra isso",
+      "itens": [
+        { "at": "@começar", "n": "1", "texto": "COMEÇAR" },
+        { "at": "@manter a", "n": "2", "texto": "MANTER" },
+        { "at": "@esperar", "n": "3", "texto": "ESPERAR" }
+      ] },
+
+    { "kind": "cena", "tipo": "calendario", "at": "@Só que pra isso", "until": "@Em vez de", "titulo": "NESSA CAMINHADA",
+      "preenche": [{ "at": 0, "m": 0 }, { "at": "@você precisa", "m": 40, "dur": 1.5 }],
+      "marcos": [{ "mes": 40, "at": "@aonde você está", "cor": "info", "rotulo": "ONDE VOCÊ ESTÁ?" }] },
+
+    { "kind": "cena", "tipo": "numeros", "at": "@perseguir", "until": "@mirar",
+      "itens": [{ "at": "@perseguir", "valor": "1 MILHÃO", "sub": "NÚMERO REDONDO", "riscaAt": "@a gente tem que" }] },
+
+    { "kind": "icon", "at": "@mirar", "until": "@Ou qual", "icon": "target", "tone": "highlight", "y": 0.4 },
+
+    { "kind": "cena", "tipo": "grafico", "at": "@Ou qual", "until": "@todos os meses",
+      "modo": "rendimento", "meses": 132,
+      "revela": [{ "at": 0, "mes": 0 }, { "at": "@Ou qual+0.1", "mes": 124, "dur": 2.6 }],
+      "vista": [{ "at": 0, "x": 132, "y": 1200 }],
+      "viradaTexto": "APORTA POR VOCÊ" },
+
+    { "kind": "number", "at": "@todos os meses", "until": "@7%", "value": "R$ 1.000", "caption": "TODOS OS MESES", "tone": "neutral" },
+    { "kind": "number", "at": "@7%", "until": "@esse número mágico", "value": "7%", "caption": "AO ANO", "tone": "highlight" },
+
+    { "kind": "number", "at": "@o 177", "until": "@realidade vai", "value": "R$ 177 MIL", "countFrom": 0, "caption": "NÚMERO MÁGICO", "tone": "highlight" },
+
+    { "kind": "mascot", "at": "@realidade vai", "until": "@calcular", "placement": "center",
+      "poses": [
+        { "at": "@realidade vai", "pose": "../../../../public/mascote/fox4.png" },
+        { "at": "@E pra isso", "pose": "../../../../public/mascote/fox1.png" }
+      ] },
+
+    { "kind": "icon", "at": "@calcular", "until": "@fim", "icon": "calculator", "tone": "highlight", "label": "o seu número" }
+  ]
+}

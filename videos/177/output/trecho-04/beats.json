@@ -1,0 +1,66 @@
+{
+  "id": "177-trecho-04",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@E essa é-0.1", "until": "@esforço-0.1", "entry": "whip" },
+    { "from": "@Mas não-0.1", "until": "@os mais importantes-0.1", "entry": "pop", "y": 0.72 },
+    { "from": "@Que qualquer-0.1", "until": "@Mas essa fase-0.1", "entry": "whip" }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "black" },
+    { "at": "@E essa é", "backdrop": "grid" },
+    { "at": "@Você coloca", "backdrop": "black" },
+    { "at": "@Mas não", "backdrop": "grid" },
+    { "at": "@os mais importantes", "backdrop": "stars" },
+    { "at": "@Não pelo", "backdrop": "black" },
+    { "at": "@Que qualquer", "backdrop": "grid" },
+    { "at": "@Mas essa fase", "backdrop": "stars" }
+  ],
+  "sfx": [
+    {"at": "@desiste", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
+    {"at": "@esforço", "file": "@sfx/Mechanical/Gadget 05.wav", "gain": -22, "len": 0.6, "fadeOut": 0.2},
+    {"at": "@nada", "file": "@sfx/General/Lose.wav", "gain": -24},
+    {"at": "@os mais importantes", "file": "@sfx/General/Ding.mp3", "gain": -21},
+    {"at": "@mas porque", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
+    {"at": "@abre uma porta", "file": "@sfx/Mechanical/Switch 03.wav", "gain": -20, "len": 0.6},
+    {"at": "@lá no futuro", "file": "@sfx/General/Pop sound.mp3", "gain": -21},
+    {"at": "@Mas essa fase", "file": "@sfx/General/Clock Tick.mp3", "gain": -22, "len": 2.0, "fadeOut": 0.4},
+    {"at": "@uma data", "file": "@sfx/General/correct sfx.mp3", "gain": -20}
+  ],
+  "beats": [
+    { "kind": "icon", "at": "@inicio", "until": "@E essa é", "icon": "log-out", "tone": "loss", "label": "a maioria desiste", "strikeAt": "@desiste" },
+
+    { "kind": "section", "at": "@a fase mais", "until": "@Mas não", "text": "A FASE MAIS CHATA" },
+    { "kind": "icons", "at": "@esforço", "until": "@Mas não", "relation": "→",
+      "items": [
+        { "icon": "dumbbell", "label": "esforço gigantesco", "at": "@esforço" },
+        { "icon": "hand-coins", "label": "não recebe nada", "at": "@não recebe", "strikeAt": "@nada" }
+      ] },
+
+    { "kind": "mascot", "at": "@Mas não", "until": "@os mais importantes", "placement": "center",
+      "poses": [
+        { "at": "@Mas não", "pose": "../../../../public/mascote/fox4.png" },
+        { "at": "@Esses primeiros", "pose": "../../../../public/mascote/fox1.png" },
+        { "at": "@não dá a mínima", "pose": "../../../../public/mascote/fox3.png" }
+      ] },
+
+    { "kind": "number", "at": "@os mais importantes", "until": "@Não pelo", "value": "MAIS IMPORTANTES", "caption": "DA SUA VIDA", "tone": "highlight" },
+
+    { "kind": "icons", "at": "@Não pelo", "until": "@Que qualquer",
+      "items": [
+        { "icon": "coins", "label": "rendem hoje", "at": "@Não pelo", "strikeAt": "@mas porque" },
+        { "icon": "door-open", "label": "abre uma porta", "at": "@abre uma porta", "tone": "highlight" },
+        { "icon": "trending-up", "label": "lá no futuro", "at": "@lá no futuro", "tone": "gain" }
+      ] },
+
+    { "kind": "cena", "tipo": "calendario", "at": "@Mas essa fase", "until": "@fim", "titulo": "ESSA FASE TEM UM FIM",
+      "preenche": [{ "at": "@Mas essa fase", "m": 0 }, { "at": "@Mas essa fase+0.2", "m": 120, "dur": 2.0 }],
+      "marcos": [
+        { "mes": 120, "at": "@uma data", "cor": "hl", "rotulo": "UMA DATA", "ate": "@previsível" },
+        { "mes": 120, "at": "@previsível", "cor": "hl", "rotulo": "PREVISÍVEL E CALCULÁVEL" }
+      ] }
+  ]
+}

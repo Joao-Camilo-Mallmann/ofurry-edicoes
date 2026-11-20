@@ -1,0 +1,59 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #c4-palco { position: absolute; inset: 0; }
+    #root .vw { position: absolute; inset: 0; overflow: hidden; }
+    #root .vid { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    #c4-inv { position: absolute; inset: 0; background: #fff; mix-blend-mode: difference; opacity: 0; }
+    #c4-vermelho { position: absolute; inset: 0; background: #8e1b12; mix-blend-mode: multiply; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="cortes" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div id="c4-palco">
+      <!-- vem o medo -->
+      <div id="w4-1" class="vw"><video id="c4-v1" class="clip vid" src="assets/video/clipe.mp4" data-start="0" data-duration="2.0" data-media-start="54" data-track-index="0" muted playsinline></video></div>
+      <!-- 2.0-6.4: a folha, cada medo circulado em vermelho -->
+      <!-- repetido varias e varias vezes -->
+      <div id="w4-7" class="vw"><video id="c4-v7" class="clip vid" src="assets/video/clipe.mp4" data-start="6.38" data-duration="1.92" data-media-start="100" data-playback-rate="0.7" data-track-index="6" muted playsinline></video></div>
+      <!-- 8.3-11.34: a folha, cada um guarda mais o seu segredo -->
+      <!-- 11.34-18.7: closes 3D (mao fechada, boca, prato vazio, mao parada), camada fotos -->
+      <!-- rajada ate o ultimo medo -->
+      <div id="w4-11" class="vw"><video id="c4-v11" class="clip vid" src="assets/video/clipe.mp4" data-start="18.7" data-duration="0.6" data-media-start="76" data-track-index="10" muted playsinline></video></div>
+      <div id="w4-12" class="vw"><video id="c4-v12" class="clip vid" src="assets/video/clipe.mp4" data-start="19.3" data-duration="0.6" data-media-start="123.4" data-track-index="11" muted playsinline></video></div>
+      <div id="w4-13" class="vw"><video id="c4-v13" class="clip vid" src="assets/video/clipe.mp4" data-start="19.9" data-duration="0.6" data-media-start="59.5" data-track-index="12" muted playsinline></video></div>
+      <div id="w4-14" class="vw"><video id="c4-v14" class="clip vid" src="assets/video/clipe.mp4" data-start="20.5" data-duration="0.6" data-media-start="86.5" data-track-index="13" muted playsinline></video></div>
+      <div id="w4-15" class="vw"><video id="c4-v15" class="clip vid" src="assets/video/clipe.mp4" data-start="21.1" data-duration="1.68" data-media-start="125.6" data-playback-rate="0.8" data-track-index="14" muted playsinline></video></div>
+      <!-- inseguranca -->
+      <div id="w4-16" class="vw"><video id="c4-v16" class="clip vid" src="assets/video/clipe.mp4" data-start="22.78" data-duration="3.2" data-media-start="3" data-playback-rate="0.7" data-track-index="15" muted playsinline></video></div>
+      <!-- 25.98-28.46: cartao preto (dificuldade da familia) -->
+      <div id="c4-cartao" class="clip" data-start="25.98" data-duration="2.48" data-track-index="16" style="position:absolute;inset:0;background:#0e0c0a"></div>
+      <!-- demonstrar, expressar, sentimentos / na hora do almoco -->
+      <div id="w4-18" class="vw"><video id="c4-v18" class="clip vid" src="assets/video/clipe.mp4" data-start="28.46" data-duration="3.68" data-media-start="80.5" data-playback-rate="0.8" data-track-index="17" muted playsinline></video></div>
+      <div id="w4-19" class="vw"><video id="c4-v19" class="clip vid" src="assets/video/clipe.mp4" data-start="32.14" data-duration="3.26" data-media-start="10" data-playback-rate="0.7" data-track-index="18" muted playsinline></video></div>
+      <div id="c4-vermelho"></div>
+      <div id="c4-inv"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      [['w4-1', 0, 1.12], ['w4-7', 6.38, 1.15],
+       ['w4-11', 18.7, 1.3], ['w4-12', 19.3, 1.3], ['w4-13', 19.9, 1.3], ['w4-14', 20.5, 1.3], ['w4-15', 21.1, 1.35],
+       ['w4-16', 22.78, 1.15], ['w4-18', 28.46, 1.15], ['w4-19', 32.14, 1.12]]
+        .forEach(function (c) { A.soco(tl, $(c[0]), c[1], c[2], 1.04, 0.3); });
+      tl.to($('w4-1'), { scale: 1.14, duration: 1.7, ease: 'sine.inOut' }, 0.3);
+      tl.to($('w4-7'), { scale: 1.12, duration: 1.6, ease: 'sine.inOut' }, 6.7);
+      tl.to($('w4-16'), { scale: 1.14, duration: 2.9, ease: 'sine.inOut' }, 23.08);
+      tl.to($('w4-18'), { scale: 1.12, duration: 3.4, ease: 'sine.inOut' }, 28.76);
+      tl.to($('w4-19'), { scale: 1.1, duration: 3.0, ease: 'sine.inOut' }, 32.44);
+      // o ultimo medo tinge a imagem de vermelho
+      tl.fromTo($('c4-vermelho'), { opacity: 0 }, { opacity: 0.4, duration: 0.2, ease: 'expo.out' }, 21.98);
+      tl.to($('c4-vermelho'), { opacity: 0, duration: 0.8, ease: 'power2.out' }, 22.78);
+      A.inverte(tl, $('c4-inv'), 21.98, 2);
+      A.treme(tl, $('c4-palco'), 21.98, 0.45, 20, 43);
+      tl.set({}, {}, 35.4);
+      window.__timelines['cortes'] = tl;
+    })();
+  </script>
+</template>

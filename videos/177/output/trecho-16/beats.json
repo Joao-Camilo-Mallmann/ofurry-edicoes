@@ -1,0 +1,85 @@
+{
+  "id": "177-trecho-16",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@inicio", "until": "@são só três-0.1", "entry": "whip" },
+    { "from": "@Você vai pegar-0.1", "until": "@multiplicar pela-0.1", "entry": "pop", "y": 0.78 },
+    { "from": "@Só uma coisa-0.1", "until": "@essa taxa que-0.1", "entry": "pop" },
+    { "from": "@Então bem provável-0.1", "until": "@Então é basicamente-0.1", "entry": "glitch", "y": 0.72 },
+    { "from": "@E assim você-0.1", "until": "@fim", "entry": "pop", "y": 0.78 }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "grid" },
+    { "at": "@E quanto que", "backdrop": "black" },
+    { "at": "@Você vai pegar", "backdrop": "stars" },
+    { "at": "@multiplicar pela", "backdrop": "black" },
+    { "at": "@Você tem a sua", "backdrop": "grid" },
+    { "at": "@Só uma coisa", "backdrop": "stars" },
+    { "at": "@Hoje esse valor", "backdrop": "black" },
+    { "at": "@Então bem provável", "backdrop": "grid" },
+    { "at": "@Então é basicamente", "backdrop": "black" },
+    { "at": "@E assim você", "backdrop": "stars" }
+  ],
+  "sfx": [
+    { "at": "@Primeiro", "file": "@sfx/General/Click.wav", "gain": -20 },
+    { "at": "@valor investido", "file": "@sfx/Foley/Coins in Hand 01.wav", "gain": -22, "len": 0.9, "fadeOut": 0.3 },
+    { "at": "@0,56", "file": "@sfx/General/Ding.mp3", "gain": -22 },
+    { "at": "@real distância", "file": "@sfx/Mechanical/Switch 03.wav", "gain": -22 },
+    { "at": "@7%", "file": "@sfx/General/Digital counting.mp3", "gain": -24, "len": 0.7, "fadeOut": 0.2 },
+    { "at": "@aleatório", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4 },
+    { "at": "@Hoje esse valor", "file": "@sfx/General/camera-shutter-6305.mp3", "gain": -18, "len": 0.8 },
+    { "at": "@mudar o valor", "file": "@sfx/General/Pop sound.mp3", "gain": -22 },
+    { "at": "@na sua data", "file": "@sfx/General/correct sfx.mp3", "gain": -22 }
+  ],
+  "beats": [
+    { "kind": "cena", "tipo": "lista", "at": "@são só três", "until": "@E quanto que", "titulo": "3 PASSOS",
+      "itens": [
+        { "at": "@são só três", "n": "1", "texto": "QUANTO RENDE HOJE" },
+        { "at": "@três passos", "n": "2", "texto": "MANTER OS APORTES" },
+        { "at": "@passos", "n": "3", "texto": "RENDA PREVISÍVEL" }
+      ],
+      "ativo": [{ "at": "@Primeiro", "i": 0 }] },
+
+    { "kind": "type-on", "at": "@E quanto que", "until": "@Você vai pegar", "text": "Quanto ele rende hoje" },
+
+    { "kind": "icon", "at": "@Você vai pegar", "until": "@multiplicar pela", "icon": "wallet", "tone": "gain", "label": "valor investido", "y": 0.4 },
+
+    { "kind": "cena", "tipo": "formula", "at": "@multiplicar pela", "until": "@Você tem a sua", "titulo": "QUANTO RENDE HOJE",
+      "linhas": [
+        { "at": "@multiplicar pela", "a": "PATRIMÔNIO", "op": "× 0,56% =", "b": "RENDIMENTO", "bAt": "@0,56", "cor": "gain" }
+      ] },
+    { "kind": "mascot", "at": "@E voilà", "until": "@Você tem a sua", "placement": "corner-right",
+      "poses": [{ "at": "@E voilà", "pose": "../../../../public/mascote/fox2.png" }] },
+
+    { "kind": "cena", "tipo": "grafico", "at": "@Você tem a sua", "until": "@Só uma coisa",
+      "modo": "rendimento", "meses": 132, "rotuloCabeca": false, "viradaTexto": "PONTO DE VIRADA",
+      "revela": [{ "at": 0, "mes": 0 }, { "at": "@Você tem a sua+0.05", "mes": 132, "dur": 1.8 }],
+      "vista": [{ "at": 0, "x": 132, "y": 1200 }],
+      "marcos": [{ "mes": 40, "at": "@real distância", "rotulo": "VOCÊ HOJE", "cor": "info", "lado": "cima" }] },
+
+    { "kind": "number", "at": "@essa taxa que", "until": "@equivalente", "value": "0,56%", "caption": "AO MÊS", "tone": "highlight" },
+    { "kind": "number", "at": "@equivalente", "until": "@não é um número", "value": "7%", "caption": "AO ANO", "tone": "gain" },
+    { "kind": "icon", "at": "@não é um número", "until": "@Hoje esse valor", "icon": "dice-5", "tone": "neutral", "label": "aleatório", "strikeAt": "@aleatório", "animated": false },
+
+    { "kind": "proof", "at": "@Hoje esse valor", "until": "@Então bem provável", "src": "../../acervo/prints/tesouro-direto-taxas.png",
+      "highlight": [0.015, 0.805, 0.475, 0.09], "highlightAt": "@taxa média" },
+
+    { "kind": "mascot", "at": "@Então bem provável", "until": "@Então é basicamente", "placement": "center",
+      "poses": [
+        { "at": "@Então bem provável", "pose": "../../../../public/mascote/fox1.png" },
+        { "at": "@olhar esse vídeo", "pose": "../../../../public/mascote/fox3.png" },
+        { "at": "@tenha mudado", "pose": "../../../../public/mascote/fox4.png" }
+      ] },
+
+    { "kind": "cena", "tipo": "formula", "at": "@Então é basicamente", "until": "@E assim você",
+      "linhas": [
+        { "at": "@Então é basicamente", "a": "PATRIMÔNIO", "op": "× 0,56% =", "b": "RENDIMENTO", "ate": "@mudar o valor" },
+        { "at": "@mudar o valor", "a": "PATRIMÔNIO", "op": "× TAXA =", "b": "RENDIMENTO", "bAt": "@sua taxa mensal", "cor": "hl" }
+      ] },
+
+    { "kind": "icon", "at": "@E assim você", "until": "@fim", "icon": "calendar-check", "tone": "highlight", "y": 0.36 }
+  ]
+}

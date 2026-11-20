@@ -1,0 +1,73 @@
+{
+  "id": "177-trecho-14",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@inicio", "until": "@esse prazo-0.1", "entry": "whip" },
+    { "from": "@O que muda-0.1", "until": "@Então aquela-0.1", "entry": "pop", "y": 0.12 },
+    { "from": "@Então aquela-0.1", "until": "@quanto eu ganho-0.1", "entry": "whip" },
+    { "from": "@A virada na real-0.1", "until": "@do tamanho-0.1", "entry": "whip" }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "grid" },
+    { "at": "@esse prazo", "backdrop": "black" },
+    { "at": "@500", "backdrop": "stars" },
+    { "at": "@10 anos", "backdrop": "black" },
+    { "at": "@Então aquela", "backdrop": "grid" },
+    { "at": "@Então quem", "backdrop": "black" },
+    { "at": "@Quem começa com 35", "backdrop": "stars" },
+    { "at": "@A virada na real", "backdrop": "grid" }
+  ],
+  "sfx": [
+    {"at": "@prazo", "file": "@sfx/General/Clock Tick.mp3", "gain": -22, "len": 1.0, "fadeOut": 0.3},
+    {"at": "@aporta+0.3", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
+    {"at": "@500", "file": "@sfx/Foley/Coins in Hand 01.wav", "gain": -22, "len": 0.8},
+    {"at": "@10 anos", "file": "@sfx/General/Ding.mp3", "gain": -22},
+    {"at": "@quanto eu ganho", "file": "@sfx/General/Typewriter.mp3", "gain": -22, "len": 0.8, "fadeOut": 0.2},
+    {"at": "@Como quando", "file": "@sfx/General/Typewriter.mp3", "gain": -22, "len": 0.8, "fadeOut": 0.2},
+    {"at": "@Então quem", "file": "@sfx/General/Clock ticking fast.mp3", "gain": -24, "len": 3.0, "fadeOut": 0.5},
+    {"at": "@aos 35", "file": "@sfx/General/Ding.mp3", "gain": -22},
+    {"at": "@Quem começa com 35", "file": "@sfx/General/Clock ticking fast.mp3", "gain": -24, "len": 2.0, "fadeOut": 0.4},
+    {"at": "@aos 45", "file": "@sfx/General/Ding.mp3", "gain": -22},
+    {"at": "@mas sim", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
+    {"at": "@calendário", "file": "@sfx/General/correct sfx.mp3", "gain": -20}
+  ],
+  "beats": [
+    { "kind": "icons", "at": "@esse prazo", "until": "@500",
+      "items": [
+        { "icon": "timer", "label": "prazo", "at": "@esse prazo", "tone": "highlight" },
+        { "icon": "hand-coins", "label": "quanto você aporta", "at": "@quanto você", "strikeAt": "@aporta+0.3" }
+      ] },
+
+    { "kind": "cena", "tipo": "comparar", "at": "@500", "until": "@10 anos", "vs": "OU",
+      "itens": [
+        { "at": "@500", "titulo": "INVESTIR", "valor": "R$ 500", "cor": "text" },
+        { "at": "@2 mil", "titulo": "INVESTIR", "valor": "R$ 2.000", "cor": "text" }
+      ] },
+
+    { "kind": "cena", "tipo": "comparar", "at": "@10 anos", "until": "@Então aquela", "vs": "=",
+      "itens": [
+        { "at": "@10 anos", "titulo": "R$ 500", "valor": "10 ANOS", "sub": "EM MÉDIA", "cor": "hl" },
+        { "at": "@10 anos+0.25", "titulo": "R$ 2.000", "valor": "10 ANOS", "sub": "EM MÉDIA", "cor": "hl" }
+      ] },
+
+    { "kind": "type-on", "at": "@quanto eu ganho", "until": "@Como quando", "text": "Quanto eu ganho?", "eraseAt": "@de outra forma" },
+    { "kind": "type-on", "at": "@Como quando", "until": "@Então quem", "text": "Quando eu começo?" },
+
+    { "kind": "cena", "tipo": "calendario", "at": "@Então quem", "until": "@Quem começa com 35", "idade": 25, "titulo": "QUEM COMEÇA COM 25",
+      "preenche": [{ "at": 0, "m": 0 }, { "at": "@25 anos", "m": 120, "dur": 2.6 }],
+      "marcos": [{ "mes": 120, "at": "@aos 35", "cor": "hl", "rotulo": "AOS 35" }] },
+
+    { "kind": "cena", "tipo": "calendario", "at": "@Quem começa com 35", "until": "@A virada na real", "idade": 35, "titulo": "QUEM COMEÇA COM 35",
+      "preenche": [{ "at": 0, "m": 0 }, { "at": "@com 35", "m": 120, "dur": 1.4 }],
+      "marcos": [{ "mes": 120, "at": "@aos 45", "cor": "hl", "rotulo": "AOS 45" }] },
+
+    { "kind": "icons", "at": "@do tamanho", "until": "@fim",
+      "items": [
+        { "icon": "hand-coins", "label": "investimento", "at": "@do tamanho", "strikeAt": "@mas sim" },
+        { "icon": "calendar-days", "label": "calendário", "at": "@calendário", "tone": "highlight" }
+      ] }
+  ]
+}

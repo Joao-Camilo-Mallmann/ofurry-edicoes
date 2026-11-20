@@ -1,0 +1,52 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #c9-palco { position: absolute; inset: 0; }
+    #root .vw { position: absolute; inset: 0; overflow: hidden; }
+    #root .vid { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; object-position: 50% 32%; }
+  </style>
+  <div id="root" data-composition-id="cortes" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div id="c9-palco">
+      <!-- "uma simples musica": o resumo do clipe, um corte a cada 0,55 s -->
+      <div id="w9m1" class="vw"><video id="c9-m1" class="clip vid" src="assets/video/clipe.mp4" data-start="0" data-duration="0.55" data-media-start="2" data-track-index="0" muted playsinline></video></div>
+      <div id="w9m2" class="vw"><video id="c9-m2" class="clip vid" src="assets/video/clipe.mp4" data-start="0.55" data-duration="0.55" data-media-start="22" data-track-index="1" muted playsinline></video></div>
+      <div id="w9m3" class="vw"><video id="c9-m3" class="clip vid" src="assets/video/clipe.mp4" data-start="1.1" data-duration="0.55" data-media-start="46.5" data-track-index="2" muted playsinline></video></div>
+      <div id="w9m4" class="vw"><video id="c9-m4" class="clip vid" src="assets/video/clipe.mp4" data-start="1.65" data-duration="0.55" data-media-start="60" data-track-index="3" muted playsinline></video></div>
+      <div id="w9m5" class="vw"><video id="c9-m5" class="clip vid" src="assets/video/clipe.mp4" data-start="2.2" data-duration="0.55" data-media-start="78.4" data-track-index="4" muted playsinline></video></div>
+      <div id="w9m6" class="vw"><video id="c9-m6" class="clip vid" src="assets/video/clipe.mp4" data-start="2.75" data-duration="0.55" data-media-start="82" data-track-index="5" muted playsinline></video></div>
+      <div id="w9m7" class="vw"><video id="c9-m7" class="clip vid" src="assets/video/clipe.mp4" data-start="3.3" data-duration="0.55" data-media-start="86.4" data-track-index="6" muted playsinline></video></div>
+      <div id="w9m8" class="vw"><video id="c9-m8" class="clip vid" src="assets/video/clipe.mp4" data-start="3.85" data-duration="0.55" data-media-start="89.5" data-track-index="7" muted playsinline></video></div>
+      <div id="w9m9" class="vw"><video id="c9-m9" class="clip vid" src="assets/video/clipe.mp4" data-start="4.4" data-duration="0.55" data-media-start="112" data-track-index="8" muted playsinline></video></div>
+      <div id="w9m10" class="vw"><video id="c9-m10" class="clip vid" src="assets/video/clipe.mp4" data-start="4.95" data-duration="0.55" data-media-start="123.5" data-track-index="9" muted playsinline></video></div>
+      <div id="w9m11" class="vw"><video id="c9-m11" class="clip vid" src="assets/video/clipe.mp4" data-start="5.5" data-duration="0.55" data-media-start="125" data-track-index="10" muted playsinline></video></div>
+      <div id="w9m12" class="vw"><video id="c9-m12" class="clip vid" src="assets/video/clipe.mp4" data-start="6.05" data-duration="0.55" data-media-start="138" data-track-index="11" muted playsinline></video></div>
+      <!-- "essa simples musica revela como a arte e um meio para explicar" -->
+      <div id="w9a" class="vw"><video id="c9-va" class="clip vid" src="assets/video/clipe.mp4" data-start="13.75" data-duration="2.85" data-media-start="124.5" data-track-index="12" muted playsinline></video></div>
+      <div id="w9b" class="vw"><video id="c9-vb" class="clip vid" src="assets/video/clipe.mp4" data-start="16.6" data-duration="2.7" data-media-start="140" data-track-index="13" muted playsinline></video></div>
+      <!-- lagrima (irma) / grito (pai) / dor no peito (Belchior) em camera lenta -->
+      <div id="w9c" class="vw"><video id="c9-vc" class="clip vid" src="assets/video/clipe.mp4" data-start="19.3" data-duration="2.25" data-media-start="86.2" data-playback-rate="0.5" data-track-index="14" muted playsinline></video></div>
+      <div id="w9d" class="vw"><video id="c9-vd" class="clip vid" src="assets/video/clipe.mp4" data-start="21.55" data-duration="2.7" data-media-start="123.4" data-playback-rate="0.32" data-track-index="15" muted playsinline></video></div>
+      <div id="w9e" class="vw"><video id="c9-ve" class="clip vid" src="assets/video/clipe.mp4" data-start="24.25" data-duration="1.6" data-media-start="47" data-track-index="16" muted playsinline></video></div>
+      <!-- "amor por fazer o que fazemos de melhor" -->
+      <div id="w9f" class="vw"><video id="c9-vf" class="clip vid" src="assets/video/clipe.mp4" data-start="32.75" data-duration="5.51" data-media-start="64" data-playback-rate="0.7" data-track-index="17" muted playsinline></video></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      for (var i = 1; i <= 12; i++) A.soco(tl, $('w9m' + i), (i - 1) * 0.55, i % 2 ? 1.24 : 1.16, 1.04, 0.28);
+      [['w9a', 13.75, 1.18], ['w9b', 16.6, 1.15], ['w9c', 19.3, 1.2], ['w9d', 21.55, 1.2], ['w9e', 24.25, 1.25], ['w9f', 32.75, 1.2]]
+        .forEach(function (c) { A.soco(tl, $(c[0]), c[1], c[2], 1.04, 0.32); });
+      tl.to($('w9a'), { scale: 1.14, duration: 2.5, ease: 'sine.inOut' }, 14.1);
+      tl.to($('w9b'), { scale: 1.12, duration: 2.4, ease: 'sine.inOut' }, 16.9);
+      tl.to($('w9c'), { scale: 1.16, duration: 1.9, ease: 'sine.inOut' }, 19.62);
+      tl.to($('w9d'), { scale: 1.16, duration: 2.3, ease: 'sine.inOut' }, 21.87);
+      tl.to($('w9f'), { scale: 1.16, duration: 5.1, ease: 'sine.inOut' }, 33.07);
+      A.treme(tl, $('c9-palco'), 21.95, 0.3, 12, 91);
+      tl.set({}, {}, 38.26);
+      window.__timelines['cortes'] = tl;
+    })();
+  </script>
+</template>

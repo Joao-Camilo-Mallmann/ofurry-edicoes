@@ -1,0 +1,70 @@
+{
+  "id": "177-trecho-13",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@inicio", "until": "@Desses 177-0.1", "entry": "pop", "y": 0.72 },
+    { "from": "@Ou seja-0.1", "until": "@Só que a partir-0.1", "entry": "pop", "y": 0.84 },
+    { "from": "@Só que a partir-0.1", "until": "@Como você já-0.1", "entry": "whip" },
+    { "from": "@Então quanto-0.1", "until": "@da oitava-0.1", "entry": "pop", "y": 0.12 },
+    { "from": "@Bom ela-0.1", "until": "@fim", "entry": "pop", "y": 0.72 }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "grid" },
+    { "at": "@Desses 177", "backdrop": "black" },
+    { "at": "@Ou seja", "backdrop": "stars" },
+    { "at": "@Só que a partir", "backdrop": "grid" },
+    { "at": "@Como você já", "backdrop": "black" },
+    { "at": "@é basicamente uma curva", "backdrop": "stars" },
+    { "at": "@oitava", "backdrop": "black" },
+    { "at": "@Bom ela", "backdrop": "grid" }
+  ],
+  "sfx": [
+    {"at": "@177 mil", "file": "@sfx/General/Pop sound.mp3", "gain": -22},
+    {"at": "@123 mil", "file": "@sfx/Foley/Coins Poured Out 01.wav", "gain": -22, "len": 1.0, "fadeOut": 0.3},
+    {"at": "@54 mil", "file": "@sfx/Foley/Coins in Hand 03.wav", "gain": -20, "len": 1.0},
+    {"at": "@seu trabalho", "file": "@sfx/Foley/Briefcase Latch.wav", "gain": -22},
+    {"at": "@aporta mil", "file": "@sfx/General/cash ting.mp3", "gain": -22},
+    {"at": "@máquina", "file": "@sfx/Mechanical/Gadget 03.wav", "gain": -20, "len": 1.0},
+    {"at": "@quanto mais tempo", "file": "@sfx/General/Digital counting.mp3", "gain": -24, "len": 1.4, "fadeOut": 0.3},
+    {"at": "@oitava", "file": "@sfx/General/Ding.mp3", "gain": -22}
+  ],
+  "beats": [
+    { "kind": "mascot", "at": "@inicio", "until": "@Desses 177", "placement": "center",
+      "poses": [
+        { "at": "@inicio", "pose": "../../../../public/mascote/fox1.png" },
+        { "at": "@E aqui também", "pose": "../../../../public/mascote/fox2.png" }
+      ] },
+
+    { "kind": "cena", "tipo": "barra", "at": "@Desses 177", "until": "@Ou seja",
+      "total": "R$ 177 MIL", "totalAt": "@177 mil",
+      "partes": [
+        { "at": "@123 mil", "valor": 123000, "rotulo": "DO SEU BOLSO", "cor": "text" },
+        { "at": "@54 mil", "valor": 54000, "rotulo": "DE JUROS", "cor": "gain" }
+      ] },
+
+    { "kind": "icon", "at": "@Ou seja", "until": "@Só que a partir", "icon": "briefcase-business", "tone": "neutral", "label": "seu trabalho", "y": 0.4 },
+
+    { "kind": "cena", "tipo": "comparar", "at": "@Como você já", "until": "@é basicamente uma curva", "vs": "+",
+      "itens": [
+        { "at": "@aporta mil", "titulo": "VOCÊ", "valor": "R$ 1.000", "cor": "text" },
+        { "at": "@mais mil", "titulo": "A MÁQUINA", "valor": "R$ 1.000", "cor": "gain" }
+      ] },
+
+    { "kind": "cena", "tipo": "grafico", "at": "@é basicamente uma curva", "until": "@oitava",
+      "modo": "patrimonio", "meses": 240, "rotuloCabeca": false,
+      "revela": [{ "at": 0, "mes": 124 }, { "at": "@curva exponencial+0.5", "mes": 240, "dur": 3.6 }],
+      "vista": [{ "at": 0, "x": 132, "y": 200000 }, { "at": "@curva exponencial", "x": 240, "y": 560000, "dur": 3.0 }],
+      "marcos": [{ "mes": 124, "at": "@é basicamente uma curva", "rotulo": "R$ 177 MIL", "cor": "hl", "lado": "esq" }] },
+
+    { "kind": "number", "at": "@oitava", "until": "@Bom ela", "value": "8ª", "caption": "MARAVILHA DO MUNDO", "tone": "highlight" },
+
+    { "kind": "mascot", "at": "@Bom ela", "until": "@fim", "placement": "center",
+      "poses": [
+        { "at": "@Bom ela", "pose": "../../../../public/mascote/fox4.png" },
+        { "at": "@ponto exato", "pose": "../../../../public/mascote/fox1.png" }
+      ] }
+  ]
+}

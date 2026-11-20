@@ -1,0 +1,46 @@
+<template>
+  <style>
+    @font-face { font-family: 'Bebas Neue'; src: url('assets/fonts/BebasNeue-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Medium.otf') format('opentype'); font-weight: 500; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-SemiBold.otf') format('opentype'); font-weight: 600; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Bold.otf') format('opentype'); font-weight: 700; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-ExtraBold.otf') format('opentype'); font-weight: 800; font-display: block; }
+    @font-face { font-family: 'Caveat'; src: url('assets/fonts/caveat-latin.woff2') format('woff2'); font-weight: 400 700; font-display: block; }
+    #root { position: absolute; inset: 0; pointer-events: none; }
+    #fl-grao { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; opacity: 0.07; mix-blend-mode: overlay; }
+    #fl1-vintage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; mix-blend-mode: screen; opacity: 0.2; }
+    #fl-vinheta { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 62%, rgba(0,0,0,0.22) 100%); }
+    #root .leak { position: absolute; inset: 0; mix-blend-mode: screen; }
+    #root .leak-in { position: absolute; width: 1400px; height: 1400px; left: 260px; top: -160px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,214,120,0.85) 0%, rgba(240,180,60,0.42) 35%, rgba(220,150,30,0) 70%); }
+    #fl-flash-in { position: absolute; inset: 0; background: #f6ecd6; }
+  </style>
+  <div id="root" data-composition-id="filme" data-width="1920" data-height="1080">
+    <canvas id="fl-grao" class="clip" data-start="0" data-duration="32.4" data-track-index="0"></canvas>
+    <video id="fl1-vintage" class="clip" src="assets/video/vintage.mp4" data-start="0" data-duration="32.4" data-media-start="3" data-track-index="9" muted playsinline></video>
+    <div id="fl-vinheta" class="clip" data-start="0" data-duration="32.4" data-track-index="1"></div>
+    <div id="fl-leak1" class="clip leak" data-start="2.6" data-duration="1.0" data-track-index="2"><div id="fl-leak1-in" class="leak-in"></div></div>
+    <div id="fl-leak2" class="clip leak" data-start="15.4" data-duration="1.2" data-track-index="3"><div id="fl-leak2-in" class="leak-in"></div></div>
+    <div id="fl-leak3" class="clip leak" data-start="22.4" data-duration="1.2" data-track-index="4"><div id="fl-leak3-in" class="leak-in"></div></div>
+    <div id="fl-flash" class="clip" data-start="14.24" data-duration="0.4" data-track-index="5" style="position:absolute;inset:0"><div id="fl-flash-in"></div></div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var $ = function (id) { return document.getElementById(id); };
+      window.Almoco.film($('fl-grao'), tl, 32.4);
+      function leak(id, at, d, x0, x1, peak) {
+        tl.fromTo($(id), { x: x0, opacity: 0 }, { x: x1, duration: d, ease: 'sine.inOut' }, at);
+        tl.to($(id), { opacity: peak, duration: d * 0.4, ease: 'sine.out' }, at);
+        tl.to($(id), { opacity: 0, duration: d * 0.5, ease: 'sine.in' }, at + d * 0.5);
+      }
+      leak('fl-leak1-in', 2.6, 1.0, -700, 500, 0.5);
+      leak('fl-leak2-in', 15.4, 1.2, 600, -500, 0.6);
+      leak('fl-leak3-in', 22.4, 1.2, -600, 400, 0.45);
+      tl.fromTo($('fl-flash-in'), { opacity: 0 }, { opacity: 0.85, duration: 0.08, ease: 'none' }, 14.24);
+      tl.to($('fl-flash-in'), { opacity: 0, duration: 0.3, ease: 'power2.out' }, 14.32);
+      window.__timelines['filme'] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,155 @@
+<template>
+  <style>
+    @font-face { font-family: 'Bebas Neue'; src: url('assets/fonts/BebasNeue-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Bold.otf') format('opentype'); font-weight: 700; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-ExtraBold.otf') format('opentype'); font-weight: 800; font-display: block; }
+    @font-face { font-family: 'Garamond'; src: url('assets/fonts/eb-garamond-italic-400-latin.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: block; }
+    #root { position: absolute; inset: 0; color: #ede8de; overflow: hidden; }
+    #t8-palco { position: absolute; inset: 0; }
+    #root .bloco { position: absolute; inset: 0; }
+    #root .w { display: inline-block; }
+    #root .bebas { font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: 0.9; letter-spacing: 0.01em; }
+    #root .rot { font-family: 'MontserratLocal', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.5em; }
+    #root .centro { position: absolute; left: 0; right: 0; text-align: center; }
+    #root .tag { display: inline-block; background: #f2c230; color: #0e0c0a; padding: 6px 22px 2px; }
+    #root .preto { display: inline-block; background: #0e0c0a; color: #ede8de; padding: 14px 34px 4px; }
+    #root .glitch { position: absolute; left: 0; right: 0; top: 0; mix-blend-mode: screen; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="textos" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div id="t8-palco">
+      <div id="t8-expr" class="clip bloco" data-start="3.4" data-duration="3.0" data-track-index="0">
+        <div class="centro" style="top:760px"><span id="t8-expr-in" class="bebas tag w" style="font-size:120px">DIFICULDADE DE SE EXPRESSAR</span></div>
+      </div>
+      <div id="t8-com" class="clip bloco" data-start="6.6" data-duration="2.0" data-track-index="1">
+        <div style="position:absolute;right:90px;top:72px"><span id="t8-com-in" class="bebas tag w" style="font-size:64px;padding:10px 26px 4px">SE COMUNICAR COM OS PARENTES</span></div>
+      </div>
+      <div id="t8-brigas" class="clip bloco" data-start="8.7" data-duration="2.2" data-track-index="2">
+        <div class="centro" style="top:330px">
+          <div id="t8-brigas-in" class="bebas sombra" style="font-size:440px">BRIGAS</div>
+          <div id="t8-brigas-r" class="bebas glitch" style="font-size:440px;color:#ff2a2a">BRIGAS</div>
+          <div id="t8-brigas-c" class="bebas glitch" style="font-size:440px;color:#20e6ff">BRIGAS</div>
+        </div>
+      </div>
+      <div id="t8-paz" class="clip bloco" data-start="10.9" data-duration="2.1" data-track-index="3">
+        <div class="centro" style="top:120px">
+          <div id="t8-paz-r" class="rot sombra">ONDE DEVIA HAVER</div>
+          <div class="sombra" style="font-family:'Garamond',Georgia,serif;font-style:italic;font-size:190px;line-height:1;margin-top:10px"><span id="t8-paz-1" class="w">harmonia</span> <span id="t8-paz-2" class="w" style="color:#f2c230">e paz</span></div>
+        </div>
+      </div>
+      <div id="t8-opr" class="clip bloco" data-start="13.0" data-duration="2.4" data-track-index="4">
+        <div class="centro" style="top:380px"><span id="t8-opr-in" class="bebas sombra w" style="font-size:330px">OPRESSÃO</span></div>
+      </div>
+      <div id="t8-seg" class="clip bloco" data-start="15.45" data-duration="0.85" data-track-index="5">
+        <div class="centro" style="top:400px"><span id="t8-seg-in" class="bebas sombra w" style="font-size:300px">SEGREDOS</span></div>
+      </div>
+      <div id="t8-mag" class="clip bloco" data-start="16.35" data-duration="0.95" data-track-index="6">
+        <div class="centro" style="top:400px"><span id="t8-mag-in" class="bebas sombra w" style="font-size:300px">MÁGOAS</span></div>
+      </div>
+      <div id="t8-ang" class="clip bloco" data-start="17.3" data-duration="1.3" data-track-index="7">
+        <div class="centro" style="top:400px"><span id="t8-ang-in" class="bebas tag w" style="font-size:300px">ANGÚSTIAS</span></div>
+      </div>
+      <div id="t8-jov" class="clip bloco" data-start="19.8" data-duration="7.0" data-track-index="8">
+        <div style="position:absolute;left:150px;top:150px">
+          <div id="t8-jov-r" class="rot sombra">JOVENS QUE PERDEM</div>
+          <div id="t8-jov-1" class="bebas sombra" style="font-size:190px;margin-top:16px">JUVENTUDE</div>
+          <div id="t8-jov-2" class="bebas sombra" style="font-size:190px">PUREZA</div>
+          <div id="t8-jov-3" class="bebas sombra" style="font-size:190px">ALEGRIA</div>
+        </div>
+      </div>
+      <div id="t8-dor" class="clip bloco" data-start="29.0" data-duration="1.0" data-track-index="9">
+        <div class="centro" style="top:380px"><span id="t8-dor-in" class="bebas sombra w" style="font-size:360px">DOR</span></div>
+      </div>
+      <div id="t8-per" class="clip bloco" data-start="30.1" data-duration="1.0" data-track-index="10">
+        <div class="centro" style="top:380px"><span id="t8-per-in" class="bebas sombra w" style="font-size:360px">PERDAS</span></div>
+      </div>
+      <div id="t8-br2" class="clip bloco" data-start="31.15" data-duration="0.65" data-track-index="11">
+        <div class="centro" style="top:380px"><span id="t8-br2-in" class="bebas sombra w" style="font-size:360px">BRIGAS</span></div>
+      </div>
+      <div id="t8-gue" class="clip bloco" data-start="31.8" data-duration="2.8" data-track-index="12">
+        <div class="centro" style="top:330px">
+          <div id="t8-gue-in" class="bebas" style="font-size:250px;color:#f2c230">GUERRAS INTERNAS</div>
+          <div id="t8-gue-r" class="bebas glitch" style="font-size:250px;color:#ff2a2a">GUERRAS INTERNAS</div>
+          <div id="t8-gue-c" class="bebas glitch" style="font-size:250px;color:#20e6ff">GUERRAS INTERNAS</div>
+          <div id="t8-gue-sub" class="rot sombra" style="margin-top:24px">QUE NUNCA ACABAM</div>
+        </div>
+      </div>
+      <div id="t8-guar" class="clip bloco" data-start="36.2" data-duration="1.3" data-track-index="13">
+        <div class="centro" style="top:760px"><span id="t8-guar-in" class="bebas sombra w" style="font-size:150px">SE GUARDAR</span></div>
+      </div>
+      <div id="t8-fim" class="clip bloco" data-start="37.35" data-duration="7.25" data-track-index="14">
+        <div class="centro" style="top:770px">
+          <div id="t8-fim-r" class="bebas sombra" style="font-size:96px;letter-spacing:0.02em;color:#ede8de"><span id="t8-f1" class="w">SE</span> <span id="t8-f2" class="w">FECHAR</span> <span id="t8-f3" class="w">PARA</span> <span id="t8-f4" class="w">OS</span> <span id="t8-f5" class="w">OUTROS</span></div>
+          <div style="margin-top:26px"><span id="t8-fim-big" class="bebas tag w" style="font-size:190px"><span id="t8-sau" class="w">SAÚDE</span> <span id="t8-men" class="w">MENTAL</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      var sai = function (el, at) { tl.to(el, { opacity: 0, y: -24, duration: 0.15, ease: 'expo.in' }, at); };
+
+      A.pancada(tl, $('t8-expr-in'), 3.44, { de: 1.35, dur: 0.2 });
+      sai($('t8-expr-in'), 6.2);
+      A.pancada(tl, $('t8-com-in'), 6.64, { de: 1.35, dur: 0.2 });
+      sai($('t8-com-in'), 8.45);
+
+      A.pancada(tl, $('t8-brigas-in'), 8.72, { de: 1.8 });
+      A.glitchTexto(tl, $('t8-brigas-r'), $('t8-brigas-c'), 8.72, 0.3, 81);
+      A.treme(tl, $('t8-palco'), 8.72, 0.32, 16, 81);
+      sai($('t8-brigas-in'), 10.75);
+
+      tl.fromTo($('t8-paz-r'), { opacity: 0, y: 12 }, { opacity: 0.9, y: 0, duration: 0.2, ease: 'expo.out' }, 11.0);
+      A.pancada(tl, $('t8-paz-1'), 11.44, { de: 1.4, dur: 0.2 });
+      A.pancada(tl, $('t8-paz-2'), 11.92, { de: 1.4, dur: 0.2 });
+      sai($('t8-paz-r').parentNode, 12.85);
+
+      A.pancada(tl, $('t8-opr-in'), 13.04, { de: 1.6 });
+      tl.to($('t8-opr-in'), { scale: 0.92, duration: 2.0, ease: 'sine.in' }, 13.3);
+      sai($('t8-opr-in'), 15.25);
+
+      A.pancada(tl, $('t8-seg-in'), 15.51, { de: 1.5 });
+      A.pancada(tl, $('t8-mag-in'), 16.39, { de: 1.5 });
+      A.pancada(tl, $('t8-ang-in'), 17.35, { de: 1.5 });
+      sai($('t8-ang-in'), 18.45);
+
+      tl.fromTo($('t8-jov-r'), { opacity: 0, x: -30 }, { opacity: 0.9, x: 0, duration: 0.2, ease: 'expo.out' }, 19.83);
+      A.pancada(tl, $('t8-jov-1'), 21.43, { de: 1.4 });
+      A.pancada(tl, $('t8-jov-2'), 23.03, { de: 1.4 });
+      A.pancada(tl, $('t8-jov-3'), 24.47, { de: 1.4 });
+      ['t8-jov-1', 't8-jov-2', 't8-jov-3'].forEach(function (id, i) {
+        tl.to($(id), { color: '#8f8b85', opacity: 0.55, duration: 1.2, ease: 'sine.inOut' }, 23.4 + i * 0.9);
+      });
+      sai($('t8-jov-r').parentNode, 26.6);
+
+      A.pancada(tl, $('t8-dor-in'), 29.03, { de: 1.6 });
+      A.pancada(tl, $('t8-per-in'), 30.15, { de: 1.6 });
+      A.pancada(tl, $('t8-br2-in'), 31.19, { de: 1.8 });
+      A.treme(tl, $('t8-palco'), 31.19, 0.3, 14, 82);
+      A.pancada(tl, $('t8-gue-in'), 31.83, { de: 1.5 });
+      A.glitchTexto(tl, $('t8-gue-r'), $('t8-gue-c'), 31.83, 0.3, 83);
+      tl.fromTo($('t8-gue-sub'), { opacity: 0 }, { opacity: 0.9, duration: 0.2 }, 33.11);
+      sai($('t8-gue-in').parentNode, 34.45);
+
+      A.pancada(tl, $('t8-guar-in'), 36.31, { de: 1.4, dur: 0.2 });
+      sai($('t8-guar-in'), 37.35);
+
+      // "se fechar para os outros": uma palavra por vez, no tempo da voz
+      A.words(tl, [$('t8-f1'), $('t8-f2'), $('t8-f3'), $('t8-f4'), $('t8-f5')], [37.4, 37.7, 38.2, 38.5, 38.62], { y: 12, dur: 0.35, ease: 'power2.out' });
+      // "saude" entra suave; em "mental" as cores invertem; depois tudo vira poeira
+      tl.fromTo($('t8-fim-big'), { opacity: 0, scale: 1.08, filter: 'blur(8px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.45, ease: 'power3.out' }, 41.58);
+      tl.fromTo($('t8-men'), { opacity: 0 }, { opacity: 1, duration: 0.15, ease: 'none' }, 42.06);
+      tl.fromTo($('t8-fim-big'), { backgroundColor: '#f2c230', color: '#0e0c0a' }, { backgroundColor: '#0e0c0a', color: '#f2c230', duration: 0.18, ease: 'power2.out' }, 42.1);
+      tl.fromTo($('t8-fim-big'), { scale: 1 }, { scale: 1.05, duration: 0.12, ease: 'power2.out' }, 42.1);
+      tl.to($('t8-fim-big'), { scale: 1, duration: 0.5, ease: 'power2.out' }, 42.22);
+      tl.to($('t8-fim-r'), { opacity: 0, duration: 0.6 }, 42.6);
+      A.dissolve(tl, $('t8-sau'), 42.95, 1.2, { seed: 88 });
+      A.dissolve(tl, $('t8-men'), 43.05, 1.2, { seed: 89 });
+      tl.to($('t8-fim-big'), { backgroundColor: 'rgba(14,12,10,0)', duration: 0.6, ease: 'power1.in' }, 42.95);
+
+      window.__timelines['textos'] = tl;
+    })();
+  </script>
+</template>

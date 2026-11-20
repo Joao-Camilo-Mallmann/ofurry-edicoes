@@ -1,0 +1,14 @@
+{
+  "nota": "Musicas da biblioteca de audio do YouTube (sem credito obrigatorio). Uma curva so: cada faixa comeca no trecho indicado e emenda na proxima com crossfade. Nenhuma faixa precisa de loop (todas cabem no pedaco).",
+  "abaixoDaVoz": 21,
+  "xfade": 6,
+  "faixas": [
+    { "file": "@mus/Auckland - VYEN.mp3", "desde": "trecho-01", "from": 0 },
+    { "file": "@mus/Yacoby - Schwartzy.mp3", "desde": "trecho-04", "from": 0 },
+    { "file": "@mus/Foggy - Nat Keefe.mp3", "desde": "trecho-08", "from": 0 },
+    { "file": "@mus/Touching Moment - Wayne Jones(1).mp3", "desde": "trecho-11", "from": 0 },
+    { "file": "@mus/No.10 _A New Beginning - Esther Abrami.mp3", "desde": "trecho-13", "from": 0 },
+    { "file": "@mus/Auckland - VYEN.mp3", "desde": "trecho-16", "from": 0 },
+    { "file": "@mus/Yacoby - Schwartzy.mp3", "desde": "trecho-19", "from": 0 }
+  ]
+}

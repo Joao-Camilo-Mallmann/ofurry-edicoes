@@ -1,0 +1,98 @@
+{
+  "id": "177-trecho-08",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "captions": [
+    { "from": "@inicio", "until": "@Eu já tenho-0.1", "entry": "pop", "y": 0.72 },
+    { "from": "@E o que importa-0.1", "until": "@quanto dinheiro-0.1", "entry": "whip" },
+    { "from": "@Duas pessoas-0.1", "until": "@mesmo patrimônio-0.1", "entry": "whip" },
+    { "from": "@E continua-0.1", "until": "@devagar-0.1", "entry": "whip" },
+    { "from": "@Quantas vezes-0.1", "until": "@fim", "entry": "pop", "y": 0.72 }
+  ],
+  "backdrops": [
+    { "at": 0, "backdrop": "grid" },
+    { "at": "@Eu já tenho", "backdrop": "black" },
+    { "at": "@mas não dizem", "backdrop": "stars" },
+    { "at": "@E o que importa", "backdrop": "black" },
+    { "at": "@Duas pessoas", "backdrop": "grid" },
+    { "at": "@Tudo depende", "backdrop": "black" },
+    { "at": "@A maioria", "backdrop": "stars" },
+    { "at": "@E continua", "backdrop": "black" },
+    { "at": "@Quantas vezes", "backdrop": "grid" }
+  ],
+  "sfx": [
+    {"at": "@10 mil", "file": "@sfx/General/Pop sound.mp3", "gain": -21},
+    {"at": "@50 mil", "file": "@sfx/General/Pop sound.mp3", "gain": -21},
+    {"at": "@100 mil", "file": "@sfx/General/Pop sound.mp3", "gain": -21},
+    {"at": "@onde você está", "file": "@sfx/General/Ding.mp3", "gain": -22},
+    {"at": "@mas o quanto", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
+    {"at": "@puxar o carro", "file": "@sfx/Mechanical/Gadget 04.wav", "gain": -22, "len": 0.8, "fadeOut": 0.3},
+    {"at": "@100 mil reais", "file": "@sfx/General/cash ting.mp3", "gain": -21},
+    {"at": "@ponto de virada", "file": "@sfx/General/correct sfx.mp3", "gain": -20},
+    {"at": "@atrasado", "file": "@sfx/General/Clock Tick.mp3", "gain": -22, "len": 0.8, "fadeOut": 0.2}
+  ],
+  "beats": [
+    { "kind": "mascot", "at": "@inicio", "until": "@Eu já tenho", "placement": "center",
+      "poses": [
+        { "at": "@inicio", "pose": "../../../../public/mascote/fox1.png" },
+        { "at": "@medem", "pose": "../../../../public/mascote/fox4.png" },
+        { "at": "@de fato", "pose": "../../../../public/mascote/fox1.png" }
+      ] },
+
+    { "kind": "cena", "tipo": "numeros", "at": "@Eu já tenho", "until": "@mas não dizem",
+      "itens": [
+        { "at": "@10 mil", "valor": "10 MIL", "riscaAt": "@fim" },
+        { "at": "@50 mil", "valor": "50 MIL", "riscaAt": "@fim" },
+        { "at": "@100 mil", "valor": "100 MIL", "riscaAt": "@fim" }
+      ],
+      "rotulo": "BONS MARCOS", "rotuloAt": "@bons marcos" },
+
+    { "kind": "cena", "tipo": "grafico", "at": "@mas não dizem", "until": "@E o que importa",
+      "modo": "patrimonio", "meses": 130, "rotuloCabeca": false, "titulo": "A CURVA DOS JUROS COMPOSTOS",
+      "revela": [{ "at": "@mas não dizem", "mes": 0 }, { "at": "@mas não dizem+0.1", "mes": 130, "dur": 2.0 }],
+      "vista": [{ "at": 0, "x": 130, "y": 200000 }],
+      "marcos": [{ "mes": 50, "at": "@onde você está", "rotulo": "ONDE VOCÊ ESTÁ", "cor": "hl", "lado": "cima" }] },
+
+    { "kind": "icons", "at": "@quanto dinheiro", "until": "@Duas pessoas",
+      "items": [
+        { "icon": "banknote", "label": "dinheiro parado", "at": "@quanto dinheiro", "strikeAt": "@mas o quanto" },
+        { "icon": "link", "label": "te ajuda", "at": "@te ajuda", "tone": "highlight" },
+        { "icon": "car", "label": "puxar o carro", "at": "@puxar o carro", "tone": "gain" }
+      ] },
+
+    { "kind": "cena", "tipo": "comparar", "at": "@mesmo patrimônio", "until": "@Tudo depende", "vs": "=",
+      "itens": [
+        { "at": "@mesmo patrimônio", "titulo": "PESSOA 1", "valor": "100 MIL", "valorAt": "@100 mil reais", "sub": "UM MOMENTO DA CURVA", "cor": "text" },
+        { "at": "@mesmo patrimônio+0.3", "titulo": "PESSOA 2", "valor": "100 MIL", "valorAt": "@100 mil reais+0.2", "sub": "OUTRO MOMENTO", "cor": "text" }
+      ] },
+
+    { "kind": "section", "at": "@Tudo depende", "until": "@A maioria", "text": "TUDO DEPENDE" },
+    { "kind": "icons", "at": "@Tudo depende", "until": "@A maioria", "relation": "+",
+      "items": [
+        { "icon": "clock", "label": "quanto tempo rende", "at": "@quanto tempo", "tone": "info" },
+        { "icon": "percent", "label": "qual é a taxa", "at": "@qual é a taxa", "tone": "highlight" }
+      ] },
+
+    { "kind": "cena", "tipo": "grafico", "at": "@A maioria", "until": "@E continua",
+      "modo": "rendimento", "meses": 130, "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
+      "viradaTexto": "A VIRADA · R$ 177 MIL",
+      "revela": [{ "at": "@A maioria", "mes": 0 }, { "at": "@A maioria+0.1", "mes": 80, "dur": 2.2 }, { "at": "@nunca calcula", "mes": 126, "dur": 1.8 }],
+      "vista": [{ "at": 0, "x": 130, "y": 1200 }],
+      "marcos": [{ "mes": 80, "at": "@números redondos", "rotulo": "R$ 100 MIL GUARDADOS", "cor": "text", "lado": "baixo" }] },
+
+    { "kind": "icons", "at": "@devagar", "until": "@Quantas vezes", "relation": "OU",
+      "items": [
+        { "icon": "snail", "label": "devagar", "at": "@devagar" },
+        { "icon": "hourglass", "label": "atrasado", "at": "@atrasado", "tone": "loss" }
+      ] },
+
+    { "kind": "mascot", "at": "@Quantas vezes", "until": "@fim", "placement": "center",
+      "poses": [
+        { "at": "@Quantas vezes", "pose": "../../../../public/mascote/fox1.png" },
+        { "at": "@virar nossa vida", "pose": "../../../../public/mascote/fox2.png" },
+        { "at": "@mas nunca", "pose": "../../../../public/mascote/fox4.png" }
+      ] }
+  ]
+}

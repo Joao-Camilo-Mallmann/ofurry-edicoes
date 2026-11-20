@@ -1,0 +1,47 @@
+{
+  "dur": 29.3,
+  "cues": [
+    { "file": "@narr", "at": 0, "gain": 0 },
+
+    { "file": "@clipe/so-audio/clipe-so-audio.wav", "at": 0, "from": 32.1, "len": 21.6, "fadeOut": 2.0,
+      "env": [[0, -22], [4.0, -22], [4.4, -18], [10.0, -18], [10.6, -24], [13.0, -24], [13.4, -28], [18.0, -28], [18.4, -24]] },
+    { "file": "@clipe/trechos/01-intro-instrumental-audio.wav", "at": 20.6, "from": 8, "len": 8.7, "fadeIn": 1.5, "gain": -22 },
+
+    { "file": "@sw/2. Whoosh Swoosh.wav", "at": 2.33, "gain": -17 },
+    { "file": "@sw/3. Whoosh Swoosh.wav", "at": 4.03, "gain": -17 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 5.18, "gain": -16 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 6.68, "gain": -15 },
+    { "file": "@sfx/Office Supplies/Write on Paper with Magic Marker 01.wav", "at": 6.85, "len": 0.4, "fadeOut": 0.1, "gain": -15 },
+    { "file": "@sw/5. Whoosh Swoosh.wav", "at": 7.23, "gain": -17 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 8.18, "gain": -16 },
+    { "file": "@sfx/Office Supplies/Write on Paper with Pen 01.wav", "at": 8.35, "len": 0.35, "fadeOut": 0.1, "gain": -13 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 9.58, "gain": -14 },
+    { "file": "@sfx/Office Supplies/Write on Paper with Magic Marker 02.wav", "at": 9.75, "len": 0.4, "fadeOut": 0.1, "gain": -15 },
+    { "file": "@sw/Smooth Zoom.mp3", "at": 10.2, "gain": -19 },
+    { "file": "@sfx/Office Supplies/Write on Paper with Pencil 03.wav", "at": 10.6, "len": 1.0, "fadeOut": 0.2, "gain": -13 },
+
+    { "file": "@sfx/Impacts/Impact (3).wav", "at": 12.8, "len": 2.0, "fadeOut": 1.2, "gain": -13 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 13.38, "gain": -13 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble Loop 02.wav", "at": 12.9, "len": 5.3, "fadeIn": 0.8, "fadeOut": 1.0, "gain": -17 },
+    { "file": "@sw/6. Whoosh Swoosh.wav", "at": 15.25, "gain": -17 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 15.38, "gain": -12 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 15.78, "gain": -12 },
+    { "file": "@sw/7. Whoosh Swoosh.wav", "at": 16.7, "gain": -18 },
+    { "file": "@sfx/Trailer Construction/0026_dark slam 4.wav", "at": 17.18, "gain": -14 },
+
+    { "file": "@sw/10. Whoosh Swoosh.wav", "at": 18.13, "gain": -18 },
+    { "file": "@sfx/Kitchen/Silverware Movement 02.wav", "at": 18.3, "gain": -15 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 18.98, "gain": -15 },
+    { "file": "@sw/11. Whoosh Swoosh.wav", "at": 19.55, "gain": -18 },
+    { "file": "@sw/12. Whoosh Swoosh.wav", "at": 20.95, "gain": -18 },
+    { "file": "@sfx/Ambiente SFX/Windy Desert.mp3", "at": 21.0, "from": 60, "len": 4.3, "fadeIn": 0.6, "fadeOut": 0.8, "gain": -23 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 22.78, "gain": -16 },
+    { "file": "@sw/13. Whoosh Swoosh.wav", "at": 23.15, "gain": -18 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 23.98, "gain": -15 },
+
+    { "file": "@sfx/Impacts/Impact (1).wav", "at": 25.28, "len": 1.8, "fadeOut": 1.0, "gain": -11 },
+    { "file": "@sfx/Glitch SFX/Glitch Static.wav", "at": 25.3, "len": 0.25, "fadeOut": 0.08, "gain": -21 },
+    { "file": "@sfx/Kitchen/Silverware Placed on Table 01.wav", "at": 27.05, "gain": -15 },
+    { "file": "@sw/Smooth Zoom.mp3", "at": 28.95, "gain": -20 }
+  ]
+}

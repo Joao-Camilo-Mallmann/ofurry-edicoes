@@ -1,0 +1,27 @@
+<template>
+  <!-- Gerado por kit/brolls.mjs a partir de kit/brolls.json. Nao edite a mao: mude a lista e rode o gerador. -->
+  <style>
+    #root { position: absolute; inset: 0; }
+    #root .foto { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+  </style>
+  <div data-hf-id="hf-5lnl" id="root" data-composition-id="brolls" data-width="1920" data-height="1080">
+    <!-- voce se identifica com a letra -->
+    <canvas data-hf-id="hf-ts77" id="b07-0" class="clip foto" data-start="27" data-duration="2.1" data-track-index="0"></canvas>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var shots = [
+        { id: 'b07-0', img: 'A33-3d-cortina-janela', start: 27, dur: 2.1, keys: [{"t":0,"zoom":1.38,"px":-0.9,"py":0.35,"blurX":0.04},{"t":0.25,"zoom":1.28,"blurX":0,"ease":"expo.out"},{"t":2.1,"zoom":1.02,"px":0.9,"py":-0.35,"ease":"power1.inOut"}] }
+      ];
+      Promise.all(shots.map(function (s) {
+        return A.photo(document.getElementById(s.id), { src: 'assets/img/' + s.img + '.png', depth: 'assets/depth/' + s.img + '-depth.png', grade: s.grade })
+          .then(function (c) { A.camera(tl, c, s.start, s.dur, s.keys); });
+      })).catch(function (e) { console.error(e); }).then(function () {
+        tl.set({}, {}, 70.5);
+        window.__timelines['brolls'] = tl;
+      });
+    })();
+  </script>
+</template>

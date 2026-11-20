@@ -1,0 +1,102 @@
+<template>
+  <style>
+    @font-face { font-family: 'Bebas Neue'; src: url('assets/fonts/BebasNeue-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Bold.otf') format('opentype'); font-weight: 700; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-ExtraBold.otf') format('opentype'); font-weight: 800; font-display: block; }
+    @font-face { font-family: 'Caveat'; src: url('assets/fonts/caveat-latin.woff2') format('woff2'); font-weight: 400 700; font-display: block; }
+    @font-face { font-family: 'Garamond'; src: url('assets/fonts/eb-garamond-italic-400-latin.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: block; }
+    #root { position: absolute; inset: 0; color: #ede8de; overflow: hidden; }
+    #t2-palco { position: absolute; inset: 0; }
+    #root .bloco { position: absolute; inset: 0; }
+    #root .w { display: inline-block; position: relative; }
+    #root .bebas { font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: 0.9; letter-spacing: 0.01em; }
+    #root .garamond { font-family: 'Garamond', Georgia, serif; font-style: italic; font-weight: 400; line-height: 1; }
+    #root .rot { font-family: 'MontserratLocal', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.5em; }
+    #root .centro { position: absolute; left: 0; right: 0; text-align: center; }
+    #root .tag { display: inline-block; background: #f2c230; color: #0e0c0a; padding: 6px 22px 2px; }
+    #root .palco3d { perspective: 1600px; perspective-origin: 50% 45%; }
+  </style>
+  <div id="root" data-composition-id="textos" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div id="t2-palco">
+      <!-- 1.45-12.85: a folha da letra (composicao folha) carrega o verso; aqui nao entra texto por cima -->
+
+      <div id="t2-apenas" class="clip bloco" data-start="12.8" data-duration="2.45" data-track-index="3">
+        <div class="centro" style="top:120px">
+          <div><span id="t2-apenas-t" class="bebas sombra w" style="font-size:170px">NÃO HÁ APENAS</span></div>
+          <div style="margin-top:14px"><span id="t2-alimento" class="bebas tag" style="font-size:170px">ALIMENTO</span></div>
+        </div>
+      </div>
+
+      <div id="t2-carga" class="clip bloco" data-start="15.35" data-duration="1.35" data-track-index="4">
+        <div class="centro" style="top:330px"><span id="t2-carga-1" class="bebas sombra w" style="font-size:300px">CARGA</span></div>
+        <div class="centro" style="top:590px"><span id="t2-carga-2" class="bebas sombra w" style="font-size:300px">EMOCIONAL</span></div>
+      </div>
+
+      <div id="t2-pesada" class="clip bloco" data-start="17.15" data-duration="1.0" data-track-index="5">
+        <div class="centro" style="top:430px"><span id="t2-pesada-t" class="bebas tag" style="font-size:230px;background:#0e0c0a;color:#f2c230">MUITO PESADA</span></div>
+      </div>
+
+      <!-- serifa italica: a frase mais suave do bloco -->
+      <div id="t2-compart" class="clip bloco" data-start="18.95" data-duration="2.0" data-track-index="6">
+        <div class="centro" style="top:720px"><span id="t2-compart-t" class="garamond sombra w" style="font-size:200px">compartilhada</span></div>
+      </div>
+
+      <div id="t2-cenario" class="clip bloco" data-start="22.75" data-duration="2.4" data-track-index="7">
+        <div class="centro" style="top:80px"><span id="t2-cenario-t" class="garamond sombra w" style="font-size:130px">um cenário comum</span></div>
+        <div class="centro" style="top:800px"><span id="t2-familias" class="bebas tag" style="font-size:140px">EM TODAS AS FAMÍLIAS</span></div>
+      </div>
+
+      <!-- "A MESA." em 3D (extrusao), com perspectiva -->
+      <div id="t2-mesa-final" class="clip bloco palco3d" data-start="25.25" data-duration="1.7" data-track-index="8">
+        <div class="centro" style="top:330px"><span id="t2-amesa" class="bebas w" style="font-size:420px;color:#f2c230">A MESA</span></div>
+      </div>
+
+      <div id="t2-onde" class="clip bloco" data-start="26.95" data-duration="2.2" data-track-index="9">
+        <div class="centro" style="top:900px"><span id="t2-onde-t" class="rot sombra w">ONDE SE SENTAM PARA ALMOÇAR</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      var sai = function (els, at) { tl.to(els, { opacity: 0, y: -24, duration: 0.14, ease: 'expo.in' }, at); };
+
+      A.pancada(tl, $('t2-apenas-t'), 12.82, { de: 1.4 });
+      A.pancada(tl, $('t2-alimento'), 13.4, { de: 1.5 });
+      sai([$('t2-apenas-t'), $('t2-alimento')], 15.1);
+
+      A.pancada(tl, $('t2-carga-1'), 15.4, { de: 1.6 });
+      A.pancada(tl, $('t2-carga-2'), 15.8, { de: 1.6 });
+      sai([$('t2-carga-1'), $('t2-carga-2')], 16.55);
+
+      A.pancada(tl, $('t2-pesada-t'), 17.2, { de: 1.7 });
+      tl.to($('t2-pesada-t'), { y: 30, duration: 0.7, ease: 'power2.in' }, 17.35);
+      A.treme(tl, $('t2-palco'), 17.2, 0.35, 16, 19);
+      sai($('t2-pesada-t'), 18.02);
+
+      // serifa entra mais suave: desfoque e deriva, sem pancada
+      tl.fromTo($('t2-compart-t'), { opacity: 0, y: 30, filter: 'blur(12px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5, ease: 'power3.out' }, 19.0);
+      tl.to($('t2-compart-t'), { scaleX: 1.035, duration: 1.9, ease: 'sine.out' }, 19.0);
+      sai($('t2-compart-t'), 20.82);
+
+      tl.fromTo($('t2-cenario-t'), { opacity: 0, y: 20, filter: 'blur(10px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.45, ease: 'power3.out' }, 22.8);
+      A.pancada(tl, $('t2-familias'), 24.0, { de: 1.5 });
+      sai([$('t2-cenario-t'), $('t2-familias')], 25.05);
+
+      // A MESA. em 3D: pisa na tela e gira de leve, como um bloco
+      A.texto3d($('t2-amesa'), { prof: 18, dx: 1.1, dy: 1.3, cor: '#9a7420', escuro: '#2a1d0c' });
+      tl.fromTo($('t2-amesa'), { opacity: 0, scale: 1.9, rotateX: 28, rotateY: -16, filter: 'blur(14px)' },
+        { opacity: 1, scale: 1, rotateX: 10, rotateY: -8, filter: 'blur(0px)', duration: 0.16, ease: 'expo.out' }, 25.3);
+      tl.to($('t2-amesa'), { rotateY: 6, rotateX: 4, duration: 1.5, ease: 'sine.inOut' }, 25.46);
+      A.treme(tl, $('t2-palco'), 25.3, 0.3, 14, 23);
+      sai($('t2-amesa'), 26.8);
+
+      tl.fromTo($('t2-onde-t'), { opacity: 0, y: 16 }, { opacity: 0.9, y: 0, duration: 0.3, ease: 'expo.out' }, 27.0);
+      tl.to($('t2-onde-t'), { opacity: 0, duration: 0.25 }, 28.85);
+
+      window.__timelines['textos'] = tl;
+    })();
+  </script>
+</template>

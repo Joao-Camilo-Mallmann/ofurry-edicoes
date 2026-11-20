@@ -1,0 +1,143 @@
+{
+ "dur": 52.6,
+ "cues": [
+  {
+   "file": "@narr",
+   "at": 0,
+   "from": 0,
+   "len": 13.45,
+   "fadeOut": 0.04
+  },
+  {
+   "file": "@narr",
+   "at": 14.45,
+   "from": 13.45,
+   "len": 27.2,
+   "fadeIn": 0.02
+  },
+  {
+   "file": "@mus/Touching Moment - Wayne Jones(1).mp3",
+   "at": 0,
+   "from": 0,
+   "len": 13.42,
+   "fadeIn": 2,
+   "fadeOut": 0.12,
+   "gain": -25
+  },
+  {
+   "file": "@mus/Touching Moment - Wayne Jones(1).mp3",
+   "at": 14.45,
+   "from": 13.42,
+   "len": 27.2,
+   "fadeIn": 0.4,
+   "fadeOut": 1.8,
+   "env": [
+    [
+     14.45,
+     -26
+    ],
+    [
+     27.9,
+     -26
+    ],
+    [
+     28.6,
+     -22
+    ],
+    [
+     38,
+     -22
+    ],
+    [
+     38.6,
+     -19
+    ],
+    [
+     41.65,
+     -19
+    ]
+   ]
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Pencil 01.wav",
+   "at": 5.46,
+   "len": 0.9,
+   "fadeOut": 0.2,
+   "gain": -15
+  },
+  {
+   "file": "@sw/Smooth Zoom.mp3",
+   "at": 10,
+   "gain": -21
+  },
+  {
+   "file": "@sfx/Ambiente SFX/Windy Desert.mp3",
+   "at": 14.45,
+   "from": 20,
+   "len": 9.45,
+   "fadeIn": 0.8,
+   "fadeOut": 0.8,
+   "gain": -24
+  },
+  {
+   "file": "@sfx/Kitchen/Silverware Placed on Table 01.wav",
+   "at": 38.1,
+   "gain": -16
+  },
+  {
+   "file": "@clipe/trechos/07-coisa-parecida-audio.wav",
+   "at": 41.6,
+   "from": 26.1,
+   "len": 11,
+   "fadeIn": 1.2,
+   "fadeOut": 2.8,
+   "gain": -9
+  },
+  {
+   "file": "@sw/Smooth Zoom.mp3",
+   "at": 4.1,
+   "gain": -19
+  },
+  {
+   "file": "@sw/14. Whoosh Swoosh.wav",
+   "at": 7.8,
+   "gain": -19
+  },
+  {
+   "file": "@sfx/Impacts/Impact (4).wav",
+   "at": 10.1,
+   "len": 1.4,
+   "fadeOut": 0.8,
+   "gain": -12
+  },
+  {
+   "file": "@sfx/Glitch SFX/Glitch Static.wav",
+   "at": 10.12,
+   "len": 0.3,
+   "fadeOut": 0.1,
+   "gain": -21
+  },
+  {
+   "file": "@sfx/Glitch SFX/Glitch Static.wav",
+   "at": 10.76,
+   "len": 0.2,
+   "fadeOut": 0.08,
+   "gain": -22
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav",
+   "at": 12.74,
+   "gain": -14
+  },
+  {
+   "file": "@sw/15. Whoosh Swoosh.wav",
+   "at": 23.85,
+   "gain": -19
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav",
+   "at": 26.5,
+   "gain": -15
+  }
+ ]
+}

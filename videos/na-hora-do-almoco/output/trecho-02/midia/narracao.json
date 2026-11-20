@@ -1,0 +1,380 @@
+[
+ {
+  "id": "w0",
+  "text": "No",
+  "start": 1.16,
+  "end": 1.48
+ },
+ {
+  "id": "w1",
+  "text": "verso",
+  "start": 1.48,
+  "end": 2.04
+ },
+ {
+  "id": "w2",
+  "text": "inicial,",
+  "start": 2.04,
+  "end": 2.44
+ },
+ {
+  "id": "w3",
+  "text": "Belchior",
+  "start": 2.6,
+  "end": 3.4
+ },
+ {
+  "id": "w4",
+  "text": "canta,",
+  "start": 3.56,
+  "end": 4.04
+ },
+ {
+  "id": "w5",
+  "text": "no",
+  "start": 4.2,
+  "end": 4.44
+ },
+ {
+  "id": "w6",
+  "text": "centro",
+  "start": 4.44,
+  "end": 4.92
+ },
+ {
+  "id": "w7",
+  "text": "da",
+  "start": 4.92,
+  "end": 5.16
+ },
+ {
+  "id": "w8",
+  "text": "sala,",
+  "start": 5.16,
+  "end": 5.64
+ },
+ {
+  "id": "w9",
+  "text": "diante",
+  "start": 5.88,
+  "end": 6.44
+ },
+ {
+  "id": "w10",
+  "text": "da",
+  "start": 6.44,
+  "end": 6.68
+ },
+ {
+  "id": "w11",
+  "text": "mesa,",
+  "start": 6.68,
+  "end": 7.4
+ },
+ {
+  "id": "w12",
+  "text": "no",
+  "start": 7.4,
+  "end": 7.64
+ },
+ {
+  "id": "w13",
+  "text": "fundo",
+  "start": 7.64,
+  "end": 8.04
+ },
+ {
+  "id": "w14",
+  "text": "do",
+  "start": 8.04,
+  "end": 8.2
+ },
+ {
+  "id": "w15",
+  "text": "prato,",
+  "start": 8.2,
+  "end": 8.84
+ },
+ {
+  "id": "w16",
+  "text": "comida",
+  "start": 8.84,
+  "end": 9.4
+ },
+ {
+  "id": "w17",
+  "text": "e",
+  "start": 9.4,
+  "end": 9.56
+ },
+ {
+  "id": "w18",
+  "text": "tristeza.",
+  "start": 9.56,
+  "end": 10.44
+ },
+ {
+  "id": "w19",
+  "text": "A",
+  "start": 10.44,
+  "end": 10.6
+ },
+ {
+  "id": "w20",
+  "text": "letra",
+  "start": 10.6,
+  "end": 11.08
+ },
+ {
+  "id": "w21",
+  "text": "começa",
+  "start": 11.08,
+  "end": 11.56
+ },
+ {
+  "id": "w22",
+  "text": "querendo",
+  "start": 11.56,
+  "end": 12.04
+ },
+ {
+  "id": "w23",
+  "text": "expressar",
+  "start": 12.04,
+  "end": 12.44
+ },
+ {
+  "id": "w24",
+  "text": "que",
+  "start": 12.52,
+  "end": 12.76
+ },
+ {
+  "id": "w25",
+  "text": "não",
+  "start": 12.76,
+  "end": 12.92
+ },
+ {
+  "id": "w26",
+  "text": "há",
+  "start": 12.92,
+  "end": 13
+ },
+ {
+  "id": "w27",
+  "text": "apenas",
+  "start": 13,
+  "end": 13.32
+ },
+ {
+  "id": "w28",
+  "text": "alimentos",
+  "start": 13.4,
+  "end": 13.96
+ },
+ {
+  "id": "w29",
+  "text": "no",
+  "start": 13.96,
+  "end": 14.12
+ },
+ {
+  "id": "w30",
+  "text": "prato,",
+  "start": 14.12,
+  "end": 14.76
+ },
+ {
+  "id": "w31",
+  "text": "mas",
+  "start": 14.76,
+  "end": 15
+ },
+ {
+  "id": "w32",
+  "text": "sim",
+  "start": 15,
+  "end": 15.24
+ },
+ {
+  "id": "w33",
+  "text": "uma",
+  "start": 15.24,
+  "end": 15.4
+ },
+ {
+  "id": "w34",
+  "text": "carga",
+  "start": 15.4,
+  "end": 15.8
+ },
+ {
+  "id": "w35",
+  "text": "emocional,",
+  "start": 15.8,
+  "end": 16.84
+ },
+ {
+  "id": "w36",
+  "text": "muito",
+  "start": 16.84,
+  "end": 17.08
+ },
+ {
+  "id": "w37",
+  "text": "pesada,",
+  "start": 17.24,
+  "end": 18.2
+ },
+ {
+  "id": "w38",
+  "text": "também",
+  "start": 18.2,
+  "end": 18.44
+ },
+ {
+  "id": "w39",
+  "text": "sendo",
+  "start": 18.6,
+  "end": 19
+ },
+ {
+  "id": "w40",
+  "text": "compartilhada",
+  "start": 19,
+  "end": 19.88
+ },
+ {
+  "id": "w41",
+  "text": "junto",
+  "start": 19.88,
+  "end": 20.2
+ },
+ {
+  "id": "w42",
+  "text": "à",
+  "start": 20.2,
+  "end": 20.36
+ },
+ {
+  "id": "w43",
+  "text": "comida.",
+  "start": 20.36,
+  "end": 21.08
+ },
+ {
+  "id": "w44",
+  "text": "Junto",
+  "start": 21.08,
+  "end": 21.48
+ },
+ {
+  "id": "w45",
+  "text": "a",
+  "start": 21.48,
+  "end": 21.72
+ },
+ {
+  "id": "w46",
+  "text": "isso,",
+  "start": 21.72,
+  "end": 22.12
+ },
+ {
+  "id": "w47",
+  "text": "nós",
+  "start": 22.12,
+  "end": 22.36
+ },
+ {
+  "id": "w48",
+  "text": "temos",
+  "start": 22.36,
+  "end": 22.68
+ },
+ {
+  "id": "w49",
+  "text": "um",
+  "start": 22.68,
+  "end": 22.84
+ },
+ {
+  "id": "w50",
+  "text": "cenário",
+  "start": 22.84,
+  "end": 23.32
+ },
+ {
+  "id": "w51",
+  "text": "comum",
+  "start": 23.32,
+  "end": 23.64
+ },
+ {
+  "id": "w52",
+  "text": "em",
+  "start": 23.72,
+  "end": 23.96
+ },
+ {
+  "id": "w53",
+  "text": "todas",
+  "start": 23.96,
+  "end": 24.2
+ },
+ {
+  "id": "w54",
+  "text": "as",
+  "start": 24.2,
+  "end": 24.36
+ },
+ {
+  "id": "w55",
+  "text": "famílias.",
+  "start": 24.36,
+  "end": 24.92
+ },
+ {
+  "id": "w56",
+  "text": "A",
+  "start": 25.16,
+  "end": 25.32
+ },
+ {
+  "id": "w57",
+  "text": "mesa.",
+  "start": 25.32,
+  "end": 26.04
+ },
+ {
+  "id": "w58",
+  "text": "Onde",
+  "start": 26.25,
+  "end": 26.57
+ },
+ {
+  "id": "w59",
+  "text": "se",
+  "start": 26.57,
+  "end": 26.73
+ },
+ {
+  "id": "w60",
+  "text": "sentam",
+  "start": 26.73,
+  "end": 27.13
+ },
+ {
+  "id": "w61",
+  "text": "para",
+  "start": 27.13,
+  "end": 27.29
+ },
+ {
+  "id": "w62",
+  "text": "almoçar",
+  "start": 27.29,
+  "end": 28.09
+ }
+]
