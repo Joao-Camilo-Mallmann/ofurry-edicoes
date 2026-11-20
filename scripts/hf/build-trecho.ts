@@ -62,6 +62,25 @@ const ASSETS = join(OUT, 'assets');
 const subtitle = sheet.subtitle ?? (sheet.subtitlePath ? readFileSync(join(baseDir, sheet.subtitlePath), 'utf8') : '');
 const cards: CaptionCard[] = subtitle ? cardsFromSubtitle(subtitle, sheet.cardOptions).filter((c) => c.start < sheet.duration) : [];
 
+// Emenda sem vazio (20/11/2026): o trecho e cortado no meio do silencio antes da 1a palavra, entao a 1a batida ou o
+// 1o cartao de legenda comecam 0,1-0,6 s depois do quadro 0 e a emenda com o trecho anterior "pisca" so o fundo.
+// O que aparece primeiro e puxado para o quadro 0 quando comeca em ate 0,8 s.
+{
+  const LIM = 0.8;
+  const firstBeat = sheet.beats.length ? Math.min(...sheet.beats.map((b) => b.at)) : Infinity;
+  const wins = sheet.captions ?? [{ from: 0, until: sheet.duration }];
+  const inWin = (c: CaptionCard) => wins.find((x) => c.start >= x.from - 0.15 && c.start < x.until - 0.1);
+  const firstCard = cards.find((c) => inWin(c));
+  const cardStart = firstCard ? firstCard.start : Infinity;
+  if (firstBeat > 0 && firstBeat <= LIM && firstBeat <= cardStart) {
+    for (const b of sheet.beats) if (b.at === firstBeat) b.at = 0;
+  } else if (firstCard && cardStart > 0 && cardStart <= LIM && cardStart < firstBeat) {
+    const w = inWin(firstCard);
+    if (w && w.from > 0) w.from = 0;
+    firstCard.start = 0;
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Utilitarios
 // ---------------------------------------------------------------------------

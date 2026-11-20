@@ -5,29 +5,26 @@
   "subtitlePath": "midia/narracao.json",
   "cardOptions": { "maxWords": 2, "maxChars": 16 },
   "captions": [
-    { "from": "@extremamente-0.1", "until": "@os seus-0.1", "entry": "pop", "y": 0.8 },
     { "from": "@E eu sei-0.1", "until": "@Você vai investir-0.1", "entry": "whip" },
     { "from": "@Mas bom-0.1", "until": "@Depois eu te-0.1", "entry": "glitch", "y": 0.72 },
-    { "from": "@Depois eu te-0.1", "until": "@você do futuro-0.1", "entry": "pop" },
-    { "from": "@prefira algum-0.1", "until": "@Como exemplo-0.1", "entry": "whip" },
-    { "from": "@calcular de forma-0.1", "until": "@quando que de fato-0.1", "entry": "pop", "y": 0.8 }
+    { "from": "@prefira algum-0.1", "until": "@Como exemplo-0.1", "entry": "whip" }
   ],
   "backdrops": [
     { "at": 0, "backdrop": "grid" },
-    { "at": "@E eu sei", "backdrop": "black" },
-    { "at": "@Você vai investir", "backdrop": "stars" },
+    { "at": "@extremamente", "backdrop": "black" },
+    { "at": "@E eu sei", "backdrop": "stars" },
+    { "at": "@Você vai investir", "backdrop": "black" },
     { "at": "@Mas bom", "backdrop": "grid" },
     { "at": "@Depois eu te", "backdrop": "black" },
     { "at": "@E última dica", "backdrop": "grid" },
-    { "at": "@prefira algum", "backdrop": "black" },
-    { "at": "@Como exemplo", "backdrop": "stars" },
-    { "at": "@Por exatamente", "backdrop": "grid" },
-    { "at": "@você pode pegar", "backdrop": "black" },
+    { "at": "@prefira algum", "backdrop": "stars" },
+    { "at": "@Como exemplo", "backdrop": "black" },
     { "at": "@quando que de fato", "backdrop": "grid" },
-    { "at": "@E transformar", "backdrop": "black" }
+    { "at": "@E transformar", "backdrop": "stars" }
   ],
   "sfx": [
     { "at": "@segundo", "file": "@sfx/General/Click.wav", "gain": -20 },
+    { "at": "@mantenha os seus", "file": "@sfx/Foley/Coins in Hand 01.wav", "gain": -22, "len": 0.9, "fadeOut": 0.3 },
     { "at": "@valor absurdo", "file": "@sfx/Foley/Coins Poured Out 01.wav", "gain": -22, "len": 1.2, "fadeOut": 0.4 },
     { "at": "@migalha", "file": "@sfx/General/Lose.wav", "gain": -24 },
     { "at": "@agradecer", "file": "@sfx/General/Ding.mp3", "gain": -22 },
@@ -47,13 +44,31 @@
       ],
       "ativo": [{ "at": "@inicio", "i": 0 }, { "at": "@segundo", "i": 1 }] },
 
-    { "kind": "icon", "at": "@extremamente", "until": "@E eu sei", "icon": "repeat", "tone": "brand", "label": "manter os aportes", "y": 0.38 },
-
-    { "kind": "icons", "at": "@Você vai investir", "until": "@Mas bom", "relation": "→",
-      "items": [
-        { "icon": "banknote", "label": "valor absurdo", "at": "@Você vai investir", "tone": "gain" },
-        { "icon": "cookie", "label": "migalha", "at": "@migalha", "tone": "neutral" }
+    { "kind": "cena", "tipo": "palco", "at": "@extremamente", "until": "@E eu sei",
+      "atores": [
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{ "at": "@extremamente", "x": 0.5, "y": 0.45 }, { "at": "@importante", "x": 0.22, "dur": 0.6 }] },
+        { "id": "cofre", "icone": "piggy-bank", "rotulo": "APORTES", "cor": "gain", "entra": "whip", "keys": [{ "at": "@importante+0.3", "x": 0.78, "y": 0.45 }], "pulsaAt": ["@seus aportes"] }
+      ],
+      "fluxos": [{ "de": "voce", "para": "cofre", "at": "@mantenha os seus", "ate": "@E eu sei", "icone": "banknote", "por": 3, "cor": "gain", "tam": 90 }],
+      "textos": [
+        { "at": "@extremamente", "ate": "@mantenha os seus", "texto": "EXTREMAMENTE IMPORTANTE", "x": 0.5, "y": 0.17, "tam": 72 },
+        { "at": "@mantenha os seus", "texto": "MANTENHA OS APORTES", "x": 0.5, "y": 0.17, "tam": 72, "cor": "hl" }
       ] },
+
+    { "kind": "cena", "tipo": "palco", "at": "@Você vai investir", "until": "@Mas bom",
+      "atores": [
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{ "at": "@Você vai investir", "x": 0.22, "y": 0.45 }], "pulsaAt": ["@de rendimento"] },
+        { "id": "cofre", "icone": "piggy-bank", "rotulo": "INVESTIDO", "cor": "gain", "entra": "whip", "keys": [{ "at": "@investir", "x": 0.78, "y": 0.45 }] }
+      ],
+      "fluxos": [
+        { "de": "voce", "para": "cofre", "at": "@valor absurdo", "ate": "@e vai ver", "icone": "banknote", "por": 7, "cor": "gain", "tam": 110 },
+        { "de": "cofre", "para": "voce", "at": "@uma migalha", "ate": "@uma migalha+0.2", "icone": "cookie", "por": 1, "cor": "hl", "tam": 60, "viagem": 1.2 }
+      ],
+      "textos": [
+        { "at": "@valor absurdo", "ate": "@uma migalha", "texto": "VALOR ABSURDO", "x": 0.5, "y": 0.17, "tam": 80, "cor": "gain" },
+        { "at": "@uma migalha", "texto": "UMA MIGALHA", "x": 0.5, "y": 0.17, "tam": 80, "cor": "hl" }
+      ] },
+    { "kind": "cena", "tipo": "piada", "at": "@de rendimento", "until": "@de rendimento+1", "dura": 0.8, "texto": "NEM DÁ PRA MOLHAR NO CAFÉ", "x": 0.5, "y": 0.84 },
 
     { "kind": "mascot", "at": "@Mas bom", "until": "@Depois eu te", "placement": "center",
       "poses": [
@@ -61,7 +76,16 @@
         { "at": "@Essa parte", "pose": "../../../../public/mascote/fox3.png" }
       ] },
 
-    { "kind": "icon", "at": "@você do futuro", "until": "@E última dica", "icon": "hand-heart", "tone": "gain", "label": "você do futuro", "y": 0.45 },
+    { "kind": "cena", "tipo": "palco", "at": "@Depois eu te", "until": "@E última dica",
+      "atores": [
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{ "at": "@Depois eu te", "x": 0.5, "y": 0.45 }, { "at": "@garanto", "x": 0.22, "dur": 0.6 }], "pulsaAt": ["@agradecer+0.9", "@muito#2"] },
+        { "id": "futuro", "icone": "user-check", "rotulo": "VOCÊ DO FUTURO", "cor": "gain", "tam": 300, "entra": "whip", "keys": [{ "at": "@você do futuro", "x": 0.76, "y": 0.45 }] }
+      ],
+      "fluxos": [{ "de": "futuro", "para": "voce", "at": "@agradecer", "ate": "@E última dica", "icone": "heart", "por": 4, "cor": "hl", "tam": 70 }],
+      "textos": [
+        { "at": "@Depois eu te", "ate": "@agradecer", "texto": "EU TE GARANTO", "x": 0.5, "y": 0.17, "tam": 72 },
+        { "at": "@agradecer", "texto": "VAI TE AGRADECER", "x": 0.5, "y": 0.17, "tam": 72, "cor": "hl" }
+      ] },
 
     { "kind": "cena", "tipo": "lista", "at": "@E última dica", "until": "@prefira algum", "titulo": "3 PASSOS",
       "itens": [
@@ -71,15 +95,25 @@
       ],
       "ativo": [{ "at": "@E última dica", "i": 1 }, { "at": "@última dica", "i": 2 }] },
 
-    { "kind": "icons", "at": "@Como exemplo", "until": "@Por exatamente", "relation": "OU",
-      "items": [
-        { "icon": "percent", "label": "CDI", "at": "@CDI", "tone": "info" },
-        { "icon": "landmark", "label": "tesouro direto", "at": "@tesouro direto", "tone": "highlight" }
+    { "kind": "cena", "tipo": "palco", "at": "@Como exemplo", "until": "@quando que de fato",
+      "atores": [
+        { "id": "cdi", "icone": "percent", "rotulo": "CDI", "cor": "info",
+          "keys": [{ "at": "@Como exemplo", "x": 0.3, "y": 0.45 }, { "at": "@as taxas", "x": 0.22, "y": 0.3, "s": 0.7, "dur": 0.7 }] },
+        { "id": "tesouro", "icone": "landmark", "rotulo": "TESOURO DIRETO", "cor": "hl",
+          "keys": [{ "at": "@tesouro direto", "x": 0.7, "y": 0.45 }, { "at": "@as taxas", "x": 0.78, "y": 0.3, "s": 0.7, "dur": 0.7 }] },
+        { "id": "calc", "icone": "calculator", "cor": "info", "tam": 240, "entra": "rise",
+          "keys": [{ "at": "@você pode pegar", "x": 0.5, "y": 0.6 }], "pulsaAt": ["@calcular", "@mais precisa"] }
+      ],
+      "fluxos": [
+        { "de": "cdi", "para": "calc", "at": "@esse valor", "ate": "@calcular+0.3", "icone": "percent", "por": 3, "cor": "info", "tam": 60 },
+        { "de": "tesouro", "para": "calc", "at": "@esse valor+0.15", "ate": "@calcular+0.3", "icone": "percent", "por": 3, "cor": "hl", "tam": 60 }
+      ],
+      "textos": [
+        { "at": "@ou tesouro", "ate": "@as taxas", "texto": "OU", "x": 0.5, "y": 0.42, "tam": 130, "fonte": "num", "cor": "brand" },
+        { "at": "@as taxas", "ate": "@calcular", "texto": "AS TAXAS", "x": 0.5, "y": 0.12, "tam": 72 },
+        { "at": "@calcular", "texto": "CALCULAR", "x": 0.5, "y": 0.12, "tam": 72, "cor": "info" },
+        { "at": "@muito mais precisa", "texto": "MUITO MAIS PRECISO", "x": 0.5, "y": 0.87, "tam": 64, "cor": "hl" }
       ] },
-
-    { "kind": "type-on", "at": "@Por exatamente", "until": "@você pode pegar", "text": "As taxas valendo muito" },
-
-    { "kind": "icon", "at": "@você pode pegar", "until": "@quando que de fato", "icon": "calculator", "tone": "info", "label": "esse valor", "y": 0.38 },
 
     { "kind": "cena", "tipo": "grafico", "at": "@quando que de fato", "until": "@E transformar",
       "modo": "rendimento", "meses": 132, "rotuloCabeca": false, "viradaTexto": "CRUZOU A LINHA",

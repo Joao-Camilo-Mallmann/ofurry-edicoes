@@ -7,9 +7,7 @@
   "captions": [
     { "from": "@inicio", "until": "@existe-0.1", "entry": "whip" },
     { "from": "@nunca para-0.1", "until": "@A maior parte-0.1", "entry": "pop", "y": 0.72 },
-    { "from": "@A maior parte-0.1", "until": "@normalmente-0.1", "entry": "whip" },
-    { "from": "@Você sua-0.1", "until": "@colocar-0.1", "entry": "whip" },
-    { "from": "@Tá sendo-0.1", "until": "@Dois pão-0.1", "entry": "pop", "y": 0.72 }
+    { "from": "@A maior parte-0.1", "until": "@normalmente-0.1", "entry": "whip" }
   ],
   "backdrops": [
     { "at": 0, "backdrop": "grid" },
@@ -18,20 +16,17 @@
     { "at": "@A maior parte", "backdrop": "black" },
     { "at": "@normalmente", "backdrop": "stars" },
     { "at": "@olhando", "backdrop": "black" },
-    { "at": "@Você basicamente", "backdrop": "grid" },
-    { "at": "@Você sua", "backdrop": "black" },
-    { "at": "@colocar", "backdrop": "stars" },
-    { "at": "@Tá sendo", "backdrop": "grid" },
-    { "at": "@Dois pão", "backdrop": "black" }
+    { "at": "@Você basicamente", "backdrop": "stars" },
+    { "at": "@Você sua", "backdrop": "black" }
   ],
   "sfx": [
     {"at": "@o primeiro e", "file": "@sfx/General/Clock Tick.mp3", "gain": -22, "len": 2.4, "fadeOut": 0.4},
-    {"at": "@olhando", "file": "@sfx/General/Click.wav", "gain": -21},
     {"at": "@o extrato", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.5},
+    {"at": "@ridículo", "file": "@sfx/General/Pop sound.mp3", "gain": -21},
     {"at": "@guardar mil", "file": "@sfx/Foley/Coins in Hand 01.wav", "gain": -21, "len": 1.0, "fadeOut": 0.3},
     {"at": "@5 reais", "file": "@sfx/General/cash ting.mp3", "gain": -22},
-    {"at": "@colocar", "file": "@sfx/Foley/Coins in Hand 02.wav", "gain": -22, "len": 0.9, "fadeOut": 0.3},
-    {"at": "@o mercado", "file": "@sfx/General/Click.wav", "gain": -21},
+    {"at": "@esses mil", "file": "@sfx/Foley/Coins in Hand 02.wav", "gain": -22, "len": 0.9, "fadeOut": 0.3},
+    {"at": "@te devolve", "file": "@sfx/General/Click.wav", "gain": -21},
     {"at": "@uma bala", "file": "@sfx/General/Pop sound.mp3", "gain": -20},
     {"at": "@Dois pão", "file": "@sfx/General/Pop sound.mp3", "gain": -21},
     {"at": "@de queijo", "file": "@sfx/General/Pop sound.mp3", "gain": -21}
@@ -52,33 +47,61 @@
       "titulo": "O PRIMEIRO E O SEGUNDO ANO",
       "preenche": [{ "at": "@normalmente", "m": 0 }, { "at": "@o primeiro e", "m": 24, "dur": 2.5 }] },
 
-    { "kind": "icons", "at": "@olhando", "until": "@Você basicamente",
-      "items": [
-        { "icon": "eye", "label": "olhando", "at": "@olhando" },
-        { "icon": "receipt", "label": "o extrato", "at": "@o extrato" },
-        { "icon": "microscope", "label": "rendimento ridículo", "at": "@rendimento ridículo", "tone": "highlight" }
+    { "kind": "cena", "tipo": "palco", "at": "@olhando", "until": "@Você basicamente",
+      "atores": [
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260, "keys": [{ "at": "@olhando", "x": 0.22, "y": 0.42 }] },
+        { "id": "extrato", "icone": "receipt", "rotulo": "EXTRATO", "tam": 260, "entra": "rise",
+          "keys": [{ "at": "@o extrato", "x": 0.6, "y": 0.42 }, { "at": "@rendimento ridículo", "x": 0.52, "s": 0.85, "dur": 0.5 }] },
+        { "id": "lupa", "icone": "microscope", "cor": "hl", "tam": 230, "entra": "whip", "pulsaAt": ["@tão baixo"],
+          "keys": [{ "at": "@ridículo", "x": 0.8, "y": 0.42 }] }
+      ],
+      "setas": [{ "de": "voce", "para": "extrato", "at": "@o extrato+0.2", "cor": "text" }],
+      "textos": [{ "at": "@rendimento ridículo", "texto": "RENDIMENTO RIDÍCULO", "x": 0.5, "y": 0.8, "tam": 70, "cor": "hl" }] },
+
+    { "kind": "cena", "tipo": "palco", "at": "@Você basicamente", "until": "@Você sua",
+      "atores": [
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260, "keys": [{ "at": "@Você basicamente", "x": 0.2, "y": 0.45 }] },
+        { "id": "mes", "icone": "calendar-days", "rotulo": "O MÊS INTEIRO", "cor": "info", "tam": 220, "pulsaAt": ["@mês seguinte"],
+          "keys": [{ "at": "@o mês inteiro", "x": 0.5, "y": 0.45 }, { "at": "@guardar", "x": 0.5, "y": 0.16, "s": 0.55, "dur": 0.6 }] },
+        { "id": "cofre", "icone": "piggy-bank", "cor": "gain", "tam": 260, "entra": "whip", "pulsaAt": ["@rendimento#2"],
+          "keys": [{ "at": "@guardar", "x": 0.8, "y": 0.45 }] }
+      ],
+      "fluxos": [
+        { "de": "voce", "para": "cofre", "at": "@guardar", "ate": "@E no mês", "icone": "banknote", "cor": "gain", "tam": 100, "por": 4 },
+        { "de": "cofre", "para": "voce", "at": "@5 reais", "ate": "@5 reais+0.05", "icone": "coins", "cor": "hl", "tam": 110, "por": 1, "viagem": 1.0 }
+      ],
+      "textos": [
+        { "at": "@mil reais", "ate": "@rendimento#2", "texto": "R$ 1.000", "x": 0.5, "y": 0.8, "fonte": "num", "tam": 150, "cor": "gain" },
+        { "at": "@rendimento#2", "ate": "@5 reais", "texto": "RENDIMENTO", "x": 0.5, "y": 0.8, "tam": 70 },
+        { "at": "@5 reais", "texto": "R$ 5", "x": 0.5, "y": 0.8, "fonte": "num", "tam": 170, "cor": "hl" }
       ] },
 
-    { "kind": "cena", "tipo": "comparar", "at": "@Você basicamente", "until": "@Você sua", "vs": "VS",
-      "itens": [
-        { "at": "@Você basicamente", "titulo": "TRABALHO", "valor": "R$ 1.000", "valorAt": "@guardar mil", "sub": "O MÊS INTEIRO", "cor": "text" },
-        { "at": "@rendimento#2", "titulo": "RENDIMENTO", "valor": "R$ 5", "valorAt": "@5 reais", "sub": "NO MÊS SEGUINTE", "cor": "gain" }
+    { "kind": "cena", "tipo": "palco", "at": "@Você sua", "until": "@fim",
+      "atores": [
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260, "keys": [{ "at": "@Você sua", "x": 0.5, "y": 0.45 }, { "at": "@colocar", "x": 0.2, "dur": 0.6 }] },
+        { "id": "suor", "icone": "droplets", "cor": "info", "tam": 110, "balanca": false, "pulsaAt": ["@o mês todo"], "sai": "@esses mil",
+          "keys": [{ "at": "@sua", "x": 0.57, "y": 0.27 }, { "at": "@colocar", "x": 0.27, "dur": 0.6 }] },
+        { "id": "mercado", "icone": "landmark", "rotulo": "MERCADO", "tam": 260, "entra": "whip", "pulsaAt": ["@devolve"],
+          "keys": [{ "at": "@colocar", "x": 0.8, "y": 0.45 }] },
+        { "id": "bala", "icone": "candy", "cor": "hl", "tam": 170, "pulsaAt": ["@bala"], "sai": "@Dois pão",
+          "keys": [{ "at": "@te devolve", "x": 0.8, "y": 0.45, "s": 0.5 }, { "at": "@te devolve+0.1", "x": 0.5, "y": 0.68, "s": 1, "dur": 1.2 }] },
+        { "id": "pao1", "icone": "croissant", "cor": "hl", "tam": 190,
+          "keys": [{ "at": "@Dois pão", "x": 0.42, "y": 0.68 }, { "at": "@olha lá", "s": 0.7, "dur": 0.4 }] },
+        { "id": "pao2", "icone": "croissant", "cor": "hl", "tam": 190,
+          "keys": [{ "at": "@de queijo", "x": 0.58, "y": 0.68 }, { "at": "@olha lá", "s": 0.7, "dur": 0.4 }] }
+      ],
+      "fluxos": [{ "de": "voce", "para": "mercado", "at": "@esses mil", "ate": "@e o mercado", "icone": "banknote", "cor": "gain", "tam": 100, "por": 4 }],
+      "textos": [
+        { "at": "@esses mil", "ate": "@te devolve", "texto": "R$ 1.000", "x": 0.5, "y": 0.18, "fonte": "num", "tam": 140, "cor": "gain" },
+        { "at": "@uma bala", "ate": "@Dois pão", "texto": "UMA BALA", "x": 0.5, "y": 0.18, "tam": 80, "cor": "hl" },
+        { "at": "@Dois pão", "texto": "DOIS PÃO DE QUEIJO", "x": 0.5, "y": 0.18, "tam": 80, "cor": "hl" }
       ] },
+    { "kind": "cena", "tipo": "piada", "at": "@bala", "until": "@Tá sendo", "dura": 0.8, "texto": "A FAMOSA BALA DE TROCO", "x": 0.5, "y": 0.9 },
 
-    { "kind": "icons", "at": "@colocar", "until": "@Tá sendo", "relation": "→",
-      "items": [
-        { "icon": "hand-coins", "label": "mil reais", "at": "@colocar" },
-        { "icon": "landmark", "label": "o mercado", "at": "@o mercado" },
-        { "icon": "candy", "label": "uma bala", "at": "@uma bala", "tone": "highlight" }
-      ] },
-
-    { "kind": "mascot", "at": "@Tá sendo", "until": "@Dois pão", "placement": "center",
-      "poses": [{ "at": "@Tá sendo", "pose": "../../../../public/mascote/fox4.png" }] },
-
-    { "kind": "icons", "at": "@Dois pão", "until": "@fim", "relation": "+",
-      "items": [
-        { "icon": "croissant", "label": "pão de queijo", "at": "@Dois pão", "tone": "highlight" },
-        { "icon": "croissant", "label": "pão de queijo", "at": "@de queijo", "tone": "highlight" }
+    { "kind": "mascot", "at": "@Tá sendo", "until": "@fim", "placement": "corner-right",
+      "poses": [
+        { "at": "@Tá sendo", "pose": "../../../../public/mascote/fox4.png" },
+        { "at": "@mas olha", "pose": "../../../../public/mascote/fox2.png" }
       ] }
   ]
 }

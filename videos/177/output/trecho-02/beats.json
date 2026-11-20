@@ -36,12 +36,12 @@
   "beats": [
     { "kind": "cena", "tipo": "palco", "at": "@Se alguém", "until": "@qual número",
       "atores": [
-        { "id": "alguem", "icone": "user", "rotulo": "ALGUÉM", "tam": 220, "entra": "whip", "keys": [{ "at": "@alguém", "x": 0.72, "y": 0.42 }] },
-        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 220, "keys": [{ "at": "@te falar", "x": 0.28, "y": 0.42 }] },
+        { "id": "alguem", "icone": "user", "rotulo": "ALGUÉM", "tam": 260, "entra": "whip", "keys": [{ "at": "@alguém", "x": 0.72, "y": 0.42 }] },
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260, "keys": [{ "at": "@te falar", "x": 0.28, "y": 0.42 }] },
         { "id": "cofre", "icone": "piggy-bank", "cor": "gain", "tam": 170, "balanca": false,
           "keys": [{ "at": "@algum dinheiro", "x": 0.72, "y": 0.16 }, { "at": "@investido", "x": 0.5, "y": 0.2, "s": 1.2, "dur": 0.6 }] }
       ],
-      "fluxos": [{ "de": "alguem", "para": "voce", "at": "@falar", "ate": "@algum dinheiro", "icone": "message-circle", "cor": "text", "tam": 80, "por": 2 }],
+      "fluxos": [{ "de": "alguem", "para": "voce", "at": "@falar", "ate": "@algum dinheiro", "icone": "message-circle", "cor": "text", "tam": 100, "por": 2 }],
       "textos": [{ "at": "@dinheiro investido", "texto": "DINHEIRO INVESTIDO", "x": 0.5, "y": 0.8, "tam": 64, "cor": "gain" }] },
 
     { "kind": "type-on", "at": "@qual número", "until": "@100 mil", "text": "QUAL NÚMERO VEM NA SUA CABEÇA", "eraseAt": "@chutar" },

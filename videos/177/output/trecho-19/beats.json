@@ -6,8 +6,6 @@
   "cardOptions": { "maxWords": 2, "maxChars": 16 },
   "captions": [
     { "from": "@inicio", "until": "@E no momento-0.1", "entry": "whip" },
-    { "from": "@Cada ano que-0.1", "until": "@guardando dinheiro-0.1", "entry": "pop" },
-    { "from": "@Ela trabalha-0.1", "until": "@A cada ano-0.1", "entry": "pop", "y": 0.12 },
     { "from": "@E vai ser a partir-0.1", "until": "@Você pode trocar-0.1", "entry": "glitch", "y": 0.72 },
     { "from": "@Porque você não-0.1", "until": "@porque a sua renda-0.1", "entry": "pop", "y": 0.8 }
   ],
@@ -15,26 +13,24 @@
     { "at": 0, "backdrop": "black" },
     { "at": "@E no momento", "backdrop": "grid" },
     { "at": "@Cada ano que", "backdrop": "black" },
-    { "at": "@guardando dinheiro", "backdrop": "stars" },
-    { "at": "@agora a máquina", "backdrop": "grid" },
-    { "at": "@E em alguns anos", "backdrop": "black" },
-    { "at": "@E vai ser a partir", "backdrop": "grid" },
-    { "at": "@Você pode trocar", "backdrop": "stars" },
-    { "at": "@Porque você não", "backdrop": "black" },
-    { "at": "@porque a sua renda", "backdrop": "stars" }
+    { "at": "@agora a máquina", "backdrop": "stars" },
+    { "at": "@E em alguns anos", "backdrop": "grid" },
+    { "at": "@E vai ser a partir", "backdrop": "stars" },
+    { "at": "@Você pode trocar", "backdrop": "black" }
   ],
   "sfx": [
     { "at": "@cruzar essa linha", "file": "@sfx/General/Ding.mp3", "gain": -22 },
     { "at": "@mudar de categoria", "file": "@sfx/Mechanical/Gadget 05.wav", "gain": -22, "len": 0.8 },
-    { "at": "@guardando dinheiro", "file": "@sfx/Foley/Coins in Hand 03.wav", "gain": -22, "len": 0.9, "fadeOut": 0.3 },
+    { "at": "@dinheiro investindo", "file": "@sfx/Foley/Coins in Hand 03.wav", "gain": -22, "len": 0.9, "fadeOut": 0.3 },
     { "at": "@máquina", "file": "@sfx/Mechanical/Gadget 03.wav", "gain": -18, "len": 1.0 },
-    { "at": "@imprime dinheiro", "file": "@sfx/Foley/Coins Poured Out 03.wav", "gain": -21, "len": 2.0, "fadeOut": 0.7 },
+    { "at": "@faz o contrário", "file": "@sfx/Foley/Coins Poured Out 03.wav", "gain": -21, "len": 2.0, "fadeOut": 0.7 },
     { "at": "@trabalhar sozinho", "file": "@sfx/General/Cash Register.mp3", "gain": -22, "len": 1.2 },
     { "at": "@alguns anos", "file": "@sfx/General/Ding.mp3", "gain": -22 },
     { "at": "@própria renda", "file": "@sfx/General/cash ting.mp3", "gain": -20 },
     { "at": "@trocar de emprego", "file": "@sfx/Foley/Briefcase Latch.wav", "gain": -20, "len": 0.8 },
-    { "at": "@menos assustado", "file": "@sfx/General/Pop sound.mp3", "gain": -22 },
-    { "at": "@crise", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4 }
+    { "at": "@acontecer", "file": "@sfx/General/Pop sound.mp3", "gain": -22 },
+    { "at": "@crise", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4 },
+    { "at": "@seu trabalho", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4 }
   ],
   "beats": [
     { "kind": "cena", "tipo": "grafico", "at": "@E no momento", "until": "@Cada ano que",
@@ -42,12 +38,37 @@
       "revela": [{ "at": 0, "mes": 100 }, { "at": "@cruzar essa linha", "mes": 132, "dur": 1.2 }, { "at": "@mudar de categoria", "mes": 250, "dur": 1.4 }],
       "vista": [{ "at": 0, "x": 132, "y": 1200 }, { "at": "@ritmo vai", "x": 250, "y": 3600, "dur": 1.4 }] },
 
-    { "kind": "icon", "at": "@guardando dinheiro", "until": "@agora a máquina", "icon": "piggy-bank", "tone": "gain", "label": "guardando dinheiro", "y": 0.42 },
+    { "kind": "cena", "tipo": "palco", "at": "@Cada ano que", "until": "@agora a máquina",
+      "atores": [
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{ "at": "@Cada ano que", "x": 0.5, "y": 0.42 }, { "at": "@passou", "x": 0.82, "dur": 0.6 }] },
+        { "id": "cofre", "icone": "piggy-bank", "rotulo": "INVESTIDO", "cor": "gain", "entra": "whip", "keys": [{ "at": "@guardando", "x": 0.33, "y": 0.42 }] }
+      ],
+      "fluxos": [{ "de": "voce", "para": "cofre", "at": "@dinheiro investindo", "ate": "@agora a máquina+0.3", "icone": "banknote", "por": 3, "cor": "gain", "tam": 90 }],
+      "textos": [
+        { "at": "@Cada ano que", "ate": "@guardando", "texto": "CADA ANO", "x": 0.5, "y": 0.17, "tam": 72 },
+        { "at": "@guardando", "texto": "GUARDANDO E INVESTINDO", "x": 0.5, "y": 0.17, "tam": 68 }
+      ] },
 
-    { "kind": "cena", "tipo": "maquina", "at": "@agora a máquina", "until": "@E em alguns anos",
-      "ligaAt": "@máquina", "ritmo": [{ "at": 0, "v": 3 }, { "at": "@imprime dinheiro", "v": 6, "dur": 1.2 }, { "at": "@trabalhar sozinho", "v": 9, "dur": 1.2 }],
-      "contador": [{ "at": "@máquina", "v": 1000 }, { "at": "@A cada ano", "v": 2000, "dur": 1.6 }, { "at": "@trabalhar sozinho", "v": 3000, "dur": 1.4 }],
-      "escala": 0.85 },
+    { "kind": "cena", "tipo": "maquina", "at": "@agora a máquina", "until": "@E em alguns anos", "x": 0.33, "escala": 0.8,
+      "ligaAt": "@máquina", "ritmo": [{ "at": 0, "v": 2 }, { "at": "@A cada ano", "v": 3, "dur": 1.2 }, { "at": "@trabalhar sozinho", "v": 4, "dur": 1.2 }],
+      "contador": [{ "at": "@máquina", "v": 1000 }, { "at": "@A cada ano", "v": 2000, "dur": 1.6 }, { "at": "@trabalhar sozinho", "v": 3000, "dur": 1.4 }] },
+    { "kind": "cena", "tipo": "palco", "at": "@agora a máquina", "until": "@E em alguns anos",
+      "atores": [
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "entra": "rise", "keys": [{ "at": "@agora a máquina", "x": 0.82, "y": 0.42 }],
+          "pulsaAt": ["@imprime dinheiro", "@pra você", "@seus próprios", "@sozinho", "@pra você#2"] },
+        { "id": "saida", "balanca": false, "keys": [{ "at": "@agora a máquina", "x": 0.378, "y": 0.59, "o": 0 }] }
+      ],
+      "fluxos": [
+        { "de": "saida", "para": "voce", "at": "@faz o contrário", "ate": "@A cada ano", "icone": "banknote", "por": 2, "cor": "gain", "tam": 90, "arco": -0.3 },
+        { "de": "saida", "para": "voce", "at": "@A cada ano", "ate": "@trabalhar sozinho", "icone": "banknote", "por": 4, "cor": "gain", "tam": 90, "arco": -0.3 },
+        { "de": "saida", "para": "voce", "at": "@trabalhar sozinho", "ate": "@E em alguns anos", "icone": "banknote", "por": 7, "cor": "gain", "tam": 90, "arco": -0.3 }
+      ],
+      "textos": [
+        { "at": "@pra você", "ate": "@A cada ano", "texto": "PRA VOCÊ", "x": 0.82, "y": 0.2, "tam": 60, "cor": "gain" },
+        { "at": "@A cada ano", "ate": "@trabalhar sozinho", "texto": "A CADA ANO", "x": 0.82, "y": 0.2, "tam": 60 },
+        { "at": "@trabalhar sozinho", "texto": "SOZINHA", "x": 0.82, "y": 0.2, "tam": 60, "cor": "hl" }
+      ] },
+    { "kind": "cena", "tipo": "piada", "at": "@trabalhar sozinho+0.3", "until": "@trabalhar sozinho+1.3", "dura": 0.8, "texto": "TRABALHA ATÉ NO FERIADO", "x": 0.5, "y": 0.1 },
 
     { "kind": "cena", "tipo": "grafico", "at": "@E em alguns anos", "until": "@E vai ser a partir",
       "modo": "patrimonio", "meses": 260, "rotuloCabeca": false, "titulo": "VIVENDO DA PRÓPRIA RENDA",
@@ -64,18 +85,35 @@
         { "at": "@vida inteira", "pose": "../../../../public/mascote/fox2.png" }
       ] },
 
-    { "kind": "icons", "at": "@Você pode trocar", "until": "@Porque você não", "relation": "OU",
-      "items": [
-        { "icon": "briefcase", "label": "trocar de emprego", "at": "@trocar de emprego", "tone": "info" },
-        { "icon": "shield", "label": "menos assustado", "at": "@menos assustado", "tone": "gain" }
+    { "kind": "cena", "tipo": "palco", "at": "@Você pode trocar", "until": "@Porque você não",
+      "atores": [
+        { "id": "velho", "icone": "building-2", "tam": 220, "keys": [{ "at": "@Você pode trocar", "x": 0.15, "y": 0.42 }] },
+        { "id": "novo", "icone": "building", "tam": 220, "cor": "info", "entra": "whip", "keys": [{ "at": "@trocar de emprego", "x": 0.48, "y": 0.42 }] },
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 150,
+          "keys": [{ "at": "@Você pode trocar", "x": 0.26, "y": 0.64 }, { "at": "@emprego", "x": 0.6, "y": 0.64, "dur": 0.9 }] },
+        { "id": "escudo", "icone": "shield", "rotulo": "MENOS ASSUSTADO", "cor": "gain", "tam": 220,
+          "keys": [{ "at": "@menos assustado", "x": 0.84, "y": 0.45 }], "pulsaAt": ["@acontecer+0.5", "@na sua vida"] },
+        { "id": "raio", "icone": "cloud-lightning", "cor": "loss", "tam": 150, "entra": "whip", "keys": [{ "at": "@algum problema", "x": 0.84, "y": 0.12 }] }
+      ],
+      "fluxos": [{ "de": "raio", "para": "escudo", "at": "@acontecer", "ate": "@Porque você não", "icone": "zap", "por": 3, "cor": "loss", "tam": 60, "viagem": 0.5, "arco": 0 }],
+      "textos": [{ "at": "@trocar de emprego", "ate": "@menos assustado", "texto": "TROCAR DE EMPREGO", "x": 0.36, "y": 0.15, "tam": 64, "cor": "info" }] },
+
+    { "kind": "cena", "tipo": "palco", "at": "@Porque você não", "until": "@porque a sua renda",
+      "atores": [
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 170, "keys": [{ "at": "@Porque você não", "x": 0.17, "y": 0.4 }] },
+        { "id": "crise", "icone": "cloud-lightning", "rotulo": "CRISE", "tam": 300, "entra": "whip",
+          "keys": [{ "at": "@Porque você não", "x": 0.58, "y": 0.36 }, { "at": "@preocupar", "r": -8, "dur": 0.25 }, { "at": "@com a crise", "r": 8, "dur": 0.25 }],
+          "riscaAt": "@crise" }
       ] },
 
-    { "kind": "icon", "at": "@Porque você não", "until": "@porque a sua renda", "icon": "cloud-lightning", "tone": "neutral", "label": "crise", "strikeAt": "@crise", "animated": false, "y": 0.38 },
-
-    { "kind": "icons", "at": "@porque a sua renda", "until": "@fim", "relation": "≠",
-      "items": [
-        { "icon": "wallet", "label": "sua renda", "at": "@porque a sua renda", "tone": "gain" },
-        { "icon": "briefcase-business", "label": "seu trabalho", "at": "@seu trabalho", "tone": "neutral" }
-      ] }
+    { "kind": "cena", "tipo": "palco", "at": "@porque a sua renda", "until": "@fim",
+      "atores": [
+        { "id": "maquina", "icone": "printer", "cor": "gain", "tam": 150, "keys": [{ "at": "@porque a sua renda", "x": 0.3, "y": 0.13 }] },
+        { "id": "renda", "icone": "wallet", "rotulo": "SUA RENDA", "cor": "gain", "keys": [{ "at": "@porque a sua renda", "x": 0.3, "y": 0.5 }] },
+        { "id": "trabalho", "icone": "briefcase-business", "rotulo": "SEU TRABALHO", "entra": "whip", "keys": [{ "at": "@não depende", "x": 0.74, "y": 0.5 }], "riscaAt": "@seu trabalho+0.1" }
+      ],
+      "fluxos": [{ "de": "maquina", "para": "renda", "at": "@porque a sua renda+0.2", "ate": "@fim", "icone": "coins", "por": 3, "cor": "gain", "tam": 60, "arco": 0 }],
+      "setas": [{ "de": "trabalho", "para": "renda", "at": "@não depende", "ate": "@seu trabalho", "cor": "whisper" }],
+      "textos": [{ "at": "@não depende", "texto": "NÃO DEPENDE MAIS", "x": 0.62, "y": 0.15, "tam": 64, "cor": "hl" }] }
   ]
 }

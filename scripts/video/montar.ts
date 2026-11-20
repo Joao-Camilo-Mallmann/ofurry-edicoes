@@ -5,6 +5,7 @@
  *   bun run video:montar <id>                     video inteiro -> videos/<id>/final/<id>-final.mp4
  *   bun run video:montar <id> --trechos 01,12     so esses trechos (previa) -> final/<id>-previa-01-12.mp4
  *   bun run video:montar <id> --so-audio          gera so final/<id>-mix.wav (para ouvir/medir)
+ *   bun run video:montar <id> --so-partes         refaz so final/partes.md (mapa das partes + capitulos do YouTube)
  *
  * Audio (padrao da casa, docs/padrao-edicao-ofurry.md):
  *   - narracao: o midia/narracao.wav de cada trecho (ja masterizada); nada de musica cantada por cima.
@@ -79,6 +80,12 @@ if (!soAudio) {
     console.error(`Faltam renders: ${faltam.map((s) => s.id).join(', ')} (bun run hf:render ${id} XX)`);
     process.exit(1);
   }
+}
+
+if (args.includes('--so-partes')) {
+  // so refaz final/partes.md (mapa das partes + capitulos), sem mexer em audio nem video
+  escreverPartes();
+  process.exit(0);
 }
 
 // ---------------------------------------------------------------- entradas de audio
@@ -209,12 +216,51 @@ if (!soAudio) {
   r = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lista, '-i', mixWav, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest', '-movflags', '+faststart', out], { stdio: 'inherit' });
   if (r.status !== 0) process.exit(r.status ?? 1);
   console.log(`Pronto: ${out}`);
+  if (!sel) escreverPartes();
+}
+
+/**
+ * final/partes.md: mapa "minuto do video -> parte (trecho)", para achar e refazer so uma parte
+ * (bun run video:produzir <id> --trechos XX), e os capitulos prontos para a descricao do YouTube.
+ */
+function escreverPartes() {
+  const mmss = (t: number) => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
+  const info = (id: string) => m.trechos.find((t) => t.id === id)!;
+  let md = `# ${m.titulo}: partes do vídeo\n\nGerado pelo \`video:montar\` em ${new Date().toLocaleString('pt-BR')}. `;
+  md += `Cada parte é renderizada sozinha e o final só junta as partes.\n\n`;
+  md += `**Para mexer numa parte:** edite \`output/trecho-XX/beats.json\` e rode \`bun run video:produzir ${id} --trechos XX\` `;
+  md += `(renderiza só essa parte e junta o vídeo de novo).\n\n`;
+  md += `| Parte | Começa | Termina | Duração | Bloco | O que é |\n|---|---|---|---|---|---|\n`;
+  for (const s of segs) {
+    const t = info(s.id);
+    md += `| ${s.id.replace('trecho-', '')} | ${mmss(s.out0)} | ${mmss(s.out0 + s.dur)} | ${s.dur.toFixed(0)} s | ${t.bloco ?? ''} | ${t.titulo ?? ''} |\n`;
+  }
+  // capitulos: o 1o trecho de cada bloco do roteiro (YouTube: 1o em 0:00, minimo 3, cada um com 10 s ou mais)
+  const caps: { t: number; nome: string }[] = [];
+  for (const s of segs) {
+    const t = info(s.id);
+    const prev = caps.length ? info(segs.find((x) => x.out0 === caps[caps.length - 1].t)!.id) : undefined;
+    if (prev && prev.bloco === t.bloco) continue;
+    // bloco com varias partes: o nome do bloco ("A jornada dos 10 anos"); parte unica: o titulo dela
+    const variasPartes = m.trechos.filter((x) => x.bloco && x.bloco === t.bloco).length > 1;
+    const bloco = (t.bloco ?? '').toLowerCase();
+    const nome = variasPartes && bloco ? bloco : (t.titulo ?? t.bloco ?? s.id).replace(/^[^:]+:\s*/, '');
+    if (caps.length && s.out0 - caps[caps.length - 1].t < 10) continue;
+    caps.push({ t: s.out0, nome: nome.charAt(0).toUpperCase() + nome.slice(1) });
+  }
+  md += `\n## Capítulos para a descrição do YouTube\n\nRevise os nomes antes de colar (são os títulos internos das partes).\n\n\`\`\`text\n`;
+  md += caps.map((c) => `${mmss(c.t)} ${c.nome}`).join('\n') + '\n```\n';
+  mkdirSync(join(dir, 'final'), { recursive: true });
+  writeFileSync(join(dir, 'final', 'partes.md'), md);
+  console.log(`Mapa das partes e capitulos: ${join(dir, 'final', 'partes.md')}`);
 }
 // medida final
-const meas = spawnSync('ffmpeg', ['-hide_banner', '-nostats', '-i', mixWav, '-af', 'ebur128=peak=true', '-f', 'null', '-'], { encoding: 'utf8' });
-const I = meas.stderr.match(/I:\s+(-?[\d.]+) LUFS/g)?.pop();
-const TP = meas.stderr.match(/Peak:\s+(-?[\d.]+) dBFS/g)?.pop();
-console.log(`Volume: ${I ?? '?'} · pico real ${TP ?? '?'}`);
+// framelog=quiet: sem uma linha por quadro (estourava o buffer e o resumo vinha vazio)
+const meas = spawnSync('ffmpeg', ['-hide_banner', '-nostats', '-i', mixWav, '-af', 'ebur128=peak=true:framelog=quiet', '-f', 'null', '-'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+const resumo = meas.stderr.slice(meas.stderr.lastIndexOf('Summary'));
+const I = resumo.match(/I:\s+(-?[\d.]+) LUFS/)?.[1];
+const TP = resumo.match(/Peak:\s+(-?[\d.]+) dBFS/)?.[1];
+console.log(`Volume: ${I ?? '?'} LUFS · pico real ${TP ?? '?'} dBFS`);
 if (infraction.size) {
   console.log('\n!!! MUSICA DO INFRACTION NESTE VIDEO: a descricao do YouTube PRECISA do credito (nome + link + texto do inaudio).');
   for (const f of infraction) console.log(`    - ${f}`);

@@ -12,8 +12,8 @@
   ],
   "backdrops": [
     { "at": 0, "backdrop": "grid" },
-    { "at": "@vamos lembrar", "backdrop": "stars" },
-    { "at": "@O primeiro milhão", "backdrop": "black" },
+    { "at": "@vamos lembrar", "backdrop": "black" },
+    { "at": "@O primeiro milhão", "backdrop": "stars" },
     { "at": "@Se a gente", "backdrop": "grid" },
     { "at": "@em aproximadamente", "backdrop": "black" },
     { "at": "@Só que aí que", "backdrop": "grid" },
@@ -36,14 +36,21 @@
     { "at": "@só rende", "file": "@sfx/Foley/Coins in Hand 03.wav", "gain": -24, "len": 0.8, "fadeOut": 0.3 }
   ],
   "beats": [
-    { "kind": "icon", "at": "@vamos lembrar", "until": "@O primeiro milhão", "icon": "trophy", "tone": "highlight", "label": "nosso objetivo", "y": 0.42 },
+    { "kind": "cena", "tipo": "palco", "at": "@vamos lembrar", "until": "@O primeiro milhão",
+      "atores": [
+        { "id": "trofeu", "icone": "trophy", "rotulo": "NOSSO OBJETIVO", "cor": "hl", "keys": [{ "at": "@vamos lembrar", "x": 0.7, "y": 0.42 }, { "at": "@persegue", "x": 0.84, "dur": 0.5 }], "pulsaAt": ["@nosso objetivo"] },
+        { "id": "p1", "icone": "user", "tam": 150, "entra": "whip", "keys": [{ "at": "@todo mundo", "x": 0.06, "y": 0.58 }, { "at": "@todo mundo+0.1", "x": 0.5, "dur": 1.3 }] },
+        { "id": "p2", "icone": "user", "tam": 150, "entra": "whip", "keys": [{ "at": "@todo mundo+0.2", "x": 0.04, "y": 0.58 }, { "at": "@todo mundo+0.3", "x": 0.37, "dur": 1.3 }] },
+        { "id": "p3", "icone": "user", "tam": 150, "entra": "whip", "keys": [{ "at": "@todo mundo+0.4", "x": 0.02, "y": 0.58 }, { "at": "@todo mundo+0.5", "x": 0.24, "dur": 1.3 }] }
+      ],
+      "textos": [{ "at": "@todo mundo", "texto": "TODO MUNDO PERSEGUE", "x": 0.45, "y": 0.15, "tam": 68 }] },
 
     { "kind": "number", "at": "@O primeiro milhão", "until": "@Se a gente", "value": "R$ 1.000.000", "countFrom": 0, "caption": "O PRIMEIRO MILHÃO", "tone": "highlight" },
 
     { "kind": "cena", "tipo": "numeros", "at": "@Se a gente", "until": "@em aproximadamente",
       "itens": [
-        { "at": "@mil reais", "valor": "R$ 1.000", "sub": "POR MÊS", "cor": "text", "riscaAt": "@fim+30" },
-        { "at": "@7%", "valor": "7%", "sub": "AO ANO", "cor": "gain", "riscaAt": "@fim+30" }
+        { "at": "@mil reais", "valor": "R$ 1.000", "sub": "POR MÊS", "cor": "text" },
+        { "at": "@7%", "valor": "7%", "sub": "AO ANO", "cor": "gain" }
       ] },
 
     { "kind": "cena", "tipo": "grafico", "at": "@em aproximadamente", "until": "@Só que aí que",
@@ -51,6 +58,7 @@
       "revela": [{ "at": 0, "mes": 0 }, { "at": "@em aproximadamente+0.1", "mes": 337, "dur": 1.8 }],
       "vista": [{ "at": 0, "x": 340, "y": 1100000 }],
       "marcos": [{ "mes": 337, "at": "@28 anos", "rotulo": "R$ 1 MILHÃO · 28 ANOS", "cor": "hl", "lado": "esq" }] },
+    { "kind": "cena", "tipo": "piada", "at": "@28 anos+0.4", "until": "@28 anos+1.4", "dura": 0.9, "texto": "DÁ TEMPO DE VER 7 COPAS", "x": 0.4, "y": 0.42 },
 
     { "kind": "mascot", "at": "@Só que aí que", "until": "@No milhão", "placement": "center",
       "poses": [
@@ -81,7 +89,13 @@
       "preenche": [{ "at": "@A parte difícil é", "m": 0 }, { "at": "@A parte difícil é+0.1", "m": 120, "dur": 2.0 }],
       "marcos": [{ "mes": 120, "at": "@10 anos", "cor": "hl", "rotulo": "10 ANOS" }] },
 
-    { "kind": "number", "at": "@só rende", "until": "@você não está", "value": "R$ 64", "caption": "POR MÊS HOJE", "tone": "gain" },
+    { "kind": "cena", "tipo": "palco", "at": "@só rende", "until": "@você não está",
+      "atores": [
+        { "id": "cofre", "icone": "piggy-bank", "rotulo": "HOJE", "cor": "gain", "keys": [{ "at": "@só rende", "x": 0.3, "y": 0.48 }] },
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "entra": "whip", "keys": [{ "at": "@só rende+0.2", "x": 0.72, "y": 0.48 }], "pulsaAt": ["@por mês#2"] }
+      ],
+      "fluxos": [{ "de": "cofre", "para": "voce", "at": "@65 reais", "ate": "@você não está", "icone": "coins", "por": 1.5, "cor": "gain", "tam": 60 }],
+      "textos": [{ "at": "@65 reais", "texto": "R$ 64 POR MÊS", "x": 0.5, "y": 0.17, "tam": 140, "fonte": "num", "cor": "gain" }] },
 
     { "kind": "mascot", "at": "@você não está", "until": "@fim", "placement": "center",
       "poses": [

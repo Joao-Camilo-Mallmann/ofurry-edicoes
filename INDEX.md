@@ -27,6 +27,7 @@ Full HD. Este arquivo ensina a navegar no repo **e nas pastas do PC** onde ficam
 bun run video:novo <id> --titulo "..." --audio "D:/YT/OFurry/<video>/narracao.wav"
 bun run video:transcrever <id>
   -> corrigir texto em videos/<id>/midia/revisao.json; trechos com "de" (frase de abertura) no video.json
+bun run video:dividir <id> --aplicar     (divide em partes de 20–55 s, por seção e pausa)
 bun run video:sincronizar <id>
   -> storyboard.md + 1-2 pilotos aprovados pelo João (beats.json com âncoras "@frase" e sfx)
 bun run hf:build <id> XX      e      bun run video:montar <id> --trechos 01,XX     (prévia com som)
@@ -34,6 +35,8 @@ bun run hf:build <id> XX      e      bun run video:montar <id> --trechos 01,XX  
 bun run video:produzir <id>   -> videos/<id>/final/<id>-final.mp4
 ```
 Regravou frases? `bun run video:sincronizar <id> --audio nova.wav` e `bun run video:produzir <id>`.
+Quer mexer só numa parte? Ache o minuto em `videos/<id>/final/partes.md` e rode `bun run video:produzir <id> --trechos XX`
+(o vídeo é sempre feito por partes; só a parte mexida renderiza de novo).
 Detalhes de cada passo: `docs/padrao-edicao-ofurry.md`, seção 8.
 
 ## 3. Mapa do repositório

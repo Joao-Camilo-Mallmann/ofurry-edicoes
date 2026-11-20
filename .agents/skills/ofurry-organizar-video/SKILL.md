@@ -69,7 +69,8 @@ Poses do mascote ficam em `public/mascote/` (compartilhadas por todos os videos)
    Nao reescreva a fala: o texto tem que ser o que foi dito. Excecao: **numero falado errado** vira o numero certo
    na revisao (a tela mostra o certo) e entra na lista de regravacao para o João (`midia/frases_para_regravar.txt`).
    Formato: `[{ "de": "uns 54 reais", "para": "uns 64 reais", "nota": "NUMERO: narrado 54, certo 64" }]`.
-4. **Dividir em trechos, por FRASE.** No `video.json`, cada trecho tem `de` = a frase que o abre; depois
+4. **Dividir em trechos (partes), por FRASE.** `bun run video:dividir <id>` propõe as partes (seção do roteiro,
+   cortes em fim de frase na pausa mais longa, 20–55 s) e `--aplicar` grava no `video.json`. No `video.json`, cada trecho tem `de` = a frase que o abre; depois
    `bun run video:sincronizar <id>` recorta todos (audio + palavras) e mostra a tabela de tempos. Esse e o jeito
    padrao: quando a narracao muda, o mesmo comando recorta tudo de novo. O metodo antigo abaixo continua valendo
    para cortar um trecho avulso. Um trecho = 20 a 60 s de fala com uma ideia so, normalmente um bloco do roteiro

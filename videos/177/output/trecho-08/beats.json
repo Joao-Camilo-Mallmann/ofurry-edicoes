@@ -7,8 +7,6 @@
   "captions": [
     { "from": "@inicio", "until": "@Eu já tenho-0.1", "entry": "pop", "y": 0.72 },
     { "from": "@E o que importa-0.1", "until": "@quanto dinheiro-0.1", "entry": "whip" },
-    { "from": "@Duas pessoas-0.1", "until": "@mesmo patrimônio-0.1", "entry": "whip" },
-    { "from": "@E continua-0.1", "until": "@devagar-0.1", "entry": "whip" },
     { "from": "@Quantas vezes-0.1", "until": "@fim", "entry": "pop", "y": 0.72 }
   ],
   "backdrops": [
@@ -16,7 +14,7 @@
     { "at": "@Eu já tenho", "backdrop": "black" },
     { "at": "@mas não dizem", "backdrop": "stars" },
     { "at": "@E o que importa", "backdrop": "black" },
-    { "at": "@Duas pessoas", "backdrop": "grid" },
+    { "at": "@Duas pessoas", "backdrop": "stars" },
     { "at": "@Tudo depende", "backdrop": "black" },
     { "at": "@A maioria", "backdrop": "stars" },
     { "at": "@E continua", "backdrop": "black" },
@@ -27,9 +25,9 @@
     {"at": "@50 mil", "file": "@sfx/General/Pop sound.mp3", "gain": -21},
     {"at": "@100 mil", "file": "@sfx/General/Pop sound.mp3", "gain": -21},
     {"at": "@onde você está", "file": "@sfx/General/Ding.mp3", "gain": -22},
-    {"at": "@mas o quanto", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
     {"at": "@puxar o carro", "file": "@sfx/Mechanical/Gadget 04.wav", "gain": -22, "len": 0.8, "fadeOut": 0.3},
     {"at": "@100 mil reais", "file": "@sfx/General/cash ting.mp3", "gain": -21},
+    {"at": "@qual é a taxa", "file": "@sfx/General/Click.wav", "gain": -21},
     {"at": "@ponto de virada", "file": "@sfx/General/correct sfx.mp3", "gain": -20},
     {"at": "@atrasado", "file": "@sfx/General/Clock Tick.mp3", "gain": -22, "len": 0.8, "fadeOut": 0.2}
   ],
@@ -55,24 +53,46 @@
       "vista": [{ "at": 0, "x": 130, "y": 200000 }],
       "marcos": [{ "mes": 50, "at": "@onde você está", "rotulo": "ONDE VOCÊ ESTÁ", "cor": "hl", "lado": "cima" }] },
 
-    { "kind": "icons", "at": "@quanto dinheiro", "until": "@Duas pessoas",
-      "items": [
-        { "icon": "banknote", "label": "dinheiro parado", "at": "@quanto dinheiro", "strikeAt": "@mas o quanto" },
-        { "icon": "link", "label": "te ajuda", "at": "@te ajuda", "tone": "highlight" },
-        { "icon": "car", "label": "puxar o carro", "at": "@puxar o carro", "tone": "gain" }
+    { "kind": "cena", "tipo": "palco", "at": "@quanto dinheiro", "until": "@Duas pessoas",
+      "atores": [
+        { "id": "grana", "icone": "banknote", "cor": "gain", "tam": 240, "balanca": false, "pulsaAt": ["@te ajuda"],
+          "keys": [{ "at": "@quanto dinheiro", "x": 0.5, "y": 0.42 }, { "at": "@mas o quanto", "x": 0.7, "dur": 0.6 }, { "at": "@dos investimentos", "x": 0.86, "dur": 1.0 }] },
+        { "id": "corda", "icone": "link", "cor": "hl", "tam": 130,
+          "keys": [{ "at": "@puxar o carro", "x": 0.52, "y": 0.43 }, { "at": "@dos investimentos", "x": 0.68, "dur": 1.0 }] },
+        { "id": "carro", "icone": "car", "tam": 280, "entra": "whip",
+          "keys": [{ "at": "@puxar o carro", "x": 0.32, "y": 0.44 }, { "at": "@dos investimentos", "x": 0.5, "dur": 1.0 }] }
+      ],
+      "textos": [
+        { "at": "@parado", "ate": "@mas o quanto", "texto": "PARADO", "x": 0.5, "y": 0.8, "tam": 84, "cor": "whisper" },
+        { "at": "@puxar o carro", "texto": "PUXAR O CARRO", "x": 0.5, "y": 0.82, "tam": 84, "cor": "gain" }
       ] },
 
-    { "kind": "cena", "tipo": "comparar", "at": "@mesmo patrimônio", "until": "@Tudo depende", "vs": "=",
-      "itens": [
-        { "at": "@mesmo patrimônio", "titulo": "PESSOA 1", "valor": "100 MIL", "valorAt": "@100 mil reais", "sub": "UM MOMENTO DA CURVA", "cor": "text" },
-        { "at": "@mesmo patrimônio+0.3", "titulo": "PESSOA 2", "valor": "100 MIL", "valorAt": "@100 mil reais+0.2", "sub": "OUTRO MOMENTO", "cor": "text" }
+    { "kind": "cena", "tipo": "palco", "at": "@Duas pessoas", "until": "@Tudo depende",
+      "atores": [
+        { "id": "p1", "icone": "user", "rotulo": "PESSOA 1", "tam": 230, "pulsaAt": ["@mesmo patrimônio"],
+          "keys": [{ "at": "@Duas pessoas", "x": 0.3, "y": 0.46 }, { "at": "@momentos diferentes", "x": 0.2, "y": 0.68, "s": 0.8, "dur": 0.7 }] },
+        { "id": "p2", "icone": "user", "rotulo": "PESSOA 2", "tam": 230, "pulsaAt": ["@mesmo patrimônio"],
+          "keys": [{ "at": "@Duas pessoas+0.3", "x": 0.7, "y": 0.46 }, { "at": "@momentos diferentes", "x": 0.8, "y": 0.3, "s": 0.8, "dur": 0.7 }] }
+      ],
+      "setas": [{ "de": "p1", "para": "p2", "at": "@da curva", "cor": "gain" }],
+      "textos": [
+        { "at": "@100 mil reais", "ate": "@momentos diferentes", "texto": "R$ 100 MIL", "x": 0.5, "y": 0.2, "fonte": "num", "tam": 150, "cor": "hl" },
+        { "at": "@momentos diferentes", "texto": "MOMENTOS DIFERENTES", "x": 0.5, "y": 0.9, "tam": 70 }
       ] },
 
     { "kind": "section", "at": "@Tudo depende", "until": "@A maioria", "text": "TUDO DEPENDE" },
-    { "kind": "icons", "at": "@Tudo depende", "until": "@A maioria", "relation": "+",
-      "items": [
-        { "icon": "clock", "label": "quanto tempo rende", "at": "@quanto tempo", "tone": "info" },
-        { "icon": "percent", "label": "qual é a taxa", "at": "@qual é a taxa", "tone": "highlight" }
+    { "kind": "cena", "tipo": "palco", "at": "@Tudo depende", "until": "@A maioria",
+      "atores": [
+        { "id": "grana", "icone": "coins", "cor": "gain", "rotulo": "ESSE DINHEIRO", "tam": 240,
+          "keys": [{ "at": "@Tudo depende", "x": 0.5, "y": 0.5 }, { "at": "@ele rende", "s": 1.35, "dur": 0.6 }] },
+        { "id": "tempo", "icone": "clock", "cor": "info", "rotulo": "QUANTO TEMPO", "tam": 220, "entra": "whip",
+          "keys": [{ "at": "@quanto tempo", "x": 0.18, "y": 0.5 }, { "at": "@dinheiro rende", "r": 360, "dur": 0.8 }] },
+        { "id": "taxa", "icone": "percent", "cor": "hl", "rotulo": "QUAL É A TAXA", "tam": 220, "entra": "whip", "pulsaAt": ["@taxa que"],
+          "keys": [{ "at": "@qual é a taxa", "x": 0.82, "y": 0.5 }] }
+      ],
+      "setas": [
+        { "de": "tempo", "para": "grana", "at": "@quanto tempo+0.3", "cor": "info" },
+        { "de": "taxa", "para": "grana", "at": "@qual é a taxa+0.3", "cor": "hl" }
       ] },
 
     { "kind": "cena", "tipo": "grafico", "at": "@A maioria", "until": "@E continua",
@@ -82,11 +102,19 @@
       "vista": [{ "at": 0, "x": 130, "y": 1200 }],
       "marcos": [{ "mes": 80, "at": "@números redondos", "rotulo": "R$ 100 MIL GUARDADOS", "cor": "text", "lado": "baixo" }] },
 
-    { "kind": "icons", "at": "@devagar", "until": "@Quantas vezes", "relation": "OU",
-      "items": [
-        { "icon": "snail", "label": "devagar", "at": "@devagar" },
-        { "icon": "hourglass", "label": "atrasado", "at": "@atrasado", "tone": "loss" }
+    { "kind": "cena", "tipo": "palco", "at": "@E continua", "until": "@Quantas vezes",
+      "atores": [
+        { "id": "lesma", "icone": "snail", "tam": 240,
+          "keys": [{ "at": "@E continua", "x": 0.12, "y": 0.46 }, { "at": "@E continua+0.1", "x": 0.42, "dur": 3.0 }] },
+        { "id": "ampulheta", "icone": "hourglass", "cor": "loss", "tam": 240, "entra": "whip",
+          "keys": [{ "at": "@atrasado", "x": 0.78, "y": 0.46 }, { "at": "@atrasado+0.2", "r": 180, "dur": 0.5 }] }
+      ],
+      "textos": [
+        { "at": "@E continua", "ate": "@devagar", "texto": "ACHANDO QUE ESTÁ", "x": 0.5, "y": 0.82, "tam": 70 },
+        { "at": "@devagar", "ate": "@atrasado", "texto": "DEVAGAR", "x": 0.5, "y": 0.82, "tam": 84 },
+        { "at": "@atrasado", "texto": "ATRASADO", "x": 0.5, "y": 0.82, "tam": 84, "cor": "loss" }
       ] },
+    { "kind": "cena", "tipo": "piada", "at": "@devagar+0.3", "until": "@Quantas vezes", "dura": 0.8, "texto": "DEVAGAR E SEMPRE, UÉ", "tam": 64, "x": 0.5, "y": 0.17 },
 
     { "kind": "mascot", "at": "@Quantas vezes", "until": "@fim", "placement": "center",
       "poses": [

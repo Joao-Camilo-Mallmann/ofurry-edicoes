@@ -226,6 +226,7 @@ ofurry-motion/
 | `bun run video:buscar <id> "start" ["end"]` | Find when a script sentence was said |
 | `bun run video:cortar <id> <XX> <start> <end>` | Create a section: cut audio, words, `plano.md`, `beats.json` |
 | `bun run video:status <id>` | Where each section is in the pipeline |
+| `bun run video:dividir <id> [--aplicar]` | Split the narration into parts (by script section, cut at the longest pause between sentences, 20–55 s) |
 | `bun run video:sincronizar <id> [--audio new.wav]` | Re-apply `revisao.json` and re-cut every section by its opening sentence (after a re-recording) |
 | `bun run video:montar <id> [--trechos 01,12]` | Whole-video audio (narration + continuous music + sfx, -14 LUFS) + join the section MP4s |
 | `bun run video:produzir <id>` | Build all sections, render only what changed visually, then `video:montar` |

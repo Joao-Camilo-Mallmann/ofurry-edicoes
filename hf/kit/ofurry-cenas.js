@@ -29,7 +29,8 @@
   };
   OF.E = E;
   /** progresso 0-1 de uma entrada que comeca em `at` e dura `d` segundos */
-  var prog = function (T, at, d, ease) { if (at === undefined || at === null) return 1; var x = c01((T - at) / (d || 0.25)); return (ease || E.out3)(x); };
+  // +1 quadro: a entrada ja aparece no quadro em que a batida comeca (sem quadro vazio, que piscava na emenda dos trechos)
+  var prog = function (T, at, d, ease) { if (at === undefined || at === null) return 1; var x = c01((T - at + 1 / 30) / (d || 0.25)); return (ease || E.out3)(x); };
   OF.prog = prog;
   /** interpola uma lista de keyframes [{at, ...k}] no campo k (transicao de `dur` s com ease io a partir de cada at) */
   function kf(list, T, k, def, dur) {

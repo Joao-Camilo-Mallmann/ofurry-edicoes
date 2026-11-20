@@ -121,7 +121,7 @@ O João traz **roteiro (ou briefing) + narração final** (wav/mp3). O resto é 
 2. copiar roteiro para videos/<id>/roteiro.md (e briefing.md com os números)
 3. bun run video:transcrever <id>                                      Parakeet local, palavra por palavra
 4. midia/revisao.json: corrigir nomes e números (ler o texto inteiro contra o roteiro)
-5. video.json: um trecho por ideia (20–60 s), cada um com `de` = frase de abertura
+5. bun run video:dividir <id> --aplicar                              divide em PARTES (ver abaixo) no video.json
    bun run video:sincronizar <id>                                      recorta tudo pelas frases
 6. storyboard.md: plano de cenas por trecho (seção 4) -> APROVAÇÃO do João
 7. 1–2 pilotos: beats.json (âncoras "@frase" + sfx) -> bun run hf:build <id> XX -> snapshot -> hf:render
@@ -131,6 +131,18 @@ O João traz **roteiro (ou briefing) + narração final** (wav/mp3). O resto é 
 10. bun run video:produzir <id>                                         build + render do que mudou + montagem
     -> videos/<id>/final/<id>-final.mp4 (1920x1080, -14 LUFS)
 ```
+
+**O vídeo é sempre feito por partes** (pedido do João em 20/11/2026: "renderizar sempre o vídeo por partes e no
+final juntar tudo... mais fácil se eu quiser editar alguma parte em específico"). Cada parte (`output/trecho-XX/`)
+tem suas cenas, renderiza sozinha na placa (~1 min) e o `video:montar` só junta as partes e refaz o áudio inteiro.
+- **Como dividir (`video:dividir`):** cada seção do roteiro é no mínimo uma parte (nunca duas ideias numa parte);
+  seção com mais de 55 s é cortada em fim de frase, na pausa mais longa entre 20 e 55 s (alvo 40 s); seção com menos
+  de 20 s se junta à seguinte quando cabem juntas (ex.: CTA + gancho final); cada parte começa numa frase (`de`).
+- **Achar a parte de um minuto do vídeo:** `final/partes.md` (gerado pelo `video:montar`), que também traz os
+  capítulos prontos para a descrição do YouTube.
+- **Mexer numa parte:** editar `output/trecho-XX/beats.json` e `bun run video:produzir <id> --trechos XX`
+  (renderiza só essa parte e junta o vídeo de novo).
+- **Emenda:** o que aparece primeiro numa parte começa no quadro 0 (o build puxa sozinho), para a junção não piscar.
 
 Narração mudou (regravação)? `bun run video:sincronizar <id> --audio nova.wav` e depois `bun run video:produzir <id>`.
 As âncoras "@frase" re-sincronizam as cenas; só os trechos cuja imagem mudou são renderizados de novo. Se uma frase

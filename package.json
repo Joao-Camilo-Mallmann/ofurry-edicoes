@@ -27,6 +27,7 @@
     "video:buscar": "bun run scripts/video/buscar.ts",
     "video:cortar": "bun run scripts/video/cortar-trecho.ts",
     "video:status": "bun run scripts/video/status.ts",
+    "video:dividir": "bun run scripts/video/dividir.ts",
     "video:sincronizar": "bun run scripts/video/sincronizar.ts",
     "video:montar": "bun run scripts/video/montar.ts",
     "video:produzir": "bun run scripts/video/produzir.ts",

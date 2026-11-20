@@ -68,7 +68,7 @@
     { "kind": "cena", "tipo": "calendario", "at": "@E o pior", "until": "@Fica comigo", "titulo": "ANOS SEM SABER",
       "preenche": [{ "at": "@E o pior", "m": 0 }, { "at": "@muita gente", "m": 100, "dur": 5.2 }],
       "marcos": [{ "mes": 100, "at": "@chegando perto", "cor": "loss", "rotulo": "DESISTIU" }] },
-    { "kind": "cena", "tipo": "piada", "at": "@chegando perto+0.6", "until": "@Fica comigo", "texto": "(faltavam só 24 meses)", "x": 0.6, "y": 0.9 },
+    { "kind": "cena", "tipo": "piada", "at": "@chegando perto+0.6", "until": "@Fica comigo", "texto": "FALTAVAM SÓ 24 MESES", "dura": 0.9, "x": 0.68, "y": 0.86 },
 
     { "kind": "cena", "tipo": "lista", "at": "@Fica comigo", "until": "@fim",
       "itens": [

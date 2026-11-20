@@ -1,7 +1,7 @@
 # 177 mil: storyboard (plano de cenas por trecho)
 
 - Narração: `midia/narracao.wav` (14:12, versão de 17/11/2026). Trechos amarrados por frase (`video.json` → `de`).
-- Estado: **RASCUNHO**, com 2 pilotos renderizados (trecho 01 e trecho 12). Esperando o ok do João.
+- Estado: **PRODUZIDO** em 20/11/2026 (pilotos aprovados; 2ª passada com palco de ícones e piadas relâmpago). Final: `final/177-final.mp4`; mapa das partes: `final/partes.md`. Falta: regravações do João (`midia/frases_para_regravar.txt`).
 - Números na tela = tabela do briefing (`briefing.md`). Onde a fala diz outro número, a tela mostra o certo
   (lista no fim).
 - Padrão: `docs/padrao-edicao-ofurry.md`. Receitas H1–H10 da casa e cenas de dados C1–C10 (`hf/kit/ofurry-cenas.js`).
