@@ -3,57 +3,627 @@
   "fps": 30,
   "audio": "midia/narracao.wav",
   "subtitlePath": "midia/narracao.json",
-  "cardOptions": {"maxWords": 2, "maxChars": 16},
+  "cardOptions": {
+    "maxWords": 2,
+    "maxChars": 16
+  },
   "camera": [
-    {"at": "@7%", "tipo": "punch"},
-    {"at": "@5,65", "tipo": "punch"},
-    {"at": "@380 reais", "tipo": "tilt3d"},
-    {"at": "@64 reais", "tipo": "punch"}
+    {
+      "at": "@7%",
+      "tipo": "punch"
+    },
+    {
+      "at": "@5,65",
+      "tipo": "punch"
+    },
+    {
+      "at": "@380 reais",
+      "tipo": "tilt3d"
+    },
+    {
+      "at": "@64 reais",
+      "tipo": "punch"
+    }
   ],
   "captions": [
-    {"from": "@inicio", "until": "@Digamos-0.1", "entry": "pop", "y": 0.72},
-    {"from": "@Eu montei-0.1", "until": "@que a gente-0.1", "entry": "whip"},
-    {"from": "@pão de queijo-0.1", "until": "@e é isso-0.1", "entry": "pop"},
-    {"from": "@No final-0.1", "until": "@do ano-0.1", "entry": "whip"},
-    {"from": "@uma pizza-0.1", "until": "@fim", "entry": "pop", "y": 0.8}
+    {
+      "from": "@inicio",
+      "until": "@Digamos-0.1",
+      "entry": "pop",
+      "y": 0.72
+    },
+    {
+      "from": "@Eu montei-0.1",
+      "until": "@que a gente-0.1",
+      "entry": "whip"
+    },
+    {
+      "from": "@pão de queijo-0.1",
+      "until": "@e é isso-0.1",
+      "entry": "pop"
+    },
+    {
+      "from": "@No final-0.1",
+      "until": "@do ano-0.1",
+      "entry": "whip"
+    },
+    {
+      "from": "@uma pizza-0.1",
+      "until": "@fim",
+      "entry": "pop",
+      "y": 0.8
+    }
   ],
   "backdrops": [
-    {"at": 0, "backdrop": "grade-video"},
-    {"at": "@Digamos", "backdrop": "black"},
-    {"at": "@Eu montei", "backdrop": "stars"},
-    {"at": "@Literalmente", "backdrop": "black"},
-    {"at": "@No final", "backdrop": "stars"},
-    {"at": "@E desses", "backdrop": "grade-video"},
-    {"at": "@E nesse mês", "backdrop": "stars"},
-    {"at": "@Olha", "backdrop": "black"}
+    {
+      "at": 0,
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@Digamos",
+      "backdrop": "black"
+    },
+    {
+      "at": "@Eu montei",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@Literalmente",
+      "backdrop": "black"
+    },
+    {
+      "at": "@No final",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@E desses",
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@E nesse mês",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@Olha",
+      "backdrop": "black"
+    }
   ],
   "sfx": [
-    {"at": "@invista", "file": "@sfx/Foley/Coins in Hand 01.wav", "gain": -22, "len": 0.8, "fadeOut": 0.2},
-    {"at": "@7%", "file": "@sfx/General/Pop sound.mp3", "gain": -22},
-    {"at": "@a inflação+0.3", "file": "@sfx/Foley/Coins Poured Out 02.wav", "gain": -24, "len": 0.9, "fadeOut": 0.3},
-    {"at": "@Eu montei", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.6},
-    {"at": "@mês 2", "file": "@sfx/General/Click.wav", "gain": -20},
-    {"at": "@o rendimento", "file": "@sfx/General/Click.wav", "gain": -20},
-    {"at": "@pão de queijo", "file": "@sfx/General/Pop sound.mp3", "gain": -22},
-    {"at": "@No final", "file": "@sfx/General/Digital counting.mp3", "gain": -24, "len": 1.4, "fadeOut": 0.3},
-    {"at": "@12 mil", "file": "@sfx/General/Ding.mp3", "gain": -22},
-    {"at": "@380 reais", "file": "@sfx/Foley/Coins in Hand 02.wav", "gain": -22, "len": 1.0},
-    {"at": "@64 reais", "file": "@sfx/General/cash ting.mp3", "gain": -20},
-    {"at": "@uma pizza", "file": "@sfx/General/Pop sound.mp3", "gain": -22}
+    {
+      "at": "@invista",
+      "file": "@sfx/Foley/Coins in Hand 01.wav",
+      "gain": -22,
+      "len": 0.8,
+      "fadeOut": 0.2
+    },
+    {
+      "at": "@7%",
+      "file": "@sfx/General/Pop sound.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@a inflação+0.3",
+      "file": "@sfx/Foley/Coins Poured Out 02.wav",
+      "gain": -24,
+      "len": 0.9,
+      "fadeOut": 0.3
+    },
+    {
+      "at": "@Eu montei",
+      "file": "@sfx/Office Supplies/Paper Rustle.wav",
+      "gain": -22,
+      "len": 0.6
+    },
+    {
+      "at": "@mês 2",
+      "file": "@sfx/General/Click.wav",
+      "gain": -20
+    },
+    {
+      "at": "@o rendimento",
+      "file": "@sfx/General/Click.wav",
+      "gain": -20
+    },
+    {
+      "at": "@pão de queijo",
+      "file": "@sfx/General/Pop sound.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@No final",
+      "file": "@sfx/General/Digital counting.mp3",
+      "gain": -24,
+      "len": 1.4,
+      "fadeOut": 0.3
+    },
+    {
+      "at": "@12 mil",
+      "file": "@sfx/General/Ding.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@380 reais",
+      "file": "@sfx/Foley/Coins in Hand 02.wav",
+      "gain": -22,
+      "len": 1.0
+    },
+    {
+      "at": "@64 reais",
+      "file": "@sfx/General/cash ting.mp3",
+      "gain": -20
+    },
+    {
+      "at": "@uma pizza",
+      "file": "@sfx/General/Pop sound.mp3",
+      "gain": -22
+    }
   ],
   "beats": [
-    {"kind": "mascot", "at": "@inicio", "until": "@Digamos", "placement": "left-third", "poses": [{"at": "@inicio", "pose": "../../../../public/mascote/fox1.png"}], "entra": "lado"},
-    {"kind": "cena", "tipo": "palco", "at": "@Digamos", "until": "@Eu montei", "atores": [{"id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{"at": "@Digamos", "x": 0.2, "y": 0.42}], "sai": "@já descontando"}, {"id": "cofre", "icone": "piggy-bank", "rotulo": "INVESTIMENTO", "entra": "whip", "keys": [{"at": "@cenário", "x": 0.8, "y": 0.42}, {"at": "@7%", "s": 1.15, "dur": 0.5}, {"at": "@já descontando", "x": 0.5, "dur": 0.8}], "pulsaAt": ["@7%"]}, {"id": "inflacao", "icone": "flame", "cor": "loss", "tam": 200, "rotulo": "INFLAÇÃO", "keys": [{"at": "@a inflação", "x": 0.18, "y": 0.42}]}, {"id": "imposto", "icone": "landmark", "cor": "loss", "tam": 200, "rotulo": "IMPOSTO", "keys": [{"at": "@demais", "x": 0.82, "y": 0.42}]}], "fluxos": [{"de": "voce", "para": "cofre", "at": "@invista", "ate": "@que renda", "icone": "banknote", "cor": "gain", "tam": 80, "por": 2.5}, {"de": "cofre", "para": "inflacao", "at": "@a inflação+0.3", "ate": "@a inflação+1.0", "icone": "coins", "cor": "loss", "tam": 60, "por": 3}, {"de": "cofre", "para": "imposto", "at": "@imposto", "ate": "@imposto+0.6", "icone": "coins", "cor": "loss", "tam": 60, "por": 3}], "textos": [{"at": "@mil reais", "ate": "@7%", "texto": "R$ 1.000", "x": 0.5, "y": 0.15, "fonte": "num", "tam": 150, "cor": "gain"}, {"at": "@todos os meses", "ate": "@7%", "texto": "TODOS OS MESES", "x": 0.5, "y": 0.8, "tam": 60}, {"at": "@7%", "texto": "7% AO ANO", "x": 0.5, "y": 0.15, "fonte": "num", "tam": 150, "cor": "hl"}]},
-    {"kind": "cena", "tipo": "tabela", "at": "@Eu montei", "until": "@Literalmente", "meses": 130, "titulo": "R$ 1.000 POR MÊS A 7% AO ANO", "rolar": [{"at": "@Eu montei", "mes": 1}, {"at": "@simulação", "mes": 30, "dur": 2.2}, {"at": "@as primeiras", "mes": 1, "dur": 1.0}], "destaques": [{"at": "@mês 2", "mes": 2, "cor": "hl"}], "colunaDestaque": [{"at": "@o rendimento", "col": 2}]},
-    {"kind": "broll", "at": "@Eu montei", "until": "@que a gente", "src": "../../acervo/broll/mulher-anotando-contas.mp4", "entra": "flash", "zoom": [1.0, 1.1]},
-    {"kind": "cena", "tipo": "palco", "at": "@Literalmente", "until": "@No final", "atores": [{"id": "cofre", "icone": "piggy-bank", "tam": 220, "keys": [{"at": "@Literalmente", "x": 0.25, "y": 0.45}, {"at": "@e é isso", "r": -14, "dur": 0.4}]}, {"id": "pao", "icone": "croissant", "cor": "hl", "rotulo": "PÃO DE QUEIJO", "keys": [{"at": "@pão de queijo", "x": 0.75, "y": 0.45}], "pulsaAt": ["@e é isso"]}], "fluxos": [{"de": "cofre", "para": "pao", "at": "@Literalmente+0.2", "ate": "@pão de queijo", "icone": "coins", "cor": "hl", "tam": 60, "por": 2}], "textos": [{"at": "@Literalmente", "texto": "R$ 5,65", "x": 0.5, "y": 0.15, "fonte": "num", "tam": 150, "cor": "hl"}]},
-    {"kind": "broll", "at": "@pão de queijo", "until": "@e é isso", "src": "../../acervo/broll/cafe-da-manha-pao.mp4", "entra": "zoom", "zoom": [1.1, 1.22]},
-    {"kind": "cena", "tipo": "tabela", "at": "@No final", "until": "@E desses", "meses": 130, "titulo": "NO FINAL DO ANO", "rolar": [{"at": "@No final", "mes": 2}, {"at": "@No final+0.2", "mes": 12, "dur": 1.6}], "destaques": [{"at": "@12 mil", "mes": 12, "cor": "hl"}], "colunaDestaque": [{"at": "@12 mil", "col": 3}]},
-    {"kind": "broll", "at": "@No final", "until": "@vai dar uma", "src": "../../acervo/broll/avenida-anoitecer-timelapse.mp4", "entra": "whip", "zoom": [1.0, 1.1]},
-    {"kind": "cena", "tipo": "barra", "at": "@E desses", "until": "@E nesse mês", "total": "R$ 12 MIL", "totalAt": "@E desses", "partes": [{"at": "@E desses+0.3", "valor": 12000, "rotulo": "INVESTIDO", "cor": "text"}, {"at": "@380 reais", "valor": 380, "rotulo": "RENDIMENTOS", "cor": "gain"}]},
-    {"kind": "cena", "tipo": "tabela", "at": "@E nesse mês", "until": "@Olha", "meses": 130, "titulo": "NESSE MÊS", "rolar": [{"at": "@E nesse mês", "mes": 12}], "destaques": [{"at": "@E nesse mês", "mes": 12, "cor": "gain"}, {"at": "@64 reais", "mes": 12, "cor": "hl"}], "colunaDestaque": [{"at": "@render", "col": 2}]},
-    {"kind": "cena", "tipo": "palco", "at": "@Olha", "until": "@fim", "atores": [{"id": "moedas", "icone": "coins", "cor": "gain", "tam": 220, "keys": [{"at": "@Olha", "x": 0.5, "y": 0.45}, {"at": "@muita coisa", "s": 0.6, "dur": 0.5}, {"at": "@Mas a gente", "x": 0.25, "s": 0.8, "dur": 0.6}]}, {"id": "pizza", "icone": "pizza", "cor": "brand", "rotulo": "UMA PIZZA", "keys": [{"at": "@pode falar", "x": 0.75, "y": 0.45}]}], "fluxos": [{"de": "moedas", "para": "pizza", "at": "@pode falar", "ate": "@pizza", "icone": "coins", "cor": "gain", "tam": 60, "por": 3}], "textos": [{"at": "@Olha", "texto": "R$ 64", "x": 0.5, "y": 0.15, "fonte": "num", "tam": 180, "cor": "gain"}, {"at": "@não é muita", "ate": "@Mas a gente", "texto": "NÃO É MUITA COISA", "x": 0.5, "y": 0.8, "tam": 64}]},
-    {"kind": "broll", "at": "@uma pizza", "until": "@fim", "src": "../../acervo/broll/pizza-pepperoni.mp4", "entra": "zoom", "zoom": [1.05, 1.18]},
-    {"kind": "cena", "tipo": "piada", "at": "@alguma coisa", "until": "@alguma coisa+0.9", "texto": "BROTINHO. SEM BORDA.", "dura": 0.8, "x": 0.5, "y": 0.2}
+    {
+      "kind": "mascot",
+      "at": "@inicio",
+      "until": "@Digamos",
+      "placement": "left-third",
+      "poses": [
+        {
+          "at": "@inicio",
+          "pose": "../../../../public/mascote/fox1.png"
+        }
+      ],
+      "entra": "lado"
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@Digamos",
+      "until": "@Eu montei",
+      "atores": [
+        {
+          "id": "voce",
+          "icone": "user",
+          "rotulo": "VOCÊ",
+          "keys": [
+            {
+              "at": "@Digamos",
+              "x": 0.2,
+              "y": 0.42
+            }
+          ],
+          "sai": "@já descontando"
+        },
+        {
+          "id": "cofre",
+          "icone": "piggy-bank",
+          "rotulo": "INVESTIMENTO",
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@cenário",
+              "x": 0.8,
+              "y": 0.42
+            },
+            {
+              "at": "@7%",
+              "s": 1.15,
+              "dur": 0.5
+            },
+            {
+              "at": "@já descontando",
+              "x": 0.5,
+              "dur": 0.8
+            }
+          ],
+          "pulsaAt": [
+            "@7%"
+          ]
+        },
+        {
+          "id": "inflacao",
+          "icone": "flame",
+          "cor": "loss",
+          "tam": 200,
+          "rotulo": "INFLAÇÃO",
+          "keys": [
+            {
+              "at": "@a inflação",
+              "x": 0.18,
+              "y": 0.42
+            }
+          ]
+        },
+        {
+          "id": "imposto",
+          "icone": "landmark",
+          "cor": "loss",
+          "tam": 200,
+          "rotulo": "IMPOSTO",
+          "keys": [
+            {
+              "at": "@demais",
+              "x": 0.82,
+              "y": 0.42
+            }
+          ]
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "voce",
+          "para": "cofre",
+          "at": "@invista",
+          "ate": "@que renda",
+          "icone": "banknote",
+          "cor": "gain",
+          "tam": 80,
+          "por": 2.5
+        },
+        {
+          "de": "cofre",
+          "para": "inflacao",
+          "at": "@a inflação+0.3",
+          "ate": "@a inflação+1.0",
+          "icone": "coins",
+          "cor": "loss",
+          "tam": 60,
+          "por": 3
+        },
+        {
+          "de": "cofre",
+          "para": "imposto",
+          "at": "@imposto",
+          "ate": "@imposto+0.6",
+          "icone": "coins",
+          "cor": "loss",
+          "tam": 60,
+          "por": 3
+        }
+      ],
+      "textos": [
+        {
+          "at": "@mil reais",
+          "ate": "@7%",
+          "texto": "R$ 1.000",
+          "x": 0.5,
+          "y": 0.15,
+          "fonte": "num",
+          "tam": 150,
+          "cor": "gain"
+        },
+        {
+          "at": "@todos os meses",
+          "ate": "@7%",
+          "texto": "TODOS OS MESES",
+          "x": 0.5,
+          "y": 0.8,
+          "tam": 60
+        },
+        {
+          "at": "@7%",
+          "texto": "7% AO ANO",
+          "x": 0.5,
+          "y": 0.15,
+          "fonte": "num",
+          "tam": 150,
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "tabela",
+      "at": "@que a gente",
+      "until": "@Literalmente",
+      "meses": 130,
+      "titulo": "R$ 1.000 POR MÊS A 7% AO ANO",
+      "rolar": [
+        {
+          "at": "@Eu montei",
+          "mes": 1
+        },
+        {
+          "at": "@simulação",
+          "mes": 30,
+          "dur": 2.2
+        },
+        {
+          "at": "@as primeiras",
+          "mes": 1,
+          "dur": 1.0
+        }
+      ],
+      "destaques": [
+        {
+          "at": "@mês 2",
+          "mes": 2,
+          "cor": "hl"
+        }
+      ],
+      "colunaDestaque": [
+        {
+          "at": "@o rendimento",
+          "col": 2
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@Eu montei",
+      "until": "@que a gente",
+      "src": "../../acervo/broll/mulher-anotando-contas.mp4",
+      "entra": "flash",
+      "zoom": [
+        1.0,
+        1.1
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@Literalmente",
+      "until": "@No final",
+      "atores": [
+        {
+          "id": "cofre",
+          "icone": "piggy-bank",
+          "tam": 220,
+          "keys": [
+            {
+              "at": "@Literalmente",
+              "x": 0.25,
+              "y": 0.45
+            },
+            {
+              "at": "@e é isso",
+              "r": -14,
+              "dur": 0.4
+            }
+          ]
+        },
+        {
+          "id": "pao",
+          "icone": "croissant",
+          "cor": "hl",
+          "rotulo": "PÃO DE QUEIJO",
+          "keys": [
+            {
+              "at": "@pão de queijo",
+              "x": 0.75,
+              "y": 0.45
+            }
+          ],
+          "pulsaAt": [
+            "@e é isso"
+          ]
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "cofre",
+          "para": "pao",
+          "at": "@Literalmente+0.2",
+          "ate": "@pão de queijo",
+          "icone": "coins",
+          "cor": "hl",
+          "tam": 60,
+          "por": 2
+        }
+      ],
+      "textos": [
+        {
+          "at": "@Literalmente",
+          "texto": "R$ 5,65",
+          "x": 0.5,
+          "y": 0.15,
+          "fonte": "num",
+          "tam": 150,
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@pão de queijo",
+      "until": "@e é isso",
+      "src": "../../acervo/broll/cafe-da-manha-pao.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1.1,
+        1.22
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "tabela",
+      "at": "@No final",
+      "until": "@E desses",
+      "meses": 130,
+      "titulo": "NO FINAL DO ANO",
+      "rolar": [
+        {
+          "at": "@No final",
+          "mes": 2
+        },
+        {
+          "at": "@No final+0.2",
+          "mes": 12,
+          "dur": 1.6
+        }
+      ],
+      "destaques": [
+        {
+          "at": "@12 mil",
+          "mes": 12,
+          "cor": "hl"
+        }
+      ],
+      "colunaDestaque": [
+        {
+          "at": "@12 mil",
+          "col": 3
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@No final",
+      "until": "@vai dar uma",
+      "src": "../../acervo/broll/avenida-anoitecer-timelapse.mp4",
+      "entra": "whip",
+      "zoom": [
+        1.0,
+        1.1
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "barra",
+      "at": "@E desses",
+      "until": "@E nesse mês",
+      "total": "R$ 12 MIL",
+      "totalAt": "@E desses",
+      "partes": [
+        {
+          "at": "@E desses+0.3",
+          "valor": 12000,
+          "rotulo": "INVESTIDO",
+          "cor": "text"
+        },
+        {
+          "at": "@380 reais",
+          "valor": 380,
+          "rotulo": "RENDIMENTOS",
+          "cor": "gain"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "tabela",
+      "at": "@E nesse mês",
+      "until": "@Olha",
+      "meses": 130,
+      "titulo": "NESSE MÊS",
+      "rolar": [
+        {
+          "at": "@E nesse mês",
+          "mes": 12
+        }
+      ],
+      "destaques": [
+        {
+          "at": "@E nesse mês",
+          "mes": 12,
+          "cor": "gain"
+        },
+        {
+          "at": "@64 reais",
+          "mes": 12,
+          "cor": "hl"
+        }
+      ],
+      "colunaDestaque": [
+        {
+          "at": "@render",
+          "col": 2
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@Olha",
+      "until": "@uma pizza",
+      "atores": [
+        {
+          "id": "moedas",
+          "icone": "coins",
+          "cor": "gain",
+          "tam": 220,
+          "keys": [
+            {
+              "at": "@Olha",
+              "x": 0.5,
+              "y": 0.45
+            },
+            {
+              "at": "@muita coisa",
+              "s": 0.6,
+              "dur": 0.5
+            },
+            {
+              "at": "@Mas a gente",
+              "x": 0.25,
+              "s": 0.8,
+              "dur": 0.6
+            }
+          ]
+        },
+        {
+          "id": "pizza",
+          "icone": "pizza",
+          "cor": "brand",
+          "rotulo": "UMA PIZZA",
+          "keys": [
+            {
+              "at": "@pode falar",
+              "x": 0.75,
+              "y": 0.45
+            }
+          ]
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "moedas",
+          "para": "pizza",
+          "at": "@pode falar",
+          "ate": "@pizza",
+          "icone": "coins",
+          "cor": "gain",
+          "tam": 60,
+          "por": 3
+        }
+      ],
+      "textos": [
+        {
+          "at": "@Olha",
+          "texto": "R$ 64",
+          "x": 0.5,
+          "y": 0.15,
+          "fonte": "num",
+          "tam": 180,
+          "cor": "gain"
+        },
+        {
+          "at": "@não é muita",
+          "ate": "@Mas a gente",
+          "texto": "NÃO É MUITA COISA",
+          "x": 0.5,
+          "y": 0.8,
+          "tam": 64
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@uma pizza",
+      "until": "@fim",
+      "src": "../../acervo/broll/pizza-pepperoni.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1.05,
+        1.18
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "piada",
+      "at": "@alguma coisa",
+      "until": "@alguma coisa+0.9",
+      "texto": "BROTINHO. SEM BORDA.",
+      "dura": 0.8,
+      "x": 0.5,
+      "y": 0.2
+    }
   ]
 }
