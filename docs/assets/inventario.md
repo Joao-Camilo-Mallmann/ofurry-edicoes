@@ -3,7 +3,7 @@
 Gerado por `bun run assets:inventario` em 20/11/2026 a partir de `D:/YT/!Assets`.
 **Não edite à mão**: rode o comando de novo quando entrar material novo. Como navegar e as regras de uso: `INDEX.md`.
 
-- 2177 arquivos em 48 pastas.
+- 2237 arquivos em 64 pastas.
 - A coluna "No código" é exatamente o que vai no `file` do `sfx`/`trilha.json` ou no `src` de uma batida.
 - Para achar algo: Ctrl+F aqui (ex.: "coin", "click", "cash", "whoosh", "typewriter") ou
   `rg -i "coin" docs/assets/inventario.md`.
@@ -12,6 +12,17 @@ Gerado por `bun run assets:inventario` em 20/11/2026 a partir de `D:/YT/!Assets`
 
 | Pasta | Arquivos |
 |---|---|
+| [B-roll](#b-roll) | 1 |
+| [B-roll/celular](#b-roll-celular) | 3 |
+| [B-roll/comida](#b-roll-comida) | 6 |
+| [B-roll/dinheiro](#b-roll-dinheiro) | 3 |
+| [B-roll/esforco-e-construcao](#b-roll-esforco-e-construcao) | 5 |
+| [B-roll/familia](#b-roll-familia) | 2 |
+| [B-roll/maquinas](#b-roll-maquinas) | 5 |
+| [B-roll/natureza-e-clima](#b-roll-natureza-e-clima) | 6 |
+| [B-roll/pessoas-e-cidade](#b-roll-pessoas-e-cidade) | 7 |
+| [B-roll/tempo](#b-roll-tempo) | 9 |
+| [B-roll/trabalho](#b-roll-trabalho) | 5 |
 | [Canais](#canais) | 4 |
 | [Efeitos-Videos-Green-Screan](#efeitos-videos-green-screan) | 3 |
 | [Furry](#furry) | 12 |
@@ -21,6 +32,11 @@ Gerado por `bun run assets:inventario` em 20/11/2026 a partir de `D:/YT/!Assets`
 | [Meme](#meme) | 14 |
 | [Musicas](#musicas) | 6 |
 | [Musicas/Infraction - No Copyright Music](#musicas-infraction-no-copyright-music) | 4 |
+| [Overlays](#overlays) | 1 |
+| [Overlays/fundos](#overlays-fundos) | 1 |
+| [Overlays/glitch](#overlays-glitch) | 1 |
+| [Overlays/luz](#overlays-luz) | 3 |
+| [Overlays/pelicula](#overlays-pelicula) | 2 |
 | [PACK - EFEITOS SONOROS/Ambiente SFX](#pack-efeitos-sonoros-ambiente-sfx) | 15 |
 | [PACK - EFEITOS SONOROS/Background Gunfire](#pack-efeitos-sonoros-background-gunfire) | 167 |
 | [PACK - EFEITOS SONOROS/Bathroom](#pack-efeitos-sonoros-bathroom) | 40 |
@@ -60,6 +76,113 @@ Gerado por `bun run assets:inventario` em 20/11/2026 a partir de `D:/YT/!Assets`
 | [TEMPLATE - THUMBNAIL](#template-thumbnail) | 4 |
 | [Tutor](#tutor) | 7 |
 | [Tutor/old](#tutor-old) | 4 |
+
+## B-roll
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| README.md | md | 10 KB | `D:/YT/!Assets/B-roll/README.md` |
+
+## B-roll/celular
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| calendario-no-tablet.mp4 | video | 40.9 MB | `D:/YT/!Assets/B-roll/celular/calendario-no-tablet.mp4` |
+| pessoa-digitando-celular.mp4 | video | 29.5 MB | `D:/YT/!Assets/B-roll/celular/pessoa-digitando-celular.mp4` |
+| rolando-pagina-de-vendas.mp4 | video | 39.1 MB | `D:/YT/!Assets/B-roll/celular/rolando-pagina-de-vendas.mp4` |
+
+## B-roll/comida
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| balas-stop-motion.mp4 | video | 46.4 MB | `D:/YT/!Assets/B-roll/comida/balas-stop-motion.mp4` |
+| cafe-da-manha-mesa.mp4 | video | 64.7 MB | `D:/YT/!Assets/B-roll/comida/cafe-da-manha-mesa.mp4` |
+| cafe-da-manha-pao.mp4 | video | 42.1 MB | `D:/YT/!Assets/B-roll/comida/cafe-da-manha-pao.mp4` |
+| cortando-pizza.mp4 | video | 31.6 MB | `D:/YT/!Assets/B-roll/comida/cortando-pizza.mp4` |
+| pizza-entrando-no-forno.mp4 | video | 29.8 MB | `D:/YT/!Assets/B-roll/comida/pizza-entrando-no-forno.mp4` |
+| pizza-pepperoni.mp4 | video | 30.4 MB | `D:/YT/!Assets/B-roll/comida/pizza-pepperoni.mp4` |
+
+## B-roll/dinheiro
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| detalhes-de-notas-sequencia-rapida.mp4 | video | 35.9 MB | `D:/YT/!Assets/B-roll/dinheiro/detalhes-de-notas-sequencia-rapida.mp4` |
+| maos-contando-moedas.mp4 | video | 39.7 MB | `D:/YT/!Assets/B-roll/dinheiro/maos-contando-moedas.mp4` |
+| notas-caindo-fundo-escuro.mp4 | video | 53.8 MB | `D:/YT/!Assets/B-roll/dinheiro/notas-caindo-fundo-escuro.mp4` |
+
+## B-roll/esforco-e-construcao
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| ciclista-no-parque.mp4 | video | 50.3 MB | `D:/YT/!Assets/B-roll/esforco-e-construcao/ciclista-no-parque.mp4` |
+| corredor-pista-camera-lenta.mp4 | video | 55.2 MB | `D:/YT/!Assets/B-roll/esforco-e-construcao/corredor-pista-camera-lenta.mp4` |
+| escavadeira-levantando-pedra.mp4 | video | 293.8 MB | `D:/YT/!Assets/B-roll/esforco-e-construcao/escavadeira-levantando-pedra.mp4` |
+| obra-casa-pedreiros.mp4 | video | 32.1 MB | `D:/YT/!Assets/B-roll/esforco-e-construcao/obra-casa-pedreiros.mp4` |
+| predios-em-obra-aerea.mp4 | video | 34.0 MB | `D:/YT/!Assets/B-roll/esforco-e-construcao/predios-em-obra-aerea.mp4` |
+
+## B-roll/familia
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| familia-caminhando-natureza.mp4 | video | 39.1 MB | `D:/YT/!Assets/B-roll/familia/familia-caminhando-natureza.mp4` |
+| pai-e-filho-lendo.mp4 | video | 26.4 MB | `D:/YT/!Assets/B-roll/familia/pai-e-filho-lendo.mp4` |
+
+## B-roll/maquinas
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| engrenagens-mecanismo-detalhe.mp4 | video | 30.5 MB | `D:/YT/!Assets/B-roll/maquinas/engrenagens-mecanismo-detalhe.mp4` |
+| engrenagens-relogio.mp4 | video | 67.7 MB | `D:/YT/!Assets/B-roll/maquinas/engrenagens-relogio.mp4` |
+| fabrica-a-noite-aerea.mp4 | video | 45.2 MB | `D:/YT/!Assets/B-roll/maquinas/fabrica-a-noite-aerea.mp4` |
+| maquina-de-fabrica-embalando.mp4 | video | 19.8 MB | `D:/YT/!Assets/B-roll/maquinas/maquina-de-fabrica-embalando.mp4` |
+| motor-de-carro-close.mp4 | video | 24.6 MB | `D:/YT/!Assets/B-roll/maquinas/motor-de-carro-close.mp4` |
+
+## B-roll/natureza-e-clima
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| estrada-na-floresta-nevada.mp4 | video | 45.6 MB | `D:/YT/!Assets/B-roll/natureza-e-clima/estrada-na-floresta-nevada.mp4` |
+| nevoa-no-topo-da-montanha.mp4 | video | 48.3 MB | `D:/YT/!Assets/B-roll/natureza-e-clima/nevoa-no-topo-da-montanha.mp4` |
+| silhueta-na-praia.mp4 | video | 31.1 MB | `D:/YT/!Assets/B-roll/natureza-e-clima/silhueta-na-praia.mp4` |
+| tempestade-montanhas.mp4 | video | 46.1 MB | `D:/YT/!Assets/B-roll/natureza-e-clima/tempestade-montanhas.mp4` |
+| tempestade-no-mar.mp4 | video | 73.6 MB | `D:/YT/!Assets/B-roll/natureza-e-clima/tempestade-no-mar.mp4` |
+| voo-sobre-montanha.mp4 | video | 69.3 MB | `D:/YT/!Assets/B-roll/natureza-e-clima/voo-sobre-montanha.mp4` |
+
+## B-roll/pessoas-e-cidade
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| carros-na-rua.mp4 | video | 49.5 MB | `D:/YT/!Assets/B-roll/pessoas-e-cidade/carros-na-rua.mp4` |
+| estacao-lotada.mp4 | video | 29.0 MB | `D:/YT/!Assets/B-roll/pessoas-e-cidade/estacao-lotada.mp4` |
+| homem-maos-na-cabeca.mp4 | video | 17.7 MB | `D:/YT/!Assets/B-roll/pessoas-e-cidade/homem-maos-na-cabeca.mp4` |
+| mercado-timelapse.mp4 | video | 40.5 MB | `D:/YT/!Assets/B-roll/pessoas-e-cidade/mercado-timelapse.mp4` |
+| mulher-anotando-contas.mp4 | video | 48.6 MB | `D:/YT/!Assets/B-roll/pessoas-e-cidade/mulher-anotando-contas.mp4` |
+| multidao-atravessando-rua.mp4 | video | 74.6 MB | `D:/YT/!Assets/B-roll/pessoas-e-cidade/multidao-atravessando-rua.mp4` |
+| pessoas-andando-predio.mp4 | video | 62.6 MB | `D:/YT/!Assets/B-roll/pessoas-e-cidade/pessoas-andando-predio.mp4` |
+
+## B-roll/tempo
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| ampulheta-e-relogio.mp4 | video | 41.4 MB | `D:/YT/!Assets/B-roll/tempo/ampulheta-e-relogio.mp4` |
+| ampulheta-terminando.mp4 | video | 40.9 MB | `D:/YT/!Assets/B-roll/tempo/ampulheta-terminando.mp4` |
+| areia-caindo-ampulheta.mp4 | video | 33.3 MB | `D:/YT/!Assets/B-roll/tempo/areia-caindo-ampulheta.mp4` |
+| avenida-anoitecer-timelapse.mp4 | video | 33.1 MB | `D:/YT/!Assets/B-roll/tempo/avenida-anoitecer-timelapse.mp4` |
+| big-ben-timelapse.mp4 | video | 32.0 MB | `D:/YT/!Assets/B-roll/tempo/big-ben-timelapse.mp4` |
+| nuvens-timelapse.mp4 | video | 47.7 MB | `D:/YT/!Assets/B-roll/tempo/nuvens-timelapse.mp4` |
+| relogio-disco.mp4 | video | 155.6 MB | `D:/YT/!Assets/B-roll/tempo/relogio-disco.mp4` |
+| relogio-fundo-preto-aproximando.mp4 | video | 23.0 MB | `D:/YT/!Assets/B-roll/tempo/relogio-fundo-preto-aproximando.mp4` |
+| relogio-parede-fundo-preto.mp4 | video | 34.1 MB | `D:/YT/!Assets/B-roll/tempo/relogio-parede-fundo-preto.mp4` |
+
+## B-roll/trabalho
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| escritorio-movimentado.mp4 | video | 34.1 MB | `D:/YT/!Assets/B-roll/trabalho/escritorio-movimentado.mp4` |
+| executivo-dancando-escritorio.mp4 | video | 20.9 MB | `D:/YT/!Assets/B-roll/trabalho/executivo-dancando-escritorio.mp4` |
+| homem-exausto-escritorio.mp4 | video | 39.1 MB | `D:/YT/!Assets/B-roll/trabalho/homem-exausto-escritorio.mp4` |
+| jovem-estudando-a-noite.mp4 | video | 49.1 MB | `D:/YT/!Assets/B-roll/trabalho/jovem-estudando-a-noite.mp4` |
+| reuniao-de-trabalho.mp4 | video | 116.8 MB | `D:/YT/!Assets/B-roll/trabalho/reuniao-de-trabalho.mp4` |
 
 ## Canais
 
@@ -217,6 +340,39 @@ Gerado por `bun run assets:inventario` em 20/11/2026 a partir de `D:/YT/!Assets`
 | Cinematic Classical Orchestra Dark Epic Trailer by Cold Cinema [No Copyright Music] ⧸ Emergence.mp4 | video | 57.0 MB | `@mus/Infraction - No Copyright Music/Cinematic Classical Orchestra Dark Epic Trailer by Cold Cinema [No Copyright Music] ⧸ Emergence.mp4` |
 | Cinematic Documentary Calm by Infraction [No Copyright Music] ⧸ Visible.mp3 | audio | 3.9 MB | `@mus/Infraction - No Copyright Music/Cinematic Documentary Calm by Infraction [No Copyright Music] ⧸ Visible.mp3` |
 | readme.md | md | 3 KB | `@mus/Infraction - No Copyright Music/readme.md` |
+
+## Overlays
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| README.md | md | 2 KB | `D:/YT/!Assets/Overlays/README.md` |
+
+## Overlays/fundos
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| grade-perspectiva.mp4 | video | 41.9 MB | `D:/YT/!Assets/Overlays/fundos/grade-perspectiva.mp4` |
+
+## Overlays/glitch
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| vhs-ruido.mp4 | video | 6.3 MB | `D:/YT/!Assets/Overlays/glitch/vhs-ruido.mp4` |
+
+## Overlays/luz
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| flash-branco.mp4 | video | 593 KB | `D:/YT/!Assets/Overlays/luz/flash-branco.mp4` |
+| light-leak-borda.mp4 | video | 253 KB | `D:/YT/!Assets/Overlays/luz/light-leak-borda.mp4` |
+| light-leak-laranja.mp4 | video | 755 KB | `D:/YT/!Assets/Overlays/luz/light-leak-laranja.mp4` |
+
+## Overlays/pelicula
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| poeira-pulsando.mp4 | video | 7.8 MB | `D:/YT/!Assets/Overlays/pelicula/poeira-pulsando.mp4` |
+| riscos-e-poeira.mp4 | video | 22.0 MB | `D:/YT/!Assets/Overlays/pelicula/riscos-e-poeira.mp4` |
 
 ## PACK - EFEITOS SONOROS/Ambiente SFX
 

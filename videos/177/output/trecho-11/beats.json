@@ -3,26 +3,33 @@
   "fps": 30,
   "audio": "midia/narracao.wav",
   "subtitlePath": "midia/narracao.json",
-  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "cardOptions": {"maxWords": 2, "maxChars": 16},
+  "camera": [
+    {"at": "@nenhuma virada", "tipo": "shake"},
+    {"at": "@71 mil", "tipo": "punch"},
+    {"at": "@5 anos", "tipo": "punch"},
+    {"at": "@Mas é#2", "tipo": "punch"}
+  ],
   "captions": [
-    { "from": "@Vai parecer muito-0.1", "until": "@jogando-0.1", "entry": "pop", "y": 0.72 },
-    { "from": "@Mas aqui o papo-0.1", "until": "@É literalmente-0.1", "entry": "whip" },
-    { "from": "@E aquele seu mil-0.1", "until": "@Muita gente aqui-0.1", "entry": "pop", "y": 0.12 },
-    { "from": "@Muita gente aqui-0.1", "until": "@Vai ser difícil-0.1", "entry": "pop", "y": 0.72 }
+    {"from": "@é construída-0.1", "until": "@Vai parecer muito-0.1", "entry": "pop", "y": 0.8},
+    {"from": "@Vai parecer muito-0.1", "until": "@está jogando-0.1", "entry": "pop", "y": 0.72},
+    {"from": "@Mas aqui o papo-0.1", "until": "@paciência-0.1", "entry": "whip"},
+    {"from": "@E aquele seu mil-0.1", "until": "@Muita gente aqui-0.1", "entry": "pop", "y": 0.12},
+    {"from": "@Muita gente aqui-0.1", "until": "@Vai ser difícil-0.1", "entry": "pop", "y": 0.72}
   ],
   "backdrops": [
-    { "at": 0, "backdrop": "black" },
-    { "at": "@essa base", "backdrop": "black" },
-    { "at": "@Vai parecer muito", "backdrop": "grid" },
-    { "at": "@jogando", "backdrop": "black" },
-    { "at": "@Mas aqui o papo", "backdrop": "grid" },
-    { "at": "@É literalmente", "backdrop": "black" },
-    { "at": "@É a partir do quinto", "backdrop": "black" },
-    { "at": "@Aqui por mês", "backdrop": "stars" },
-    { "at": "@E é aqui que muita", "backdrop": "black" },
-    { "at": "@E aquele seu mil", "backdrop": "stars" },
-    { "at": "@Muita gente aqui", "backdrop": "grid" },
-    { "at": "@Vai ser difícil", "backdrop": "black" }
+    {"at": 0, "backdrop": "black"},
+    {"at": "@essa base", "backdrop": "black"},
+    {"at": "@Vai parecer muito", "backdrop": "grade-video"},
+    {"at": "@jogando", "backdrop": "black"},
+    {"at": "@Mas aqui o papo", "backdrop": "grade-video"},
+    {"at": "@É literalmente", "backdrop": "black"},
+    {"at": "@É a partir do quinto", "backdrop": "black"},
+    {"at": "@Aqui por mês", "backdrop": "stars"},
+    {"at": "@E é aqui que muita", "backdrop": "black"},
+    {"at": "@E aquele seu mil", "backdrop": "stars"},
+    {"at": "@Muita gente aqui", "backdrop": "grade-video"},
+    {"at": "@Vai ser difícil", "backdrop": "black"}
   ],
   "sfx": [
     {"at": "@nenhuma virada", "file": "@sfx/General/Click.wav", "gain": -22},
@@ -40,91 +47,22 @@
     {"at": "@não rendeu", "file": "@sfx/Mechanical/Gadget 02.wav", "gain": -22, "len": 1.0, "fadeOut": 0.3}
   ],
   "beats": [
-    { "kind": "cena", "tipo": "grafico", "at": "@inicio", "until": "@essa base",
-      "modo": "rendimento", "meses": 48, "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
-      "revela": [{ "at": 0, "mes": 12 }, { "at": "@segundo", "mes": 24, "dur": 0.8 }, { "at": "@terceiro", "mes": 36, "dur": 0.9 }],
-      "vista": [{ "at": 0, "x": 48, "y": 1200 }],
-      "marcos": [{ "mes": 36, "at": "@nenhuma virada", "rotulo": "NENHUMA VIRADA", "cor": "loss", "lado": "dir" }] },
-
-    { "kind": "cena", "tipo": "palco", "at": "@essa base", "until": "@Vai parecer muito",
-      "atores": [
-        { "id": "t1", "icone": "brick-wall", "cor": "brand", "tam": 170, "balanca": false, "keys": [{ "at": "@essa base", "x": 0.455, "y": 0.25 }, { "at": "@essa base+0.02", "y": 0.62, "dur": 0.35 }] },
-        { "id": "t2", "icone": "brick-wall", "cor": "brand", "tam": 170, "balanca": false, "keys": [{ "at": "@base sólida", "x": 0.545, "y": 0.25 }, { "at": "@base sólida+0.02", "y": 0.62, "dur": 0.35 }] },
-        { "id": "t3", "icone": "brick-wall", "cor": "brand", "tam": 170, "balanca": false, "keys": [{ "at": "@sólida", "x": 0.5, "y": 0.2 }, { "at": "@sólida+0.02", "y": 0.462, "dur": 0.35 }] },
-        { "id": "broto", "icone": "sprout", "cor": "gain", "tam": 140, "entra": "rise", "keys": [{ "at": "@lá pra frente", "x": 0.5, "y": 0.31 }] }
-      ],
-      "textos": [{ "at": "@base sólida", "texto": "BASE SÓLIDA", "x": 0.5, "y": 0.13, "tam": 72 }] },
-
-    { "kind": "mascot", "at": "@Vai parecer muito", "until": "@jogando", "placement": "center",
-      "poses": [
-        { "at": "@Vai parecer muito", "pose": "../../../../public/mascote/fox3.png" },
-        { "at": "@E que você só", "pose": "../../../../public/mascote/fox4.png" }
-      ] },
-
-    { "kind": "cena", "tipo": "palco", "at": "@jogando", "until": "@Mas aqui o papo",
-      "atores": [
-        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{ "at": "@jogando", "x": 0.18, "y": 0.45 }], "pulsaAt": ["@voltar para"] },
-        { "id": "lugar", "icone": "circle-help", "cor": "whisper", "tam": 220, "rotulo": "ALGUM LUGAR",
-          "keys": [{ "at": "@algum lugar", "x": 0.78, "y": 0.45 }, { "at": "@muito distante", "x": 0.9, "y": 0.4, "s": 0.55, "dur": 1.0 }] },
-        { "id": "ampulheta", "icone": "hourglass", "cor": "hl", "tam": 150, "balanca": false,
-          "keys": [{ "at": "@esperando", "x": 0.5, "y": 0.16 }, { "at": "@futuro", "r": 180, "dur": 0.6 }, { "at": "@realmente comece", "r": 360, "dur": 0.6 }] }
-      ],
-      "fluxos": [
-        { "de": "voce", "para": "lugar", "at": "@seu dinheiro", "ate": "@esperando", "icone": "banknote", "cor": "gain", "tam": 80, "por": 3, "arco": -0.35 },
-        { "de": "lugar", "para": "voce", "at": "@voltar", "ate": "@voltar+0.8", "icone": "coins", "cor": "gain", "tam": 60, "por": 2 }
-      ],
-      "textos": [{ "at": "@futuro", "ate": "@ele realmente", "texto": "FUTURO DISTANTE", "x": 0.5, "y": 0.8, "tam": 60, "cor": "info" }] },
-    { "kind": "cena", "tipo": "piada", "at": "@realmente comece", "until": "@realmente comece+1", "texto": "SPOILER: VOLTA", "dura": 0.9, "x": 0.5, "y": 0.8 },
-
-    { "kind": "cena", "tipo": "palco", "at": "@É literalmente", "until": "@É a partir do quinto",
-      "atores": [
-        { "id": "ampulheta", "icone": "hourglass", "cor": "hl", "tam": 260, "balanca": false,
-          "keys": [{ "at": "@É literalmente", "x": 0.5, "y": 0.4 }, { "at": "@paciência", "r": 180, "dur": 0.6 }, { "at": "@esperar", "r": 360, "dur": 0.6 }] },
-        { "id": "lesma", "icone": "snail", "cor": "whisper", "tam": 120, "entra": "rise",
-          "keys": [{ "at": "@É literalmente", "x": 0.08, "y": 0.8 }, { "at": "@É literalmente+0.05", "x": 0.92, "dur": 2.5 }] }
-      ],
-      "textos": [{ "at": "@paciência", "texto": "PACIÊNCIA E ESPERAR", "x": 0.5, "y": 0.13, "tam": 72 }] },
-
-    { "kind": "cena", "tipo": "grafico", "at": "@É a partir do quinto", "until": "@Aqui por mês",
-      "modo": "patrimonio", "meses": 66, "rotuloCabeca": false,
-      "revela": [{ "at": 0, "mes": 36 }, { "at": "@quinto", "mes": 54, "dur": 1.6 }, { "at": "@manter a constância", "mes": 60, "dur": 1.2 }],
-      "vista": [{ "at": 0, "x": 66, "y": 80000 }, { "at": "@considerando", "x": 62, "y": 76000, "dur": 1.5 }],
-      "marcos": [
-        { "mes": 60, "at": "@até aqui", "rotulo": "ANO 5", "cor": "text", "lado": "baixo", "ate": "@71 mil" },
-        { "mes": 60, "at": "@71 mil", "rotulo": "R$ 71 MIL", "cor": "hl", "lado": "baixo" }
-      ] },
-
-    { "kind": "cena", "tipo": "grafico", "at": "@Aqui por mês", "until": "@E é aqui que muita",
-      "modo": "rendimento", "meses": 66, "aporteAt": "@seu aporte", "rotuloCabeca": false,
-      "revela": [{ "at": 0, "mes": 0 }, { "at": "@Aqui por mês+0.1", "mes": 60, "dur": 2.6 }],
-      "vista": [{ "at": 0, "x": 66, "y": 600 }, { "at": "@E repara", "x": 66, "y": 1200, "dur": 1.5 }],
-      "marcos": [{ "mes": 60, "at": "@400", "rotulo": "R$ 400 POR MÊS", "cor": "gain", "lado": "cima" }] },
-
-    { "kind": "cena", "tipo": "calendario", "at": "@E é aqui que muita", "until": "@E aquele seu mil",
-      "preenche": [{ "at": 0, "m": 0 }, { "at": "@muita gente desiste", "m": 60, "dur": 1.4 }],
-      "marcos": [{ "mes": 60, "at": "@5 anos", "cor": "loss", "rotulo": "DESISTE" }] },
-    { "kind": "cena", "tipo": "piada", "at": "@5 anos+0.4", "until": "@E aquele seu mil", "texto": "FALTAVA SÓ A OUTRA METADE", "dura": 0.9, "x": 0.5, "y": 0.075, "rot": -2 },
-
-    { "kind": "cena", "tipo": "balanca", "at": "@E aquele seu mil", "until": "@Muita gente aqui",
-      "esquerda": "VOCÊ INVESTE", "direita": "RENDE",
-      "valores": [{ "at": 0, "v": 0 }, { "at": "@não rendeu", "v": 400, "dur": 1.2 }] },
-
-    { "kind": "mascot", "at": "@Muita gente aqui", "until": "@Vai ser difícil", "placement": "center",
-      "poses": [
-        { "at": "@Muita gente aqui", "pose": "../../../../public/mascote/fox3.png" },
-        { "at": "@investimento não", "pose": "../../../../public/mascote/fox4.png" },
-        { "at": "@Mas é#2", "pose": "../../../../public/mascote/fox2.png" },
-        { "at": "@triste", "pose": "../../../../public/mascote/fox3.png" }
-      ] },
-
-    { "kind": "cena", "tipo": "palco", "at": "@Vai ser difícil", "until": "@fim",
-      "atores": [
-        { "id": "montanha", "icone": "mountain", "cor": "whisper", "tam": 360, "keys": [{ "at": "@Vai ser difícil", "x": 0.68, "y": 0.42 }], "pulsaAt": ["@difícil"] },
-        { "id": "voce", "icone": "user", "tam": 180, "rotulo": "VOCÊ", "keys": [{ "at": "@Vai ser difícil", "x": 0.2, "y": 0.52 }, { "at": "@assim que a gente", "x": 0.4, "y": 0.48, "dur": 1.0 }] }
-      ],
-      "textos": [
-        { "at": "@difícil", "ate": "@assim que a gente", "texto": "DIFÍCIL", "x": 0.5, "y": 0.85, "tam": 72 },
-        { "at": "@assim que a gente", "texto": "É ASSIM QUE A GENTE COMEÇA", "x": 0.5, "y": 0.85, "tam": 64, "cor": "hl" }
-      ] }
+    {"kind": "cena", "tipo": "grafico", "at": "@inicio", "until": "@essa base", "modo": "rendimento", "meses": 48, "titulo": "QUANTO O DINHEIRO RENDE POR MÊS", "revela": [{"at": 0, "mes": 12}, {"at": "@segundo", "mes": 24, "dur": 0.8}, {"at": "@terceiro", "mes": 36, "dur": 0.9}], "vista": [{"at": 0, "x": 48, "y": 1200}], "marcos": [{"mes": 36, "at": "@nenhuma virada", "rotulo": "NENHUMA VIRADA", "cor": "loss", "lado": "dir"}]},
+    {"kind": "cena", "tipo": "palco", "at": "@essa base", "until": "@Vai parecer muito", "atores": [{"id": "t1", "icone": "brick-wall", "cor": "brand", "tam": 170, "balanca": false, "keys": [{"at": "@essa base", "x": 0.455, "y": 0.25}, {"at": "@essa base+0.02", "y": 0.62, "dur": 0.35}]}, {"id": "t2", "icone": "brick-wall", "cor": "brand", "tam": 170, "balanca": false, "keys": [{"at": "@base sólida", "x": 0.545, "y": 0.25}, {"at": "@base sólida+0.02", "y": 0.62, "dur": 0.35}]}, {"id": "t3", "icone": "brick-wall", "cor": "brand", "tam": 170, "balanca": false, "keys": [{"at": "@sólida", "x": 0.5, "y": 0.2}, {"at": "@sólida+0.02", "y": 0.462, "dur": 0.35}]}], "textos": [{"at": "@base sólida", "texto": "BASE SÓLIDA", "x": 0.5, "y": 0.13, "tam": 72}]},
+    {"kind": "cena", "tipo": "foto3d", "at": "@é construída", "until": "@Vai parecer muito", "src": "../../acervo/fotos3d/obra-casa-pedreiros.png", "depth": "../../acervo/fotos3d/depth/obra-casa-pedreiros-depth.png", "camera": [{"at": "@é construída", "zoom": 1.22, "py": -0.35}, {"at": "@é construída+0.01", "zoom": 1.04, "py": 0.35, "dur": 1.6}]},
+    {"kind": "mascot", "at": "@Vai parecer muito", "until": "@jogando", "placement": "left-third", "poses": [{"at": "@Vai parecer muito", "pose": "../../../../public/mascote/fox3.png"}, {"at": "@E que você só", "pose": "../../../../public/mascote/fox4.png"}], "entra": "lado"},
+    {"kind": "broll", "at": "@muito tempo", "until": "@E que você só", "src": "../../acervo/broll/big-ben-timelapse.mp4", "entra": "flash", "zoom": [1.0, 1.12]},
+    {"kind": "cena", "tipo": "palco", "at": "@jogando", "until": "@Mas aqui o papo", "atores": [{"id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{"at": "@jogando", "x": 0.18, "y": 0.45}], "pulsaAt": ["@voltar para"]}, {"id": "lugar", "icone": "circle-help", "cor": "whisper", "tam": 220, "rotulo": "ALGUM LUGAR", "keys": [{"at": "@algum lugar", "x": 0.78, "y": 0.45}, {"at": "@muito distante", "x": 0.9, "y": 0.4, "s": 0.55, "dur": 1.0}]}, {"id": "ampulheta", "icone": "hourglass", "cor": "hl", "tam": 150, "balanca": false, "keys": [{"at": "@esperando", "x": 0.5, "y": 0.16}, {"at": "@futuro", "r": 180, "dur": 0.6}, {"at": "@realmente comece", "r": 360, "dur": 0.6}]}], "fluxos": [{"de": "voce", "para": "lugar", "at": "@seu dinheiro", "ate": "@esperando", "icone": "banknote", "cor": "gain", "tam": 80, "por": 3, "arco": -0.35}, {"de": "lugar", "para": "voce", "at": "@voltar", "ate": "@voltar+0.8", "icone": "coins", "cor": "gain", "tam": 60, "por": 2}], "textos": [{"at": "@futuro", "ate": "@ele realmente", "texto": "FUTURO DISTANTE", "x": 0.5, "y": 0.8, "tam": 60, "cor": "info"}]},
+    {"kind": "cena", "tipo": "piada", "at": "@realmente comece", "until": "@realmente comece+1", "texto": "SPOILER: VOLTA", "dura": 0.9, "x": 0.5, "y": 0.8},
+    {"kind": "cena", "tipo": "palco", "at": "@É literalmente", "until": "@É a partir do quinto", "atores": [{"id": "ampulheta", "icone": "hourglass", "cor": "hl", "tam": 260, "balanca": false, "keys": [{"at": "@É literalmente", "x": 0.5, "y": 0.4}, {"at": "@paciência", "r": 180, "dur": 0.6}, {"at": "@esperar", "r": 360, "dur": 0.6}]}, {"id": "lesma", "icone": "snail", "cor": "whisper", "tam": 120, "entra": "rise", "keys": [{"at": "@paciência", "x": 0.08, "y": 0.8}, {"at": "@paciência+0.05", "x": 0.92, "dur": 1.6}]}], "textos": [{"at": "@paciência", "texto": "PACIÊNCIA E ESPERAR", "x": 0.5, "y": 0.13, "tam": 72}]},
+    {"kind": "broll", "at": "@É literalmente", "until": "@paciência", "src": "../../acervo/broll/areia-caindo-ampulheta.mp4", "entra": "zoom", "zoom": [1.05, 1.18]},
+    {"kind": "cena", "tipo": "grafico", "at": "@É a partir do quinto", "until": "@Aqui por mês", "modo": "patrimonio", "meses": 66, "rotuloCabeca": false, "revela": [{"at": 0, "mes": 36}, {"at": "@quinto", "mes": 54, "dur": 1.6}, {"at": "@manter a constância", "mes": 60, "dur": 1.2}], "vista": [{"at": 0, "x": 66, "y": 80000}, {"at": "@considerando", "x": 62, "y": 76000, "dur": 1.5}], "marcos": [{"mes": 60, "at": "@até aqui", "rotulo": "ANO 5", "cor": "text", "lado": "baixo", "ate": "@71 mil"}, {"mes": 60, "at": "@71 mil", "rotulo": "R$ 71 MIL", "cor": "hl", "lado": "baixo"}]},
+    {"kind": "cena", "tipo": "grafico", "at": "@Aqui por mês", "until": "@E é aqui que muita", "modo": "rendimento", "meses": 66, "aporteAt": "@seu aporte", "rotuloCabeca": false, "revela": [{"at": 0, "mes": 0}, {"at": "@Aqui por mês+0.1", "mes": 60, "dur": 2.6}], "vista": [{"at": 0, "x": 66, "y": 600}, {"at": "@E repara", "x": 66, "y": 1200, "dur": 1.5}], "marcos": [{"mes": 60, "at": "@400", "rotulo": "R$ 400 POR MÊS", "cor": "gain", "lado": "cima"}]},
+    {"kind": "cena", "tipo": "calendario", "at": "@E é aqui que muita", "until": "@E aquele seu mil", "preenche": [{"at": 0, "m": 0}, {"at": "@muita gente desiste", "m": 60, "dur": 1.4}], "marcos": [{"mes": 60, "at": "@5 anos", "cor": "loss", "rotulo": "DESISTE"}]},
+    {"kind": "cena", "tipo": "piada", "at": "@5 anos+0.4", "until": "@E aquele seu mil", "texto": "FALTAVA SÓ A OUTRA METADE", "dura": 0.9, "x": 0.5, "y": 0.075, "rot": -2},
+    {"kind": "cena", "tipo": "balanca", "at": "@E aquele seu mil", "until": "@Muita gente aqui", "esquerda": "VOCÊ INVESTE", "direita": "RENDE", "valores": [{"at": 0, "v": 0}, {"at": "@não rendeu", "v": 400, "dur": 1.2}]},
+    {"kind": "mascot", "at": "@Muita gente aqui", "until": "@Vai ser difícil", "placement": "right-third", "poses": [{"at": "@Muita gente aqui", "pose": "../../../../public/mascote/fox3.png"}, {"at": "@investimento não", "pose": "../../../../public/mascote/fox4.png"}, {"at": "@Mas é#2", "pose": "../../../../public/mascote/fox2-antigo.webm"}, {"at": "@triste", "pose": "../../../../public/mascote/fox3.png"}], "entra": "giro"},
+    {"kind": "broll", "at": "@ou não é pra gente", "until": "@Mas é#2", "src": "../../acervo/broll/pessoas-andando-predio.mp4", "entra": "whip", "zoom": [1.0, 1.1]},
+    {"kind": "cena", "tipo": "palco", "at": "@Vai ser difícil", "until": "@fim", "atores": [{"id": "montanha", "icone": "mountain", "cor": "whisper", "tam": 360, "keys": [{"at": "@Vai ser difícil", "x": 0.68, "y": 0.42}], "pulsaAt": ["@difícil"]}, {"id": "voce", "icone": "user", "tam": 180, "rotulo": "VOCÊ", "keys": [{"at": "@Vai ser difícil", "x": 0.2, "y": 0.52}, {"at": "@assim que a gente", "x": 0.4, "y": 0.48, "dur": 1.0}]}], "textos": [{"at": "@difícil", "ate": "@assim que a gente", "texto": "DIFÍCIL", "x": 0.5, "y": 0.85, "tam": 72}, {"at": "@assim que a gente", "texto": "É ASSIM QUE A GENTE COMEÇA", "x": 0.5, "y": 0.85, "tam": 64, "cor": "hl"}]}
   ]
 }

@@ -10,9 +10,9 @@ import type { CardOptions } from './captions';
 import type { EntryKind } from './motion';
 import type { HouseTone } from './theme';
 
-export type MascotPlacement = 'center' | 'left-third' | 'right-third' | 'corner-left' | 'corner-right';
+export type MascotPlacement = 'auto' | 'center' | 'left-third' | 'right-third' | 'corner-left' | 'corner-right';
 
-export type Backdrop = 'black' | 'grid' | 'stars' | 'transparent' | { blur: string; video?: boolean };
+export type Backdrop = 'black' | 'preto-puro' | 'grade-video' | 'grid' | 'stars' | 'transparent' | { blur: string; video?: boolean };
 
 export type Beat =
   | { kind: 'type-on'; at: number; until: number; text: string; eraseAt?: number; italic?: boolean }
@@ -24,7 +24,7 @@ export type Beat =
   | { kind: 'chapter'; at: number; until: number; number: number | string; title: string }
   | { kind: 'section'; at: number; until: number; text: string }
   | { kind: 'thumb'; at: number; until: number; src: string }
-  | { kind: 'broll'; at: number; until: number; src: string; video?: boolean }
+  | { kind: 'broll'; at: number; until: number; src: string; video?: boolean; de?: number; zoom?: [number, number]; entra?: 'flash' | 'zoom' | 'whip' | 'corte'; moldura?: boolean; escurece?: number; x?: number; y?: number }
   /** Cena de dados/metafora do kit hf/kit/ofurry-cenas.js (so HyperFrames). Parametros por tipo: ver o arquivo. */
   | { kind: 'cena'; at: number; until: number; tipo: 'grafico' | 'tabela' | 'balanca' | 'maquina' | 'calendario' | 'formula' | 'barra' | 'comparar' | 'lista' | 'numeros' | 'citacao' | 'fim' | 'palco' | 'piada' | 'foto3d'; [param: string]: unknown };
 

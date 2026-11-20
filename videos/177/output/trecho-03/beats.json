@@ -7,12 +7,21 @@
   "captions": [
     { "from": "@inicio", "until": "@existe-0.1", "entry": "whip" },
     { "from": "@nunca para-0.1", "until": "@A maior parte-0.1", "entry": "pop", "y": 0.72 },
-    { "from": "@A maior parte-0.1", "until": "@normalmente-0.1", "entry": "whip" }
+    { "from": "@A maior parte-0.1", "until": "@normalmente-0.1", "entry": "whip" },
+    { "from": "@o extrato-0.1", "until": "@rendimento ridículo-0.1", "entry": "pop" },
+    { "from": "@trabalha-0.1", "until": "@guardar-0.1", "entry": "pop" },
+    { "from": "@uma bala-0.1", "until": "@Tá sendo-0.1", "entry": "pop" },
+    { "from": "@Dois pão-0.1", "until": "@mas olha-0.1", "entry": "pop" }
+  ],
+  "camera": [
+    { "at": "@5 reais", "tipo": "punch" },
+    { "at": "@uma bala", "tipo": "shake" },
+    { "at": "@Dois pão", "tipo": "punch" }
   ],
   "backdrops": [
-    { "at": 0, "backdrop": "grid" },
+    { "at": 0, "backdrop": "grade-video" },
     { "at": "@existe", "backdrop": "black" },
-    { "at": "@nunca para", "backdrop": "grid" },
+    { "at": "@nunca para", "backdrop": "grade-video" },
     { "at": "@A maior parte", "backdrop": "black" },
     { "at": "@normalmente", "backdrop": "stars" },
     { "at": "@olhando", "backdrop": "black" },
@@ -32,14 +41,18 @@
     {"at": "@de queijo", "file": "@sfx/General/Pop sound.mp3", "gain": -21}
   ],
   "beats": [
+    { "kind": "cena", "tipo": "foto3d", "at": "@inicio", "until": "@foca",
+      "src": "../../acervo/fotos3d/estacao-lotada.png", "depth": "../../acervo/fotos3d/depth/estacao-lotada-depth.png",
+      "camera": [{ "at": "@inicio", "zoom": 1.22, "py": -0.35 }, { "at": "@inicio+0.01", "zoom": 1.04, "py": 0.35, "dur": 3.6 }] },
+
     { "kind": "cena", "tipo": "grafico", "at": "@existe", "until": "@nunca para",
       "modo": "rendimento", "meses": 30, "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
       "revela": [{ "at": "@existe", "mes": 0 }, { "at": "@existe+0.2", "mes": 24, "dur": 5.4 }],
       "vista": [{ "at": 0, "x": 24, "y": 1200 }] },
 
-    { "kind": "mascot", "at": "@nunca para", "until": "@A maior parte", "placement": "center",
+    { "kind": "mascot", "at": "@nunca para", "until": "@A maior parte", "placement": "right-third", "entra": "lado",
       "poses": [
-        { "at": "@nunca para", "pose": "../../../../public/mascote/fox1.png" },
+        { "at": "@nunca para", "pose": "../../../../public/mascote/fox1-antigo.webm" },
         { "at": "@observar", "pose": "../../../../public/mascote/fox4.png" }
       ] },
 
@@ -58,6 +71,8 @@
       "setas": [{ "de": "voce", "para": "extrato", "at": "@o extrato+0.2", "cor": "text" }],
       "textos": [{ "at": "@rendimento ridículo", "texto": "RENDIMENTO RIDÍCULO", "x": 0.5, "y": 0.8, "tam": 70, "cor": "hl" }] },
 
+    { "kind": "broll", "at": "@o extrato", "until": "@rendimento ridículo", "src": "../../acervo/broll/pessoa-digitando-celular.mp4", "entra": "zoom", "zoom": [1.0, 1.12], "moldura": true },
+
     { "kind": "cena", "tipo": "palco", "at": "@Você basicamente", "until": "@Você sua",
       "atores": [
         { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260, "keys": [{ "at": "@Você basicamente", "x": 0.2, "y": 0.45 }] },
@@ -75,6 +90,8 @@
         { "at": "@rendimento#2", "ate": "@5 reais", "texto": "RENDIMENTO", "x": 0.5, "y": 0.8, "tam": 70 },
         { "at": "@5 reais", "texto": "R$ 5", "x": 0.5, "y": 0.8, "fonte": "num", "tam": 170, "cor": "hl" }
       ] },
+
+    { "kind": "broll", "at": "@trabalha", "until": "@guardar", "src": "../../acervo/broll/escritorio-movimentado.mp4", "entra": "flash", "zoom": [1.04, 1.14] },
 
     { "kind": "cena", "tipo": "palco", "at": "@Você sua", "until": "@fim",
       "atores": [
@@ -96,7 +113,10 @@
         { "at": "@uma bala", "ate": "@Dois pão", "texto": "UMA BALA", "x": 0.5, "y": 0.18, "tam": 80, "cor": "hl" },
         { "at": "@Dois pão", "texto": "DOIS PÃO DE QUEIJO", "x": 0.5, "y": 0.18, "tam": 80, "cor": "hl" }
       ] },
+    { "kind": "broll", "at": "@uma bala", "until": "@Tá sendo", "src": "../../acervo/broll/balas-stop-motion.mp4", "entra": "whip", "zoom": [1.0, 1.1] },
     { "kind": "cena", "tipo": "piada", "at": "@bala", "until": "@Tá sendo", "dura": 0.8, "texto": "A FAMOSA BALA DE TROCO", "x": 0.5, "y": 0.9 },
+
+    { "kind": "broll", "at": "@Dois pão", "until": "@mas olha", "src": "../../acervo/broll/cafe-da-manha-pao.mp4", "entra": "zoom", "zoom": [1.02, 1.15], "moldura": true },
 
     { "kind": "mascot", "at": "@Tá sendo", "until": "@fim", "placement": "corner-right",
       "poses": [

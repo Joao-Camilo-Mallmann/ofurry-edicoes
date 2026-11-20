@@ -7,10 +7,18 @@
   "captions": [
     { "from": "@inicio", "until": "@Eu já tenho-0.1", "entry": "pop", "y": 0.72 },
     { "from": "@E o que importa-0.1", "until": "@quanto dinheiro-0.1", "entry": "whip" },
+    { "from": "@carro dos-0.1", "until": "@Duas pessoas-0.1", "entry": "pop" },
+    { "from": "@A maioria-0.1", "until": "@números redondos-0.1", "entry": "whip" },
     { "from": "@Quantas vezes-0.1", "until": "@fim", "entry": "pop", "y": 0.72 }
   ],
+  "camera": [
+    { "at": "@100 mil", "tipo": "punch" },
+    { "at": "@puxar o carro", "tipo": "whip" },
+    { "at": "@ponto de virada", "tipo": "punch" },
+    { "at": "@atrasado", "tipo": "shake" }
+  ],
   "backdrops": [
-    { "at": 0, "backdrop": "grid" },
+    { "at": 0, "backdrop": "grade-video" },
     { "at": "@Eu já tenho", "backdrop": "black" },
     { "at": "@mas não dizem", "backdrop": "stars" },
     { "at": "@E o que importa", "backdrop": "black" },
@@ -18,7 +26,7 @@
     { "at": "@Tudo depende", "backdrop": "black" },
     { "at": "@A maioria", "backdrop": "stars" },
     { "at": "@E continua", "backdrop": "black" },
-    { "at": "@Quantas vezes", "backdrop": "grid" }
+    { "at": "@Quantas vezes", "backdrop": "grade-video" }
   ],
   "sfx": [
     {"at": "@10 mil", "file": "@sfx/General/Pop sound.mp3", "gain": -21},
@@ -32,12 +40,12 @@
     {"at": "@atrasado", "file": "@sfx/General/Clock Tick.mp3", "gain": -22, "len": 0.8, "fadeOut": 0.2}
   ],
   "beats": [
-    { "kind": "mascot", "at": "@inicio", "until": "@Eu já tenho", "placement": "center",
+    { "kind": "mascot", "at": "@inicio", "until": "@Eu já tenho", "placement": "left-third", "entra": "lado",
       "poses": [
-        { "at": "@inicio", "pose": "../../../../public/mascote/fox1.png" },
-        { "at": "@medem", "pose": "../../../../public/mascote/fox4.png" },
-        { "at": "@de fato", "pose": "../../../../public/mascote/fox1.png" }
+        { "at": "@inicio", "pose": "../../../../public/mascote/fox1-antigo.webm" },
+        { "at": "@de fato", "pose": "../../../../public/mascote/fox4.png" }
       ] },
+    { "kind": "broll", "at": "@medem", "until": "@de fato", "src": "../../acervo/broll/predios-em-obra-aerea.mp4", "entra": "flash", "zoom": [1.0, 1.12] },
 
     { "kind": "cena", "tipo": "numeros", "at": "@Eu já tenho", "until": "@mas não dizem",
       "itens": [
@@ -67,6 +75,8 @@
         { "at": "@puxar o carro", "texto": "PUXAR O CARRO", "x": 0.5, "y": 0.82, "tam": 84, "cor": "gain" }
       ] },
 
+    { "kind": "broll", "at": "@carro dos", "until": "@Duas pessoas", "src": "../../acervo/broll/motor-de-carro-close.mp4", "entra": "whip", "zoom": [1.04, 1.16], "moldura": true },
+
     { "kind": "cena", "tipo": "palco", "at": "@Duas pessoas", "until": "@Tudo depende",
       "atores": [
         { "id": "p1", "icone": "user", "rotulo": "PESSOA 1", "tam": 230, "pulsaAt": ["@mesmo patrimônio"],
@@ -95,12 +105,16 @@
         { "de": "taxa", "para": "grana", "at": "@qual é a taxa+0.3", "cor": "hl" }
       ] },
 
-    { "kind": "cena", "tipo": "grafico", "at": "@A maioria", "until": "@E continua",
+    { "kind": "cena", "tipo": "foto3d", "at": "@A maioria", "until": "@números redondos",
+      "src": "../../acervo/fotos3d/multidao-atravessando-rua.png", "depth": "../../acervo/fotos3d/depth/multidao-atravessando-rua-depth.png",
+      "camera": [{ "at": "@A maioria", "zoom": 1.08, "px": -0.45 }, { "at": "@A maioria+0.01", "zoom": 1.2, "px": 0.45, "dur": 2.2 }] },
+
+    { "kind": "cena", "tipo": "grafico", "at": "@números redondos", "until": "@E continua",
       "modo": "rendimento", "meses": 130, "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
       "viradaTexto": "A VIRADA · R$ 177 MIL",
-      "revela": [{ "at": "@A maioria", "mes": 0 }, { "at": "@A maioria+0.1", "mes": 80, "dur": 2.2 }, { "at": "@nunca calcula", "mes": 126, "dur": 1.8 }],
+      "revela": [{ "at": "@números redondos", "mes": 0 }, { "at": "@números redondos+0.05", "mes": 80, "dur": 1.0 }, { "at": "@nunca calcula", "mes": 126, "dur": 1.8 }],
       "vista": [{ "at": 0, "x": 130, "y": 1200 }],
-      "marcos": [{ "mes": 80, "at": "@números redondos", "rotulo": "R$ 100 MIL GUARDADOS", "cor": "text", "lado": "baixo" }] },
+      "marcos": [{ "mes": 80, "at": "@números redondos+1.1", "rotulo": "R$ 100 MIL GUARDADOS", "cor": "text", "lado": "baixo" }] },
 
     { "kind": "cena", "tipo": "palco", "at": "@E continua", "until": "@Quantas vezes",
       "atores": [
@@ -116,11 +130,12 @@
       ] },
     { "kind": "cena", "tipo": "piada", "at": "@devagar+0.3", "until": "@Quantas vezes", "dura": 0.8, "texto": "DEVAGAR E SEMPRE, UÉ", "tam": 64, "x": 0.5, "y": 0.17 },
 
-    { "kind": "mascot", "at": "@Quantas vezes", "until": "@fim", "placement": "center",
+    { "kind": "mascot", "at": "@Quantas vezes", "until": "@fim", "placement": "right-third", "entra": "giro",
       "poses": [
         { "at": "@Quantas vezes", "pose": "../../../../public/mascote/fox1.png" },
-        { "at": "@virar nossa vida", "pose": "../../../../public/mascote/fox2.png" },
+        { "at": "@virar nossa vida", "pose": "../../../../public/mascote/fox2-antigo.webm" },
         { "at": "@mas nunca", "pose": "../../../../public/mascote/fox4.png" }
-      ] }
+       ] },
+    { "kind": "broll", "at": "@nunca se", "until": "@fim", "src": "../../acervo/broll/nevoa-no-topo-da-montanha.mp4", "entra": "zoom", "zoom": [1.0, 1.12] }
   ]
 }

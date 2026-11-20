@@ -5,14 +5,21 @@
   "subtitlePath": "midia/narracao.json",
   "cardOptions": { "maxWords": 2, "maxChars": 16 },
   "captions": [
+    { "from": "@inicio", "until": "@existe-0.1", "entry": "pop" },
     { "from": "@Como Einstein-0.1", "until": "@os juros-0.1", "entry": "whip" },
-    { "from": "@Mas a lógica-0.1", "until": "@os juros#2-0.1", "entry": "pop", "y": 0.72 }
+    { "from": "@Mas a lógica-0.1", "until": "@os juros#2-0.1", "entry": "pop", "y": 0.72 },
+    { "from": "@bastante dinheiro-0.1", "until": "@aí é-0.1", "entry": "pop" }
+  ],
+  "camera": [
+    { "at": "@não sei se", "tipo": "shake" },
+    { "at": "@massa mínima", "tipo": "punch" },
+    { "at": "@outra história", "tipo": "punch" }
   ],
   "backdrops": [
     { "at": 0, "backdrop": "black" },
     { "at": "@Como Einstein", "backdrop": "grid" },
     { "at": "@os juros", "backdrop": "black" },
-    { "at": "@Mas a lógica", "backdrop": "grid" },
+    { "at": "@Mas a lógica", "backdrop": "grade-video" },
     { "at": "@os juros#2", "backdrop": "black" },
     { "at": "@E o rendimento", "backdrop": "stars" }
   ],
@@ -39,6 +46,9 @@
       "setas": [{ "de": "data", "para": "motivo", "at": "@um motivo+0.15", "cor": "text" }],
       "textos": [{ "at": "@bem simples", "texto": "BEM SIMPLES", "x": 0.5, "y": 0.82, "tam": 84 }] },
 
+    { "kind": "broll", "at": "@inicio", "until": "@existe", "src": "../../acervo/broll/calendario-no-tablet.mp4", "entra": "flash", "zoom": [1.0, 1.12] },
+    { "kind": "broll", "at": "@Como Einstein", "until": "@os juros", "src": "../../acervo/broll/voo-sobre-montanha.mp4", "entra": "zoom", "zoom": [1.0, 1.15] },
+
     { "kind": "cena", "tipo": "citacao", "at": "@os juros", "until": "@Mas a lógica",
       "texto": "OS JUROS COMPOSTOS SÃO A OITAVA MARAVILHA DO MUNDO", "autor": "ALBERT EINSTEIN",
       "selo": "ATRIBUÍDA", "seloAt": "@não sei se" },
@@ -49,10 +59,10 @@
       ] },
     { "kind": "cena", "tipo": "piada", "at": "@se foi ele", "until": "@Mas a lógica", "dura": 0.9, "texto": "FONTE: GRUPO DA FAMÍLIA", "tam": 60, "x": 0.44, "y": 0.9 },
 
-    { "kind": "mascot", "at": "@Mas a lógica", "until": "@os juros#2", "placement": "center",
+    { "kind": "mascot", "at": "@Mas a lógica", "until": "@os juros#2", "placement": "left-third", "entra": "lado",
       "poses": [
-        { "at": "@Mas a lógica", "pose": "../../../../public/mascote/fox1.png" },
-        { "at": "@é real", "pose": "../../../../public/mascote/fox2.png" }
+        { "at": "@Mas a lógica", "pose": "../../../../public/mascote/fox1-antigo.webm" },
+        { "at": "@é real", "pose": "../../../../public/mascote/fox2-antigo.webm" }
       ] },
 
     { "kind": "cena", "tipo": "palco", "at": "@os juros#2", "until": "@E o rendimento",
@@ -86,6 +96,7 @@
         { "mes": 6, "at": "@pouco dinheiro", "rotulo": "POUCO DINHEIRO", "cor": "text", "lado": "cima", "ate": "@pouco rendimento" },
         { "mes": 6, "at": "@pouco rendimento", "rotulo": "POUCO RENDIMENTO", "cor": "text", "lado": "cima", "ate": "@Já o rendimento" },
         { "mes": 120, "at": "@outra história", "rotulo": "OUTRA HISTÓRIA", "cor": "hl", "lado": "baixo" }
-      ] }
+       ] },
+    { "kind": "broll", "at": "@bastante dinheiro", "until": "@aí é", "src": "../../acervo/broll/detalhes-de-notas-sequencia-rapida.mp4", "entra": "whip", "zoom": [1.04, 1.14], "moldura": true }
   ]
 }

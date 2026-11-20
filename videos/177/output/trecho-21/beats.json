@@ -4,16 +4,24 @@
   "audio": "midia/narracao.wav",
   "subtitlePath": "midia/narracao.json",
   "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "camera": [
+    { "at": "@like", "tipo": "punch" },
+    { "at": "@compartilhe", "tipo": "punch" },
+    { "at": "@número mágico", "tipo": "shake" },
+    { "at": "@E relaxa", "tipo": "flash" }
+  ],
   "captions": [
+    { "from": "@a mais gente-0.1", "until": "@por que está-0.1", "entry": "pop" },
+    { "from": "@E olha se a sua-0.1", "until": "@fritando-0.1", "entry": "pop", "y": 0.84 },
     { "from": "@Ou achando-0.1", "until": "@E olha se a sua-0.1", "entry": "glitch", "y": 0.72 },
     { "from": "@Eu destrincho-0.1", "until": "@Bom eu sou-0.5", "entry": "pop", "y": 0.9 }
   ],
   "backdrops": [
     { "at": 0, "backdrop": "black" },
-    { "at": "@Ou achando", "backdrop": "grid" },
+    { "at": "@Ou achando", "backdrop": "grade-video" },
     { "at": "@E olha se a sua", "backdrop": "black" },
     { "at": "@E relaxa", "backdrop": "stars" },
-    { "at": "@Bom eu sou", "backdrop": "grid" }
+    { "at": "@Bom eu sou", "backdrop": "grade-video" }
   ],
   "sfx": [
     { "at": "@aleatório+0.35", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4 },
@@ -50,10 +58,12 @@
       "fluxos": [{ "de": "share", "para": "gente", "at": "@mais gente", "ate": "@entender", "icone": "play", "por": 3, "cor": "info", "tam": 60 }],
       "textos": [{ "at": "@fase inicial", "texto": "FASE INICIAL", "x": 0.5, "y": 0.84, "tam": 68, "cor": "loss" }] },
 
-    { "kind": "mascot", "at": "@Ou achando", "until": "@E olha se a sua", "placement": "center",
+    { "kind": "broll", "at": "@a mais gente", "until": "@por que está", "src": "../../acervo/broll/multidao-atravessando-rua.mp4", "entra": "zoom", "zoom": [1.0, 1.12] },
+
+    { "kind": "mascot", "at": "@Ou achando", "until": "@E olha se a sua", "placement": "right-third", "entra": "lado",
       "poses": [
         { "at": "@Ou achando", "pose": "../../../../public/mascote/fox3.png" },
-        { "at": "@quando na real", "pose": "../../../../public/mascote/fox1.png" }
+        { "at": "@quando na real", "pose": "../../../../public/mascote/fox1-antigo.webm" }
       ] },
 
     { "kind": "cena", "tipo": "palco", "at": "@E olha se a sua", "until": "@E relaxa",
@@ -77,12 +87,13 @@
         { "at": "@aporte", "ate": "@número mágico", "texto": "APORTE", "x": 0.5, "y": 0.84, "tam": 140, "fonte": "num" },
         { "at": "@número mágico", "texto": "NÚMERO MÁGICO", "x": 0.5, "y": 0.84, "tam": 140, "fonte": "num", "cor": "hl" }
       ] },
+    { "kind": "broll", "at": "@E olha se a sua", "until": "@fritando", "src": "../../acervo/broll/homem-exausto-escritorio.mp4", "entra": "flash", "zoom": [1.0, 1.12], "escurece": 0.45 },
     { "kind": "cena", "tipo": "piada", "at": "@fritando+0.35", "until": "@fritando+1.3", "dura": 0.8, "texto": "CHEIRINHO DE QUEIMADO", "x": 0.5, "y": 0.84 },
 
     { "kind": "cena", "tipo": "fim", "at": "@E relaxa", "until": "@Bom eu sou-0.5",
       "titulo": "COMO INVESTIR MELHOR QUE 90% DAS PESSOAS", "chamada": "PRÓXIMO VÍDEO", "tituloAt": "@como investir" },
 
-    { "kind": "mascot", "at": "@Bom eu sou", "until": "@fim", "placement": "center", "nameTag": true,
+    { "kind": "mascot", "at": "@Bom eu sou", "until": "@fim", "placement": "center", "entra": "zoom", "nameTag": true,
       "poses": [
         { "at": "@Bom eu sou", "pose": "../../../../public/mascote/fox2.png" }
       ] }

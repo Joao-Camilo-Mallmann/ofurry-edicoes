@@ -46,8 +46,14 @@ de fundo + título de seção (H8) quando o bloco tem 3+ itens.
   João em 20/11/2026: "umas piadinhas... trocadilhos... para dar um pouco mais de vida para os motion" e "podem ser
   piadas mais na cara, mas duram no máximo um segundo ou poucos frames, pra ter que parar o vídeo e encontrar").
   Sem pontuação no texto de tela.
-- **B-roll só quando faz sentido com a fala**; se não houver imagem que mostre exatamente o que está sendo dito,
-  encene com ícones no preto (palco) em vez de B-roll genérico.
+- **B-roll real e variado** (pedido do João em 20/11/2026): imagem filmada de verdade que mostre o que a fala diz
+  (multidão em "todo mundo", relógio em "passa anos", pizza em "uma pizza"), em inserts de 0,6 a 2,5 s, entre as
+  cenas de ícones e de dados. Nunca imagem gerada por IA. Fonte: banco com licença comercial livre (Mixkit com
+  licença "Free"; Pexels/Pixabay quando acessíveis), sempre registrado em `videos/<id>/acervo/broll/CREDITOS.md`.
+  Preparar com `bun run broll:preparar` (1920x1080, sem som, cor puxada para o preto da casa, vinheta). Na batida:
+  zoom lento sempre, entrada `flash`/`zoom`/`whip`/`corte`, `moldura` para o quadro inclinado, legenda por cima.
+- **Gancho (0–30 s) é a parte mais densa do vídeo**: troca a cada ~0,7 s (~30–40 trocas), alternando B-roll real,
+  palco de ícones, número, gráfico, Furry e legenda cinética, cada troca na palavra. Exemplo: `videos/177/output/trecho-01`.
 - Fundos (preto, grade, estrelas) trocam a cada ideia nova; cada trecho usa pelo menos 2.
 
 ## 4. Gramática de cenas

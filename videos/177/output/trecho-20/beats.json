@@ -4,17 +4,26 @@
   "audio": "midia/narracao.wav",
   "subtitlePath": "midia/narracao.json",
   "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "camera": [
+    { "at": "@O primeiro milhão", "tipo": "punch" },
+    { "at": "@664 mil", "tipo": "punch" },
+    { "at": "@um milhão>", "tipo": "shake" },
+    { "at": "@10 anos", "tipo": "punch" }
+  ],
   "captions": [
     { "from": "@inicio", "until": "@vamos lembrar-0.1", "entry": "whip" },
+    { "from": "@em aproximadamente-0.1", "until": "@28 anos-0.1", "entry": "pop" },
+    { "from": "@vão vir-0.1", "until": "@Ou seja-0.1", "entry": "pop", "y": 0.82 },
+    { "from": "@de você ter-0.1", "until": "@A parte difícil não-0.1", "entry": "pop", "y": 0.18 },
     { "from": "@Só que aí que-0.1", "until": "@No milhão-0.1", "entry": "glitch", "y": 0.72 },
     { "from": "@Ou seja-0.1", "until": "@o seu primeiro milhão-0.1", "entry": "pop", "y": 0.12 },
     { "from": "@você não está-0.1", "until": "@fim", "entry": "glitch", "y": 0.72 }
   ],
   "backdrops": [
-    { "at": 0, "backdrop": "grid" },
+    { "at": 0, "backdrop": "grade-video" },
     { "at": "@vamos lembrar", "backdrop": "black" },
     { "at": "@O primeiro milhão", "backdrop": "stars" },
-    { "at": "@Se a gente", "backdrop": "grid" },
+    { "at": "@Se a gente", "backdrop": "grade-video" },
     { "at": "@em aproximadamente", "backdrop": "black" },
     { "at": "@Só que aí que", "backdrop": "grid" },
     { "at": "@No milhão", "backdrop": "black" },
@@ -36,6 +45,8 @@
     { "at": "@só rende", "file": "@sfx/Foley/Coins in Hand 03.wav", "gain": -24, "len": 0.8, "fadeOut": 0.3 }
   ],
   "beats": [
+    { "kind": "broll", "at": "@inicio", "until": "@vamos lembrar", "src": "../../acervo/broll/corredor-pista-camera-lenta.mp4", "entra": "flash", "zoom": [1.0, 1.12] },
+
     { "kind": "cena", "tipo": "palco", "at": "@vamos lembrar", "until": "@O primeiro milhão",
       "atores": [
         { "id": "trofeu", "icone": "trophy", "rotulo": "NOSSO OBJETIVO", "cor": "hl", "keys": [{ "at": "@vamos lembrar", "x": 0.7, "y": 0.42 }, { "at": "@persegue", "x": 0.84, "dur": 0.5 }], "pulsaAt": ["@nosso objetivo"] },
@@ -58,11 +69,12 @@
       "revela": [{ "at": 0, "mes": 0 }, { "at": "@em aproximadamente+0.1", "mes": 337, "dur": 1.8 }],
       "vista": [{ "at": 0, "x": 340, "y": 1100000 }],
       "marcos": [{ "mes": 337, "at": "@28 anos", "rotulo": "R$ 1 MILHÃO · 28 ANOS", "cor": "hl", "lado": "esq" }] },
+    { "kind": "broll", "at": "@em aproximadamente", "until": "@28 anos", "src": "../../acervo/broll/nuvens-timelapse.mp4", "entra": "zoom", "zoom": [1.0, 1.1] },
     { "kind": "cena", "tipo": "piada", "at": "@28 anos+0.4", "until": "@28 anos+1.4", "dura": 0.9, "texto": "DÁ TEMPO DE VER 7 COPAS", "x": 0.4, "y": 0.42 },
 
-    { "kind": "mascot", "at": "@Só que aí que", "until": "@No milhão", "placement": "center",
+    { "kind": "mascot", "at": "@Só que aí que", "until": "@No milhão", "placement": "right-third", "entra": "giro",
       "poses": [
-        { "at": "@Só que aí que", "pose": "../../../../public/mascote/fox1.png" },
+        { "at": "@Só que aí que", "pose": "../../../../public/mascote/fox1-antigo.webm" },
         { "at": "@mais engraçada", "pose": "../../../../public/mascote/fox2.png" }
       ] },
 
@@ -72,14 +84,20 @@
         { "at": "@664 mil", "valor": 664000, "rotulo": "DOS RENDIMENTOS", "cor": "gain" }
       ] },
 
+    { "kind": "broll", "at": "@vão vir", "until": "@Ou seja", "src": "../../acervo/broll/notas-caindo-fundo-escuro.mp4", "de": 2, "entra": "whip", "zoom": [1.04, 1.14], "escurece": 0.1 },
+
     { "kind": "cena", "tipo": "grafico", "at": "@Ou seja", "until": "@A parte difícil não",
       "modo": "patrimonio", "meses": 340, "rotuloCabeca": false,
       "revela": [{ "at": 0, "mes": 337 }],
       "vista": [{ "at": 0, "x": 340, "y": 1100000 }],
       "marcos": [
         { "mes": 337, "at": "@seu primeiro milhão", "rotulo": "1 MILHÃO", "cor": "text", "lado": "esq" },
-        { "mes": 124, "at": "@atravessado", "rotulo": "R$ 177 MIL · A VIRADA", "cor": "hl", "lado": "cima" }
+        { "mes": 124, "at": "@consequência", "rotulo": "R$ 177 MIL · A VIRADA", "cor": "hl", "lado": "cima" }
       ] },
+
+    { "kind": "cena", "tipo": "foto3d", "at": "@de você ter", "until": "@A parte difícil não",
+      "src": "../../acervo/fotos3d/voo-sobre-montanha.png", "depth": "../../acervo/fotos3d/depth/voo-sobre-montanha-depth.png",
+      "camera": [{ "at": "@de você ter", "zoom": 1.28, "px": -0.9, "py": 0.35 }, { "at": "@de você ter+0.01", "zoom": 1.02, "px": 0.9, "py": -0.35, "dur": 2.6 }] },
 
     { "kind": "cena", "tipo": "numeros", "at": "@A parte difícil não", "until": "@A parte difícil é",
       "rotulo": "A PARTE DIFÍCIL", "rotuloAt": "@A parte difícil não",
@@ -97,7 +115,7 @@
       "fluxos": [{ "de": "cofre", "para": "voce", "at": "@65 reais", "ate": "@você não está", "icone": "coins", "por": 1.5, "cor": "gain", "tam": 60 }],
       "textos": [{ "at": "@65 reais", "texto": "R$ 64 POR MÊS", "x": 0.5, "y": 0.17, "tam": 140, "fonte": "num", "cor": "gain" }] },
 
-    { "kind": "mascot", "at": "@você não está", "until": "@fim", "placement": "center",
+    { "kind": "mascot", "at": "@você não está", "until": "@fim", "placement": "left-third", "entra": "zoom",
       "poses": [
         { "at": "@você não está", "pose": "../../../../public/mascote/fox1.png" },
         { "at": "@Você está onde", "pose": "../../../../public/mascote/fox2.png" }

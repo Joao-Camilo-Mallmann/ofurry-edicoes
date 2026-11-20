@@ -20,6 +20,8 @@ Atualize este arquivo sempre que ele der um retorno novo: data, frase dele entre
 | 20/11/2026 | Aprovou os pilotos do vídeo 177 (gancho e virada): gráfico com câmera, máquina desenhada, balança, calendário, Furry de respiro. | Padrão de edição v2 (ADR-007). |
 | 20/11/2026 | Sobre imagens 3D geradas pelo agy/Nano Banana (máquina, "177" em metal, bola de moedas): "ficou com cara de IA slop, detestei, o demais simples em 2D legal", "no estilo do canal do Furry, olhar os vídeos dele". | **Nada de imagem gerada por IA.** 2D limpo desenhado em código, no estilo dos vídeos antigos. |
 | 20/11/2026 | Sobre o mascote: "usar os animados dele, não os png" (indicando `fox4_loop_fhd.webm`). | O build usa os loops `foxN.webm` (com transparência) no lugar dos PNG. |
+| 20/11/2026 | "Usar alguns B-roll mais variados e eu preciso que os primeiros 30 segundos sejam os mais dinâmicos possíveis. Pode baixar assets da internet." | Gancho com troca a cada ~0,7 s (B-roll real em corte rápido entre as cenas); B-roll real filmado e variado no vídeo todo, baixado de banco com licença comercial livre (Mixkit "Free"), créditos em `acervo/broll/CREDITOS.md`. |
+| 20/11/2026 | "renderizar sempre o vídeo por partes e no final juntar tudo... mais fácil se eu quiser editar alguma parte em específico... separa de forma inteligente" | Vídeo sempre por partes (`video:dividir`, `final/partes.md`, `video:produzir --trechos XX`). |
 
 ## 2. Som e música
 

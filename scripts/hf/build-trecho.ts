@@ -27,6 +27,9 @@ const W = 1920;
 const H = 1080;
 const FPS = 30;
 const HF_VERSION = '0.8.193';
+const ASSETS_PC = process.env.OFURRY_ASSETS ?? 'D:/YT/!Assets';
+// hash deterministico por trecho (variar escolhas sem aleatorio)
+const hashStr = (s: string) => { let h = 2166136261; for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619); return h >>> 0; };
 
 // ---------------------------------------------------------------------------
 // Entrada
@@ -92,7 +95,8 @@ const copied = new Map<string, string>();
 /** Copia um arquivo referenciado pela folha para assets/media e devolve o caminho root-relative. */
 function asset(rel: string | undefined, opts: { blur?: number } = {}): string | undefined {
   if (!rel) return undefined;
-  const src = join(baseDir, rel);
+  // "@assets/..." aponta para a despensa do PC (D:/YT/!Assets): overlays, fundos, B-roll organizado
+  const src = rel.startsWith('@assets/') ? join(ASSETS_PC, rel.slice('@assets/'.length)) : join(baseDir, rel);
   const key = `${src}|${opts.blur ?? 0}`;
   if (copied.has(key)) return copied.get(key);
   if (!existsSync(src)) {
@@ -150,6 +154,7 @@ function buildBackdrops(): string {
     .fundo-plane { position: absolute; inset: 0;
       background-image: linear-gradient(#fff 1.5px, transparent 1.5px), linear-gradient(90deg, #fff 1.5px, transparent 1.5px); background-size: 90px 90px; }
     .fundo-plate { position: absolute; inset: 0; width: ${W}px; height: ${H}px; object-fit: cover; }
+    .fundo-glow { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,153,0,0.10) 0%, transparent 38%), radial-gradient(circle, rgba(46,224,74,0.06) 0%, transparent 34%); background-size: 160% 160%, 150% 150%; background-repeat: no-repeat; }
     #fundo-vinheta { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%); z-index: 50; }
   `;
   bds.forEach((b, i) => {
@@ -159,7 +164,20 @@ function buildBackdrops(): string {
     const id = `fundo-s${i + 1}`;
     const kind: Backdrop = b.backdrop;
     let inner = '';
-    if (kind === 'black') inner = `<div class="fundo-black"></div>`;
+    // "black" agora e preto VIVO: luz ambiente da marca andando devagar (o Joao achou "muito fundo preto").
+    // "preto-puro" mantem o preto chapado (respiro raro). "grade-video": grade em perspectiva filmada.
+    const glow = `<div class="fundo-glow" id="${id}-glow"></div>`;
+    if (kind === 'preto-puro') inner = `<div class="fundo-black"></div>`;
+    else if (kind === 'black') {
+      inner = `<div class="fundo-black"></div>${glow}`;
+      script += `      House.drive(tl, ${r3(start)}, ${dur}, function (t) { var T = t + ${r3(start)}; $("${id}-glow").style.backgroundPosition = (50 + Math.sin(T * 0.21) * 22).toFixed(2) + "% " + (40 + Math.cos(T * 0.17) * 18).toFixed(2) + "%, " + (50 - Math.sin(T * 0.13) * 25).toFixed(2) + "% " + (60 + Math.sin(T * 0.19) * 15).toFixed(2) + "%"; });\n`;
+    }
+    else if (kind === 'grade-video') {
+      const src = asset('@assets/Overlays/fundos/grade-perspectiva.mp4');
+      // o video e o proprio clip (sem pai temporizado: regra do extrator de quadros)
+      markup += src ? `    <video id="${id}-v" class="clip" src="${src}" muted playsinline data-start="${r3(start)}" data-duration="${dur}" data-media-start="${r3(start % 40)}" data-track-index="${i + 40}" style="position:absolute;inset:0;width:${W}px;height:${H}px;object-fit:cover;opacity:0.55"></video>\n` : '';
+      inner = glow;
+    }
     else if (kind === 'grid') {
       inner = `<div class="fundo-black"></div><div class="fundo-plane-wrap" data-layout-ignore><div id="${id}-plano" class="fundo-plane"></div></div>`;
       script += `      tl.fromTo($("${id}-plano"), { backgroundPosition: "0px 0px" }, { backgroundPosition: "0px ${r3(dur * 0.35 * 90)}px", duration: ${dur}, ease: "none" }, ${r3(start)});\n`;
@@ -284,6 +302,7 @@ function strike(prefix: string, size: number, at: number) {
   };
 }
 
+let mascotes = 0;
 async function buildBeat(beat: Beat, id: string): Promise<string> {
   const dur = r3(beat.until - beat.at);
   const rel = (s: number) => r3(s - beat.at);
@@ -370,6 +389,13 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
       break;
     }
     case 'mascot': {
+      // "nao deixa sempre no meio" (Joao, 20/11/2026): o 2o, 3o... mascote "center" do trecho alterna esquerda/direita
+      mascotes++;
+      // so varia quando o trecho NAO escolheu a posicao (ou pediu "auto"); "center" explicito e respeitado
+      const pedido = (beat.placement as string | undefined) ?? 'auto';
+      const auto = pedido === 'auto' ? (mascotes === 1 ? 'center' : mascotes % 2 === 0 ? 'left-third' : 'right-third') : pedido;
+      (beat as { placement?: string }).placement = auto;
+      if ((beat as { flip?: boolean }).flip === undefined && auto === 'right-third') (beat as { flip?: boolean }).flip = true;
       const place = { center: 0.5, 'left-third': 0.3, 'right-third': 0.7, 'corner-left': 0.11, 'corner-right': 0.89 }[beat.placement ?? 'center'];
       const small = beat.placement === 'corner-left' || beat.placement === 'corner-right';
       const h = Math.round(H * (small ? 0.34 : 0.88));
@@ -381,7 +407,7 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
         // Mascote animado: se existir o loop .webm (alfa) ao lado do PNG, usa o loop (pedido do João, 20/11/2026:
         // "usar os animados dele, nao os png"). O loop e 1920x1080 com a raposa no centro do quadro.
         const webmRel = p.pose?.replace(/\.png$/i, '.webm');
-        const loop = webmRel && webmRel !== p.pose && existsSync(join(baseDir, webmRel)) ? asset(webmRel) : undefined;
+        const loop = p.pose?.toLowerCase().endsWith('.webm') ? asset(p.pose) : webmRel && webmRel !== p.pose && existsSync(join(baseDir, webmRel)) ? asset(webmRel) : undefined;
         const src = loop ? undefined : asset(p.pose);
         const pid = `${id}-pose${i + 1}`;
         if (loop) {
@@ -402,8 +428,15 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
       </div>
       ${beat.nameTag ? `<div id="${id}-tag" class="clip" data-start="0.4" data-duration="${r3(Math.min(2.3, dur - 0.4))}" data-track-index="9" style="position:absolute;left:${Math.round(place * W - 300)}px;width:600px;text-align:center;top:${H - Math.round(h * 0.16) - 30}px"><span id="${id}-tag-in" class="house-inline" style="background:#fff;color:#B35C00;font-family:var(--font-caption);font-weight:800;font-size:30px;padding:8px 28px;border-radius:40px">OFurry</span></div>` : ''}
     </div>\n`;
-      script = `      House.entry(tl, $("${id}-enter"), "rise", 0, { distance: 260, frames: 8 });
-      House.drive(tl, 0, ${dur}, function (t) { $("${id}-sway").style.transform = "translateY(" + (Math.sin(t * 1.3) * 4).toFixed(2) + "px) scale(" + (1 + Math.sin(t * 2.4) * 0.01).toFixed(4) + ")"; });\n`;
+      // entradas 3D (girar, deslizar de lado, zoom) alternando pelo trecho; balanco 3D leve o tempo todo
+      const ENTRADAS = ['lado', 'giro', 'rise', 'zoom'];
+      const entra = (beat as { entra?: string }).entra ?? ENTRADAS[(hashStr(sheet.id) + mascotes) % ENTRADAS.length];
+      const lado = place > 0.5 ? 1 : -1;
+      if (entra === 'lado') script = `      tl.fromTo($("${id}-enter"), { x: ${lado * 620}, rotationY: ${lado * -55}, transformPerspective: 1400, opacity: 0.2 }, { x: 0, rotationY: 0, opacity: 1, duration: ${r3(11 / FPS)}, ease: "expo.out" }, 0);\n`;
+      else if (entra === 'giro') script = `      tl.fromTo($("${id}-enter"), { rotationY: ${lado * 95}, transformPerspective: 1200, scale: 0.85, opacity: 0.3 }, { rotationY: 0, scale: 1, opacity: 1, duration: ${r3(10 / FPS)}, ease: "back.out(1.6)" }, 0);\n`;
+      else if (entra === 'zoom') script = `      tl.fromTo($("${id}-enter"), { scale: 1.45, y: 120, opacity: 0.2 }, { scale: 1, y: 0, opacity: 1, duration: ${r3(9 / FPS)}, ease: "expo.out", transformOrigin: "50% 100%" }, 0);\n`;
+      else script = `      House.entry(tl, $("${id}-enter"), "rise", 0, { distance: 260, frames: 8 });\n`;
+      script += `      House.drive(tl, 0, ${dur}, function (t) { $("${id}-sway").style.transform = "perspective(1400px) rotateY(" + (Math.sin(t * 0.9) * 6).toFixed(2) + "deg) translateY(" + (Math.sin(t * 1.3) * 4).toFixed(2) + "px) scale(" + (1 + Math.sin(t * 2.4) * 0.01).toFixed(4) + ")"; });\n`;
       if (beat.nameTag) script += `      House.entry(tl, $("${id}-tag-in"), "pop", 0.4);\n`;
       if (beat.shrinkAt !== undefined) {
         const tx = Math.round(0.89 * W - place * W);
@@ -476,12 +509,35 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
       break;
     }
     case 'broll': {
+      // B-roll real (videos/<id>/acervo/broll, tratado por `bun run broll:preparar`). Nunca parado: zoom lento
+      // (Ken Burns) no involucro (sem filtro CSS no video: contrato do HyperFrames), entrada da casa e escurecimento para a legenda ler por cima.
+      // Campos: src, video (default: pelo .mp4/.webm), de (segundo do clipe onde comeca), zoom [de, ate] (1.0->1.08),
+      //   entra: 'flash' | 'zoom' | 'whip' | 'corte' (default 'corte'), moldura (quadro inclinado com borda, 0.72 da tela),
+      //   escurece 0..1 (default 0.25), x/y (centro do quadro na moldura, 0..1)
+      const b = beat as typeof beat & { de?: number; zoom?: [number, number]; entra?: string; moldura?: boolean; escurece?: number; x?: number; y?: number };
       const src = asset(beat.src);
-      markup = src
-        ? beat.video
-          ? `    <video id="${id}-v" class="clip" src="${src}" muted playsinline data-start="0" data-duration="${dur}" data-track-index="0" style="position:absolute;left:0;top:0;width:${W}px;height:${H}px;object-fit:cover"></video>\n`
-          : `    <img id="${id}-v" class="clip" src="${src}" alt="" data-start="0" data-duration="${dur}" data-track-index="0" style="position:absolute;left:0;top:0;width:${W}px;height:${H}px;object-fit:cover">\n`
-        : `    <div id="${id}-v" class="clip house-placeholder" data-start="0" data-duration="${dur}" data-track-index="0" style="position:absolute;inset:0;font-size:60px">B-ROLL</div>\n`;
+      const isVideo = beat.video ?? /\.(mp4|webm|mov)$/i.test(beat.src);
+      const [z0, z1] = b.zoom ?? [1.0, 1.08];
+      const mold = !!b.moldura;
+      const fw = mold ? Math.round(W * 0.72) : W, fh = mold ? Math.round(H * 0.72) : H;
+      const fx = mold ? Math.round((b.x ?? 0.5) * W - fw / 2) : 0, fy = mold ? Math.round((b.y ?? 0.5) * H - fh / 2) : 0;
+      const media = !src
+        ? `<div class="house-placeholder" style="position:absolute;inset:0;font-size:60px">B-ROLL</div>`
+        : isVideo
+          ? `<video id="${id}-v" class="clip" src="${src}" muted playsinline data-start="0" data-duration="${dur}"${b.de ? ` data-media-start="${b.de}"` : ''} data-track-index="0" style="position:absolute;left:0;top:0;width:${fw}px;height:${fh}px;object-fit:cover"></video>`
+          : `<img id="${id}-v" src="${src}" alt="" style="position:absolute;left:0;top:0;width:${fw}px;height:${fh}px;object-fit:cover">`;
+      const esc = b.escurece ?? 0.25;
+      markup = `    <div id="${id}-quadro" style="position:absolute;left:${fx}px;top:${fy}px;width:${fw}px;height:${fh}px;overflow:hidden;${mold ? 'border:6px solid #fdfdfd;box-shadow:0 30px 90px rgba(0,0,0,.8),0 0 40px rgba(255,255,255,.12);' : ''}" data-layout-allow-overflow>
+      <div id="${id}-z" style="position:absolute;inset:0">${media}</div>
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,${(esc * 0.4).toFixed(2)}) 40%, rgba(0,0,0,${Math.min(0.9, esc * 2.2).toFixed(2)}) 100%), linear-gradient(to bottom, transparent 55%, rgba(0,0,0,${Math.min(0.85, esc * 2).toFixed(2)}) 100%)"></div>
+      <div id="${id}-flash" style="position:absolute;inset:0;background:#fff;opacity:0"></div>
+    </div>\n`;
+      script = `      tl.fromTo($("${id}-z"), { scale: ${z0} }, { scale: ${z1}, duration: ${dur}, ease: "none" }, 0);\n`;
+      if (mold) script += `      tl.fromTo($("${id}-quadro"), { rotation: -2.5, y: 40, opacity: 0 }, { rotation: -1.5, y: 0, opacity: 1, duration: ${r3(6 / FPS)}, ease: "power3.out" }, 0);\n`;
+      const entra = b.entra ?? 'corte';
+      if (entra === 'flash') script += `      tl.fromTo($("${id}-flash"), { opacity: 0.85 }, { opacity: 0, duration: ${r3(4 / FPS)}, ease: "power2.out" }, 0);\n`;
+      else if (entra === 'zoom') script += `      tl.fromTo($("${id}-quadro"), { scale: 1.3 }, { scale: 1, duration: ${r3(7 / FPS)}, ease: "expo.out" }, 0);\n`;
+      else if (entra === 'whip') script += `      tl.fromTo($("${id}-quadro"), { x: 420, opacity: 0.4 }, { x: 0, opacity: 1, duration: ${r3(5 / FPS)}, ease: "expo.out" }, 0);\n`;
       break;
     }
   }
@@ -491,13 +547,99 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
 // ---------------------------------------------------------------------------
 // Raiz
 // ---------------------------------------------------------------------------
+/**
+ * Camera global estilo edicao de anime/rap (pedido do Joao, 20/11/2026: "abusar bastante de efeitos de camera").
+ * A cada troca de cena (inicio de batida) um efeito no corte; manual: sheet.camera [{at, tipo}]; desligar: cameraAuto:false.
+ * tipos: punch, whip, shake, tilt3d, roll, glitch, luz, flash.
+ */
+type CamEvt = { at: number; tipo: string };
+function cameraEvents(beatIds: { id: string; beat: Beat }[]): CamEvt[] {
+  const cfg = sheet as BeatSheet & { camera?: CamEvt[]; cameraAuto?: boolean };
+  const CICLO = ['punch', 'whip', 'tilt3d', 'shake', 'punch', 'glitch', 'roll', 'whip', 'luz', 'punch', 'flash', 'tilt3d'];
+  const evs: CamEvt[] = [...(cfg.camera ?? [])];
+  if (cfg.cameraAuto !== false) {
+    const h = hashStr(sheet.id);
+    const ats = [...new Set(beatIds.filter(({ beat }) => !(beat.kind === 'cena' && (beat as { tipo?: string }).tipo === 'piada')).map(({ beat }) => r3(beat.at)))].filter((t) => t > 0.05).sort((a, b) => a - b);
+    let last = -9;
+    ats.forEach((t, k) => {
+      if (t - last < 0.6) return;
+      last = t;
+      evs.push({ at: t, tipo: CICLO[(h + k) % CICLO.length] });
+    });
+  }
+  return evs.sort((a, b) => a.at - b.at);
+}
+
+function buildTextura(evs: CamEvt[]): string {
+  // overlays REAIS da despensa (D:/YT/!Assets/Overlays): riscos de pelicula o tempo todo; vhs/luz/flash nas transicoes
+  const dur = r3(sheet.duration);
+  let markup = '';
+  const pel = asset('@assets/Overlays/pelicula/riscos-e-poeira.mp4');
+  if (pel) {
+    for (let t0 = 0, k = 0; t0 < dur; t0 += 59, k++) {
+      const d = r3(Math.min(59, dur - t0));
+      markup += `    <video id="tex-pel-${k}" class="clip" src="${pel}" muted playsinline data-start="${r3(t0)}" data-duration="${d}" data-media-start="${(hashStr(sheet.id) % 30) / 10}" data-track-index="${k}" style="position:absolute;inset:0;width:${W}px;height:${H}px;object-fit:cover;mix-blend-mode:screen;opacity:0.35"></video>\n`;
+    }
+  }
+  const vhs = asset('@assets/Overlays/glitch/vhs-ruido.mp4');
+  const luz = asset('@assets/Overlays/luz/light-leak-borda.mp4'); // recorte so com a luz vazando pela borda
+  evs.forEach((e, k) => {
+    // flash e feito em codigo (branco limpo): o overlay 5 do PC e creme e vira laranja chapado em "screen"
+    const src = e.tipo === 'glitch' ? vhs : e.tipo === 'luz' ? luz : undefined;
+    if (!src) return;
+    const d = e.tipo === 'glitch' ? 0.2 : e.tipo === 'luz' ? 0.75 : 0.35;
+    const s0 = Math.max(0, e.at - (e.tipo === 'luz' ? 0.3 : 0.03));
+    markup += `    <video id="tex-tr-${k}" class="clip" src="${src}" muted playsinline data-start="${r3(s0)}" data-duration="${r3(Math.min(d, dur - s0))}" data-media-start="${e.tipo === 'glitch' ? ((k * 7) % 30) / 10 : 0}" data-track-index="${10 + k}" style="position:absolute;inset:0;width:${W}px;height:${H}px;object-fit:cover;mix-blend-mode:screen;opacity:${e.tipo === 'glitch' ? 0.6 : e.tipo === 'luz' ? 0.7 : 0.8}"></video>\n`;
+  });
+  return scene('textura', '', markup, '');
+}
+
+function cameraScript(evs: CamEvt[]): string {
+  const F = 1 / FPS;
+  let js = `      var cam = document.getElementById("camera"), mao = document.getElementById("camera-mao");
+      // camera na mao: deriva leve e continua (so translacao)
+      House.drive(tl, 0, ${r3(sheet.duration)}, function (t) { mao.style.transform = "translate(" + (Math.sin(t * 0.61) * 5 + Math.sin(t * 1.73) * 2).toFixed(2) + "px," + (Math.cos(t * 0.53) * 4 + Math.sin(t * 1.31) * 1.5).toFixed(2) + "px) scale(1.012)"; });\n`;
+  evs.forEach((e, k) => {
+    const t = r3(e.at), d = (n: number) => r3(n * F);
+    const dir = k % 2 ? 1 : -1;
+    switch (e.tipo) {
+      case 'punch': js += `      tl.fromTo(cam, { scale: 1.09 }, { scale: 1, duration: ${d(9)}, ease: "expo.out", immediateRender: false }, ${t});\n`; break;
+      case 'whip': js += `      tl.fromTo(cam, { x: ${dir * 140}, skewX: ${dir * -6} }, { x: 0, skewX: 0, duration: ${d(6)}, ease: "expo.out", immediateRender: false }, ${t});\n`; break;
+      case 'tilt3d': js += `      tl.fromTo(cam, { rotationY: ${dir * 14}, rotationX: 5, scale: 1.06, transformPerspective: 1300 }, { rotationY: 0, rotationX: 0, scale: 1, duration: ${d(12)}, ease: "power3.out", immediateRender: false }, ${t});\n`; break;
+      case 'roll': js += `      tl.fromTo(cam, { rotation: ${dir * 3.5}, scale: 1.05 }, { rotation: 0, scale: 1, duration: ${d(8)}, ease: "back.out(2)", immediateRender: false }, ${t});\n`; break;
+      case 'shake':
+      case 'glitch': {
+        const offs = e.tipo === 'glitch' ? [[22, -8], [-30, 6], [14, 10], [-6, -4], [0, 0]] : [[10, -7], [-12, 6], [8, 9], [-6, -5], [3, 3], [0, 0]];
+        offs.forEach(([x, y], i) => { js += `      tl.fromTo(cam, { x: ${x}, y: ${y} }, { x: ${x}, y: ${y}, duration: ${d(1)}, immediateRender: false }, ${r3(e.at + i * F)});\n`; });
+        if (e.tipo === 'glitch') js += `      tl.fromTo(document.getElementById("camera-rgb"), { opacity: 0.85 }, { opacity: 0, duration: ${d(4)}, ease: "steps(4)", immediateRender: false }, ${t});\n`;
+        break;
+      }
+      case 'luz': js += `      tl.fromTo(cam, { scale: 1.04 }, { scale: 1, duration: ${d(14)}, ease: "power2.out", immediateRender: false }, ${t});\n`; break;
+      case 'flash':
+        js += `      tl.fromTo(cam, { scale: 1.12 }, { scale: 1, duration: ${d(7)}, ease: "expo.out", immediateRender: false }, ${t});\n`;
+        js += `      tl.fromTo(document.getElementById("camera-flash"), { opacity: 0.75 }, { opacity: 0, duration: ${d(5)}, ease: "power2.out", immediateRender: false }, ${t});\n`;
+        break;
+    }
+  });
+  return js;
+}
+
 function buildIndex(beatIds: { id: string; beat: Beat }[], audioSrc?: string): string {
   const dur = r3(sheet.duration);
+  const evs = cameraEvents(beatIds);
+  writeFileSync(join(COMP, 'textura.html'), buildTextura(evs));
   const host = (id: string, start: number, d: number, track: number, z: number, extra = '') =>
     `      <div id="${id}" data-composition-id="${id}" data-composition-src="compositions/${id}.html" data-start="${r3(start)}" data-duration="${r3(d)}" data-track-index="${track}" data-track-kind="${id === 'legendas' ? 'captions' : 'graphics'}" data-width="${W}" data-height="${H}" style="z-index:${z}"${extra}></div>`;
+  // a camera move o fundo e as cenas; legenda, textura e poeira ficam por cima, fora da camera
+  const naCamera = [host('fundo', 0, dur, 0, 1, ' data-house-backdrop'), ...beatIds.map(({ id, beat }, i) => host(id, beat.at, beat.until - beat.at, i + 1, 10 + i))];
   const hosts = [
-    host('fundo', 0, dur, 0, 1, ' data-house-backdrop'),
-    ...beatIds.map(({ id, beat }, i) => host(id, beat.at, beat.until - beat.at, i + 1, 10 + i)),
+    `      <div id="camera-mao" style="position:absolute;inset:0;z-index:1"><div id="camera" style="position:absolute;inset:0;transform-origin:50% 50%">`,
+    ...naCamera,
+    `      </div></div>`,
+    // blend "screen" NO HOST: dentro da sub-composicao o blend so enxerga o vazio e o preto do overlay escurecia o video todo
+    host('textura', 0, dur, beatIds.length + 3, 90, ' data-house-backdrop').replace('style="z-index:90"', 'style="z-index:90;mix-blend-mode:screen"'),
+    `      <div id="camera-rgb" style="position:absolute;inset:0;z-index:95;opacity:0;pointer-events:none;background:repeating-linear-gradient(0deg, rgba(255,0,60,0.22) 0px, rgba(255,0,60,0.22) 6px, transparent 6px, transparent 14px, rgba(0,229,255,0.2) 14px, rgba(0,229,255,0.2) 19px, transparent 19px, transparent 31px);mix-blend-mode:screen"></div>`,
+    `      <div id="camera-flash" style="position:absolute;inset:0;z-index:96;opacity:0;pointer-events:none;background:#fff"></div>`,
     host('legendas', 0, dur, beatIds.length + 1, 100),
     ...(sheet.filmDust === false ? [] : [host('poeira', 0, dur, beatIds.length + 2, 200, ' data-house-backdrop')]),
   ];
@@ -528,7 +670,7 @@ ${audioSrc ? `      <audio id="narracao" src="${audioSrc}" data-start="0" data-d
         document.querySelectorAll("[data-house-backdrop]").forEach(function (el) { el.style.opacity = "0"; });
       }
       var tl = gsap.timeline({ paused: true });
-      window.__timelines["main"] = tl;
+${cameraScript(evs)}      window.__timelines["main"] = tl;
     </script>
   </body>
 </html>

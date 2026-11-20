@@ -4,19 +4,26 @@
   "audio": "midia/narracao.wav",
   "subtitlePath": "midia/narracao.json",
   "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "camera": [
+    { "at": "@0,56", "tipo": "punch" },
+    { "at": "@7%", "tipo": "punch" },
+    { "at": "@aleatório+0.15", "tipo": "shake" },
+    { "at": "@sua taxa mensal", "tipo": "punch" }
+  ],
   "captions": [
     { "from": "@inicio", "until": "@são só três-0.1", "entry": "whip" },
+    { "from": "@Você vai pegar-0.1", "until": "@todo o seu-0.1", "entry": "pop" },
     { "from": "@Só uma coisa-0.1", "until": "@essa taxa que-0.1", "entry": "pop" },
     { "from": "@Então bem provável-0.1", "until": "@Então é basicamente-0.1", "entry": "glitch", "y": 0.72 }
   ],
   "backdrops": [
-    { "at": 0, "backdrop": "grid" },
+    { "at": 0, "backdrop": "grade-video" },
     { "at": "@E quanto que", "backdrop": "black" },
     { "at": "@multiplicar pela", "backdrop": "stars" },
     { "at": "@Você tem a sua", "backdrop": "grid" },
     { "at": "@Só uma coisa", "backdrop": "black" },
     { "at": "@Hoje esse valor", "backdrop": "stars" },
-    { "at": "@Então bem provável", "backdrop": "grid" },
+    { "at": "@Então bem provável", "backdrop": "grade-video" },
     { "at": "@Então é basicamente", "backdrop": "stars" },
     { "at": "@E assim você", "backdrop": "black" }
   ],
@@ -32,6 +39,8 @@
     { "at": "@na sua data", "file": "@sfx/General/correct sfx.mp3", "gain": -22 }
   ],
   "beats": [
+    { "kind": "broll", "at": "@inicio", "until": "@são só três", "src": "../../acervo/broll/mulher-anotando-contas.mp4", "entra": "flash", "zoom": [1.0, 1.12] },
+
     { "kind": "cena", "tipo": "lista", "at": "@são só três", "until": "@E quanto que", "titulo": "3 PASSOS",
       "itens": [
         { "at": "@são só três", "n": "1", "texto": "QUANTO RENDE HOJE" },
@@ -49,6 +58,8 @@
       ],
       "fluxos": [{ "de": "cofre", "para": "voce", "at": "@valor investido", "ate": "@multiplicar pela", "icone": "banknote", "por": 4, "cor": "gain", "tam": 90 }],
       "textos": [{ "at": "@todo o seu", "texto": "TODO O SEU VALOR", "x": 0.5, "y": 0.18, "tam": 72 }] },
+
+    { "kind": "broll", "at": "@Você vai pegar", "until": "@todo o seu", "src": "../../acervo/broll/maos-contando-moedas.mp4", "entra": "zoom", "zoom": [1.04, 1.16] },
 
     { "kind": "cena", "tipo": "formula", "at": "@multiplicar pela", "until": "@Você tem a sua", "titulo": "PASSO 1",
       "linhas": [
@@ -81,12 +92,14 @@
     { "kind": "proof", "at": "@Hoje esse valor", "until": "@Então bem provável", "src": "../../acervo/prints/tesouro-direto-taxas.png",
       "highlight": [0.015, 0.805, 0.475, 0.09], "highlightAt": "@taxa média" },
 
-    { "kind": "mascot", "at": "@Então bem provável", "until": "@Então é basicamente", "placement": "center",
+    { "kind": "mascot", "at": "@Então bem provável", "until": "@Então é basicamente", "placement": "left-third", "entra": "lado",
       "poses": [
         { "at": "@Então bem provável", "pose": "../../../../public/mascote/fox1.png" },
         { "at": "@olhar esse vídeo", "pose": "../../../../public/mascote/fox3.png" },
         { "at": "@tenha mudado", "pose": "../../../../public/mascote/fox4.png" }
       ] },
+
+    { "kind": "broll", "at": "@mais no futuro", "until": "@tenha mudado", "src": "../../acervo/broll/avenida-anoitecer-timelapse.mp4", "entra": "whip", "moldura": true, "zoom": [1.0, 1.1] },
 
     { "kind": "cena", "tipo": "formula", "at": "@Então é basicamente", "until": "@E assim você", "tam": 150,
       "linhas": [

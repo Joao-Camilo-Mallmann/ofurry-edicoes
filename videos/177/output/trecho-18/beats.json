@@ -4,12 +4,19 @@
   "audio": "midia/narracao.wav",
   "subtitlePath": "midia/narracao.json",
   "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "camera": [
+    { "at": "@177", "tipo": "punch" },
+    { "at": "@exato", "tipo": "shake" },
+    { "at": "@mas vai ser", "tipo": "punch" },
+    { "at": "@virada acontecer", "tipo": "punch" }
+  ],
   "captions": [
     { "from": "@inicio", "until": "@olha você vai-0.1", "entry": "glitch", "y": 0.72 },
+    { "from": "@Bom não vai-0.1", "until": "@basicamente-0.1", "entry": "pop" },
     { "from": "@esse é o valor-0.1", "until": "@valor que você+0.12", "entry": "whip" }
   ],
   "backdrops": [
-    { "at": 0, "backdrop": "grid" },
+    { "at": 0, "backdrop": "grade-video" },
     { "at": "@olha você vai", "backdrop": "black" },
     { "at": "@multiplicar por", "backdrop": "stars" },
     { "at": "@Bom não vai", "backdrop": "black" },
@@ -25,12 +32,13 @@
     { "at": "@virada acontecer", "file": "@sfx/General/correct sfx.mp3", "gain": -20 }
   ],
   "beats": [
-    { "kind": "mascot", "at": "@inicio", "until": "@olha você vai", "placement": "center", "nameTag": false,
+    { "kind": "mascot", "at": "@inicio", "until": "@olha você vai", "placement": "left-third", "entra": "lado", "nameTag": false,
       "poses": [
-        { "at": "@inicio", "pose": "../../../../public/mascote/fox1.png" },
+        { "at": "@inicio", "pose": "../../../../public/mascote/fox1-antigo.webm" },
         { "at": "@preguiçoso", "pose": "../../../../public/mascote/fox2.png" },
         { "at": "@não entendeu", "pose": "../../../../public/mascote/fox4.png" }
       ] },
+    { "kind": "broll", "at": "@não entendeu", "until": "@olha você vai", "src": "../../acervo/broll/homem-maos-na-cabeca.mp4", "entra": "flash", "zoom": [1.0, 1.12] },
     { "kind": "cena", "tipo": "piada", "at": "@preguiçoso", "until": "@preguiçoso+1", "dura": 0.8, "texto": "MODO PREGUIÇA: ATIVADO", "x": 0.5, "y": 0.93 },
 
     { "kind": "cena", "tipo": "palco", "at": "@olha você vai", "until": "@multiplicar por",
@@ -57,6 +65,8 @@
         { "at": "@mas vai ser", "texto": "≈ R$ 177 MIL", "x": 0.6, "y": 0.42, "tam": 200, "fonte": "num", "cor": "hl" },
         { "at": "@bem similar", "texto": "BEM SIMILAR", "x": 0.6, "y": 0.66, "tam": 64 }
       ] },
+
+    { "kind": "broll", "at": "@Bom não vai", "until": "@basicamente", "src": "../../acervo/broll/detalhes-de-notas-sequencia-rapida.mp4", "entra": "whip", "moldura": true, "zoom": [1.02, 1.12], "escurece": 0.55 },
 
     { "kind": "cena", "tipo": "balanca", "at": "@valor que você", "until": "@fim",
       "esquerda": "SEU APORTE", "direita": "O PATRIMÔNIO RENDE",

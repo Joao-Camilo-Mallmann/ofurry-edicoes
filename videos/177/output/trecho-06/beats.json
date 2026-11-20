@@ -7,12 +7,21 @@
   "captions": [
     { "from": "@inicio", "until": "@O que esse-0.1", "entry": "whip" },
     { "from": "@Olha a conta-0.1", "until": "@Vamos supor-0.1", "entry": "pop", "y": 0.72 },
-    { "from": "@Vamos supor-0.1", "until": "@7%-0.1", "entry": "whip" }
+    { "from": "@Vamos supor-0.1", "until": "@7%-0.1", "entry": "whip" },
+    { "from": "@descontado-0.1", "until": "@ele vai-0.1", "entry": "pop" },
+    { "from": "@ao mês-0.1", "until": "@Com essa taxa-0.1", "entry": "pop" },
+    { "from": "@E é por isso-0.1", "until": "@desse valor-0.1", "entry": "whip" }
+  ],
+  "camera": [
+    { "at": "@0,56%", "tipo": "punch" },
+    { "at": "@mil reais", "tipo": "punch" },
+    { "at": "@565", "tipo": "shake" },
+    { "at": "@virar", "tipo": "tilt3d" }
   ],
   "backdrops": [
-    { "at": 0, "backdrop": "grid" },
+    { "at": 0, "backdrop": "grade-video" },
     { "at": "@O que esse", "backdrop": "stars" },
-    { "at": "@Olha a conta", "backdrop": "grid" },
+    { "at": "@Olha a conta", "backdrop": "grade-video" },
     { "at": "@Vamos supor", "backdrop": "black" },
     { "at": "@Com essa taxa", "backdrop": "stars" },
     { "at": "@E se agora", "backdrop": "black" },
@@ -28,21 +37,24 @@
     {"at": "@persegue", "file": "@sfx/Comical/Swirl 03.wav", "gain": -23, "len": 0.9, "fadeOut": 0.3},
     {"at": "@565", "file": "@sfx/General/Coins.wav", "gain": -22, "len": 0.5, "fadeOut": 0.2},
     {"at": "@os mil reais", "file": "@sfx/Foley/Coins in Hand 01.wav", "gain": -22, "len": 0.8, "fadeOut": 0.3},
-    {"at": "@quanto mais perto", "file": "@sfx/Mechanical/Hydraulics 01.wav", "gain": -24, "len": 1.2, "fadeOut": 0.4},
+    {"at": "@desse valor", "file": "@sfx/Mechanical/Hydraulics 01.wav", "gain": -24, "len": 1.2, "fadeOut": 0.4},
     {"at": "@virar", "file": "@sfx/General/Ding.mp3", "gain": -22}
   ],
   "beats": [
     { "kind": "type-on", "at": "@O que esse", "until": "@Olha a conta", "text": "O QUE ESSE 177 MIL TEM A VER" },
 
-    { "kind": "mascot", "at": "@Olha a conta", "until": "@Vamos supor", "placement": "center",
+    { "kind": "mascot", "at": "@Olha a conta", "until": "@Vamos supor", "placement": "right-third", "entra": "lado",
       "poses": [
         { "at": "@Olha a conta", "pose": "../../../../public/mascote/fox1.png" },
-        { "at": "@bem simples", "pose": "../../../../public/mascote/fox2.png" }
+        { "at": "@bem simples", "pose": "../../../../public/mascote/fox2-antigo.webm" }
       ] },
 
     { "kind": "cena", "tipo": "formula", "at": "@7%", "until": "@Com essa taxa",
-      "titulo": "DESCONTADA A INFLAÇÃO", "tituloAt": "@descontado",
+      "titulo": "DESCONTADA A INFLAÇÃO", "tituloAt": "@ele vai",
       "linhas": [{ "at": "@7%", "a": "7% A.A.", "op": "→", "b": "0,56% A.M.", "bAt": "@0,56%", "cor": "hl" }] },
+
+    { "kind": "broll", "at": "@descontado", "until": "@ele vai", "src": "../../acervo/broll/mercado-timelapse.mp4", "entra": "flash", "zoom": [1.0, 1.12] },
+    { "kind": "broll", "at": "@ao mês", "until": "@Com essa taxa", "src": "../../acervo/broll/relogio-disco.mp4", "entra": "whip", "zoom": [1.05, 1.15], "moldura": true },
 
     { "kind": "cena", "tipo": "formula", "at": "@Com essa taxa", "until": "@E se agora",
       "titulo": "RENDIMENTO POR MÊS", "tituloAt": "@aproximadamente",
@@ -74,7 +86,11 @@
       ] },
     { "kind": "cena", "tipo": "piada", "at": "@mesma taxa", "until": "@E é por isso", "dura": 0.8, "texto": "MESMA TAXA, OUTRO CAMPEONATO", "tam": 60, "x": 0.5, "y": 0.86 },
 
-    { "kind": "cena", "tipo": "balanca", "at": "@E é por isso", "until": "@fim",
+    { "kind": "cena", "tipo": "foto3d", "at": "@E é por isso", "until": "@desse valor",
+      "src": "../../acervo/fotos3d/estrada-na-floresta-nevada.png", "depth": "../../acervo/fotos3d/depth/estrada-na-floresta-nevada-depth.png",
+      "camera": [{ "at": "@E é por isso", "zoom": 1.06, "py": 0.2 }, { "at": "@E é por isso+0.01", "zoom": 1.26, "py": -0.2, "dur": 2.4 }] },
+
+    { "kind": "cena", "tipo": "balanca", "at": "@desse valor", "until": "@fim",
       "esquerda": "VOCÊ COLOCA", "direita": "O DINHEIRO RENDE",
       "valores": [{ "at": 0, "v": 565 }, { "at": "@quanto mais perto", "v": 800, "dur": 1.5 }, { "at": "@177 mil#2", "v": 956, "dur": 1.0 }, { "at": "@virar", "v": 1000, "dur": 0.8 }] }
   ]

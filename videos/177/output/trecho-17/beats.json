@@ -4,17 +4,24 @@
   "audio": "midia/narracao.wav",
   "subtitlePath": "midia/narracao.json",
   "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "camera": [
+    { "at": "@valor absurdo", "tipo": "punch" },
+    { "at": "@CDI", "tipo": "punch" },
+    { "at": "@cruzar uma linha", "tipo": "punch" },
+    { "at": "@uma data", "tipo": "shake" }
+  ],
   "captions": [
-    { "from": "@E eu sei-0.1", "until": "@Você vai investir-0.1", "entry": "whip" },
+    { "from": "@E eu sei-0.1", "until": "@Você vai investir-0.1", "entry": "whip", "y": 0.84 },
     { "from": "@Mas bom-0.1", "until": "@Depois eu te-0.1", "entry": "glitch", "y": 0.72 },
+    { "from": "@você do futuro-0.1", "until": "@agradecer-0.1", "entry": "pop" },
     { "from": "@prefira algum-0.1", "until": "@Como exemplo-0.1", "entry": "whip" }
   ],
   "backdrops": [
-    { "at": 0, "backdrop": "grid" },
+    { "at": 0, "backdrop": "grade-video" },
     { "at": "@extremamente", "backdrop": "black" },
     { "at": "@E eu sei", "backdrop": "stars" },
     { "at": "@Você vai investir", "backdrop": "black" },
-    { "at": "@Mas bom", "backdrop": "grid" },
+    { "at": "@Mas bom", "backdrop": "grade-video" },
     { "at": "@Depois eu te", "backdrop": "black" },
     { "at": "@E última dica", "backdrop": "grid" },
     { "at": "@prefira algum", "backdrop": "stars" },
@@ -55,6 +62,8 @@
         { "at": "@mantenha os seus", "texto": "MANTENHA OS APORTES", "x": 0.5, "y": 0.17, "tam": 72, "cor": "hl" }
       ] },
 
+    { "kind": "broll", "at": "@E eu sei", "until": "@Você vai investir", "src": "../../acervo/broll/jovem-estudando-a-noite.mp4", "entra": "flash", "zoom": [1.0, 1.12], "escurece": 0.45 },
+
     { "kind": "cena", "tipo": "palco", "at": "@Você vai investir", "until": "@Mas bom",
       "atores": [
         { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{ "at": "@Você vai investir", "x": 0.22, "y": 0.45 }], "pulsaAt": ["@de rendimento"] },
@@ -70,7 +79,7 @@
       ] },
     { "kind": "cena", "tipo": "piada", "at": "@de rendimento", "until": "@de rendimento+1", "dura": 0.8, "texto": "NEM DÁ PRA MOLHAR NO CAFÉ", "x": 0.5, "y": 0.84 },
 
-    { "kind": "mascot", "at": "@Mas bom", "until": "@Depois eu te", "placement": "center",
+    { "kind": "mascot", "at": "@Mas bom", "until": "@Depois eu te", "placement": "right-third", "entra": "giro",
       "poses": [
         { "at": "@Mas bom", "pose": "../../../../public/mascote/fox4.png" },
         { "at": "@Essa parte", "pose": "../../../../public/mascote/fox3.png" }
@@ -87,6 +96,8 @@
         { "at": "@agradecer", "texto": "VAI TE AGRADECER", "x": 0.5, "y": 0.17, "tam": 72, "cor": "hl" }
       ] },
 
+    { "kind": "broll", "at": "@você do futuro", "until": "@agradecer", "src": "../../acervo/broll/familia-caminhando-natureza.mp4", "entra": "zoom", "moldura": true, "zoom": [1.0, 1.1] },
+
     { "kind": "cena", "tipo": "lista", "at": "@E última dica", "until": "@prefira algum", "titulo": "3 PASSOS",
       "itens": [
         { "at": "@E última dica", "n": "1", "texto": "QUANTO RENDE HOJE" },
@@ -94,6 +105,8 @@
         { "at": "@E última dica", "n": "3", "texto": "RENDA PREVISÍVEL" }
       ],
       "ativo": [{ "at": "@E última dica", "i": 1 }, { "at": "@última dica", "i": 2 }] },
+
+    { "kind": "broll", "at": "@prefira algum", "until": "@renda previsível", "src": "../../acervo/broll/calendario-no-tablet.mp4", "entra": "whip", "zoom": [1.05, 1.18] },
 
     { "kind": "cena", "tipo": "palco", "at": "@Como exemplo", "until": "@quando que de fato",
       "atores": [

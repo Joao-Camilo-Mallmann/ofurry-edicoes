@@ -103,3 +103,24 @@ ganho entre -24 e -16 dB. Atalhos: `@sfx/` pack de efeitos, `@sw/` swooshes, `@m
 - Mascote `center` + legenda `y: 0.72` (receita H10) funciona; `corner-right` quando divide a tela com número.
 - Rótulos de marcos perto da ponta da curva colidem: use `lado` ou `ate` para tirar o anterior.
 - `hf:build` → `npx hyperframes@0.8.193 snapshot --at t1,t2 --no-end -o <pasta> --describe false` e OLHE as imagens.
+
+## Câmera, textura, fundo e Furry (automáticos no build, desde 20/11/2026)
+
+Pedido do João: "muito fundo preto... overlays por cima... glitch, transições... abusar de efeitos de câmera como nos
+canais de edição de rap/anime... não deixa o Furry sempre no meio, jogadas de 3D".
+
+- **Câmera global:** a cada início de batida o build aplica um efeito no corte (punch, whip, tilt3d, shake, roll,
+  glitch com ruído de VHS, luz com light leak, flash branco), em ciclo determinístico por trecho, e uma deriva leve de
+  câmera na mão o tempo todo. Manual: `"camera": [{ "at": "@177 mil", "tipo": "punch" }]` no topo do beats.json
+  (some-se aos automáticos); desligar: `"cameraAuto": false`. Use manual nos socos da fala (número revelado, "errei a
+  conta", "a virada").
+- **Textura:** riscos de película reais (`D:/YT/!Assets/Overlays`) por cima de tudo, em blend "screen". Automático.
+- **Fundos:** `"black"` agora é preto VIVO (luz ambiente da marca andando); `"preto-puro"` é o preto chapado (raro);
+  `"grade-video"` é a grade em perspectiva filmada (troque `"grid"` por ela de vez em quando); `"stars"` continua.
+- **Furry:** sem `placement` (ou `"auto"`), o 1º mascote do trecho fica no centro e os seguintes alternam esquerda/direita (virando de frente para o centro); `"center"` explícito é respeitado;
+  entra em 3D (deslizando de lado com giro, girando, zoom ou subindo), com balanço 3D leve. Force com
+  `"placement"` e `"entra": "lado" | "giro" | "zoom" | "rise"`. Poses extras: `fox1-antigo.webm`, `fox2-antigo.webm`.
+- **B-roll real:** `{ "kind": "broll", "src": "../../acervo/broll/<nome>.mp4", "entra": "flash"|"zoom"|"whip"|"corte",
+  "zoom": [1, 1.12], "moldura": true }`. Inserts de 0,6–2,5 s na palavra que a imagem mostra; legenda por cima
+  (janela de `captions` no mesmo intervalo). Catálogo do vídeo: `videos/<id>/acervo/CATALOGO.md`.
+- **Foto 3D real:** `foto3d` com quadro de B-roll + mapa de profundidade (`acervo/fotos3d/`), 1,6–3,9 s.

@@ -9,11 +9,16 @@
     { "from": "@Mas não-0.1", "until": "@os mais importantes-0.1", "entry": "pop", "y": 0.72 },
     { "from": "@Que qualquer-0.1", "until": "@Mas essa fase-0.1", "entry": "whip" }
   ],
+  "camera": [
+    { "at": "@nada", "tipo": "shake" },
+    { "at": "@os mais importantes", "tipo": "punch" },
+    { "at": "@uma data", "tipo": "punch" }
+  ],
   "backdrops": [
     { "at": 0, "backdrop": "black" },
-    { "at": "@E essa é", "backdrop": "grid" },
+    { "at": "@E essa é", "backdrop": "grade-video" },
     { "at": "@Você coloca", "backdrop": "black" },
-    { "at": "@Mas não", "backdrop": "grid" },
+    { "at": "@Mas não", "backdrop": "grade-video" },
     { "at": "@os mais importantes", "backdrop": "stars" },
     { "at": "@Não pelo", "backdrop": "black" },
     { "at": "@Que qualquer", "backdrop": "grid" },
@@ -40,6 +45,7 @@
       ],
       "textos": [{ "at": "@desiste", "texto": "DESISTE", "x": 0.5, "y": 0.8, "tam": 90, "cor": "loss" }] },
 
+    { "kind": "broll", "at": "@a fase mais", "until": "@Você coloca", "src": "../../acervo/broll/mulher-anotando-contas.mp4", "entra": "flash", "zoom": [1.0, 1.12] },
     { "kind": "section", "at": "@a fase mais", "until": "@Você coloca", "text": "A FASE MAIS CHATA" },
 
     { "kind": "cena", "tipo": "palco", "at": "@Você coloca", "until": "@Mas não",
@@ -54,10 +60,10 @@
       "setas": [{ "de": "voce", "para": "retorno", "at": "@não recebe", "cor": "text" }],
       "textos": [{ "at": "@nada", "texto": "NADA", "x": 0.75, "y": 0.84, "tam": 90, "cor": "loss" }] },
 
-    { "kind": "mascot", "at": "@Mas não", "until": "@os mais importantes", "placement": "center",
+    { "kind": "mascot", "at": "@Mas não", "until": "@os mais importantes", "placement": "left-third", "entra": "giro",
       "poses": [
         { "at": "@Mas não", "pose": "../../../../public/mascote/fox4.png" },
-        { "at": "@Esses primeiros", "pose": "../../../../public/mascote/fox1.png" },
+        { "at": "@Esses primeiros", "pose": "../../../../public/mascote/fox1-antigo.webm" },
         { "at": "@não dá a mínima", "pose": "../../../../public/mascote/fox3.png" }
       ] },
 
@@ -74,6 +80,8 @@
       ],
       "fluxos": [{ "de": "porta", "para": "futuro", "at": "@vai render", "ate": "@futuro>", "icone": "coins", "cor": "gain", "tam": 100, "por": 3 }],
       "textos": [{ "at": "@muito mais", "texto": "MUITO MAIS", "x": 0.5, "y": 0.82, "tam": 84, "cor": "gain" }] },
+
+    { "kind": "broll", "at": "@qualquer aporte", "until": "@Mas essa fase", "src": "../../acervo/broll/maos-contando-moedas.mp4", "entra": "zoom", "zoom": [1.04, 1.16], "moldura": true },
 
     { "kind": "cena", "tipo": "calendario", "at": "@Mas essa fase", "until": "@fim", "titulo": "ESSA FASE TEM UM FIM",
       "preenche": [{ "at": "@Mas essa fase", "m": 0 }, { "at": "@Mas essa fase+0.2", "m": 120, "dur": 2.0 }],

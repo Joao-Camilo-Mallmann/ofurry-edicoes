@@ -4,15 +4,22 @@
   "audio": "midia/narracao.wav",
   "subtitlePath": "midia/narracao.json",
   "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "camera": [
+    { "at": "@cruzar essa linha", "tipo": "punch" },
+    { "at": "@mudar de categoria", "tipo": "whip" },
+    { "at": "@trabalhar sozinho", "tipo": "shake" },
+    { "at": "@crise", "tipo": "punch" }
+  ],
   "captions": [
     { "from": "@inicio", "until": "@E no momento-0.1", "entry": "whip" },
+    { "from": "@A cada ano-0.1", "until": "@seus próprios-0.1", "entry": "pop" },
     { "from": "@E vai ser a partir-0.1", "until": "@Você pode trocar-0.1", "entry": "glitch", "y": 0.72 },
     { "from": "@Porque você não-0.1", "until": "@porque a sua renda-0.1", "entry": "pop", "y": 0.8 }
   ],
   "backdrops": [
     { "at": 0, "backdrop": "black" },
     { "at": "@E no momento", "backdrop": "grid" },
-    { "at": "@Cada ano que", "backdrop": "black" },
+    { "at": "@Cada ano que", "backdrop": "grade-video" },
     { "at": "@agora a máquina", "backdrop": "stars" },
     { "at": "@E em alguns anos", "backdrop": "grid" },
     { "at": "@E vai ser a partir", "backdrop": "stars" },
@@ -33,6 +40,8 @@
     { "at": "@seu trabalho", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4 }
   ],
   "beats": [
+    { "kind": "broll", "at": "@inicio", "until": "@E no momento", "src": "../../acervo/broll/engrenagens-relogio.mp4", "entra": "flash", "zoom": [1.0, 1.14] },
+
     { "kind": "cena", "tipo": "grafico", "at": "@E no momento", "until": "@Cada ano que",
       "modo": "rendimento", "meses": 250, "rotuloCabeca": false, "viradaTexto": "A VIRADA",
       "revela": [{ "at": 0, "mes": 100 }, { "at": "@cruzar essa linha", "mes": 132, "dur": 1.2 }, { "at": "@mudar de categoria", "mes": 250, "dur": 1.4 }],
@@ -68,6 +77,7 @@
         { "at": "@A cada ano", "ate": "@trabalhar sozinho", "texto": "A CADA ANO", "x": 0.82, "y": 0.2, "tam": 60 },
         { "at": "@trabalhar sozinho", "texto": "SOZINHA", "x": 0.82, "y": 0.2, "tam": 60, "cor": "hl" }
       ] },
+    { "kind": "broll", "at": "@A cada ano", "until": "@seus próprios", "src": "../../acervo/broll/fabrica-a-noite-aerea.mp4", "entra": "zoom", "zoom": [1.0, 1.12] },
     { "kind": "cena", "tipo": "piada", "at": "@trabalhar sozinho+0.3", "until": "@trabalhar sozinho+1.3", "dura": 0.8, "texto": "TRABALHA ATÉ NO FERIADO", "x": 0.5, "y": 0.1 },
 
     { "kind": "cena", "tipo": "grafico", "at": "@E em alguns anos", "until": "@E vai ser a partir",
@@ -79,11 +89,9 @@
         { "mes": 246, "at": "@própria renda+0.9", "rotulo": "R$ 531 MIL · 3.000/MÊS", "cor": "hl", "lado": "esq" }
       ] },
 
-    { "kind": "mascot", "at": "@E vai ser a partir", "until": "@Você pode trocar", "placement": "center",
-      "poses": [
-        { "at": "@E vai ser a partir", "pose": "../../../../public/mascote/fox1.png" },
-        { "at": "@vida inteira", "pose": "../../../../public/mascote/fox2.png" }
-      ] },
+    { "kind": "cena", "tipo": "foto3d", "at": "@E vai ser a partir", "until": "@Você pode trocar",
+      "src": "../../acervo/fotos3d/silhueta-na-praia.png", "depth": "../../acervo/fotos3d/depth/silhueta-na-praia-depth.png",
+      "camera": [{ "at": "@E vai ser a partir", "zoom": 1.08, "px": -0.45 }, { "at": "@E vai ser a partir+0.01", "zoom": 1.2, "px": 0.45, "dur": 2.6 }] },
 
     { "kind": "cena", "tipo": "palco", "at": "@Você pode trocar", "until": "@Porque você não",
       "atores": [
@@ -105,6 +113,8 @@
           "keys": [{ "at": "@Porque você não", "x": 0.58, "y": 0.36 }, { "at": "@preocupar", "r": -8, "dur": 0.25 }, { "at": "@com a crise", "r": 8, "dur": 0.25 }],
           "riscaAt": "@crise" }
       ] },
+
+    { "kind": "broll", "at": "@Porque você não", "until": "@preocupar", "src": "../../acervo/broll/tempestade-montanhas.mp4", "de": 1.2, "entra": "flash", "zoom": [1.0, 1.15], "escurece": 0.1 },
 
     { "kind": "cena", "tipo": "palco", "at": "@porque a sua renda", "until": "@fim",
       "atores": [

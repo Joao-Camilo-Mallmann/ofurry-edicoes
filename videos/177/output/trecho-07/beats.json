@@ -5,10 +5,20 @@
   "subtitlePath": "midia/narracao.json",
   "cardOptions": { "maxWords": 2, "maxChars": 16 },
   "captions": [
+    { "from": "@começa a parte-0.1", "until": "@Se você aporta-0.1", "entry": "pop" },
+    { "from": "@a partir desse-0.1", "until": "@liga a máquina-0.1", "entry": "whip" },
+    { "from": "@Ela só trabalha-0.1", "until": "@todos os meses-0.1", "entry": "pop" },
+    { "from": "@daqui a alguns-0.1", "until": "@ela sozinha-0.1", "entry": "pop" },
     { "from": "@E quando você-0.1", "until": "@fim", "entry": "pop", "y": 0.72 }
   ],
+  "camera": [
+    { "at": "@vira", "tipo": "punch" },
+    { "at": "@dobrou", "tipo": "punch" },
+    { "at": "@liga a máquina", "tipo": "punch" },
+    { "at": "@mais forte", "tipo": "shake" }
+  ],
   "backdrops": [
-    { "at": 0, "backdrop": "grid" },
+    { "at": 0, "backdrop": "grade-video" },
     { "at": "@Se você aporta", "backdrop": "black" },
     { "at": "@dobrou", "backdrop": "stars" },
     { "at": "@sem trabalhar", "backdrop": "black" },
@@ -18,7 +28,7 @@
     { "at": "@E a cada", "backdrop": "black" },
     { "at": "@essa máquina", "backdrop": "stars" },
     { "at": "@Se você continuar", "backdrop": "black" },
-    { "at": "@E quando você", "backdrop": "grid" }
+    { "at": "@E quando você", "backdrop": "grade-video" }
   ],
   "sfx": [
     {"at": "@vira", "file": "@sfx/Mechanical/Hydraulics 02.wav", "gain": -22, "len": 0.9, "fadeOut": 0.3},
@@ -38,6 +48,8 @@
     { "kind": "cena", "tipo": "balanca", "at": "@inicio", "until": "@Se você aporta",
       "esquerda": "VOCÊ COLOCA", "direita": "O DINHEIRO RENDE",
       "valores": [{ "at": 0, "v": 1000 }, { "at": "@vira", "v": 1001, "dur": 0.6 }] },
+
+    { "kind": "broll", "at": "@começa a parte", "until": "@Se você aporta", "src": "../../acervo/broll/executivo-dancando-escritorio.mp4", "entra": "flash", "zoom": [1.0, 1.1] },
 
     { "kind": "cena", "tipo": "palco", "at": "@Se você aporta", "until": "@dobrou",
       "atores": [
@@ -69,6 +81,7 @@
     { "kind": "cena", "tipo": "maquina", "at": "@E é literalmente", "until": "@E ela não",
       "ligaAt": "@liga a máquina", "ritmo": [{ "at": 0, "v": 4 }, { "at": "@imprimir dinheiro", "v": 7, "dur": 0.8 }],
       "contador": [{ "at": "@liga a máquina", "v": 0 }, { "at": "@máquina de imprimir", "v": 1000, "dur": 1.0 }], "escala": 1 },
+    { "kind": "broll", "at": "@a partir desse", "until": "@liga a máquina", "src": "../../acervo/broll/engrenagens-relogio.mp4", "entra": "zoom", "zoom": [1.0, 1.18] },
     { "kind": "section", "at": "@máquina de imprimir", "until": "@E ela não", "text": "MÁQUINA DE IMPRIMIR DINHEIRO" },
 
     { "kind": "cena", "tipo": "palco", "at": "@E ela não", "until": "@Ela só trabalha",
@@ -84,11 +97,12 @@
         { "at": "@E ela não", "ate": "@não tem", "texto": "NÃO PEDE", "x": 0.5, "y": 0.84, "tam": 84 },
         { "at": "@não tem", "texto": "NÃO TEM", "x": 0.5, "y": 0.84, "tam": 84 }
       ] },
-    { "kind": "cena", "tipo": "piada", "at": "@ruim+0.5", "until": "@Ela só trabalha+0.4", "dura": 0.8, "texto": "NEM HOME OFFICE ELA PEDE", "tam": 64, "x": 0.5, "y": 0.84 },
 
     { "kind": "cena", "tipo": "maquina", "at": "@Ela só trabalha", "until": "@E a cada",
       "ritmo": [{ "at": 0, "v": 4 }],
       "contador": [{ "at": 0, "v": 1000 }, { "at": "@aumentando", "v": 1240, "dur": 3.0 }], "escala": 1 },
+    { "kind": "broll", "at": "@Ela só trabalha", "until": "@todos os meses", "src": "../../acervo/broll/fabrica-a-noite-aerea.mp4", "entra": "whip", "zoom": [1.04, 1.14], "moldura": true },
+    { "kind": "cena", "tipo": "piada", "at": "@ruim+0.5", "until": "@Ela só trabalha+0.4", "dura": 0.8, "texto": "NEM HOME OFFICE ELA PEDE", "tam": 64, "x": 0.5, "y": 0.84 },
     { "kind": "section", "at": "@todos os meses", "until": "@E a cada", "text": "TODOS OS MESES" },
 
     { "kind": "cena", "tipo": "palco", "at": "@E a cada", "until": "@essa máquina",
@@ -113,11 +127,16 @@
       "viradaTexto": "A VIRADA · R$ 177 MIL",
       "revela": [{ "at": 0, "mes": 124 }, { "at": "@daqui a alguns", "mes": 192, "dur": 3.5 }],
       "vista": [{ "at": 0, "x": 200, "y": 2400 }] },
+    { "kind": "broll", "at": "@daqui a alguns", "until": "@ela sozinha", "src": "../../acervo/broll/nuvens-timelapse.mp4", "entra": "flash", "zoom": [1.0, 1.1] },
 
-    { "kind": "mascot", "at": "@E quando você", "until": "@fim", "placement": "center",
+    { "kind": "cena", "tipo": "foto3d", "at": "@E quando você", "until": "@trabalha para você",
+      "src": "../../acervo/fotos3d/familia-caminhando-natureza.png", "depth": "../../acervo/fotos3d/depth/familia-caminhando-natureza-depth.png",
+      "camera": [{ "at": "@E quando você", "zoom": 1.28, "px": -0.9, "py": 0.35 }, { "at": "@E quando você+0.01", "zoom": 1.02, "px": 0.9, "py": -0.35, "dur": 2.2 }] },
+
+    { "kind": "mascot", "at": "@trabalha para você", "until": "@fim", "placement": "right-third", "entra": "giro",
       "poses": [
-        { "at": "@E quando você", "pose": "../../../../public/mascote/fox1.png" },
-        { "at": "@o dinheiro já", "pose": "../../../../public/mascote/fox2.png" }
+        { "at": "@trabalha para você", "pose": "../../../../public/mascote/fox2.png" },
+        { "at": "@E não mais", "pose": "../../../../public/mascote/fox2-antigo.webm" }
       ] }
   ]
 }
