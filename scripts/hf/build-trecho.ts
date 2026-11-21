@@ -157,6 +157,9 @@ function buildBackdrops(): string {
     .fundo-glow { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,153,0,0.10) 0%, transparent 38%), radial-gradient(circle, rgba(46,224,74,0.06) 0%, transparent 34%); background-size: 160% 160%, 150% 150%; background-repeat: no-repeat; }
     #fundo-vinheta { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%); z-index: 50; }
   `;
+  // base preta fixa embaixo de tudo: o "grade-video" (video a 55%) sem ela deixava o fundo CINZA (Joao, 21/11/2026:
+  // "o fundo aqui ficou cinza, o original e preto")
+  markup += `    <div class="fundo-black" data-layout-ignore></div>\n`;
   bds.forEach((b, i) => {
     const start = b.at;
     const end = i < bds.length - 1 ? bds[i + 1].at : sheet.duration;

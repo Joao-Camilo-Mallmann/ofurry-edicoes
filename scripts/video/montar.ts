@@ -97,10 +97,22 @@ const addInput = (file: string) => {
   return inputs.length / 2 - 1;
 };
 
-// narracao
+// narracao: a trilha e os efeitos sao nivelados contando com a voz em -14 LUFS. Narracao mais baixa (ex.: Adobe
+// Enhance puro, -22,8 LUFS) ganha so um ganho LINEAR para chegar la; sem EQ nem compressao na voz (Joao, 21/11/2026,
+// nao gostou da versao tratada). Os picos que passam de 0 dB sao segurados pelo limitador do mix final (NORMALIZA).
+const vozGanho = (() => {
+  const full = join(dir, 'midia', 'narracao.wav');
+  if (!existsSync(full)) return 0;
+  const m = spawnSync('ffmpeg', ['-hide_banner', '-nostats', '-i', full, '-af', 'ebur128=framelog=quiet', '-f', 'null', '-'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  const Iv = Number(m.stderr.slice(m.stderr.lastIndexOf('Summary')).match(/I:\s+(-?[\d.]+) LUFS/)?.[1]);
+  if (!Number.isFinite(Iv)) return 0;
+  const g = -14 - Iv;
+  console.log(`Narracao em ${Iv.toFixed(1)} LUFS${Math.abs(g) > 0.3 ? ` -> ganho linear de ${g >= 0 ? '+' : ''}${g.toFixed(1)} dB na voz` : ''}`);
+  return Math.abs(g) > 0.3 ? g : 0;
+})();
 segs.forEach((s, i) => {
   const k = addInput(s.wav);
-  filters.push(`[${k}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:${s.dur.toFixed(3)},adelay=${Math.round(s.out0 * 1000)}:all=1[n${i}]`);
+  filters.push(`[${k}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:${s.dur.toFixed(3)},volume=${vozGanho.toFixed(2)}dB,adelay=${Math.round(s.out0 * 1000)}:all=1[n${i}]`);
   labels.push(`[n${i}]`);
 });
 
