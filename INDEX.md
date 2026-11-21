@@ -44,7 +44,7 @@ Detalhes de cada passo: `docs/padrao-edicao-ofurry.md`, seção 8.
 | Pasta | O que tem |
 |---|---|
 | `videos/<id>/` | um vídeo: `video.json` (trechos por frase), `roteiro.md`, `briefing.md`, `storyboard.md`, `trilha.json`, `midia/` (narração, transcrição, `revisao.json`), `output/trecho-XX/` (`beats.json`, `hf/` gerado, `render/`), `final/` (MP4 final, prévias, versões antigas) |
-| `hf/kit/` | o kit visual do HyperFrames: `house.css` (tokens), `house-runtime.js` (entradas, legenda), **`ofurry-cenas.js`** (gráfico, tabela, balança, máquina, calendário, fórmula, barra, comparar, lista, números, citação, fim, **palco de ícones**, **piada relâmpago**) |
+| `hf/kit/` | o kit visual do HyperFrames: `house.css` (tokens), `house-runtime.js` (entradas, legenda), **`ofurry-cenas.js`** (gráfico, tabela, balança, máquina, calendário, fórmula, barra, comparar, lista, números, citação, fim, **palco de ícones**, **piada relâmpago**, corrida, etapas) e **`maquina3d.js`** (máquina de imprimir dinheiro em 3D) |
 | `scripts/video/` | `novo`, `transcrever`, `buscar`, `cortar`, `sincronizar`, `montar`, `produzir`, `status`; `ancoras.ts` (tempos por frase) |
 | `scripts/hf/` | `build-trecho.ts` (beats.json → HTML), `render-trecho.ts` (MP4 na placa), `lucide-svg.ts`, `profundidade.py` |
 | `scripts/assets-inventario.ts` | gera `docs/assets/inventario.md` a partir de `D:\YT\!Assets` |

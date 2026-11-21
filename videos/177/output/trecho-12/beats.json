@@ -13,12 +13,14 @@
       "until": "@coloca nele>",
       "entry": "pop",
       "y": 0.12,
-      "whisper": false
+      "whisper": false,
+      "estilo": "tarja"
     },
     {
       "from": "@E a partir do sexto",
       "until": "@sexto",
-      "entry": "whip"
+      "entry": "whip",
+      "estilo": "invertida"
     },
     {
       "from": "@Então é agora",
@@ -279,7 +281,7 @@
     },
     {
       "kind": "cena",
-      "tipo": "maquina",
+      "tipo": "maquina3d",
       "at": "@É a partir desse ponto",
       "until": "@fim",
       "ligaAt": "@máquina",
@@ -307,7 +309,7 @@
       ],
       "rotulo": "TRABALHANDO A SEU FAVOR",
       "rotuloAt": "@a seu favor",
-      "escala": 1
+      "escala": 1.35
     },
     {
       "kind": "broll",

@@ -41,6 +41,7 @@ Tempos internos (`at` de keyframes, `ligaAt`, `riscaAt`...) são **tempos do tre
 | `tabela` | `meses`, `rolar:[{at,mes,dur}]` linha central; `destaques:[{at,mes,cor,ate}]`; `colunaDestaque:[{at,col,ate}]` (0 MÊS, 1 APORTE, 2 RENDIMENTO, 3 PATRIMÔNIO); `titulo` | simulação mês a mês |
 | `balanca` | `esquerda`, `direita` (rótulos), `base` (1000), `valores:[{at,v,dur}]` (valor do prato direito) | aporte × rendimento |
 | `maquina` | `ligaAt`, `ritmo:[{at,v}]` notas/s, `contador:[{at,v,dur}]` visor, `rotulo`, `rotuloAt`, `escala`, `x` | máquina de imprimir dinheiro |
+| `maquina3d` | os mesmos da `maquina` (`ligaAt`, `ritmo`, `contador`, `rotulo`, `rotuloAt`, `rotuloY`, `escala`, `x`) + `y` (centro vertical 0–1) | **máquina de imprimir dinheiro em 3D de verdade** (CSS 3D, arquivo `hf/kit/maquina3d.js`, escrita pelo Antigravity e revisada): caixa com profundidade, engrenagens na lateral, prensa, chaminé que solta moedas e estrelas, medidor de pressão, notas voando para a câmera. Padrão desde 21/11/2026; a `maquina` 2D fica para referência |
 | `calendario` | `meses` (120), `preenche:[{at,m,dur}]`, `marcos:[{mes,at,cor,rotulo,ate}]`, `idade` (mostra 25→35), `titulo` | 120 quadradinhos = 10 anos |
 | `formula` | `linhas:[{at,a,b,bAt,op,cor,ate}]`, `operador` ('× 177 ='), `titulo`, `tituloAt` | A × k = B |
 | `barra` | `total` (texto), `totalAt`, `partes:[{at,valor,rotulo,cor}]` | 177 = 123 + 54 |
@@ -99,6 +100,12 @@ Mixados pelo `video:montar` (não pelo render do trecho). Regras: só em evento 
 risco de papel, clique de item de lista, ding de marco); legenda entra sem som; 1–2 impactos no vídeo todo;
 ganho entre -24 e -16 dB. Atalhos: `@sfx/` pack de efeitos, `@sw/` swooshes, `@mus/` músicas.
 
+## Estilos de legenda (João, 21/11/2026: "não ficar sempre tão monótono no branco com sombra")
+Na janela de `captions`: `"estilo": "invertida"` = bloco branco em blend *difference* (host próprio `legendas-inv`; com o Furry GRANDE na tela o build troca por tarja, para não inverter as cores dele):
+dentro do bloco o vídeo vira negativo e a letra mostra o vídeo original. Use sobre B-roll, em cerca de metade das
+janelas (uma sim, uma não). `"estilo": "tarja"` = letra preta em bloco branco com sombra laranja; 1 momento de
+destaque no preto a cada 2 trechos. O resto continua branco.
+
 ## Layout: o que já sabemos
 - Gráfico ocupa x 250–1690, y 210–860: legenda por cima polui; desligue a janela de legenda durante gráfico,
   tabela, fórmula, barra e comparar (ou use `y: 0.12`, topo).
@@ -145,8 +152,8 @@ Palco: varie a entrada de cada ator — `entra`: `pop`, `cair` (despenca e quica
 `rise` (sem `entra`, cada ator sorteia uma) —, a saida — `saiComo`: `desce`, `explode`, `voa`, `encolhe` — e a
 trajetoria (`arco`: 0.1–0.25 faz o ator andar em arco entre keyframes). Fluxos: `gira: false` para setas/pegadas.
 
-Furry: SEM 3D (sem giro, inclinacao ou balanco: pedido do Joao); entra subindo ou deslizando reto e fica parado no
-centro ou num lado. Ele fica FORA da camera global. Depois da cena dele, encolhe para o canto e segue ~3,5 s por cima da
+Furry: SEM 3D (sem giro, inclinacao ou balanco: pedido do Joao) e NUNCA espelhado ("proibido usar o personagem espelhado", 21/11/2026); entra subindo ou deslizando reto. GRANDE so no CENTRO; nos lados so pequeno, no
+canto, quando outra cena divide a tela com ele (o build converte left/right-third sozinho). Ele fica FORA da camera global. Depois da cena dele, encolhe para o canto e segue ~3,5 s por cima da
 cena seguinte (desligar: `"canto": false`; tempo: `"segura": s`).
 
 Final do video: `"cauda": 15` no beats.json do ultimo trecho (tela final depois da fala, `"@fim+15"`), `marca` na

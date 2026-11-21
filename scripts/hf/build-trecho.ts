@@ -14,7 +14,7 @@
 import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { basename, dirname, extname, join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
-import type { Backdrop, Beat, BeatSheet } from '../../src/house/beats';
+import type { Backdrop, Beat, BeatSheet, CaptionWindow } from '../../src/house/beats';
 import { CaptionCard, cardsFromSubtitle } from '../../src/house/captions';
 import { House, HouseTone, toneColor, toneFromValue } from '../../src/house/theme';
 import { lintBeatSheet } from '../../src/house/lint';
@@ -245,7 +245,9 @@ function buildDust(): string {
 // ---------------------------------------------------------------------------
 // Legenda cinetica (um unico host de legendas)
 // ---------------------------------------------------------------------------
-function buildCaptions(): string {
+// estilo 'invertida' vai num host proprio com mix-blend-mode:difference NO HOST (dentro da sub-composicao o blend
+// so enxergaria o vazio); 'tarja' e as normais ficam no host 'legendas'.
+function buildCaptions(invertidas = false): string {
   const windows = sheet.captions ?? [{ from: 0, until: sheet.duration }];
   let markup = '';
   let script = '';
@@ -256,7 +258,9 @@ function buildCaptions(): string {
     const w = windows.find((x) => c.start >= x.from - 0.15 && c.start < x.until - 0.1);
     if (!w) return;
     n++;
-    const id = `leg-${String(n).padStart(3, '0')}`;
+    const estilo = estiloDe(w);
+    if ((estilo === 'invertida') !== invertidas) return;
+    const id = `${invertidas ? 'legi' : 'leg'}-${String(n).padStart(3, '0')}`;
     const start = Math.max(w.from, c.start);
     const end = Math.min(w.until, Math.max(c.end, start + 1 / FPS));
     const words = c.text.toUpperCase().split(/\s+/);
@@ -266,7 +270,7 @@ function buildCaptions(): string {
       .join(' ');
     const entry = w.entry ?? 'pop';
     const top = Math.round((w.y ?? House.layout.captionY) * H - 52);
-    const cls = `house-caption${w.whisper ? ' is-whisper' : ''}`;
+    const cls = `house-caption${w.whisper ? ' is-whisper' : ''}${estilo ? ` is-${estilo}` : ''}`;
     const slices =
       entry === 'glitch'
         ? [0, 1, 2, 3]
@@ -277,8 +281,21 @@ function buildCaptions(): string {
     script += `      House.fit($("${id}-txt"), ${w.whisper ? House.sizes.whisper : House.sizes.caption}, 1600, "Montserrat", ${w.whisper ? 300 : 800});\n`;
     script += `      House.entry(tl, $("${id}-txt"), "${entry}", ${r3(start)}, { dir: ${idx % 2 ? -1 : 1} });\n`;
   });
-  return scene('legendas', '', markup, script);
+  return scene(invertidas ? 'legendas-inv' : 'legendas', '', markup, script);
 }
+// A invertida (blend difference) inverteria as cores do Furry por baixo do bloco: com ele GRANDE na tela vira tarja.
+function estiloDe(w: CaptionWindow): CaptionWindow['estilo'] {
+  if (w.estilo !== 'invertida') return w.estilo;
+  const furryGrande = sheet.beats.some((b) => {
+    if (b.kind !== 'mascot') return false;
+    const pl = (b as { placement?: string }).placement;
+    if (pl === 'corner-left' || pl === 'corner-right') return false;
+    const fim = (b as { shrinkAt?: number }).shrinkAt ?? b.until;
+    return b.at < w.until && fim > w.from;
+  });
+  return furryGrande ? 'tarja' : 'invertida';
+}
+const temInvertida = () => (sheet.captions ?? []).some((w) => estiloDe(w) === 'invertida');
 
 // ---------------------------------------------------------------------------
 // Batidas
@@ -389,13 +406,24 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
       break;
     }
     case 'mascot': {
-      // "nao deixa sempre no meio" (Joao, 20/11/2026): o 2o, 3o... mascote "center" do trecho alterna esquerda/direita
+      // Joao, 21/11/2026: "centraliza ele de preferencia em todas as cenas... quando for ele maior tem que ficar sempre
+      // centralizado no meio do video, nao pelas laterais. Ele pode ficar menor nas laterais so quando for algo pequeno
+      // ou nao for o foco da cena, meio que para complementar ela."
+      // -> grande = SEMPRE no centro. "left-third"/"right-third" viram: centro se ele e o foco (nada mais na tela),
+      //    ou canto pequeno daquele lado se outra cena divide a tela com ele (>40% do tempo dele).
       mascotes++;
-      // so varia quando o trecho NAO escolheu a posicao (ou pediu "auto"); "center" explicito e respeitado
       const pedido = (beat.placement as string | undefined) ?? 'auto';
-      const auto = pedido === 'auto' ? (mascotes === 1 ? 'center' : mascotes % 2 === 0 ? 'left-third' : 'right-third') : pedido;
-      (beat as { placement?: string }).placement = auto;
-      if ((beat as { flip?: boolean }).flip === undefined && auto === 'right-third') (beat as { flip?: boolean }).flip = true;
+      let final = pedido === 'auto' ? 'center' : pedido;
+      if (final === 'left-third' || final === 'right-third') {
+        const visual = (b: Beat) => b !== beat && b.kind !== 'mascot' && b.kind !== 'section' && !(b.kind === 'cena' && (b as { tipo?: string }).tipo === 'piada');
+        // so o tempo em que ele esta GRANDE (antes de encolher para o canto por cima da cena seguinte)
+        const fim = (beat as { shrinkAt?: number }).shrinkAt ?? beat.until;
+        const junto = sheet.beats.filter(visual).reduce((acc, b) => acc + Math.max(0, Math.min(b.until, fim) - Math.max(b.at, beat.at)), 0);
+        final = junto > 0.4 * (fim - beat.at) ? (final === 'left-third' ? 'corner-left' : 'corner-right') : 'center';
+      }
+      (beat as { placement?: string }).placement = final;
+      // NUNCA espelhar o Furry (Joao, 21/11/2026: "proibido usar o personagem espelhado"): a roupa e o logo dele tem lado
+      (beat as { flip?: boolean }).flip = false;
       const place = { center: 0.5, 'left-third': 0.3, 'right-third': 0.7, 'corner-left': 0.11, 'corner-right': 0.89 }[beat.placement ?? 'center'];
       const small = beat.placement === 'corner-left' || beat.placement === 'corner-right';
       const h = Math.round(H * (small ? 0.34 : 0.88));
@@ -646,6 +674,7 @@ function buildIndex(beatIds: { id: string; beat: Beat }[], audioSrc?: string): s
     host('textura', 0, dur, beatIds.length + 3, 90, ' data-house-backdrop').replace('style="z-index:90"', 'style="z-index:90;mix-blend-mode:screen"'),
     `      <div id="camera-rgb" style="position:absolute;inset:0;z-index:95;opacity:0;pointer-events:none;background:repeating-linear-gradient(0deg, rgba(255,0,60,0.22) 0px, rgba(255,0,60,0.22) 6px, transparent 6px, transparent 14px, rgba(0,229,255,0.2) 14px, rgba(0,229,255,0.2) 19px, transparent 19px, transparent 31px);mix-blend-mode:screen"></div>`,
     `      <div id="camera-flash" style="position:absolute;inset:0;z-index:96;opacity:0;pointer-events:none;background:#fff"></div>`,
+    ...(temInvertida() ? [host('legendas-inv', 0, dur, beatIds.length + 4, 99).replace('style="z-index:99"', 'style="z-index:99;mix-blend-mode:difference"')] : []),
     host('legendas', 0, dur, beatIds.length + 1, 100),
     ...(sheet.filmDust === false ? [] : [host('poeira', 0, dur, beatIds.length + 2, 200, ' data-house-backdrop')]),
   ];
@@ -658,6 +687,7 @@ function buildIndex(beatIds: { id: string; beat: Beat }[], audioSrc?: string): s
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <script src="assets/house/house-runtime.js"></script>
     <script src="assets/house/ofurry-cenas.js"></script>
+    ${existsSync(join(KIT, 'maquina3d.js')) ? '<script src="assets/house/maquina3d.js"></script>' : ''}
     <link rel="stylesheet" href="assets/house/house.css" />
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -697,6 +727,7 @@ async function main() {
   copyFileSync(join(KIT, 'house.css'), join(ASSETS, 'house', 'house.css'));
   copyFileSync(join(KIT, 'house-runtime.js'), join(ASSETS, 'house', 'house-runtime.js'));
   copyFileSync(join(KIT, 'ofurry-cenas.js'), join(ASSETS, 'house', 'ofurry-cenas.js'));
+  if (existsSync(join(KIT, 'maquina3d.js'))) copyFileSync(join(KIT, 'maquina3d.js'), join(ASSETS, 'house', 'maquina3d.js'));
   copyFileSync(join(ROOT, 'node_modules', '@fontsource', 'bebas-neue', 'files', 'bebas-neue-latin-400-normal.woff2'), join(ASSETS, 'fonts', 'bebas-neue-400.woff2'));
 
   let audioSrc: string | undefined;
@@ -707,7 +738,6 @@ async function main() {
   }
 
   writeFileSync(join(COMP, 'fundo.html'), buildBackdrops());
-  writeFileSync(join(COMP, 'legendas.html'), buildCaptions());
   if (sheet.filmDust !== false) writeFileSync(join(COMP, 'poeira.html'), buildDust());
 
   // Furry fica mais tempo (Joao, 21/11/2026: "a cena do personagem pode ficar mais tempo"): quando a cena dele
@@ -728,6 +758,9 @@ async function main() {
   });
   const beatIds = sheet.beats.map((beat, i) => ({ id: `b${String(i + 1).padStart(2, '0')}-${beat.kind}`, beat }));
   for (const { id, beat } of beatIds) writeFileSync(join(COMP, `${id}.html`), await buildBeat(beat, id));
+  // legendas depois das batidas: precisam da posicao final do Furry (estiloDe)
+  writeFileSync(join(COMP, 'legendas.html'), buildCaptions());
+  if (temInvertida()) writeFileSync(join(COMP, 'legendas-inv.html'), buildCaptions(true));
 
   writeFileSync(join(OUT, 'index.html'), buildIndex(beatIds, audioSrc));
   writeFileSync(

@@ -33,7 +33,8 @@
     {
       "from": "@inicio",
       "until": "@vamos lembrar-0.1",
-      "entry": "whip"
+      "entry": "whip",
+      "estilo": "invertida"
     },
     {
       "from": "@em aproximadamente-0.1",
@@ -44,7 +45,8 @@
       "from": "@vão vir-0.1",
       "until": "@Ou seja-0.1",
       "entry": "pop",
-      "y": 0.82
+      "y": 0.82,
+      "estilo": "invertida"
     },
     {
       "from": "@de você ter-0.1",
@@ -56,13 +58,15 @@
       "from": "@Só que aí que-0.1",
       "until": "@No milhão-0.1",
       "entry": "glitch",
-      "y": 0.72
+      "y": 0.72,
+      "estilo": "tarja"
     },
     {
       "from": "@Ou seja-0.1",
       "until": "@o seu primeiro milhão-0.1",
       "entry": "pop",
-      "y": 0.12
+      "y": 0.12,
+      "estilo": "invertida"
     },
     {
       "from": "@você não está-0.1",

@@ -35,7 +35,8 @@
       "from": "@E olha se a sua-0.1",
       "until": "@fritando-0.1",
       "entry": "pop",
-      "y": 0.84
+      "y": 0.84,
+      "estilo": "invertida"
     },
     {
       "from": "@Ou achando-0.1",
@@ -327,7 +328,7 @@
       "src": "../../acervo/broll/multidao-atravessando-rua.mp4",
       "entra": "zoom",
       "zoom": [
-        1.0,
+        1,
         1.12
       ]
     },
@@ -536,7 +537,7 @@
       "src": "../../acervo/broll/homem-exausto-escritorio.mp4",
       "entra": "flash",
       "zoom": [
-        1.0,
+        1,
         1.12
       ],
       "escurece": 0.45

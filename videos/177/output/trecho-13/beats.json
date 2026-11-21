@@ -3,55 +3,553 @@
   "fps": 30,
   "audio": "midia/narracao.wav",
   "subtitlePath": "midia/narracao.json",
-  "cardOptions": {"maxWords": 2, "maxChars": 16},
+  "cardOptions": {
+    "maxWords": 2,
+    "maxChars": 16
+  },
   "camera": [
-    {"at": "@177 mil", "tipo": "punch"},
-    {"at": "@Os outros 54", "tipo": "punch"},
-    {"at": "@curva exponencial", "tipo": "tilt3d"},
-    {"at": "@oitava", "tipo": "punch"}
+    {
+      "at": "@177 mil",
+      "tipo": "punch"
+    },
+    {
+      "at": "@Os outros 54",
+      "tipo": "punch"
+    },
+    {
+      "at": "@curva exponencial",
+      "tipo": "tilt3d"
+    },
+    {
+      "at": "@oitava",
+      "tipo": "punch"
+    }
   ],
   "captions": [
-    {"from": "@inicio", "until": "@Desses 177-0.1", "entry": "pop", "y": 0.72},
-    {"from": "@ainda veio-0.1", "until": "@Só que a partir-0.1", "entry": "pop", "y": 0.8},
-    {"from": "@a própria-0.1", "until": "@é basicamente uma curva-0.1", "entry": "whip"},
-    {"from": "@Então quanto-0.1", "until": "@muitos economistas-0.1", "entry": "pop", "y": 0.12},
-    {"from": "@muitos economistas-0.1", "until": "@da oitava-0.1", "entry": "whip"},
-    {"from": "@é basicamente o ponto-0.1", "until": "@fim", "entry": "pop", "y": 0.72},
-    {"from": "@Só que a partir-0.1", "until": "@Como você já-0.1", "entry": "whip"}
+    {
+      "from": "@inicio",
+      "until": "@Desses 177-0.1",
+      "entry": "pop",
+      "y": 0.72
+    },
+    {
+      "from": "@ainda veio-0.1",
+      "until": "@Só que a partir-0.1",
+      "entry": "pop",
+      "y": 0.8,
+      "estilo": "invertida"
+    },
+    {
+      "from": "@a própria-0.1",
+      "until": "@é basicamente uma curva-0.1",
+      "entry": "whip"
+    },
+    {
+      "from": "@Então quanto-0.1",
+      "until": "@muitos economistas-0.1",
+      "entry": "pop",
+      "y": 0.12
+    },
+    {
+      "from": "@muitos economistas-0.1",
+      "until": "@da oitava-0.1",
+      "entry": "whip",
+      "estilo": "invertida"
+    },
+    {
+      "from": "@é basicamente o ponto-0.1",
+      "until": "@fim",
+      "entry": "pop",
+      "y": 0.72
+    },
+    {
+      "from": "@Só que a partir-0.1",
+      "until": "@Como você já-0.1",
+      "entry": "whip"
+    }
   ],
   "backdrops": [
-    {"at": 0, "backdrop": "grade-video"},
-    {"at": "@Desses 177", "backdrop": "stars"},
-    {"at": "@Ou seja", "backdrop": "black"},
-    {"at": "@é basicamente uma curva", "backdrop": "stars"},
-    {"at": "@Por isso é que", "backdrop": "black"},
-    {"at": "@é basicamente o ponto", "backdrop": "grade-video"}
+    {
+      "at": 0,
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@Desses 177",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@Ou seja",
+      "backdrop": "black"
+    },
+    {
+      "at": "@é basicamente uma curva",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@Por isso é que",
+      "backdrop": "black"
+    },
+    {
+      "at": "@é basicamente o ponto",
+      "backdrop": "grade-video"
+    }
   ],
   "sfx": [
-    {"at": "@177 mil", "file": "@sfx/General/Pop sound.mp3", "gain": -22},
-    {"at": "@123 mil", "file": "@sfx/Foley/Coins Poured Out 01.wav", "gain": -22, "len": 1.0, "fadeOut": 0.3},
-    {"at": "@Os outros 54", "file": "@sfx/Foley/Coins in Hand 03.wav", "gain": -20, "len": 1.0},
-    {"at": "@seu trabalho", "file": "@sfx/Foley/Briefcase Latch.wav", "gain": -22},
-    {"at": "@o jogo", "file": "@sfx/Foley/Coins in Hand 02.wav", "gain": -22, "len": 1.0},
-    {"at": "@aporta mil", "file": "@sfx/General/cash ting.mp3", "gain": -22},
-    {"at": "@máquina", "file": "@sfx/Mechanical/Gadget 03.wav", "gain": -20, "len": 1.0},
-    {"at": "@quanto mais tempo", "file": "@sfx/General/Digital counting.mp3", "gain": -24, "len": 1.4, "fadeOut": 0.3},
-    {"at": "@oitava", "file": "@sfx/General/Ding.mp3", "gain": -22},
-    {"at": "@magia+0.15", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4}
+    {
+      "at": "@177 mil",
+      "file": "@sfx/General/Pop sound.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@123 mil",
+      "file": "@sfx/Foley/Coins Poured Out 01.wav",
+      "gain": -22,
+      "len": 1,
+      "fadeOut": 0.3
+    },
+    {
+      "at": "@Os outros 54",
+      "file": "@sfx/Foley/Coins in Hand 03.wav",
+      "gain": -20,
+      "len": 1
+    },
+    {
+      "at": "@seu trabalho",
+      "file": "@sfx/Foley/Briefcase Latch.wav",
+      "gain": -22
+    },
+    {
+      "at": "@o jogo",
+      "file": "@sfx/Foley/Coins in Hand 02.wav",
+      "gain": -22,
+      "len": 1
+    },
+    {
+      "at": "@aporta mil",
+      "file": "@sfx/General/cash ting.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@máquina",
+      "file": "@sfx/Mechanical/Gadget 03.wav",
+      "gain": -20,
+      "len": 1
+    },
+    {
+      "at": "@quanto mais tempo",
+      "file": "@sfx/General/Digital counting.mp3",
+      "gain": -24,
+      "len": 1.4,
+      "fadeOut": 0.3
+    },
+    {
+      "at": "@oitava",
+      "file": "@sfx/General/Ding.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@magia+0.15",
+      "file": "@sfx/Office Supplies/Paper Rustle.wav",
+      "gain": -22,
+      "len": 0.4
+    }
   ],
   "beats": [
-    {"kind": "mascot", "at": "@inicio", "until": "@Desses 177", "placement": "left-third", "poses": [{"at": "@inicio", "pose": "../../../../public/mascote/fox1.png"}, {"at": "@E aqui também", "pose": "../../../../public/mascote/fox2-antigo.webm"}], "entra": "lado"},
-    {"kind": "broll", "at": "@analisar", "until": "@E aqui também", "src": "../../acervo/broll/jovem-estudando-a-noite.mp4", "entra": "flash", "zoom": [1.0, 1.12]},
-    {"kind": "cena", "tipo": "rosca", "at": "@Desses 177", "until": "@Ou seja", "centro": "R$ 177 MIL", "centroAt": "@177 mil", "partes": [{"at": "@123 mil", "valor": 123000, "rotulo": "DO SEU BOLSO", "cor": "text"}, {"at": "@Os outros 54", "valor": 54000, "rotulo": "DE JUROS", "cor": "gain"}]},
-    {"kind": "cena", "tipo": "palco", "at": "@Ou seja", "until": "@ainda veio", "atores": [{"id": "trab", "icone": "briefcase-business", "rotulo": "SEU TRABALHO", "keys": [{"at": "@Ou seja", "x": 0.2, "y": 0.45}], "pulsaAt": ["@seu trabalho"], "entra": "cair"}, {"id": "cofre", "icone": "piggy-bank", "tam": 300, "keys": [{"at": "@Ou seja", "x": 0.78, "y": 0.45}, {"at": "@a maior parte", "s": 1.15, "dur": 0.8}], "entra": "elastico"}], "fluxos": [{"de": "trab", "para": "cofre", "at": "@a maior parte", "ate": "@ainda veio", "icone": "banknote", "cor": "text", "tam": 80, "por": 3}], "textos": [{"at": "@a maior parte", "texto": "A MAIOR PARTE", "x": 0.5, "y": 0.82, "tam": 64}]},
-    {"kind": "cena", "tipo": "foto3d", "at": "@ainda veio", "until": "@Só que a partir", "src": "../../acervo/fotos3d/escritorio-movimentado.png", "depth": "../../acervo/fotos3d/depth/escritorio-movimentado-depth.png", "camera": [{"at": "@ainda veio", "zoom": 1.08, "px": -0.45}, {"at": "@ainda veio+0.01", "zoom": 1.2, "px": 0.45, "dur": 1.6}]},
-    {"kind": "broll", "at": "@Só que a partir", "until": "@Como você já", "src": "../../acervo/broll/executivo-dancando-escritorio.mp4", "entra": "whip", "zoom": [1.0, 1.1]},
-    {"kind": "cena", "tipo": "palco", "at": "@Como você já", "until": "@a própria", "atores": [{"id": "voce", "icone": "user", "tam": 200, "rotulo": "VOCÊ", "keys": [{"at": "@Como você já", "x": 0.2, "y": 0.27}], "pulsaAt": ["@aporta mil"], "entra": "elastico"}, {"id": "maquina", "icone": "printer", "cor": "gain", "tam": 200, "rotulo": "A MÁQUINA", "entra": "girar", "keys": [{"at": "@agora você também", "x": 0.2, "y": 0.68}], "pulsaAt": ["@mais mil", "@máquina"]}, {"id": "cofre", "icone": "piggy-bank", "tam": 300, "keys": [{"at": "@Como você já", "x": 0.78, "y": 0.47}, {"at": "@mais mil", "s": 1.15, "dur": 0.6}, {"at": "@máquina", "s": 1.3, "dur": 0.6}], "entra": "cair"}], "fluxos": [{"de": "voce", "para": "cofre", "at": "@aporta mil", "ate": "@a própria", "icone": "banknote", "cor": "text", "tam": 70, "por": 2, "arco": -0.04}, {"de": "maquina", "para": "cofre", "at": "@mais mil", "ate": "@a própria", "icone": "banknote", "cor": "gain", "tam": 70, "por": 2, "arco": 0.12}], "textos": [{"at": "@aporta mil", "texto": "R$ 1.000", "x": 0.5, "y": 0.13, "fonte": "num", "tam": 110}, {"at": "@mais mil", "texto": "+ R$ 1.000", "x": 0.5, "y": 0.86, "fonte": "num", "tam": 110, "cor": "gain"}]},
-    {"kind": "broll", "at": "@a própria", "until": "@é basicamente uma curva", "src": "../../acervo/broll/engrenagens-relogio.mp4", "entra": "zoom", "zoom": [1.05, 1.15]},
-    {"kind": "cena", "tipo": "grafico", "at": "@é basicamente uma curva", "until": "@muitos economistas", "modo": "patrimonio", "meses": 240, "rotuloCabeca": false, "revela": [{"at": 0, "mes": 124}, {"at": "@curva exponencial+0.5", "mes": 240, "dur": 3.6}], "vista": [{"at": 0, "x": 132, "y": 200000}, {"at": "@curva exponencial", "x": 240, "y": 560000, "dur": 3.0}], "marcos": [{"mes": 124, "at": "@é basicamente uma curva", "rotulo": "R$ 177 MIL", "cor": "hl", "lado": "esq"}]},
-    {"kind": "broll", "at": "@muitos economistas", "until": "@oitava", "src": "../../acervo/broll/reuniao-de-trabalho.mp4", "entra": "whip", "zoom": [1.0, 1.1]},
-    {"kind": "cena", "tipo": "palco", "at": "@oitava", "until": "@é basicamente o ponto", "atores": [{"id": "magia", "icone": "wand-sparkles", "cor": "hl", "tam": 260, "keys": [{"at": "@Bom ela", "x": 0.5, "y": 0.42}], "riscaAt": "@magia+0.15", "entra": "cair"}], "textos": [{"at": "@oitava", "ate": "@Bom ela", "texto": "8ª", "x": 0.5, "y": 0.4, "fonte": "num", "tam": 320, "cor": "hl"}, {"at": "@maravilha", "ate": "@Bom ela", "texto": "MARAVILHA DO MUNDO", "x": 0.5, "y": 0.68, "tam": 64}, {"at": "@não é magia", "texto": "NÃO É MAGIA", "x": 0.5, "y": 0.78, "tam": 64}]},
-    {"kind": "cena", "tipo": "piada", "at": "@maravilha+0.2", "until": "@Bom ela", "texto": "AS OUTRAS 7 NÃO RENDEM JUROS", "dura": 0.8, "x": 0.5, "y": 0.87},
-    {"kind": "mascot", "at": "@é basicamente o ponto", "until": "@fim", "placement": "right-third", "poses": [{"at": "@é basicamente o ponto", "pose": "../../../../public/mascote/fox1.png"}, {"at": "@começa a crescer", "pose": "../../../../public/mascote/fox1-antigo.webm"}], "entra": "zoom"}
+    {
+      "kind": "mascot",
+      "at": "@inicio",
+      "until": "@Desses 177",
+      "placement": "left-third",
+      "poses": [
+        {
+          "at": "@inicio",
+          "pose": "../../../../public/mascote/fox1.png"
+        },
+        {
+          "at": "@E aqui também",
+          "pose": "../../../../public/mascote/fox2-antigo.webm"
+        }
+      ],
+      "entra": "lado"
+    },
+    {
+      "kind": "broll",
+      "at": "@analisar",
+      "until": "@E aqui também",
+      "src": "../../acervo/broll/jovem-estudando-a-noite.mp4",
+      "entra": "flash",
+      "zoom": [
+        1,
+        1.12
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "rosca",
+      "at": "@Desses 177",
+      "until": "@Ou seja",
+      "centro": "R$ 177 MIL",
+      "centroAt": "@177 mil",
+      "partes": [
+        {
+          "at": "@123 mil",
+          "valor": 123000,
+          "rotulo": "DO SEU BOLSO",
+          "cor": "text"
+        },
+        {
+          "at": "@Os outros 54",
+          "valor": 54000,
+          "rotulo": "DE JUROS",
+          "cor": "gain"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@Ou seja",
+      "until": "@ainda veio",
+      "atores": [
+        {
+          "id": "trab",
+          "icone": "briefcase-business",
+          "rotulo": "SEU TRABALHO",
+          "keys": [
+            {
+              "at": "@Ou seja",
+              "x": 0.2,
+              "y": 0.45
+            }
+          ],
+          "pulsaAt": [
+            "@seu trabalho"
+          ],
+          "entra": "cair"
+        },
+        {
+          "id": "cofre",
+          "icone": "piggy-bank",
+          "tam": 300,
+          "keys": [
+            {
+              "at": "@Ou seja",
+              "x": 0.78,
+              "y": 0.45
+            },
+            {
+              "at": "@a maior parte",
+              "s": 1.15,
+              "dur": 0.8
+            }
+          ],
+          "entra": "elastico"
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "trab",
+          "para": "cofre",
+          "at": "@a maior parte",
+          "ate": "@ainda veio",
+          "icone": "banknote",
+          "cor": "text",
+          "tam": 80,
+          "por": 3
+        }
+      ],
+      "textos": [
+        {
+          "at": "@a maior parte",
+          "texto": "A MAIOR PARTE",
+          "x": 0.5,
+          "y": 0.82,
+          "tam": 64
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "foto3d",
+      "at": "@ainda veio",
+      "until": "@Só que a partir",
+      "src": "../../acervo/fotos3d/escritorio-movimentado.png",
+      "depth": "../../acervo/fotos3d/depth/escritorio-movimentado-depth.png",
+      "camera": [
+        {
+          "at": "@ainda veio",
+          "zoom": 1.08,
+          "px": -0.45
+        },
+        {
+          "at": "@ainda veio+0.01",
+          "zoom": 1.2,
+          "px": 0.45,
+          "dur": 1.6
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@Só que a partir",
+      "until": "@Como você já",
+      "src": "../../acervo/broll/executivo-dancando-escritorio.mp4",
+      "entra": "whip",
+      "zoom": [
+        1,
+        1.1
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@Como você já",
+      "until": "@a própria",
+      "atores": [
+        {
+          "id": "voce",
+          "icone": "user",
+          "tam": 200,
+          "rotulo": "VOCÊ",
+          "keys": [
+            {
+              "at": "@Como você já",
+              "x": 0.2,
+              "y": 0.27
+            }
+          ],
+          "pulsaAt": [
+            "@aporta mil"
+          ],
+          "entra": "elastico"
+        },
+        {
+          "id": "maquina",
+          "icone": "printer",
+          "cor": "gain",
+          "tam": 200,
+          "rotulo": "A MÁQUINA",
+          "entra": "girar",
+          "keys": [
+            {
+              "at": "@agora você também",
+              "x": 0.2,
+              "y": 0.68
+            }
+          ],
+          "pulsaAt": [
+            "@mais mil",
+            "@máquina"
+          ]
+        },
+        {
+          "id": "cofre",
+          "icone": "piggy-bank",
+          "tam": 300,
+          "keys": [
+            {
+              "at": "@Como você já",
+              "x": 0.78,
+              "y": 0.47
+            },
+            {
+              "at": "@mais mil",
+              "s": 1.15,
+              "dur": 0.6
+            },
+            {
+              "at": "@máquina",
+              "s": 1.3,
+              "dur": 0.6
+            }
+          ],
+          "entra": "cair"
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "voce",
+          "para": "cofre",
+          "at": "@aporta mil",
+          "ate": "@a própria",
+          "icone": "banknote",
+          "cor": "text",
+          "tam": 70,
+          "por": 2,
+          "arco": -0.04
+        },
+        {
+          "de": "maquina",
+          "para": "cofre",
+          "at": "@mais mil",
+          "ate": "@a própria",
+          "icone": "banknote",
+          "cor": "gain",
+          "tam": 70,
+          "por": 2,
+          "arco": 0.12
+        }
+      ],
+      "textos": [
+        {
+          "at": "@aporta mil",
+          "texto": "R$ 1.000",
+          "x": 0.5,
+          "y": 0.13,
+          "fonte": "num",
+          "tam": 110
+        },
+        {
+          "at": "@mais mil",
+          "texto": "+ R$ 1.000",
+          "x": 0.5,
+          "y": 0.86,
+          "fonte": "num",
+          "tam": 110,
+          "cor": "gain"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@a própria",
+      "until": "@é basicamente uma curva",
+      "src": "../../acervo/broll/engrenagens-relogio.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1.05,
+        1.15
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "grafico",
+      "at": "@é basicamente uma curva",
+      "until": "@muitos economistas",
+      "modo": "patrimonio",
+      "meses": 240,
+      "rotuloCabeca": false,
+      "revela": [
+        {
+          "at": 0,
+          "mes": 124
+        },
+        {
+          "at": "@curva exponencial+0.5",
+          "mes": 240,
+          "dur": 3.6
+        }
+      ],
+      "vista": [
+        {
+          "at": 0,
+          "x": 132,
+          "y": 200000
+        },
+        {
+          "at": "@curva exponencial",
+          "x": 240,
+          "y": 560000,
+          "dur": 3
+        }
+      ],
+      "marcos": [
+        {
+          "mes": 124,
+          "at": "@é basicamente uma curva",
+          "rotulo": "R$ 177 MIL",
+          "cor": "hl",
+          "lado": "esq"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@muitos economistas",
+      "until": "@oitava",
+      "src": "../../acervo/broll/reuniao-de-trabalho.mp4",
+      "entra": "whip",
+      "zoom": [
+        1,
+        1.1
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@oitava",
+      "until": "@é basicamente o ponto",
+      "atores": [
+        {
+          "id": "magia",
+          "icone": "wand-sparkles",
+          "cor": "hl",
+          "tam": 260,
+          "keys": [
+            {
+              "at": "@Bom ela",
+              "x": 0.5,
+              "y": 0.42
+            }
+          ],
+          "riscaAt": "@magia+0.15",
+          "entra": "cair"
+        }
+      ],
+      "textos": [
+        {
+          "at": "@oitava",
+          "ate": "@Bom ela",
+          "texto": "8ª",
+          "x": 0.5,
+          "y": 0.4,
+          "fonte": "num",
+          "tam": 320,
+          "cor": "hl"
+        },
+        {
+          "at": "@maravilha",
+          "ate": "@Bom ela",
+          "texto": "MARAVILHA DO MUNDO",
+          "x": 0.5,
+          "y": 0.68,
+          "tam": 64
+        },
+        {
+          "at": "@não é magia",
+          "texto": "NÃO É MAGIA",
+          "x": 0.5,
+          "y": 0.78,
+          "tam": 64
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "piada",
+      "at": "@maravilha+0.2",
+      "until": "@Bom ela",
+      "texto": "AS OUTRAS 7 NÃO RENDEM JUROS",
+      "dura": 0.8,
+      "x": 0.5,
+      "y": 0.87
+    },
+    {
+      "kind": "mascot",
+      "at": "@é basicamente o ponto",
+      "until": "@fim",
+      "placement": "right-third",
+      "poses": [
+        {
+          "at": "@é basicamente o ponto",
+          "pose": "../../../../public/mascote/fox1.png"
+        },
+        {
+          "at": "@começa a crescer",
+          "pose": "../../../../public/mascote/fox1-antigo.webm"
+        }
+      ],
+      "entra": "zoom"
+    }
   ]
 }
