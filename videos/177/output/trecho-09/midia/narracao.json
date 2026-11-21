@@ -51,7 +51,7 @@
   "id": "w8",
   "text": "perguntar",
   "start": 2.32,
-  "end": 2.8
+  "end": 2.96
  },
  {
   "id": "w9",
@@ -69,7 +69,7 @@
   "id": "w11",
   "text": "perguntar",
   "start": 3.76,
-  "end": 4.4
+  "end": 4.64
  },
  {
   "id": "w12",
@@ -177,13 +177,13 @@
   "id": "w29",
   "text": "porcentagem,",
   "start": 9.68,
-  "end": 10.64
+  "end": 10.48
  },
  {
   "id": "w30",
   "text": "eu",
   "start": 10.64,
-  "end": 10.72
+  "end": 10.88
  },
  {
   "id": "w31",
@@ -201,12 +201,12 @@
   "id": "w33",
   "text": "que",
   "start": 11.52,
-  "end": 11.68
+  "end": 11.6
  },
  {
   "id": "w34",
   "text": "a",
-  "start": 11.68,
+  "start": 11.6,
   "end": 11.76
  },
  {
@@ -225,7 +225,7 @@
   "id": "w37",
   "text": "não.",
   "start": 12.24,
-  "end": 12.8
+  "end": 12.56
  },
  {
   "id": "w38",
@@ -345,6 +345,6 @@
   "id": "w57",
   "text": "investimentos.",
   "start": 18.56,
-  "end": 19.84
+  "end": 19.76
  }
 ]

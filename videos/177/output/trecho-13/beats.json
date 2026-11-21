@@ -6,7 +6,7 @@
   "cardOptions": {"maxWords": 2, "maxChars": 16},
   "camera": [
     {"at": "@177 mil", "tipo": "punch"},
-    {"at": "@54 mil", "tipo": "punch"},
+    {"at": "@Os outros 54", "tipo": "punch"},
     {"at": "@curva exponencial", "tipo": "tilt3d"},
     {"at": "@oitava", "tipo": "punch"}
   ],
@@ -24,13 +24,13 @@
     {"at": "@Desses 177", "backdrop": "stars"},
     {"at": "@Ou seja", "backdrop": "black"},
     {"at": "@é basicamente uma curva", "backdrop": "stars"},
-    {"at": "@Por isso que", "backdrop": "black"},
+    {"at": "@Por isso é que", "backdrop": "black"},
     {"at": "@é basicamente o ponto", "backdrop": "grade-video"}
   ],
   "sfx": [
     {"at": "@177 mil", "file": "@sfx/General/Pop sound.mp3", "gain": -22},
     {"at": "@123 mil", "file": "@sfx/Foley/Coins Poured Out 01.wav", "gain": -22, "len": 1.0, "fadeOut": 0.3},
-    {"at": "@54 mil", "file": "@sfx/Foley/Coins in Hand 03.wav", "gain": -20, "len": 1.0},
+    {"at": "@Os outros 54", "file": "@sfx/Foley/Coins in Hand 03.wav", "gain": -20, "len": 1.0},
     {"at": "@seu trabalho", "file": "@sfx/Foley/Briefcase Latch.wav", "gain": -22},
     {"at": "@o jogo", "file": "@sfx/Foley/Coins in Hand 02.wav", "gain": -22, "len": 1.0},
     {"at": "@aporta mil", "file": "@sfx/General/cash ting.mp3", "gain": -22},
@@ -42,7 +42,7 @@
   "beats": [
     {"kind": "mascot", "at": "@inicio", "until": "@Desses 177", "placement": "left-third", "poses": [{"at": "@inicio", "pose": "../../../../public/mascote/fox1.png"}, {"at": "@E aqui também", "pose": "../../../../public/mascote/fox2-antigo.webm"}], "entra": "lado"},
     {"kind": "broll", "at": "@analisar", "until": "@E aqui também", "src": "../../acervo/broll/jovem-estudando-a-noite.mp4", "entra": "flash", "zoom": [1.0, 1.12]},
-    {"kind": "cena", "tipo": "rosca", "at": "@Desses 177", "until": "@Ou seja", "centro": "R$ 177 MIL", "centroAt": "@177 mil", "partes": [{"at": "@123 mil", "valor": 123000, "rotulo": "DO SEU BOLSO", "cor": "text"}, {"at": "@54 mil", "valor": 54000, "rotulo": "DE JUROS", "cor": "gain"}]},
+    {"kind": "cena", "tipo": "rosca", "at": "@Desses 177", "until": "@Ou seja", "centro": "R$ 177 MIL", "centroAt": "@177 mil", "partes": [{"at": "@123 mil", "valor": 123000, "rotulo": "DO SEU BOLSO", "cor": "text"}, {"at": "@Os outros 54", "valor": 54000, "rotulo": "DE JUROS", "cor": "gain"}]},
     {"kind": "cena", "tipo": "palco", "at": "@Ou seja", "until": "@ainda veio", "atores": [{"id": "trab", "icone": "briefcase-business", "rotulo": "SEU TRABALHO", "keys": [{"at": "@Ou seja", "x": 0.2, "y": 0.45}], "pulsaAt": ["@seu trabalho"], "entra": "cair"}, {"id": "cofre", "icone": "piggy-bank", "tam": 300, "keys": [{"at": "@Ou seja", "x": 0.78, "y": 0.45}, {"at": "@a maior parte", "s": 1.15, "dur": 0.8}], "entra": "elastico"}], "fluxos": [{"de": "trab", "para": "cofre", "at": "@a maior parte", "ate": "@ainda veio", "icone": "banknote", "cor": "text", "tam": 80, "por": 3}], "textos": [{"at": "@a maior parte", "texto": "A MAIOR PARTE", "x": 0.5, "y": 0.82, "tam": 64}]},
     {"kind": "cena", "tipo": "foto3d", "at": "@ainda veio", "until": "@Só que a partir", "src": "../../acervo/fotos3d/escritorio-movimentado.png", "depth": "../../acervo/fotos3d/depth/escritorio-movimentado-depth.png", "camera": [{"at": "@ainda veio", "zoom": 1.08, "px": -0.45}, {"at": "@ainda veio+0.01", "zoom": 1.2, "px": 0.45, "dur": 1.6}]},
     {"kind": "broll", "at": "@Só que a partir", "until": "@Como você já", "src": "../../acervo/broll/executivo-dancando-escritorio.mp4", "entra": "whip", "zoom": [1.0, 1.1]},

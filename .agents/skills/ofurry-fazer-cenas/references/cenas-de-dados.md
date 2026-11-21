@@ -51,6 +51,8 @@ Tempos internos (`at` de keyframes, `ligaAt`, `riscaAt`...) são **tempos do tre
 | `fim` | `titulo`, `chamada`, `tituloAt` | tela do próximo vídeo (quadro vazio p/ card) |
 | `palco` | `atores:[{id,icone,rotulo,cor,tam,keys:[{at,x,y,s,r,o,dur}],entra:'pop'\|'rise'\|'whip',riscaAt,sai,pulsaAt:[at],balanca}]`, `fluxos:[{de,para,at,ate,icone,cor,tam,por,viagem,arco}]`, `setas:[{de,para,at,ate,cor,rotulo}]`, `textos:[{at,ate,texto,x,y,tam,cor,fonte:'cap'\|'num'}]` | **o coração do estilo do canal**: ícones Lucide no preto que entram, andam, trocam de lugar e mandam coisas um para o outro (notas indo da pessoa para o banco, moedas voltando). x/y de 0 a 1 |
 | `piada` | `texto`, `at`, `dura` (0.9 s padrão; 0.2 = poucos quadros), `x`, `y`, `rot`, `cor` ('hl' padrão), `tam` (72), `fundo` (tarja preta com borda), `alinha` | **piada relâmpago**: na cara, grande, mas some em ~1 s; quem pausa acha. Por cima de outra cena (batida seguinte no array) |
+| `corrida` | `titulo`, `escala` (meses que ocupam a largura toda), `itens:[{at,rotulo,meses,texto,cor,dur}]` (barra de TEMPO que cresce contando os meses e termina no `texto`), `carimbo:{at,texto,linha}` | quanto tempo leva cada parte ("80 meses pros primeiros 100 mil, metade disso pros próximos 77") |
+| `etapas` | `passo` (177000), `etapas` (degraus principais), `extras` + `extrasAt` (degraus apagados depois), `mesesEixo` (340), `itens:[{at,rotulo}]`, `rapidoAt`, `rapidoTexto`, `milhaoAt`, `titulo` | escada: cada degrau é mais um `passo` de patrimônio e a largura é o tempo que leva (calculado pela simulação), então os degraus ficam cada vez mais estreitos ("10 → 6 → 4 anos") |
 | `foto3d` | `src` (PNG), `depth` (mapa de profundidade), `camera:[{at,zoom,x,y,px,py,rot,dur}]` (px/py = parallax, -1..1), `grade:{sat,contrast,bright,warm}`, `grain`, `vignette` | foto/print REAL com câmera 3D (WebGL); nunca arte gerada por IA. Caminhos relativos ao beats.json |
 
 ### Foto com câmera 3D (`foto3d`)
@@ -135,6 +137,8 @@ Regra: a mesma cena nao aparece duas vezes seguidas, e no maximo 1 grafico de li
 | "ano a ano", "no 5º ano", "depois de 10 anos", comparar anos | `barras`: `anos`, `deAno`, `revela:[{at,ano,dur}]`, `destaques:[{at,ano,rotulo,cor}]`, `titulo`, `perspectiva` (padrao true) — branco = do bolso, verde = juros |
 | partes de um total (do bolso x juros, 123 + 54, 336 + 664) | `rosca`: `centro`, `centroAt`, `partes:[{at,valor,rotulo,cor}]`, `gira` |
 | revelar UM numero grande (177 mil, 1 milhao, 64 reais) | `contador` (odometro): `de`, `ate`, `at`, `dur`, `prefixo`, `sufixo`, `rotulo`, `rotuloAt`, `cor`, `tam` |
+| quanto TEMPO leva cada parte, "metade do tempo" | `corrida` (barras de tempo que contam os meses) |
+| cada etapa vem mais rapido (10 → 6 → 4 anos) | `etapas` (escada com degraus cada vez mais estreitos) |
 | assinatura "eu sou o Furry" | `marca`: `src` (logo), `texto`, `x`, `y` |
 
 Palco: varie a entrada de cada ator — `entra`: `pop`, `cair` (despenca e quica), `girar` (1 volta), `elastico`, `whip`,

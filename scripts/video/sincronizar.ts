@@ -62,7 +62,7 @@ if ((audio || !existsSync(join(midia, 'transcricao.bruta.json'))) && !args.inclu
 const raw: (TimedWord & { id?: string })[] = JSON.parse(readFileSync(join(midia, 'transcricao.bruta.json'), 'utf8'));
 let words = raw.map((w) => ({ ...w }));
 let herdou = false; // com texto herdado, a maioria das revisoes ja esta aplicada: nao listar as "sem efeito"
-if (audio && existsSync(anteriorPath)) {
+if (existsSync(anteriorPath)) { // tambem sem --audio: se a sincronizacao anterior parou no meio, a heranca de texto nao se perde
   const antes: TimedWord[] = JSON.parse(readFileSync(anteriorPath, 'utf8'));
   const h = herdaTexto(antes, words);
   words = h.words;

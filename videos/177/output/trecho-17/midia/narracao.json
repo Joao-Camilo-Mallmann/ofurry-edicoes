@@ -2,745 +2,745 @@
  {
   "id": "w0",
   "text": "E",
-  "start": 0.075,
-  "end": 0.395
+  "start": 0,
+  "end": 0.24
  },
  {
   "id": "w1",
   "text": "segundo,",
-  "start": 0.395,
-  "end": 1.355
+  "start": 0.24,
+  "end": 0.96
  },
  {
   "id": "w2",
   "text": "e",
-  "start": 1.355,
-  "end": 1.515
+  "start": 1.36,
+  "end": 1.44
  },
  {
   "id": "w3",
-  "text": "é",
-  "start": 1.515,
-  "end": 1.675
+  "text": "extremamente",
+  "start": 1.6,
+  "end": 2.24
  },
  {
   "id": "w4",
-  "text": "extremamente",
-  "start": 1.675,
-  "end": 2.395
+  "text": "importante",
+  "start": 2.24,
+  "end": 2.56
  },
  {
   "id": "w5",
-  "text": "importante",
-  "start": 2.395,
-  "end": 2.715
+  "text": "que",
+  "start": 2.64,
+  "end": 2.88
  },
  {
   "id": "w6",
-  "text": "que",
-  "start": 2.795,
-  "end": 3.035
+  "text": "você",
+  "start": 2.88,
+  "end": 3.12
  },
  {
   "id": "w7",
-  "text": "você",
-  "start": 3.035,
-  "end": 3.275
+  "text": "mantenha",
+  "start": 3.12,
+  "end": 3.52
  },
  {
   "id": "w8",
-  "text": "mantenha",
-  "start": 3.275,
-  "end": 3.675
+  "text": "os",
+  "start": 3.52,
+  "end": 3.6
  },
  {
   "id": "w9",
-  "text": "os",
-  "start": 3.675,
-  "end": 3.942
+  "text": "seus",
+  "start": 3.6,
+  "end": 3.76
  },
  {
   "id": "w10",
-  "text": "seus",
-  "start": 3.942,
-  "end": 4.208
+  "text": "aportes,",
+  "start": 3.76,
+  "end": 4.24
  },
  {
   "id": "w11",
-  "text": "aportes,",
-  "start": 4.208,
-  "end": 4.475
+  "text": "tá?",
+  "start": 4.32,
+  "end": 4.56
  },
  {
   "id": "w12",
-  "text": "tá?",
-  "start": 4.475,
-  "end": 4.715
+  "text": "E",
+  "start": 4.8,
+  "end": 4.96
  },
  {
   "id": "w13",
-  "text": "E",
-  "start": 4.955,
-  "end": 5.115
+  "text": "eu",
+  "start": 4.96,
+  "end": 5.12
  },
  {
   "id": "w14",
-  "text": "eu",
-  "start": 5.115,
-  "end": 5.195
+  "text": "sei,",
+  "start": 5.12,
+  "end": 5.44
  },
  {
   "id": "w15",
-  "text": "sei,",
-  "start": 5.195,
-  "end": 5.515
+  "text": "vai",
+  "start": 5.44,
+  "end": 5.6
  },
  {
   "id": "w16",
-  "text": "vai",
-  "start": 5.515,
-  "end": 5.675
+  "text": "ser",
+  "start": 5.6,
+  "end": 5.68
  },
  {
   "id": "w17",
-  "text": "ser",
-  "start": 5.675,
-  "end": 5.835
+  "text": "muito",
+  "start": 5.68,
+  "end": 5.84
  },
  {
   "id": "w18",
-  "text": "muito",
-  "start": 5.835,
-  "end": 5.995
+  "text": "chato.",
+  "start": 5.84,
+  "end": 6.24
  },
  {
   "id": "w19",
-  "text": "chato.",
-  "start": 5.995,
-  "end": 6.315
+  "text": "Você",
+  "start": 6.24,
+  "end": 6.4
  },
  {
   "id": "w20",
-  "text": "Você",
-  "start": 6.315,
-  "end": 6.475
+  "text": "vai",
+  "start": 6.4,
+  "end": 6.56
  },
  {
   "id": "w21",
-  "text": "vai",
-  "start": 6.475,
-  "end": 6.635
+  "text": "investir",
+  "start": 6.56,
+  "end": 6.88
  },
  {
   "id": "w22",
-  "text": "investir",
-  "start": 6.635,
-  "end": 6.875
+  "text": "o",
+  "start": 6.88,
+  "end": 6.96
  },
  {
   "id": "w23",
-  "text": "o",
-  "start": 6.955,
-  "end": 7.035
+  "text": "valor",
+  "start": 6.96,
+  "end": 7.2
  },
  {
   "id": "w24",
-  "text": "valor",
-  "start": 7.115,
-  "end": 7.355
+  "text": "absurdo",
+  "start": 7.2,
+  "end": 7.76
  },
  {
   "id": "w25",
-  "text": "absurdo",
-  "start": 7.355,
-  "end": 7.915
+  "text": "e",
+  "start": 7.92,
+  "end": 8.08
  },
  {
   "id": "w26",
-  "text": "e",
-  "start": 8.075,
-  "end": 8.235
+  "text": "vai",
+  "start": 8.08,
+  "end": 8.32
  },
  {
   "id": "w27",
-  "text": "vai",
-  "start": 8.235,
-  "end": 8.475
+  "text": "ver",
+  "start": 8.32,
+  "end": 8.48
  },
  {
   "id": "w28",
-  "text": "ver",
-  "start": 8.475,
-  "end": 8.635
+  "text": "basicamente",
+  "start": 8.56,
+  "end": 8.96
  },
  {
   "id": "w29",
-  "text": "basicamente",
-  "start": 8.715,
-  "end": 9.115
+  "text": "uma",
+  "start": 8.96,
+  "end": 9.12
  },
  {
   "id": "w30",
-  "text": "uma",
-  "start": 9.115,
-  "end": 9.275
+  "text": "migalha",
+  "start": 9.12,
+  "end": 9.68
  },
  {
   "id": "w31",
-  "text": "migalha",
-  "start": 9.275,
-  "end": 9.835
+  "text": "todo",
+  "start": 9.68,
+  "end": 9.84
  },
  {
   "id": "w32",
-  "text": "todo",
-  "start": 9.835,
-  "end": 9.915
+  "text": "mês",
+  "start": 9.84,
+  "end": 10.08
  },
  {
   "id": "w33",
-  "text": "mês",
-  "start": 9.995,
-  "end": 10.235
+  "text": "de",
+  "start": 10.08,
+  "end": 10.24
  },
  {
   "id": "w34",
-  "text": "de",
-  "start": 10.235,
-  "end": 10.395
+  "text": "rendimento.",
+  "start": 10.24,
+  "end": 11.04
  },
  {
   "id": "w35",
-  "text": "rendimento.",
-  "start": 10.395,
-  "end": 11.195
+  "text": "Mas",
+  "start": 11.04,
+  "end": 11.36
  },
  {
   "id": "w36",
-  "text": "Mas",
-  "start": 11.195,
-  "end": 11.515
+  "text": "bom,",
+  "start": 11.36,
+  "end": 11.76
  },
  {
   "id": "w37",
-  "text": "bom,",
-  "start": 11.515,
-  "end": 11.915
+  "text": "você",
+  "start": 11.76,
+  "end": 12
  },
  {
   "id": "w38",
-  "text": "você",
-  "start": 11.915,
-  "end": 12.155
+  "text": "só",
+  "start": 12,
+  "end": 12.16
  },
  {
   "id": "w39",
-  "text": "só",
-  "start": 12.155,
-  "end": 12.315
+  "text": "precisa",
+  "start": 12.16,
+  "end": 12.48
  },
  {
   "id": "w40",
-  "text": "precisa",
-  "start": 12.315,
-  "end": 12.555
+  "text": "sobreviver.",
+  "start": 12.48,
+  "end": 12.96
  },
  {
   "id": "w41",
-  "text": "sobreviver.",
-  "start": 12.555,
-  "end": 13.115
+  "text": "É",
+  "start": 12.96,
+  "end": 13.04
  },
  {
   "id": "w42",
   "text": "Essa",
-  "start": 13.195,
-  "end": 13.355
+  "start": 13.12,
+  "end": 13.2
  },
  {
   "id": "w43",
   "text": "parte",
-  "start": 13.515,
-  "end": 13.675
+  "start": 13.36,
+  "end": 13.6
  },
  {
   "id": "w44",
   "text": "que",
-  "start": 13.755,
-  "end": 13.915
+  "start": 13.6,
+  "end": 13.76
  },
  {
   "id": "w45",
   "text": "vai",
-  "start": 13.915,
-  "end": 13.995
+  "start": 13.76,
+  "end": 13.92
  },
  {
   "id": "w46",
   "text": "ser",
-  "start": 13.995,
-  "end": 14.155
+  "start": 13.92,
+  "end": 14
  },
  {
   "id": "w47",
   "text": "mais",
-  "start": 14.155,
-  "end": 14.315
+  "start": 14.08,
+  "end": 14.24
  },
  {
   "id": "w48",
   "text": "chata",
-  "start": 14.315,
-  "end": 14.635
+  "start": 14.24,
+  "end": 14.56
  },
  {
   "id": "w49",
   "text": "do",
-  "start": 14.635,
-  "end": 14.795
+  "start": 14.56,
+  "end": 14.72
  },
  {
   "id": "w50",
   "text": "início.",
-  "start": 14.795,
-  "end": 15.435
+  "start": 14.72,
+  "end": 15.28
  },
  {
   "id": "w51",
   "text": "Depois",
-  "start": 15.435,
-  "end": 15.835
+  "start": 15.28,
+  "end": 15.84
  },
  {
   "id": "w52",
   "text": "eu",
-  "start": 15.915,
-  "end": 16.075
+  "start": 15.84,
+  "end": 16
  },
  {
   "id": "w53",
   "text": "te",
-  "start": 16.075,
-  "end": 16.315
+  "start": 16,
+  "end": 16.16
  },
  {
   "id": "w54",
   "text": "garanto",
-  "start": 16.315,
-  "end": 16.795
+  "start": 16.16,
+  "end": 16.72
  },
  {
   "id": "w55",
   "text": "que",
-  "start": 16.875,
-  "end": 17.195
+  "start": 16.72,
+  "end": 17.04
  },
  {
   "id": "w56",
   "text": "você",
-  "start": 17.195,
-  "end": 17.515
+  "start": 17.04,
+  "end": 17.36
  },
  {
   "id": "w57",
   "text": "do",
-  "start": 17.515,
-  "end": 17.675
+  "start": 17.36,
+  "end": 17.52
  },
  {
   "id": "w58",
   "text": "futuro",
-  "start": 17.675,
-  "end": 17.995
+  "start": 17.52,
+  "end": 17.92
  },
  {
   "id": "w59",
   "text": "vai",
-  "start": 18.155,
-  "end": 18.475
+  "start": 18.08,
+  "end": 18.32
  },
  {
   "id": "w60",
   "text": "te",
-  "start": 18.475,
-  "end": 18.635
+  "start": 18.32,
+  "end": 18.48
  },
  {
   "id": "w61",
   "text": "agradecer",
-  "start": 18.635,
-  "end": 19.195
+  "start": 18.48,
+  "end": 19.12
  },
  {
   "id": "w62",
   "text": "muito.",
-  "start": 19.195,
-  "end": 19.995
+  "start": 19.12,
+  "end": 19.76
  },
  {
   "id": "w63",
   "text": "E",
-  "start": 20.315,
-  "end": 20.555
+  "start": 20.16,
+  "end": 20.48
  },
  {
   "id": "w64",
   "text": "última",
-  "start": 20.555,
-  "end": 21.035
+  "start": 20.48,
+  "end": 20.88
  },
  {
   "id": "w65",
   "text": "dica,",
-  "start": 21.035,
-  "end": 21.435
+  "start": 20.88,
+  "end": 21.52
  },
  {
   "id": "w66",
   "text": "prefira",
-  "start": 21.675,
-  "end": 22.155
+  "start": 21.52,
+  "end": 22
  },
  {
   "id": "w67",
   "text": "algum",
-  "start": 22.235,
-  "end": 22.475
+  "start": 22.08,
+  "end": 22.32
  },
  {
   "id": "w68",
   "text": "ativo",
-  "start": 22.475,
-  "end": 22.715
+  "start": 22.32,
+  "end": 22.72
  },
  {
   "id": "w69",
   "text": "que",
-  "start": 22.795,
-  "end": 22.955
+  "start": 22.72,
+  "end": 22.88
  },
  {
   "id": "w70",
   "text": "tenha",
-  "start": 22.955,
-  "end": 23.275
+  "start": 22.88,
+  "end": 23.12
  },
  {
   "id": "w71",
   "text": "uma",
-  "start": 23.275,
-  "end": 23.435
+  "start": 23.12,
+  "end": 23.28
  },
  {
   "id": "w72",
   "text": "renda",
-  "start": 23.435,
-  "end": 23.675
+  "start": 23.28,
+  "end": 23.6
  },
  {
   "id": "w73",
   "text": "previsível.",
-  "start": 23.675,
-  "end": 24.395
+  "start": 23.6,
+  "end": 24.24
  },
  {
   "id": "w74",
   "text": "Como",
-  "start": 24.395,
-  "end": 24.635
+  "start": 24.24,
+  "end": 24.4
  },
  {
   "id": "w75",
   "text": "exemplo,",
-  "start": 24.635,
-  "end": 25.035
+  "start": 24.56,
+  "end": 24.88
  },
  {
   "id": "w76",
   "text": "um",
-  "start": 25.035,
-  "end": 25.195
+  "start": 24.88,
+  "end": 25.04
  },
  {
   "id": "w77",
   "text": "CDI",
-  "start": 25.195,
-  "end": 25.835
+  "start": 25.04,
+  "end": 25.6
  },
  {
   "id": "w78",
   "text": "ou",
-  "start": 25.835,
-  "end": 25.995
+  "start": 25.68,
+  "end": 25.92
  },
  {
   "id": "w79",
   "text": "tesouro",
-  "start": 26.155,
-  "end": 26.635
+  "start": 26.08,
+  "end": 26.56
  },
  {
   "id": "w80",
   "text": "direto.",
-  "start": 26.635,
-  "end": 27.195
+  "start": 26.56,
+  "end": 27.04
  },
  {
   "id": "w81",
   "text": "Por",
-  "start": 27.195,
-  "end": 27.435
+  "start": 27.15,
+  "end": 27.39
  },
  {
   "id": "w82",
   "text": "exatamente",
-  "start": 27.435,
-  "end": 27.835
+  "start": 27.39,
+  "end": 27.79
  },
  {
   "id": "w83",
   "text": "as",
-  "start": 27.915,
-  "end": 28.075
+  "start": 27.79,
+  "end": 27.95
  },
  {
   "id": "w84",
   "text": "taxas",
-  "start": 28.075,
-  "end": 28.395
+  "start": 27.95,
+  "end": 28.27
  },
  {
   "id": "w85",
   "text": "acabarem",
-  "start": 28.395,
-  "end": 28.822
+  "start": 28.27,
+  "end": 28.75
  },
  {
   "id": "w86",
   "text": "valendo",
-  "start": 28.822,
-  "end": 29.248
+  "start": 28.75,
+  "end": 29.23
  },
  {
   "id": "w87",
   "text": "muito,",
-  "start": 29.248,
-  "end": 29.675
+  "start": 29.23,
+  "end": 29.55
  },
  {
   "id": "w88",
   "text": "você",
-  "start": 29.915,
-  "end": 30.235
+  "start": 29.79,
+  "end": 30.03
  },
  {
   "id": "w89",
   "text": "pode",
-  "start": 30.235,
-  "end": 30.475
+  "start": 30.03,
+  "end": 30.35
  },
  {
   "id": "w90",
   "text": "pegar",
-  "start": 30.475,
-  "end": 30.875
+  "start": 30.35,
+  "end": 30.75
  },
  {
   "id": "w91",
   "text": "basicamente",
-  "start": 30.875,
-  "end": 31.515
+  "start": 30.75,
+  "end": 31.39
  },
  {
   "id": "w92",
   "text": "esse",
-  "start": 31.515,
-  "end": 31.675
+  "start": 31.39,
+  "end": 31.63
  },
  {
   "id": "w93",
   "text": "valor",
-  "start": 31.835,
-  "end": 32.235
+  "start": 31.71,
+  "end": 32.11
  },
  {
   "id": "w94",
   "text": "e",
-  "start": 32.395,
-  "end": 32.555
+  "start": 32.19,
+  "end": 32.43
  },
  {
   "id": "w95",
   "text": "calcular",
-  "start": 32.555,
-  "end": 33.115
+  "start": 32.43,
+  "end": 32.99
  },
  {
   "id": "w96",
   "text": "de",
-  "start": 33.115,
-  "end": 33.275
+  "start": 32.99,
+  "end": 33.15
  },
  {
   "id": "w97",
   "text": "forma",
-  "start": 33.275,
-  "end": 33.515
+  "start": 33.15,
+  "end": 33.39
  },
  {
   "id": "w98",
   "text": "muito",
-  "start": 33.515,
-  "end": 33.675
+  "start": 33.39,
+  "end": 33.55
  },
  {
   "id": "w99",
   "text": "mais",
-  "start": 33.675,
-  "end": 33.835
+  "start": 33.55,
+  "end": 33.71
  },
  {
   "id": "w100",
   "text": "precisa",
-  "start": 33.835,
-  "end": 34.235
+  "start": 33.71,
+  "end": 34.03
  },
  {
   "id": "w101",
   "text": "quando",
-  "start": 34.395,
-  "end": 34.715
+  "start": 34.19,
+  "end": 34.51
  },
  {
   "id": "w102",
   "text": "que",
-  "start": 34.795,
-  "end": 34.875
+  "start": 34.67,
+  "end": 34.75
  },
  {
   "id": "w103",
   "text": "de",
-  "start": 34.955,
-  "end": 35.035
+  "start": 34.83,
+  "end": 34.91
  },
  {
   "id": "w104",
   "text": "fato",
-  "start": 35.035,
-  "end": 35.275
+  "start": 34.91,
+  "end": 35.15
  },
  {
   "id": "w105",
   "text": "você",
-  "start": 35.275,
-  "end": 35.435
+  "start": 35.15,
+  "end": 35.31
  },
  {
   "id": "w106",
   "text": "vai",
-  "start": 35.435,
-  "end": 35.595
+  "start": 35.31,
+  "end": 35.47
  },
  {
   "id": "w107",
   "text": "cruzar",
-  "start": 35.595,
-  "end": 35.995
+  "start": 35.47,
+  "end": 35.87
  },
  {
   "id": "w108",
   "text": "uma",
-  "start": 35.995,
-  "end": 36.155
+  "start": 35.87,
+  "end": 36.03
  },
  {
   "id": "w109",
   "text": "linha.",
-  "start": 36.155,
-  "end": 36.635
+  "start": 36.03,
+  "end": 36.43
  },
  {
   "id": "w110",
   "text": "E",
-  "start": 36.635,
-  "end": 36.795
+  "start": 36.43,
+  "end": 36.59
  },
  {
   "id": "w111",
   "text": "transformar",
-  "start": 36.795,
-  "end": 37.355
+  "start": 36.59,
+  "end": 37.23
  },
  {
   "id": "w112",
   "text": "essa",
-  "start": 37.355,
-  "end": 37.515
+  "start": 37.23,
+  "end": 37.39
  },
  {
   "id": "w113",
   "text": "sua",
-  "start": 37.515,
-  "end": 37.835
+  "start": 37.39,
+  "end": 37.71
  },
  {
   "id": "w114",
   "text": "tão",
-  "start": 37.835,
-  "end": 38.155
+  "start": 37.71,
+  "end": 38.03
  },
  {
   "id": "w115",
   "text": "meta",
-  "start": 38.155,
-  "end": 38.315
+  "start": 38.03,
+  "end": 38.27
  },
  {
   "id": "w116",
   "text": "abstrata",
-  "start": 38.635,
-  "end": 38.955
+  "start": 38.43,
+  "end": 38.91
  },
  {
   "id": "w117",
   "text": "em",
-  "start": 39.195,
-  "end": 39.355
+  "start": 39.07,
+  "end": 39.23
  },
  {
   "id": "w118",
   "text": "realmente",
-  "start": 39.355,
-  "end": 39.675
+  "start": 39.23,
+  "end": 39.55
  },
  {
   "id": "w119",
   "text": "uma",
-  "start": 39.675,
-  "end": 39.835
+  "start": 39.55,
+  "end": 39.71
  },
  {
   "id": "w120",
   "text": "data",
-  "start": 39.835,
-  "end": 40.075
+  "start": 39.71,
+  "end": 39.95
  },
  {
   "id": "w121",
   "text": "com",
-  "start": 40.075,
-  "end": 40.235
+  "start": 39.95,
+  "end": 40.11
  },
  {
   "id": "w122",
   "text": "algum",
-  "start": 40.235,
-  "end": 40.555
+  "start": 40.11,
+  "end": 40.43
  },
  {
   "id": "w123",
   "text": "calendário.",
-  "start": 40.555,
-  "end": 41.355
+  "start": 40.43,
+  "end": 41.47
  }
 ]

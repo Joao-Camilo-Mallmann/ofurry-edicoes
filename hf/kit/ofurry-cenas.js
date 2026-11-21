@@ -6,7 +6,7 @@
  * Todos os tempos dentro de `p` (at, keyframes) estao em segundos DO TRECHO (ja resolvidos das ancoras "@frase");
  * t0 e o inicio da batida no trecho, entao T = t0 + tLocal.
  *
- * Tipos: grafico, tabela, balanca, maquina, calendario, formula, barra, comparar, lista, numeros, citacao, fim, palco (icones em movimento), piada, barras, rosca, contador, foto3d (assincrona).
+ * Tipos: grafico, tabela, balanca, maquina, calendario, formula, barra, comparar, lista, numeros, citacao, fim, palco (icones em movimento), piada, barras, rosca, contador, corrida, etapas, foto3d (assincrona).
  * Cores sempre pelo significado: --gain ganho/rendimento, --text aporte/seu dinheiro, --highlight virada/destaque,
  * --loss perda, --brand marca, --info apoio.
  */
@@ -437,7 +437,7 @@
     // fenda de saida
     svg('rect', Object.assign({ x: 400, y: 505, width: 190, height: 16, rx: 6, fill: '#000' }, S, { 'stroke-width': 4 }), s);
     var visor = el('div', { style: 'position:absolute;left:' + 165 * sc + 'px;top:' + 205 * sc + 'px;width:' + 410 * sc + 'px;height:' + 120 * sc + 'px;display:flex;align-items:center;justify-content:center;' + FONT_NUM + 'font-size:' + 92 * sc + 'px;color:' + C.gain + ';text-shadow:0 0 20px ' + C.gain }, box);
-    var notesLayer = el('div', { style: 'position:absolute;inset:0;overflow:visible' }, st.cam);
+    var notesLayer = el('div', { style: 'position:absolute;inset:0;overflow:visible', 'data-layout-allow-overlap': '' }, st.cam); // notas voando se cruzam de proposito
     // rotulo por cima das notas, com sombra para ler mesmo com nota passando atras
     var label = el('div', { style: 'position:absolute;left:0;right:0;top:' + (p.rotuloY !== undefined ? p.rotuloY * H : 230 + 650 * sc) + 'px;text-align:center;' + FONT_CAP + 'font-size:56px;color:' + C.text + ';text-shadow:0 0 18px #000,0 0 36px #000' }, st.cam);
     var MAXN = 26, notes = [];
@@ -1145,6 +1145,116 @@
       bar.style.left = (cx - w / 2).toFixed(1) + 'px';
       txt.style.opacity = prog(T, t0 + 0.15, 0.2);
       if (logo) { var pl = prog(T, t0 + 0.1, 0.3, E.back); logo.style.opacity = pl; logo.style.transform = 'translateY(' + ((1 - pl) * 60).toFixed(1) + 'px) scale(' + (0.6 + 0.4 * pl).toFixed(3) + ')'; }
+    };
+  };
+
+  // ================================================================ CORRIDA no tempo (quanto leva cada etapa)
+  /* Barras horizontais de TEMPO lado a lado: a de baixo chega na metade do caminho da de cima.
+     p: { titulo, escala: meses que ocupam a largura toda (padrao: o maior item),
+          itens: [{at, rotulo: 'R$ 0 → 100 MIL', meses: 80, texto: '80 MESES', cor: 'text', dur: 1.6}],
+          carimbo: {at, texto: 'METADE DO TEMPO', linha: 1} } */
+  OF.corrida = function (root, p, t0, dur) {
+    var st = stage(root, { ry: -8, rx: 6 });
+    var n = p.itens.length;
+    var esc = p.escala || Math.max.apply(null, p.itens.map(function (i) { return i.meses; }));
+    var X0 = 700, X1 = 1400, BH = 120, GAP = 260;
+    var Y0 = H / 2 + 50 - ((n - 1) * GAP) / 2 - BH / 2;
+    var title = p.titulo ? el('div', { style: 'position:absolute;left:0;right:0;top:90px;text-align:center;' + FONT_CAP + 'font-size:56px;font-style:italic;font-weight:600;color:' + C.text, text: p.titulo }, st.cam) : null;
+    var rows = p.itens.map(function (it, i) {
+      var y = Y0 + i * GAP, col = C[it.cor || (i ? 'gain' : 'text')] || it.cor;
+      var lb = el('div', { style: 'position:absolute;left:80px;width:' + (X0 - 130) + 'px;top:' + (y + BH / 2 - 36) + 'px;text-align:right;white-space:nowrap;' + FONT_CAP + 'font-size:54px;color:' + C.text, text: it.rotulo }, st.cam);
+      var trilho = el('div', { style: 'position:absolute;left:' + X0 + 'px;top:' + y + 'px;width:' + (X1 - X0) + 'px;height:' + BH + 'px;background:rgba(255,255,255,.06);border-radius:10px' }, st.cam);
+      var bar = el('div', { style: 'position:absolute;left:' + X0 + 'px;top:' + y + 'px;width:0px;height:' + BH + 'px;border-radius:10px;background:' + col + ';box-shadow:0 0 30px ' + col + '66' }, st.cam);
+      var cont = el('div', { style: 'position:absolute;top:' + (y + BH / 2 - 56) + 'px;white-space:nowrap;' + FONT_NUM + 'font-size:112px;line-height:1;color:' + col + ';opacity:0' }, st.cam);
+      return { it: it, lb: lb, trilho: trilho, bar: bar, cont: cont, y: y };
+    });
+    var cb = p.carimbo;
+    var stamp = cb ? el('div', { style: 'position:absolute;white-space:nowrap;' + FONT_CAP + 'font-size:72px;color:' + C.hl + ';border:8px solid ' + C.hl + ';padding:6px 26px;border-radius:12px;opacity:0;text-shadow:0 0 24px ' + C.hl + '66', text: cb.texto || 'METADE DO TEMPO' }, st.cam) : null;
+    return function (tl) {
+      var T = t0 + tl;
+      st.move(T, t0, dur, 0.7);
+      if (title) popText(title, T, t0, undefined, 'rise');
+      rows.forEach(function (o) {
+        var at = o.it.at !== undefined ? o.it.at : t0;
+        popText(o.lb, T, at, undefined, 'rise');
+        o.trilho.style.opacity = T >= at ? prog(T, at, 0.2) : 0;
+        var pr = T >= at ? prog(T, at + 0.15, o.it.dur || 1.6, E.io) : 0;
+        var w = (pr * o.it.meses / esc) * (X1 - X0);
+        o.bar.style.width = w.toFixed(1) + 'px';
+        o.cont.style.left = (X0 + w + 28).toFixed(1) + 'px';
+        o.cont.style.opacity = pr > 0 ? 1 : 0;
+        o.cont.textContent = pr >= 1 ? (o.it.texto || o.it.meses + ' MESES') : Math.round(pr * o.it.meses) + ' MESES';
+      });
+      if (stamp) {
+        var r = rows[cb.linha !== undefined ? cb.linha : n - 1];
+        var ps = T >= cb.at ? prog(T, cb.at, 0.18, E.out3) : 0;
+        stamp.style.opacity = ps;
+        stamp.style.left = (X0 + 40) + 'px';
+        stamp.style.top = (r.y - 120) + 'px';
+        stamp.style.transform = 'rotate(-6deg) scale(' + (1.7 - 0.7 * ps).toFixed(3) + ')';
+      }
+    };
+  };
+
+  // ================================================================ ETAPAS em escada (cada degrau = mais um "177 mil", cada vez mais estreito)
+  /* p: { passo: 177000, etapas: 3 (degraus principais), extras: 2 (degraus apagados depois), extrasAt, aporte, taxa,
+          mesesEixo: 340, itens: [{at, rotulo: '10 ANOS'}] (um por degrau principal), rapidoAt, rapidoTexto,
+          milhaoAt (linha do R$ 1 milhao), titulo }
+     Largura do degrau = tempo que leva para juntar mais um passo (calculado pela simulacao); altura = patrimonio. */
+  OF.etapas = function (root, p, t0, dur) {
+    var passo = p.passo || 177000, NE = p.etapas || 3, NX = p.extras || 0, A = p.aporte || 1000;
+    var mesesEixo = p.mesesEixo || 340;
+    var sim = simula(mesesEixo + 12, A, p.taxa || 0.07);
+    var marcos = [0];
+    for (var k = 1, m = 1; k <= NE + NX && m < sim.P.length; m++) if (sim.P[m] >= k * passo) { marcos.push(m); k++; }
+    var mMilhao = 0; for (m = 1; m < sim.P.length; m++) if (sim.P[m] >= 1e6) { mMilhao = m; break; }
+    var st = stage(root, { ry: -12, rx: 10 });
+    var X0 = 330, X1 = 1760, Y0 = 900, YT = 210;
+    var niveis = mMilhao ? 1e6 / passo : NE + NX;
+    var sh = Math.min(170, (Y0 - YT) / niveis);
+    var xm = function (mes) { return X0 + (mes / mesesEixo) * (X1 - X0); };
+    var title = p.titulo ? el('div', { style: 'position:absolute;left:0;right:0;top:70px;text-align:center;' + FONT_CAP + 'font-size:54px;font-style:italic;font-weight:600;color:' + C.text, text: p.titulo }, root) : null;
+    var base = el('div', { style: 'position:absolute;left:' + X0 + 'px;top:' + Y0 + 'px;width:' + (X1 - X0) + 'px;height:3px;background:' + C.text + ';opacity:.8' }, st.cam);
+    var degraus = [];
+    for (k = 1; k < marcos.length; k++) {
+      var extra = k > NE, it = (p.itens || [])[k - 1] || {};
+      var x = xm(marcos[k - 1]), w = xm(marcos[k]) - x - 8, h = k * sh;
+      var col = extra ? 'rgba(46,224,74,.35)' : k === 1 ? C.text : C.gain;
+      var b = el('div', { style: 'position:absolute;left:' + (x + 4).toFixed(1) + 'px;width:' + w.toFixed(1) + 'px;bottom:' + (H - Y0) + 'px;height:0px;border-radius:8px 8px 0 0;background:' + col + ';transform-origin:50% 100%;overflow:hidden;' + (extra ? '' : 'box-shadow:0 0 26px ' + col + '55') }, st.cam);
+      var anos = (marcos[k] - marcos[k - 1]) / 12;
+      var txt = it.rotulo || (extra ? anos.toLocaleString('pt-BR', { maximumFractionDigits: 1 }) : String(Math.round(anos))) + ' ANOS';
+      var fs = Math.min(110, (w - 16) / (0.46 * txt.length));
+      var lb = el('div', { style: 'position:absolute;left:0;right:0;bottom:14px;text-align:center;white-space:nowrap;' + FONT_NUM + 'font-size:' + fs.toFixed(0) + 'px;line-height:1;color:' + (extra ? C.text : '#000'), text: txt }, b);
+      var nv = el('div', { style: 'position:absolute;left:40px;width:' + (X0 - 70) + 'px;top:' + (Y0 - h - 22) + 'px;text-align:right;white-space:nowrap;' + FONT_NUM + 'font-size:50px;color:' + (extra ? C.whisper : C.text) + ';opacity:0', text: brl(k * passo, { mil: true }) }, st.cam);
+      var guia = el('div', { style: 'position:absolute;left:' + X0 + 'px;width:' + (x - X0 + 4) + 'px;top:' + (Y0 - h) + 'px;border-top:2px dashed rgba(255,255,255,.28);opacity:0' }, st.cam);
+      var ano = el('div', { style: 'position:absolute;left:' + (xm(marcos[k]) - 80) + 'px;width:160px;top:' + (Y0 + 14) + 'px;text-align:center;' + FONT_CAP + 'font-size:24px;color:' + C.whisper + ';opacity:0', text: 'ANO ' + Math.floor(marcos[k] / 12) }, st.cam);
+      degraus.push({ b: b, h: h, nv: nv, guia: guia, ano: ano, at: extra ? (p.extrasAt !== undefined ? p.extrasAt + (k - NE - 1) * 0.35 : 1e9) : it.at !== undefined ? it.at : t0 + (k - 1) * 0.8 });
+    }
+    var milhao = null;
+    if (mMilhao && p.milhaoAt !== undefined) {
+      var xmM = xm(mMilhao), yM = Y0 - (1e6 / passo) * sh;
+      milhao = el('div', { style: 'position:absolute;left:' + (xmM - 2) + 'px;top:' + yM + 'px;height:' + (Y0 - yM) + 'px;border-left:4px dashed ' + C.hl + ';opacity:0' }, st.cam);
+      el('div', { style: 'position:absolute;right:16px;top:-12px;white-space:nowrap;' + FONT_CAP + 'font-size:34px;color:#000;background:' + C.hl + ';padding:4px 16px', text: 'R$ 1 MILHÃO · ANO ' + Math.round(mMilhao / 12) }, milhao);
+    }
+    var rapido = p.rapidoAt !== undefined ? el('div', { style: 'position:absolute;left:' + (X0 + 30) + 'px;top:' + (YT + 60) + 'px;white-space:nowrap;' + FONT_CAP + 'font-size:76px;font-style:italic;color:' + C.hl + ';opacity:0;text-shadow:0 0 28px ' + C.hl + '55', text: p.rapidoTexto || 'CADA VEZ MAIS RÁPIDO »' }, st.cam) : null;
+    return function (tl) {
+      var T = t0 + tl;
+      st.move(T, t0, dur, 0.8);
+      if (title) popText(title, T, t0, undefined, 'rise');
+      base.style.opacity = prog(T, t0, 0.3) * 0.8;
+      degraus.forEach(function (d) {
+        var pr = T >= d.at ? prog(T, d.at, 0.45, E.back) : 0;
+        d.b.style.height = Math.max(0, d.h * pr).toFixed(1) + 'px';
+        d.nv.style.opacity = T >= d.at ? prog(T, d.at + 0.25, 0.25) : 0;
+        d.guia.style.opacity = d.nv.style.opacity;
+        d.ano.style.opacity = d.nv.style.opacity;
+      });
+      if (milhao) milhao.style.opacity = T >= p.milhaoAt ? prog(T, p.milhaoAt, 0.25) : 0;
+      if (rapido) {
+        var pr2 = T >= p.rapidoAt ? prog(T, p.rapidoAt, 0.3, E.out5) : 0;
+        rapido.style.opacity = pr2;
+        rapido.style.transform = 'translateX(' + ((1 - pr2) * -160).toFixed(1) + 'px) skewX(-8deg)';
+      }
     };
   };
 

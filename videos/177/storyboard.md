@@ -74,9 +74,10 @@ print" que ele cita): rola até o **mês 2: R$ 5,65** (amarelo; "um pão de quei
 
 ## 12 · Mês 73, mês 80, mês 120 (7:35–8:15) · PILOTO · clímax
 H5 **7%** → [C-gráfico] rendimento: **mês 73 = R$ 500 (metade do aporte)**, **mês 80 = R$ 100 mil
-guardados** → "guarda esse número 80" (H5 + Furry no canto; **sai se não houver regravação**) →
-[C-gráfico] câmera abre até o ano 10 e a curva **cruza a reta: A VIRADA · R$ 177 MIL** →
-[C-balança] o mês rende mais do que você coloca → **[C-máquina]** começa a trabalhar a seu favor.
+guardados** → "guarde esse número: 80 meses pros primeiros 100 mil, uns 3 anos e meio pros próximos 77"
+([C-corrida] duas barras de tempo, 80 MESES × 3,5 ANOS, carimbo **METADE DO TEMPO**; narração v3) →
+[C-gráfico] câmera abre até o ano 10 e a curva **cruza a reta: A VIRADA · R$ 177 MIL** → "o rendimento do mês
+já é praticamente mil reais" ([C-contador] **R$ 1.001 no mês 124**) → [C-balança] o mês rende mais do que você coloca → **[C-máquina]** começa a trabalhar a seu favor.
 
 ## 13 · 177 = 123 do bolso + 54 de juros (8:15–8:59)
 [C-barra] **R$ 177 MIL = R$ 123 MIL do seu bolso + R$ 54 MIL de juros** → "a maior parte veio do seu trabalho"
@@ -112,7 +113,9 @@ R$ 354 mil (R$ 2.000/mês) e R$ 531 mil (R$ 3.000/mês).
 
 ## 20 · O milhão, de volta (12:46–13:32)
 [C-gráfico] patrimônio até **R$ 1 MILHÃO em ~28 anos** → **[C-barra] R$ 1 MILHÃO = R$ 336 MIL do bolso +
-R$ 664 MIL de juros** → "a parte difícil é esperar esses 10 anos" ([C-calendário] os primeiros 120 meses
+R$ 664 MIL de juros** → (narração v3) "os primeiros 177 mil levam 10 anos, os próximos 6, depois 4" ([C-etapas]
+escada de degraus de R$ 177 mil cada vez mais estreitos: 10 → 6 → 4 → 3,3 → 2,7 anos até o milhão no ano 28) →
+"a parte difícil é esperar esses 10 anos" ([C-calendário] os primeiros 120 meses
 acesos) → "se hoje rende R$ 64 por mês, você não está atrasado" (Furry).
 
 ## 21 · CTA, próximo vídeo e fechamento (13:32–14:12)
@@ -128,6 +131,9 @@ encerramento seco).
 - Legenda entra sem som.
 
 ## Números que a narração diz diferente (a tela mostra o certo)
+Narração v3 (21/11/2026) já traz as regravações das cenas 1 a 7: 64 reais, a explicação do 80, mês 124 + "praticamente
+mil reais", 123 + 54, "500 ou 2 mil", os marcos 10 → 6 → 4 anos e 664 mil. A tabela abaixo é da narração anterior.
+
 | Tempo | Fala | Tela | Regravação |
 |---|---|---|---|
 | 06:16 | "uns 54 reais" | R$ 64 | cena 1 |

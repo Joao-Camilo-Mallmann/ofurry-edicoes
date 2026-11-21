@@ -15,13 +15,13 @@
   "id": "w2",
   "text": "pensa",
   "start": 0.8,
-  "end": 1.04
+  "end": 1.12
  },
  {
   "id": "w3",
   "text": "aqui",
-  "start": 1.2,
-  "end": 1.36
+  "start": 1.12,
+  "end": 1.2
  },
  {
   "id": "w4",
@@ -44,8 +44,8 @@
  {
   "id": "w7",
   "text": "em",
-  "start": 2.64,
-  "end": 2.8
+  "start": 2.56,
+  "end": 2.64
  },
  {
   "id": "w8",
@@ -69,7 +69,7 @@
   "id": "w11",
   "text": "falar",
   "start": 3.44,
-  "end": 3.68
+  "end": 3.92
  },
  {
   "id": "w12",
@@ -153,12 +153,12 @@
   "id": "w25",
   "text": "vou",
   "start": 8,
-  "end": 8.08
+  "end": 8.16
  },
  {
   "id": "w26",
   "text": "chutar",
-  "start": 8.24,
+  "start": 8.32,
   "end": 8.72
  },
  {
@@ -231,18 +231,18 @@
   "id": "w38",
   "text": "esses",
   "start": 11.28,
-  "end": 11.573
+  "end": 11.36
  },
  {
   "id": "w39",
   "text": "são",
-  "start": 11.573,
-  "end": 11.867
+  "start": 11.52,
+  "end": 11.6
  },
  {
   "id": "w40",
   "text": "números",
-  "start": 11.867,
+  "start": 11.76,
   "end": 12.16
  },
  {
@@ -315,7 +315,7 @@
   "id": "w52",
   "text": "aí",
   "start": 15.52,
-  "end": 15.68
+  "end": 15.6
  },
  {
   "id": "w53",
@@ -399,24 +399,24 @@
   "id": "w66",
   "text": "Só",
   "start": 20.11,
-  "end": 20.43
+  "end": 20.35
  },
  {
   "id": "w67",
   "text": "que",
-  "start": 20.43,
+  "start": 20.35,
   "end": 20.59
  },
  {
   "id": "w68",
   "text": "a",
   "start": 20.59,
-  "end": 20.75
+  "end": 20.67
  },
  {
   "id": "w69",
   "text": "matemática",
-  "start": 20.75,
+  "start": 20.67,
   "end": 21.23
  },
  {
@@ -483,7 +483,7 @@
   "id": "w80",
   "text": "olha,",
   "start": 24.35,
-  "end": 24.67
+  "end": 24.83
  },
  {
   "id": "w81",
@@ -495,36 +495,36 @@
   "id": "w82",
   "text": "que",
   "start": 25.23,
-  "end": 25.483
+  "end": 25.39
  },
  {
   "id": "w83",
   "text": "realmente",
-  "start": 25.483,
-  "end": 25.737
+  "start": 25.39,
+  "end": 25.71
  },
  {
   "id": "w84",
   "text": "traz",
-  "start": 25.737,
-  "end": 25.99
+  "start": 25.71,
+  "end": 25.87
  },
  {
   "id": "w85",
   "text": "a",
-  "start": 25.99,
-  "end": 26.243
+  "start": 25.87,
+  "end": 25.95
  },
  {
   "id": "w86",
   "text": "sua",
-  "start": 26.243,
-  "end": 26.497
+  "start": 26.11,
+  "end": 26.27
  },
  {
   "id": "w87",
   "text": "liberdade",
-  "start": 26.497,
+  "start": 26.27,
   "end": 26.75
  },
  {
@@ -561,12 +561,12 @@
   "id": "w93",
   "text": "177",
   "start": 28.91,
-  "end": 30.11
+  "end": 30.19
  },
  {
   "id": "w94",
   "text": "mil.",
-  "start": 30.11,
+  "start": 30.19,
   "end": 30.67
  },
  {
@@ -800,32 +800,32 @@
  {
   "id": "w133",
   "text": "de",
-  "start": 40.59,
-  "end": 40.878
+  "start": 40.67,
+  "end": 40.83
  },
  {
   "id": "w134",
   "text": "onde",
-  "start": 40.878,
-  "end": 41.166
+  "start": 40.83,
+  "end": 40.91
  },
  {
   "id": "w135",
   "text": "esse",
-  "start": 41.166,
-  "end": 41.454
+  "start": 41.23,
+  "end": 41.31
  },
  {
   "id": "w136",
   "text": "número",
-  "start": 41.454,
-  "end": 41.742
+  "start": 41.39,
+  "end": 41.55
  },
  {
   "id": "w137",
   "text": "vem,",
-  "start": 41.742,
-  "end": 42.03
+  "start": 41.63,
+  "end": 42.27
  },
  {
   "id": "w138",
@@ -855,7 +855,7 @@
   "id": "w142",
   "text": "comigo",
   "start": 44.03,
-  "end": 44.43
+  "end": 44.27
  },
  {
   "id": "w143",
@@ -897,18 +897,18 @@
   "id": "w149",
   "text": "está",
   "start": 46.19,
-  "end": 46.43
+  "end": 46.35
  },
  {
   "id": "w150",
   "text": "longe",
-  "start": 46.43,
+  "start": 46.35,
   "end": 46.75
  },
  {
   "id": "w151",
   "text": "dele.",
   "start": 46.75,
-  "end": 47.39
+  "end": 47.71
  }
 ]
