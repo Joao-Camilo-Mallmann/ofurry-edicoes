@@ -1,0 +1,770 @@
+[
+ {
+  "id": "w0",
+  "text": "E",
+  "start": 0,
+  "end": 0.16
+ },
+ {
+  "id": "w1",
+  "text": "lembrando",
+  "start": 0.16,
+  "end": 0.56
+ },
+ {
+  "id": "w2",
+  "text": "que",
+  "start": 0.56,
+  "end": 0.64
+ },
+ {
+  "id": "w3",
+  "text": "a",
+  "start": 0.72,
+  "end": 0.8
+ },
+ {
+  "id": "w4",
+  "text": "gente",
+  "start": 0.8,
+  "end": 0.88
+ },
+ {
+  "id": "w5",
+  "text": "está",
+  "start": 0.88,
+  "end": 1.04
+ },
+ {
+  "id": "w6",
+  "text": "simulando",
+  "start": 1.04,
+  "end": 1.52
+ },
+ {
+  "id": "w7",
+  "text": "aqui",
+  "start": 1.52,
+  "end": 1.68
+ },
+ {
+  "id": "w8",
+  "text": "com",
+  "start": 1.68,
+  "end": 1.84
+ },
+ {
+  "id": "w9",
+  "text": "7%.",
+  "start": 1.92,
+  "end": 3.12
+ },
+ {
+  "id": "w10",
+  "text": "E",
+  "start": 3.44,
+  "end": 3.68
+ },
+ {
+  "id": "w11",
+  "text": "a",
+  "start": 3.68,
+  "end": 3.84
+ },
+ {
+  "id": "w12",
+  "text": "partir",
+  "start": 3.84,
+  "end": 4.24
+ },
+ {
+  "id": "w13",
+  "text": "do",
+  "start": 4.24,
+  "end": 4.4
+ },
+ {
+  "id": "w14",
+  "text": "sexto",
+  "start": 4.4,
+  "end": 4.8
+ },
+ {
+  "id": "w15",
+  "text": "até",
+  "start": 5.04,
+  "end": 5.28
+ },
+ {
+  "id": "w16",
+  "text": "o",
+  "start": 5.28,
+  "end": 5.36
+ },
+ {
+  "id": "w17",
+  "text": "oitavo",
+  "start": 5.36,
+  "end": 5.68
+ },
+ {
+  "id": "w18",
+  "text": "ano,",
+  "start": 5.84,
+  "end": 6.16
+ },
+ {
+  "id": "w19",
+  "text": "mais",
+  "start": 6.4,
+  "end": 6.64
+ },
+ {
+  "id": "w20",
+  "text": "ou",
+  "start": 6.64,
+  "end": 6.8
+ },
+ {
+  "id": "w21",
+  "text": "menos",
+  "start": 6.8,
+  "end": 6.96
+ },
+ {
+  "id": "w22",
+  "text": "aproximadamente",
+  "start": 7.12,
+  "end": 7.76
+ },
+ {
+  "id": "w23",
+  "text": "no",
+  "start": 7.92,
+  "end": 8.08
+ },
+ {
+  "id": "w24",
+  "text": "mês",
+  "start": 8.08,
+  "end": 8.32
+ },
+ {
+  "id": "w25",
+  "text": "73,",
+  "start": 8.56,
+  "end": 9.36
+ },
+ {
+  "id": "w26",
+  "text": "você",
+  "start": 9.52,
+  "end": 9.76
+ },
+ {
+  "id": "w27",
+  "text": "vai",
+  "start": 9.76,
+  "end": 10
+ },
+ {
+  "id": "w28",
+  "text": "passar",
+  "start": 10,
+  "end": 10.24
+ },
+ {
+  "id": "w29",
+  "text": "a",
+  "start": 10.24,
+  "end": 10.32
+ },
+ {
+  "id": "w30",
+  "text": "receber",
+  "start": 10.32,
+  "end": 10.72
+ },
+ {
+  "id": "w31",
+  "text": "os",
+  "start": 10.72,
+  "end": 10.8
+ },
+ {
+  "id": "w32",
+  "text": "seus",
+  "start": 10.8,
+  "end": 11.04
+ },
+ {
+  "id": "w33",
+  "text": "primeiros",
+  "start": 11.04,
+  "end": 11.28
+ },
+ {
+  "id": "w34",
+  "text": "500",
+  "start": 11.28,
+  "end": 11.68
+ },
+ {
+  "id": "w35",
+  "text": "reais",
+  "start": 11.68,
+  "end": 11.84
+ },
+ {
+  "id": "w36",
+  "text": "por",
+  "start": 12,
+  "end": 12.16
+ },
+ {
+  "id": "w37",
+  "text": "mês.",
+  "start": 12.16,
+  "end": 12.64
+ },
+ {
+  "id": "w38",
+  "text": "E",
+  "start": 12.64,
+  "end": 12.8
+ },
+ {
+  "id": "w39",
+  "text": "também",
+  "start": 12.8,
+  "end": 13.04
+ },
+ {
+  "id": "w40",
+  "text": "lá",
+  "start": 13.2,
+  "end": 13.44
+ },
+ {
+  "id": "w41",
+  "text": "pelo",
+  "start": 13.44,
+  "end": 13.76
+ },
+ {
+  "id": "w42",
+  "text": "mês",
+  "start": 13.76,
+  "end": 14
+ },
+ {
+  "id": "w43",
+  "text": "80,",
+  "start": 14,
+  "end": 14.56
+ },
+ {
+  "id": "w44",
+  "text": "você",
+  "start": 14.56,
+  "end": 14.8
+ },
+ {
+  "id": "w45",
+  "text": "também",
+  "start": 14.8,
+  "end": 14.96
+ },
+ {
+  "id": "w46",
+  "text": "vai",
+  "start": 14.96,
+  "end": 15.2
+ },
+ {
+  "id": "w47",
+  "text": "guardar",
+  "start": 15.2,
+  "end": 15.52
+ },
+ {
+  "id": "w48",
+  "text": "os",
+  "start": 15.52,
+  "end": 15.6
+ },
+ {
+  "id": "w49",
+  "text": "seus",
+  "start": 15.6,
+  "end": 15.84
+ },
+ {
+  "id": "w50",
+  "text": "primeiros",
+  "start": 15.84,
+  "end": 16.08
+ },
+ {
+  "id": "w51",
+  "text": "100",
+  "start": 16.16,
+  "end": 16.48
+ },
+ {
+  "id": "w52",
+  "text": "mil.",
+  "start": 16.48,
+  "end": 16.96
+ },
+ {
+  "id": "w53",
+  "text": "E",
+  "start": 16.96,
+  "end": 17.12
+ },
+ {
+  "id": "w54",
+  "text": "guarda",
+  "start": 17.12,
+  "end": 17.52
+ },
+ {
+  "id": "w55",
+  "text": "esse",
+  "start": 17.52,
+  "end": 17.76
+ },
+ {
+  "id": "w56",
+  "text": "número",
+  "start": 17.76,
+  "end": 18.08
+ },
+ {
+  "id": "w57",
+  "text": "80.",
+  "start": 18.08,
+  "end": 18.64
+ },
+ {
+  "id": "w58",
+  "text": "Mais",
+  "start": 18.88,
+  "end": 19.12
+ },
+ {
+  "id": "w59",
+  "text": "pra",
+  "start": 19.12,
+  "end": 19.28
+ },
+ {
+  "id": "w60",
+  "text": "frente,",
+  "start": 19.28,
+  "end": 19.68
+ },
+ {
+  "id": "w61",
+  "text": "ele",
+  "start": 19.68,
+  "end": 19.84
+ },
+ {
+  "id": "w62",
+  "text": "vai",
+  "start": 19.84,
+  "end": 20
+ },
+ {
+  "id": "w63",
+  "text": "fazer",
+  "start": 20,
+  "end": 20.16
+ },
+ {
+  "id": "w64",
+  "text": "um",
+  "start": 20.16,
+  "end": 20.24
+ },
+ {
+  "id": "w65",
+  "text": "pouco",
+  "start": 20.24,
+  "end": 20.48
+ },
+ {
+  "id": "w66",
+  "text": "mais",
+  "start": 20.48,
+  "end": 20.64
+ },
+ {
+  "id": "w67",
+  "text": "de",
+  "start": 20.64,
+  "end": 20.8
+ },
+ {
+  "id": "w68",
+  "text": "sentido.",
+  "start": 20.8,
+  "end": 21.52
+ },
+ {
+  "id": "w69",
+  "text": "Então",
+  "start": 21.71,
+  "end": 21.95
+ },
+ {
+  "id": "w70",
+  "text": "é",
+  "start": 22.27,
+  "end": 22.51
+ },
+ {
+  "id": "w71",
+  "text": "agora,",
+  "start": 22.51,
+  "end": 22.91
+ },
+ {
+  "id": "w72",
+  "text": "só",
+  "start": 22.91,
+  "end": 23.15
+ },
+ {
+  "id": "w73",
+  "text": "no",
+  "start": 23.15,
+  "end": 23.31
+ },
+ {
+  "id": "w74",
+  "text": "ano",
+  "start": 23.31,
+  "end": 23.55
+ },
+ {
+  "id": "w75",
+  "text": "10",
+  "start": 23.55,
+  "end": 23.87
+ },
+ {
+  "id": "w76",
+  "text": "que",
+  "start": 23.95,
+  "end": 24.11
+ },
+ {
+  "id": "w77",
+  "text": "de",
+  "start": 24.19,
+  "end": 24.35
+ },
+ {
+  "id": "w78",
+  "text": "fato",
+  "start": 24.35,
+  "end": 24.67
+ },
+ {
+  "id": "w79",
+  "text": "o",
+  "start": 24.67,
+  "end": 24.83
+ },
+ {
+  "id": "w80",
+  "text": "jogo",
+  "start": 24.83,
+  "end": 25.07
+ },
+ {
+  "id": "w81",
+  "text": "vira.",
+  "start": 25.07,
+  "end": 25.71
+ },
+ {
+  "id": "w82",
+  "text": "No",
+  "start": 25.71,
+  "end": 25.87
+ },
+ {
+  "id": "w83",
+  "text": "mês",
+  "start": 25.87,
+  "end": 26.19
+ },
+ {
+  "id": "w84",
+  "text": "120",
+  "start": 26.27,
+  "end": 26.83
+ },
+ {
+  "id": "w85",
+  "text": "você",
+  "start": 26.91,
+  "end": 27.07
+ },
+ {
+  "id": "w86",
+  "text": "vai",
+  "start": 27.07,
+  "end": 27.31
+ },
+ {
+  "id": "w87",
+  "text": "chegar",
+  "start": 27.31,
+  "end": 27.55
+ },
+ {
+  "id": "w88",
+  "text": "no",
+  "start": 27.55,
+  "end": 27.71
+ },
+ {
+  "id": "w89",
+  "text": "seu",
+  "start": 27.71,
+  "end": 27.87
+ },
+ {
+  "id": "w90",
+  "text": "177",
+  "start": 28.11,
+  "end": 29.31
+ },
+ {
+  "id": "w91",
+  "text": "mil.",
+  "start": 29.31,
+  "end": 29.79
+ },
+ {
+  "id": "w92",
+  "text": "E",
+  "start": 30.03,
+  "end": 30.27
+ },
+ {
+  "id": "w93",
+  "text": "é",
+  "start": 30.27,
+  "end": 30.51
+ },
+ {
+  "id": "w94",
+  "text": "aqui",
+  "start": 30.51,
+  "end": 30.75
+ },
+ {
+  "id": "w95",
+  "text": "a",
+  "start": 30.75,
+  "end": 30.99
+ },
+ {
+  "id": "w96",
+  "text": "primeira",
+  "start": 30.99,
+  "end": 31.23
+ },
+ {
+  "id": "w97",
+  "text": "vez",
+  "start": 31.23,
+  "end": 31.47
+ },
+ {
+  "id": "w98",
+  "text": "que",
+  "start": 31.47,
+  "end": 31.63
+ },
+ {
+  "id": "w99",
+  "text": "o",
+  "start": 31.63,
+  "end": 31.71
+ },
+ {
+  "id": "w100",
+  "text": "mês",
+  "start": 31.71,
+  "end": 32.03
+ },
+ {
+  "id": "w101",
+  "text": "inteiro",
+  "start": 32.03,
+  "end": 32.35
+ },
+ {
+  "id": "w102",
+  "text": "rende",
+  "start": 32.35,
+  "end": 32.75
+ },
+ {
+  "id": "w103",
+  "text": "mais",
+  "start": 32.75,
+  "end": 32.99
+ },
+ {
+  "id": "w104",
+  "text": "do",
+  "start": 32.99,
+  "end": 33.15
+ },
+ {
+  "id": "w105",
+  "text": "que",
+  "start": 33.15,
+  "end": 33.31
+ },
+ {
+  "id": "w106",
+  "text": "você",
+  "start": 33.31,
+  "end": 33.47
+ },
+ {
+  "id": "w107",
+  "text": "coloca",
+  "start": 33.47,
+  "end": 33.87
+ },
+ {
+  "id": "w108",
+  "text": "nele.",
+  "start": 33.87,
+  "end": 34.35
+ },
+ {
+  "id": "w109",
+  "text": "É",
+  "start": 34.35,
+  "end": 34.59
+ },
+ {
+  "id": "w110",
+  "text": "a",
+  "start": 34.59,
+  "end": 34.67
+ },
+ {
+  "id": "w111",
+  "text": "partir",
+  "start": 34.67,
+  "end": 34.99
+ },
+ {
+  "id": "w112",
+  "text": "desse",
+  "start": 34.99,
+  "end": 35.23
+ },
+ {
+  "id": "w113",
+  "text": "ponto",
+  "start": 35.23,
+  "end": 35.63
+ },
+ {
+  "id": "w114",
+  "text": "que,",
+  "start": 35.63,
+  "end": 35.87
+ },
+ {
+  "id": "w115",
+  "text": "de",
+  "start": 35.87,
+  "end": 36.03
+ },
+ {
+  "id": "w116",
+  "text": "fato,",
+  "start": 36.03,
+  "end": 36.35
+ },
+ {
+  "id": "w117",
+  "text": "a",
+  "start": 36.35,
+  "end": 36.686
+ },
+ {
+  "id": "w118",
+  "text": "máquina",
+  "start": 36.686,
+  "end": 37.022
+ },
+ {
+  "id": "w119",
+  "text": "de",
+  "start": 37.022,
+  "end": 37.358
+ },
+ {
+  "id": "w120",
+  "text": "imprimir",
+  "start": 37.358,
+  "end": 37.694
+ },
+ {
+  "id": "w121",
+  "text": "dinheiro",
+  "start": 37.694,
+  "end": 38.03
+ },
+ {
+  "id": "w122",
+  "text": "começa",
+  "start": 38.27,
+  "end": 38.75
+ },
+ {
+  "id": "w123",
+  "text": "a",
+  "start": 38.75,
+  "end": 38.83
+ },
+ {
+  "id": "w124",
+  "text": "trabalhar",
+  "start": 38.83,
+  "end": 39.31
+ },
+ {
+  "id": "w125",
+  "text": "a",
+  "start": 39.31,
+  "end": 39.47
+ },
+ {
+  "id": "w126",
+  "text": "seu",
+  "start": 39.47,
+  "end": 39.63
+ },
+ {
+  "id": "w127",
+  "text": "favor.",
+  "start": 39.63,
+  "end": 40.43
+ }
+]

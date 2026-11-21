@@ -1,0 +1,47 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #c2-palco { position: absolute; inset: 0; }
+    #root .vw { position: absolute; inset: 0; overflow: hidden; }
+    #root .vid { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    #c2-inv { position: absolute; inset: 0; background: #fff; mix-blend-mode: difference; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="cortes" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div id="c2-palco">
+      <!-- o verso inicial: a mesa (1.45 s) e corta para a folha da letra, que fica ate 12.85 -->
+      <div id="c2-vw1" class="vw"><video id="c2-v1" class="clip vid" src="assets/video/clipe.mp4" data-start="0" data-duration="1.45" data-media-start="3" data-track-index="0" muted playsinline></video></div>
+      <!-- carga emocional: o pai bebendo -->
+      <div id="c2-vw6" class="vw"><video id="c2-v6" class="clip vid" src="assets/video/clipe.mp4" data-start="15.3" data-duration="1.45" data-media-start="122.4" data-playback-rate="0.75" data-track-index="5" muted playsinline></video></div>
+      <!-- compartilhada junto a comida -->
+      <div id="c2-vw7" class="vw"><video id="c2-v7" class="clip vid" src="assets/video/clipe.mp4" data-start="19.6" data-duration="1.4" data-media-start="81" data-track-index="6" muted playsinline></video></div>
+      <!-- em todas as familias -->
+      <div id="c2-vw8" class="vw"><video id="c2-v8" class="clip vid" src="assets/video/clipe.mp4" data-start="23.2" data-duration="2.0" data-media-start="110" data-track-index="7" muted playsinline></video></div>
+      <!-- A MESA. -->
+      <div id="c2-vw9" class="vw"><video id="c2-v9" class="clip vid" src="assets/video/clipe.mp4" data-start="25.2" data-duration="1.8" data-media-start="1" data-track-index="8" muted playsinline></video></div>
+      <!-- onde se sentam para almocar -->
+      <div id="c2-vw10" class="vw"><video id="c2-v10" class="clip vid" src="assets/video/clipe.mp4" data-start="27.0" data-duration="2.3" data-media-start="82.6" data-playback-rate="0.8" data-track-index="9" muted playsinline></video></div>
+      <div id="c2-inv"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+
+      [['c2-vw1', 0, 1.25], ['c2-vw6', 15.3, 1.22], ['c2-vw7', 19.6, 1.2], ['c2-vw8', 23.2, 1.18], ['c2-vw9', 25.2, 1.3], ['c2-vw10', 27.0, 1.15]]
+        .forEach(function (c) { A.soco(tl, $(c[0]), c[1], c[2], 1.04, 0.32); });
+      // deriva depois do soco nos planos mais longos
+      tl.to($('c2-vw1'), { scale: 1.1, duration: 1.4, ease: 'sine.inOut' }, 0.35);
+      tl.to($('c2-vw8'), { scale: 1.12, duration: 1.7, ease: 'sine.inOut' }, 23.55);
+      tl.to($('c2-vw10'), { scale: 1.16, duration: 2.0, ease: 'sine.inOut' }, 27.35);
+
+      // "A MESA.": inversao de 2 quadros + tremida (mesma semente da camada de textos)
+      A.inverte(tl, $('c2-inv'), 25.3, 2);
+      A.treme(tl, $('c2-palco'), 25.3, 0.3, 14, 23);
+
+      tl.set({}, {}, 29.3);
+      window.__timelines['cortes'] = tl;
+    })();
+  </script>
+</template>

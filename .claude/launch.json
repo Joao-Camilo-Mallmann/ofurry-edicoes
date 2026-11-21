@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "hf-studio-almoco-03",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "hf:studio", "na-hora-do-almoco", "03"],
+      "port": 3002
+    }
+  ]
+}

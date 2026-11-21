@@ -9,13 +9,40 @@ This project (`ofurry-motion`) is a programmatic Editorial Motion Design engine 
 
 ### 0. Producao em duas skills + estilo da casa
 - **Organizar o video** (`.agents/skills/ofurry-organizar-video/SKILL.md`): pasta do video, transcricao com tempo por palavra, corte em trechos, `plano.md` em prosa para aprovacao. Comandos `bun run video:novo | video:transcrever | video:buscar | video:cortar | video:status`.
-- **Fazer as cenas** (`.agents/skills/ofurry-fazer-cenas/SKILL.md`): so com `plano.md` APROVADO. Escreve `beats.json`, `bun run hf:build <video> <XX>` gera o projeto **HyperFrames** (HTML + GSAP, motor padrao para videos novos), `bun run hf:render <video> <XX>` entrega MP4 preto + MOV transparente. Skills oficiais do HyperFrames em `.agents/skills/hyperframes*` (contrato de render).
+- **Fazer as cenas** (`.agents/skills/ofurry-fazer-cenas/SKILL.md`): so com `plano.md` APROVADO. Escreve `beats.json`, `bun run hf:build <video> <XX>` gera o projeto **HyperFrames** (HTML + GSAP, motor padrao para videos novos), `bun run hf:render <video> <XX>` entrega o MP4 pronto do trecho (ver 0.3). Skills oficiais do HyperFrames em `.agents/skills/hyperframes*` (contrato de render).
 
 ### 0.1 Estilo da casa primeiro (`ofurry-house-motion`)
 - **Fonte de verdade do visual do canal**: `.agents/skills/ofurry-house-motion/SKILL.md`, medida nos 7 videos publicados (`docs/referencias/analise-canal-2026-10.md`).
 - **Em conflito, ela vence**: tipografia Montserrat + Bebas Neue (nao Archivo/Space Grotesk), legenda de 84 px com 1-2 palavras (nao 130-160 px), mascote como batida, cores por significado (verde ganho, vermelho perda, amarelo destaque, laranja marca).
-- **Fluxo**: narracao -> `ofurry-organizar-video` (trechos + plano aprovado) -> `ofurry-fazer-cenas` (beats.json -> HyperFrames -> MP4 + MOV alpha). O kit Remotion `src/house/` le o mesmo beats e fica para os trechos antigos.
+- **Fluxo**: narracao -> `ofurry-organizar-video` (trechos + plano aprovado) -> `ofurry-fazer-cenas` (beats.json -> HyperFrames -> MP4 pronto). O kit Remotion `src/house/` le o mesmo beats e fica para os trechos antigos.
 - **Icones**: Lucide (estatico) e Lucide Animated deterministico (`src/lucide-animated/`, `<AnimatedLucide>`).
+
+### 0.2 ⚠️ Musicas do Infraction: credito OBRIGATORIO na descricao
+- **Toda musica do canal Infraction** (inclusive as assinadas "Cold Cinema") mora em `D:\YT\!Assets\Musicas\Infraction - No Copyright Music\` e entra no `sons.json` como `@mus/Infraction - No Copyright Music/<arquivo>`. Nunca solta na raiz de `Musicas/`.
+- **Usou uma delas → a descricao do video no YouTube tem que ter**: nome da musica + link do YouTube dela + link de "remove claim" do inaudio.org. Sem isso o claim nao sai mais e o video perde a monetizacao. O link nunca sai da descricao.
+- Formato, passo a passo do inaudio e tabela de links: `D:\YT\!Assets\Musicas\Infraction - No Copyright Music\readme.md`. Ao escolher ou trocar musica, **avise o usuario disso explicitamente** e liste as musicas Infraction usadas no trecho.
+
+### 0.3 Render: video pronto, Full HD, sempre na placa de video (desde 17/11/2026)
+- **A entrega e o video pronto em MP4.** Nao gerar MOV com fundo transparente, WebM com alfa nem camadas/stems para editor (Filmora etc.): o render e a montagem acontecem todos aqui. `bun run hf:render <video> <XX>` gera so o MP4; `--alpha` existe para o caso raro de precisar sobrepor em gravacao.
+- **Sempre Full HD: 1920x1080.** Todo render e todo final saem nesse tamanho.
+- **Sempre na placa de video (RTX 3050)**: Chrome com GPU + NVENC, ja ligados por padrao no `hf:render`. `--cpu` so se a placa falhar, e avisando o usuario.
+- Esta secao vence as mencoes antigas a "Native Alpha Channel", ProRes 4444 e WebM mais abaixo, que descrevem o fluxo Remotion legado.
+- Boas praticas e historico: `D:\YT\Docs\INDEX.md` (ler antes de trabalhar num video).
+
+### 0.4 Padrao de edicao v2: o repo e a central de edicao (desde 20/11/2026)
+- **Porta de entrada: `INDEX.md`** (mapa do repo e dos assets do PC em `D:\YT\!Assets`; inventario pesquisavel em
+  `docs/assets/inventario.md`). **Gosto do Joao, com as palavras dele: `docs/preferencias-do-joao.md`** (vence regras
+  tecnicas antigas; atualize a cada retorno novo). Referencias de video: `referencias/README.md`.
+- Estilo: palco de icones no preto (icones que se movem e contracenam) como primeira opcao, piada relampago (~1 s),
+  graficos no preto para valores, mascote ANIMADO (loops .webm), nada de imagem gerada por IA.
+- **Como editamos um video OFurry**: `docs/padrao-edicao-ofurry.md` (estrutura que retem, ritmo, cenas de dados C1-C12,
+  som, fluxo "roteiro + audio -> render"). Decisao: `docs/ADR/ADR-007-padrao-edicao-v2.md`. Exemplo: `videos/177/`.
+- **Tempos por frase, nunca por segundo**: ancoras `"@frase"` no `beats.json` (`scripts/video/ancoras.ts`); trechos
+  com `de` no `video.json`. Regravou? `bun run video:sincronizar <id> --audio nova.wav` e `bun run video:produzir <id>`.
+- **Video inteiro**: `bun run video:produzir <id>` (build + render do que mudou + `video:montar`: narracao + trilha
+  continua + efeitos, -14 LUFS) -> `videos/<id>/final/<id>-final.mp4`.
+- **Numero falado errado**: a tela mostra o numero do briefing (`midia/revisao.json`) e a frase vai para a lista de
+  regravacao do Joao.
 
 ### 1. Act as the Diretor Orquestrador (`/director-orchestrator`)
 Whenever processing script narration or building motion scenes:

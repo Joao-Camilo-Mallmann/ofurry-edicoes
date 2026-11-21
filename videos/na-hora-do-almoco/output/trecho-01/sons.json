@@ -1,0 +1,138 @@
+{
+ "dur": 32.4,
+ "cues": [
+  {
+   "file": "@narr",
+   "at": 3,
+   "gain": 0
+  },
+  {
+   "file": "@sfx/Kitchen/Silverware Placed on Table 01.wav",
+   "at": 0.05,
+   "gain": -10
+  },
+  {
+   "file": "@sfx/General/-camera-shutter.wav",
+   "at": 4.4,
+   "len": 0.45,
+   "fadeIn": 0.01,
+   "fadeOut": 0.1,
+   "gain": -12
+  },
+  {
+   "file": "@sfx/Impacts/Impact (2).wav",
+   "at": 10.337,
+   "len": 2,
+   "fadeOut": 1.2,
+   "gain": -18,
+   "_alinhado": true
+  },
+  {
+   "file": "@sfx/Ambiente SFX/Windy Desert.mp3",
+   "at": 22.6,
+   "from": 40,
+   "len": 9.8,
+   "fadeIn": 1.5,
+   "gain": -18,
+   "fadeOut": 0.001
+  },
+  {
+   "id": "v8-baque",
+   "file": "@sfx/Office Supplies/Hard Cover Book Close Cover 02.wav",
+   "at": 18.78,
+   "gain": -6,
+   "fadeIn": 0.01,
+   "fadeOut": 0.2
+  },
+  {
+   "id": "v8-abertura",
+   "file": "@clipe/so-audio/clipe-so-audio.wav",
+   "at": 0,
+   "from": 0,
+   "len": 6,
+   "fadeIn": 0.05,
+   "fadeOut": 2.6,
+   "env": [
+    [
+     0,
+     -6
+    ],
+    [
+     2.9,
+     -5
+    ],
+    [
+     3.4,
+     -12
+    ],
+    [
+     6,
+     -18
+    ]
+   ]
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/Touching Moment - Wayne Jones(1).mp3",
+   "at": 3.2,
+   "from": 1.6,
+   "len": 29.2,
+   "fadeIn": 2.8,
+   "fadeOut": 0,
+   "env": [
+    [
+     3.2,
+     -20.86
+    ],
+    [
+     4.6,
+     -20.71
+    ],
+    [
+     7.6,
+     -18.86
+    ],
+    [
+     10.6,
+     -20.58
+    ],
+    [
+     13.6,
+     -21.88
+    ],
+    [
+     16.6,
+     -20
+    ],
+    [
+     19.6,
+     -20.31
+    ],
+    [
+     22.6,
+     -21.81
+    ],
+    [
+     25.6,
+     -21.09
+    ],
+    [
+     28.6,
+     -20.83
+    ],
+    [
+     31.34,
+     -21.38
+    ],
+    [
+     31.94,
+     -18.52
+    ],
+    [
+     32.4,
+     -18.65
+    ]
+   ]
+  }
+ ]
+}

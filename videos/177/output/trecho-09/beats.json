@@ -1,0 +1,46 @@
+{
+  "id": "177-trecho-09",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": {"maxWords": 2, "maxChars": 16},
+  "camera": [
+    {"at": "@porcentagem", "tipo": "tilt3d"},
+    {"at": "@não#2", "tipo": "punch"},
+    {"at": "@ponto de virada", "tipo": "punch"}
+  ],
+  "captions": [
+    {"from": "@perguntar-0.1", "until": "@o quanto-0.1", "entry": "pop", "y": 0.82},
+    {"from": "@hoje rende-0.1", "until": "@não só-0.1", "entry": "whip"},
+    {"from": "@eu vou chutar-0.1", "until": "@é não-0.1", "entry": "pop", "y": 0.72},
+    {"from": "@a distância-0.1", "until": "@desse ponto-0.1", "entry": "pop", "y": 0.8}
+  ],
+  "backdrops": [
+    {"at": 0, "backdrop": "black"},
+    {"at": "@o quanto", "backdrop": "grade-video"},
+    {"at": "@não só", "backdrop": "black"},
+    {"at": "@eu vou chutar", "backdrop": "stars"},
+    {"at": "@não#2", "backdrop": "black"}
+  ],
+  "sfx": [
+    {"at": "@o quanto", "file": "@sfx/General/Typewriter.mp3", "gain": -22, "len": 1.1, "fadeOut": 0.2},
+    {"at": "@hoje rende", "file": "@sfx/Foley/Coins in Hand 03.wav", "gain": -22, "len": 0.8, "fadeOut": 0.2},
+    {"at": "@o valor", "file": "@sfx/Foley/Coins in Hand 01.wav", "gain": -22, "len": 0.8, "fadeOut": 0.2},
+    {"at": "@porcentagem", "file": "@sfx/General/Pop sound.mp3", "gain": -22},
+    {"at": "@não#2", "file": "@sfx/General/Lose.wav", "gain": -24},
+    {"at": "@distância", "file": "@sfx/Mechanical/Switch 03.wav", "gain": -22},
+    {"at": "@virada", "file": "@sfx/General/Ding.mp3", "gain": -22}
+  ],
+  "beats": [
+    {"kind": "cena", "tipo": "palco", "at": "@inicio", "until": "@ou alguém", "atores": [{"id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{"at": "@inicio", "x": 0.5, "y": 0.42}, {"at": "@hoje você", "x": 0.25, "dur": 0.6}], "entra": "elastico"}, {"id": "duvida", "icone": "circle-help", "cor": "hl", "tam": 140, "keys": [{"at": "@perguntar", "x": 0.25, "y": 0.14}], "pulsaAt": ["@ou alguém"], "entra": "cair"}]},
+    {"kind": "broll", "at": "@ou alguém", "until": "@o quanto", "src": "../../acervo/broll/pessoa-digitando-celular.mp4", "entra": "whip", "zoom": [1.02, 1.14]},
+    {"kind": "type-on", "at": "@o quanto", "until": "@hoje rende-0.12", "text": "Quanto rende por mês?"},
+    {"kind": "broll", "at": "@hoje rende-0.12", "until": "@não só", "src": "../../acervo/broll/maos-contando-moedas.mp4", "entra": "zoom", "zoom": [1.08, 1.2]},
+    {"kind": "cena", "tipo": "palco", "at": "@não só", "until": "@eu vou chutar", "atores": [{"id": "pat", "icone": "wallet", "rotulo": "PATRIMÔNIO", "keys": [{"at": "@não só", "x": 0.5, "y": 0.42}], "pulsaAt": ["@o valor", "@porcentagem"], "entra": "girar"}, {"id": "valor", "icone": "banknote", "cor": "gain", "rotulo": "O VALOR", "keys": [{"at": "@o valor+0.5", "x": 0.18, "y": 0.42}], "entra": "cair"}, {"id": "pct", "icone": "badge-percent", "cor": "hl", "rotulo": "PORCENTAGEM", "keys": [{"at": "@porcentagem+0.5", "x": 0.82, "y": 0.42}], "entra": "elastico"}], "fluxos": [{"de": "pat", "para": "valor", "at": "@o valor", "ate": "@o valor+0.5", "icone": "banknote", "cor": "gain", "tam": 70, "por": 4}, {"de": "pat", "para": "pct", "at": "@porcentagem", "ate": "@porcentagem+0.5", "icone": "percent", "cor": "hl", "tam": 70, "por": 4}]},
+    {"kind": "mascot", "at": "@eu vou chutar", "until": "@não#2", "placement": "right-third", "poses": [{"at": "@eu vou chutar", "pose": "../../../../public/mascote/fox4.png"}], "entra": "giro"},
+    {"kind": "cena", "tipo": "palco", "at": "@não#2", "until": "@a distância", "atores": [{"id": "nao", "icone": "x", "cor": "loss", "tam": 300, "entra": "girar", "keys": [{"at": "@não#2", "x": 0.5, "y": 0.42}], "sai": "@bem provável", "saiComo": "explode"}, {"id": "voce", "icone": "user", "rotulo": "VOCÊ", "entra": "cair", "keys": [{"at": "@você nem", "x": 0.3, "y": 0.47}]}, {"id": "duvida", "icone": "circle-help", "cor": "hl", "tam": 150, "entra": "elastico", "keys": [{"at": "@nem saiba", "x": 0.3, "y": 0.17}, {"at": "@nem saiba+0.4", "x": 0.66, "y": 0.3, "dur": 0.6}], "arco": 0.15}]},
+    {"kind": "cena", "tipo": "foto3d", "at": "@a distância", "until": "@desse ponto", "src": "../../acervo/fotos3d/estrada-na-floresta-nevada.png", "depth": "../../acervo/fotos3d/depth/estrada-na-floresta-nevada-depth.png", "camera": [{"at": "@a distância", "zoom": 1.06, "py": 0.3}, {"at": "@a distância+0.01", "zoom": 1.3, "py": -0.25, "dur": 1.8}]},
+    {"kind": "cena", "tipo": "grafico", "at": "@desse ponto", "until": "@fim", "perspectiva": true, "modo": "rendimento", "meses": 132, "revela": [{"at": "@desse ponto", "mes": 0}, {"at": "@desse ponto+0.1", "mes": 124, "dur": 1.5}], "vista": [{"at": 0, "x": 132, "y": 1200}], "viradaTexto": "PONTO DE VIRADA", "rotuloCabeca": false},
+    {"kind": "cena", "tipo": "piada", "at": "@que você está", "until": "@que você está+1", "texto": "NEM O WAZE CALCULA ESSA", "dura": 0.9, "x": 0.5, "y": 0.33}
+  ]
+}

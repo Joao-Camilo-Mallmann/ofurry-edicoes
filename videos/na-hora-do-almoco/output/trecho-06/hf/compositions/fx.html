@@ -1,0 +1,32 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; pointer-events: none; }
+    #fx6-creme { position: absolute; inset: 0; background: #f6ecd6; opacity: 0; }
+    #fx6-branco { position: absolute; inset: 0; background: #ffffff; opacity: 0; }
+    #fx6-preto { position: absolute; inset: 0; background: #0e0c0a; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="fx" data-width="1920" data-height="1080">
+    <div id="fx6-camada" class="clip" data-start="0" data-duration="45.1" data-track-index="0" style="position:absolute;inset:0">
+      <div id="fx6-creme"></div>
+      <div id="fx6-branco"></div>
+      <div id="fx6-preto"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      // creme nas viradas e na rajada da familia
+      [7.3, 9.1, 18.8, 32.17, 32.6, 33.0, 33.4, 33.9, 35.0, 39.3].forEach(function (t, i) {
+        A.flash(tl, $('fx6-creme'), t, { pico: t === 9.1 ? 0.3 : (i >= 3 && i <= 7) ? 0.75 : 0.55, dur: (i >= 3 && i <= 7) ? 0.1 : 0.22 });
+      });
+      // branco forte nas pancadas
+      [2.24, 13.69, 15.69, 29.05, 42.97].forEach(function (t) { A.flash(tl, $('fx6-branco'), t, { pico: 0.6, dur: 0.18 }); });
+      // abre do preto e fecha no preto
+      tl.fromTo($('fx6-preto'), { opacity: 1 }, { opacity: 0, duration: 0.5, ease: 'power2.out' }, 0);
+      tl.to($('fx6-preto'), { opacity: 1, duration: 0.6, ease: 'power2.in' }, 44.5);
+      window.__timelines['fx'] = tl;
+    })();
+  </script>
+</template>

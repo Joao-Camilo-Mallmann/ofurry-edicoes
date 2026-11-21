@@ -1,5 +1,5 @@
 {
-  "name": "ofurry-motion",
+  "name": "ofurry-edicoes",
   "version": "1.0.0",
   "description": "Motion Design para o canal do OFurry powered by Remotion & Bun",
   "private": true,
@@ -21,12 +21,20 @@
     "render:house": "remotion render src/index.ts",
     "hf:build": "bun run scripts/hf/build-trecho.ts",
     "hf:render": "bun run scripts/hf/render-trecho.ts",
+    "hf:studio": "bun run scripts/hf/studio-trecho.ts",
     "video:novo": "bun run scripts/video/novo-video.ts",
     "video:transcrever": "bun run scripts/video/transcrever.ts",
     "video:buscar": "bun run scripts/video/buscar.ts",
     "video:cortar": "bun run scripts/video/cortar-trecho.ts",
     "video:status": "bun run scripts/video/status.ts",
-    "skills:link": "bun run scripts/link-skills.ts"
+    "video:dividir": "bun run scripts/video/dividir.ts",
+    "video:sincronizar": "bun run scripts/video/sincronizar.ts",
+    "video:montar": "bun run scripts/video/montar.ts",
+    "broll:preparar": "bun run scripts/video/broll.ts",
+    "video:produzir": "bun run scripts/video/produzir.ts",
+    "skills:link": "bun run scripts/link-skills.ts",
+    "assets:inventario": "bun run scripts/assets-inventario.ts",
+    "assets:overlays": "bun run scripts/assets-overlays.ts"
   },
   "dependencies": {
     "@fontsource/archivo-black": "^5.3.0",

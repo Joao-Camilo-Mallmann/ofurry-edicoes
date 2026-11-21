@@ -16,6 +16,7 @@ export interface TrechoInfo {
   inicio: number; // segundos na narracao completa
   fim: number;
   bloco?: string; // bloco do roteiro
+  de?: string; // frase que abre o trecho (video:sincronizar recorta por ela quando a narracao muda)
 }
 export interface VideoManifest {
   id: string;

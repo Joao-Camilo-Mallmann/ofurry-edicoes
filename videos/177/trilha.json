@@ -1,0 +1,51 @@
+{
+  "nota": "Musicas da biblioteca de audio do YouTube (sem credito obrigatorio). Uma curva so: cada faixa comeca no trecho indicado e emenda na proxima com crossfade. Nenhuma faixa precisa de loop (todas cabem no pedaco).",
+  "abaixoDaVoz": 21,
+  "xfade": 6,
+  "faixas": [
+    {
+      "file": "@mus/Auckland - VYEN.mp3",
+      "desde": "trecho-01",
+      "from": 0
+    },
+    {
+      "file": "@mus/Yacoby - Schwartzy.mp3",
+      "desde": "trecho-04",
+      "from": 0
+    },
+    {
+      "file": "@mus/Foggy - Nat Keefe.mp3",
+      "desde": "trecho-08",
+      "from": 0
+    },
+    {
+      "file": "@mus/Touching Moment - Wayne Jones(1).mp3",
+      "desde": "trecho-11",
+      "from": 0
+    },
+    {
+      "file": "@mus/No.10 _A New Beginning - Esther Abrami.mp3",
+      "desde": "trecho-13",
+      "from": 0
+    },
+    {
+      "file": "@mus/Auckland - VYEN.mp3",
+      "desde": "trecho-16",
+      "from": 0
+    },
+    {
+      "file": "@mus/Yacoby - Schwartzy.mp3",
+      "desde": "trecho-19",
+      "from": 0
+    }
+  ],
+  "final": {
+    "trecho": "trecho-21",
+    "corteEm": "@Bom eu sou-0.3",
+    "entraEm": "@aí>+0.5",
+    "musica": "@mus/Infraction - No Copyright Music/Cinematic Classical Orchestra Dark Epic Trailer by Cold Cinema [No Copyright Music] ⧸ Emergence.mp4",
+    "from": 120,
+    "nivel": -17,
+    "nota": "padrao do canal: voz pura na assinatura, musica dramatica na tela final (Joao, 21/11/2026). Infraction = credito obrigatorio na descricao."
+  }
+}

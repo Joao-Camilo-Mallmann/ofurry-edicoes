@@ -1,0 +1,34 @@
+<template>
+  <style>
+    @font-face { font-family: 'Maquina'; src: url('assets/fonts/special-elite-latin.woff2') format('woff2'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'Caveat'; src: url('assets/fonts/caveat-latin.woff2') format('woff2'); font-weight: 400 700; font-display: block; }
+    #root { position: absolute; inset: 0; }
+    #fo10 { position: absolute; inset: 0; opacity: 0; }
+    #fo10-cena { position: absolute; inset: 0; }
+  </style>
+  <div id="root" data-composition-id="folha" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <!-- "que todos estejam bem": a folha inteira, com todas as marcas do video, a camera se afasta devagar -->
+    <div id="fo10"><div id="fo10-cena"></div></div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      A.fontes().then(function () {
+        var F = A.folhaPalco($('fo10-cena'), window.LETRA, { tilt: 14, giro: -2, zoomInicial: 0.5 });
+        var fim = F.acha('Coisa parecida');
+        F.camera(tl, 0, 0.05, fim.linha, { zoom: 1.3, oy: -20, tilt: 6, giro: -1, ease: 'none' });
+        tl.set($('fo10'), { opacity: 0 }, 0);
+        tl.fromTo($('fo10'), { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'sine.out' }, 34.3);
+        // do ultimo verso ate a folha inteira anotada
+        F.camera(tl, 34.5, 2.4, null, { zoom: 0.5, tilt: 14, giro: -2, ease: 'power2.inOut' });
+        F.tremor(tl, 51.6, 0.8);
+        A.marcasAte(tl, F, 'trecho-10');
+        tl.to($('fo10'), { opacity: 0, duration: 0.4, ease: 'sine.in' }, 36.65);
+        tl.set({}, {}, 51.6);
+        window.__timelines['folha'] = tl;
+      });
+    })();
+  </script>
+</template>

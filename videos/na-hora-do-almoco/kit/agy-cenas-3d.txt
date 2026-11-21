@@ -1,0 +1,21 @@
+Gere 6 imagens com o subagente image-generator (pode rodar 2 ou 3 em paralelo, não todas juntas, para não estourar o limite) para CENAS 3D de um vídeo sobre a música Na Hora do Almoço (Belchior, 1974). Elas serão animadas com câmera 3D a partir de um mapa de profundidade, então cada imagem PRECISA ter três planos bem separados: um objeto em primeiro plano muito perto da câmera (grande, nítido), um plano médio e um fundo bem distante. Perspectiva profunda, lente grande-angular, ponto de vista baixo.
+
+Salve CADA imagem final, em PNG, exatamente com o nome indicado, na pasta:
+D:\YT\Matheus (Alves)\hora do armoco\06-montagem\assets\agy\
+
+ESTILO OBRIGATÓRIO:
+- Fotograma de filme brasileiro de 1974 em 16 mm: grão de filme, cores desbotadas, contraste baixo, pretos levemente lavados. Nada de nitidez exagerada, HDR ou brilho plástico: não pode ter cara de imagem de IA.
+- Paleta: branco do sal e de paredes caiadas, azul de céu desbotado, madeira marrom gasta, toques de amarelo-mostarda.
+- Clima melancólico e silencioso, luz natural.
+- 16:9 paisagem, alta resolução. Sem texto, letras, números, logotipos ou marcas. Sem rostos em close (pessoas só de costas ou de longe).
+- Referência de clima e cor (leia): D:\YT\Matheus (Alves)\hora do armoco\06-montagem\assets\agy\A1-mesa-no-sal.png
+
+LISTA:
+A31-3d-copo-mesa-sal.png: um copo de barro e um prato com talheres em primeiríssimo plano na borda da mesa, rente à madeira; no plano médio o resto da mesa posta e as cadeiras vazias; ao fundo, o deserto de sal branco e o horizonte com céu enorme.
+A32-3d-cadeira-horizonte.png: o encosto de uma cadeira de espaldar alto entalhada ocupando o lado esquerdo em primeiro plano, bem perto; ao fundo, muito longe e pequena, a mesa de almoço com a família sentada no deserto de sal.
+A33-3d-cortina-janela.png: cortina de renda desbotada em primeiro plano, perto da câmera, pela janela aberta se vê no plano médio a mesa de almoço posta dentro de uma sala simples, e ao fundo uma porta aberta para o quintal com luz forte.
+A34-3d-radio-janela.png: rádio de válvula antigo de madeira em primeiro plano no parapeito de uma janela, grande e nítido; no plano médio a moldura da janela; ao fundo, uma rua de terra de cidade do interior ao meio-dia, casas baixas.
+A35-3d-vinil-sala.png: um disco de vinil girando na vitrola em primeiro plano, ângulo baixo rente ao disco, a agulha perto da câmera; ao fundo, desfocada, uma sala de família dos anos 70 com sofá e mesa.
+A36-3d-corredor-portas.png: um corredor muito longo de casa antiga com várias portas fechadas dos dois lados, um batente de porta em primeiro plano bem perto; no fim do corredor, longe, uma janela com luz forte e a silhueta pequena de alguém sentado sozinho.
+
+Ao final, liste os caminhos salvos, um por linha, e diga se algum falhou e por quê.

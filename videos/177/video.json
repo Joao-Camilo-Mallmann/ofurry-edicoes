@@ -1,0 +1,176 @@
+{
+  "id": "177",
+  "titulo": "177 mil: o ponto de virada",
+  "trechos": [
+    {
+      "id": "trecho-01",
+      "titulo": "Gancho: o número antes do milhão",
+      "inicio": 0,
+      "fim": 36.64,
+      "bloco": "GANCHO",
+      "de": "É incrível como todo mundo sempre persegue"
+    },
+    {
+      "id": "trecho-02",
+      "titulo": "100 mil ou 1 milhão? É o 177",
+      "inicio": 36.64,
+      "fim": 84.19,
+      "bloco": "CONTEXTUALIZAÇÃO",
+      "de": "Mas antes pensa aqui comigo"
+    },
+    {
+      "id": "trecho-03",
+      "titulo": "A fase chata: R$ 5 de rendimento",
+      "inicio": 84.19,
+      "fim": 126.48,
+      "bloco": "O PROBLEMA",
+      "de": "Enquanto a maioria das"
+    },
+    {
+      "id": "trecho-04",
+      "titulo": "Os primeiros aportes importam",
+      "inicio": 126.48,
+      "fim": 155.4,
+      "bloco": "O PROBLEMA",
+      "de": "E é por isso que a maioria"
+    },
+    {
+      "id": "trecho-05",
+      "titulo": "Einstein e a massa mínima",
+      "inicio": 155.4,
+      "fim": 180.49,
+      "bloco": "AS CAUSAS",
+      "de": "E essa data existe por um motivo"
+    },
+    {
+      "id": "trecho-06",
+      "titulo": "A conta: 0,56% ao mês",
+      "inicio": 180.49,
+      "fim": 224.49,
+      "bloco": "AS CAUSAS",
+      "de": "Tá, mas beleza"
+    },
+    {
+      "id": "trecho-07",
+      "titulo": "A balança vira: a máquina liga",
+      "inicio": 224.49,
+      "fim": 270.82,
+      "bloco": "CONSEQUÊNCIAS",
+      "de": "E realmente é só quando a balança vira"
+    },
+    {
+      "id": "trecho-08",
+      "titulo": "O erro: medir pelo número redondo",
+      "inicio": 270.82,
+      "fim": 320.11,
+      "bloco": "O ERRO DA MAIORIA",
+      "de": "E o maior erro é que normalmente"
+    },
+    {
+      "id": "trecho-09",
+      "titulo": "Quanto o seu patrimônio rende?",
+      "inicio": 320.11,
+      "fim": 340.11,
+      "bloco": "PERGUNTA AO ESPECTADOR",
+      "de": "E se por algum acaso hoje você"
+    },
+    {
+      "id": "trecho-10",
+      "titulo": "A simulação: mês 2 e ano 1",
+      "inicio": 340.11,
+      "fim": 386.7,
+      "bloco": "A JORNADA DOS 10 ANOS",
+      "de": "Vamos fazer aqui um exercício"
+    },
+    {
+      "id": "trecho-11",
+      "titulo": "Anos 2 a 5: a base",
+      "inicio": 386.7,
+      "fim": 455.19,
+      "bloco": "A JORNADA DOS 10 ANOS",
+      "de": "E assim vai aparecer"
+    },
+    {
+      "id": "trecho-12",
+      "titulo": "Mês 73, mês 80, mês 120",
+      "inicio": 455.19,
+      "fim": 495.62,
+      "bloco": "A JORNADA DOS 10 ANOS",
+      "de": "E lembrando que a gente está simulando"
+    },
+    {
+      "id": "trecho-13",
+      "titulo": "177 = 123 do bolso + 54 de juros",
+      "inicio": 495.62,
+      "fim": 539.1,
+      "bloco": "A JORNADA DOS 10 ANOS",
+      "de": "Tá e beleza, vamos analisar"
+    },
+    {
+      "id": "trecho-14",
+      "titulo": "Não depende do aporte: é o calendário",
+      "inicio": 539.1,
+      "fim": 574.67,
+      "bloco": "A JORNADA DOS 10 ANOS",
+      "de": "E repara só, esse prazo"
+    },
+    {
+      "id": "trecho-15",
+      "titulo": "A solução: começar e esperar",
+      "inicio": 574.67,
+      "fim": 623.24,
+      "bloco": "A SOLUÇÃO",
+      "de": "Então, se o que decide tudo hoje"
+    },
+    {
+      "id": "trecho-16",
+      "titulo": "Passo 1: quanto rende hoje",
+      "inicio": 623.24,
+      "fim": 666.275,
+      "bloco": "COMO APLICAR",
+      "de": "Na prática é bem simples"
+    },
+    {
+      "id": "trecho-17",
+      "titulo": "Passos 2 e 3: manter e prever",
+      "inicio": 666.275,
+      "fim": 707.75,
+      "bloco": "COMO APLICAR",
+      "de": "E segundo, e é extremamente importante"
+    },
+    {
+      "id": "trecho-18",
+      "titulo": "Seu número mágico: aporte x 177",
+      "inicio": 707.75,
+      "fim": 728.725,
+      "bloco": "SEU NÚMERO MÁGICO",
+      "de": "E olha, se você foi muito preguiçoso"
+    },
+    {
+      "id": "trecho-19",
+      "titulo": "Depois da virada",
+      "inicio": 728.725,
+      "fim": 766.58,
+      "bloco": "BENEFÍCIOS",
+      "de": "E aí vai a lógica"
+    },
+    {
+      "id": "trecho-20",
+      "titulo": "O milhão, de volta",
+      "inicio": 766.58,
+      "fim": 812.65,
+      "bloco": "O MILHÃO, DE VOLTA",
+      "de": "Só que pra não terminar o vídeo aqui"
+    },
+    {
+      "id": "trecho-21",
+      "titulo": "CTA e próximo vídeo",
+      "inicio": 812.65,
+      "fim": 852.135,
+      "bloco": "CTA",
+      "de": "E olha, se esse número não tão aleatório"
+    }
+  ],
+  "narracao": "midia/narracao.wav",
+  "transcricao": "midia/transcricao.json"
+}

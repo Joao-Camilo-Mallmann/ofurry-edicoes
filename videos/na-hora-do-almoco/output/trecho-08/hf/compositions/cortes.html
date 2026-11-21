@@ -1,0 +1,58 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #c8-palco { position: absolute; inset: 0; }
+    #root .vw { position: absolute; inset: 0; overflow: hidden; }
+    #root .vid { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; object-position: 50% 32%; }
+    #c8-inv { position: absolute; inset: 0; background: #fff; mix-blend-mode: difference; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="cortes" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div id="c8-palco">
+      <!-- Belchior canta sobre -->
+      <div id="w8a" class="vw"><video id="c8-va" class="clip vid" src="assets/video/clipe.mp4" data-start="0" data-duration="3.4" data-media-start="124.3" data-track-index="0" muted playsinline></video></div>
+      <!-- dificuldade de expressar -->
+      <div id="w8b" class="vw"><video id="c8-vb" class="clip vid" src="assets/video/clipe.mp4" data-start="3.4" data-duration="3.0" data-media-start="80.5" data-playback-rate="0.8" data-track-index="1" muted playsinline></video></div>
+      <!-- 6.4-8.6: a folha (se comunicar com os parentes) -->
+      <!-- as brigas / harmonia e paz -->
+      <div id="w8f" class="vw"><video id="c8-vf" class="clip vid" src="assets/video/clipe.mp4" data-start="8.6" data-duration="2.3" data-media-start="123.4" data-playback-rate="0.38" data-track-index="5" muted playsinline></video></div>
+      <div id="w8g" class="vw"><video id="c8-vg" class="clip vid" src="assets/video/clipe.mp4" data-start="10.9" data-duration="2.1" data-media-start="6" data-playback-rate="0.8" data-track-index="6" muted playsinline></video></div>
+      <!-- a opressao de um lugar -->
+      <div id="w8h" class="vw"><video id="c8-vh" class="clip vid" src="assets/video/clipe.mp4" data-start="13.0" data-duration="2.4" data-media-start="20" data-track-index="7" muted playsinline></video></div>
+      <!-- 15.4-18.6: cartao preto (segredos / magoas / angustias) -->
+      <!-- canta sobre jovens -->
+      <div id="w8l" class="vw"><video id="c8-vl" class="clip vid" src="assets/video/clipe.mp4" data-start="18.6" data-duration="2.6" data-media-start="93" data-track-index="11" muted playsinline></video></div>
+      <!-- dor -->
+      <div id="w8m" class="vw"><video id="c8-vm" class="clip vid" src="assets/video/clipe.mp4" data-start="27.0" data-duration="2.9" data-media-start="46" data-track-index="12" muted playsinline></video></div>
+      <!-- 29.9-31.8: cartao preto (perdas / brigas) -->
+      <div id="w8p" class="vw"><video id="c8-vp" class="clip vid" src="assets/video/clipe.mp4" data-start="31.8" data-duration="2.8" data-media-start="100" data-track-index="15" muted playsinline></video></div>
+      <!-- obriga o individuo a se guardar -->
+      <div id="w8q" class="vw"><video id="c8-vq" class="clip vid" src="assets/video/clipe.mp4" data-start="34.6" data-duration="2.9" data-media-start="135" data-playback-rate="0.6" data-track-index="16" muted playsinline></video></div>
+      <div id="c8-inv"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      [['w8a', 0, 1.1], ['w8b', 3.4, 1.14], ['w8f', 8.6, 1.25], ['w8g', 10.9, 1.12], ['w8h', 13.0, 1.18], ['w8l', 18.6, 1.15],
+       ['w8m', 27.0, 1.15], ['w8p', 31.8, 1.2], ['w8q', 34.6, 1.15]]
+        .forEach(function (c) { A.soco(tl, $(c[0]), c[1], c[2], 1.04, 0.32); });
+      tl.to($('w8a'), { scale: 1.12, duration: 3.0, ease: 'sine.inOut' }, 0.35);
+      tl.to($('w8b'), { scale: 1.12, duration: 2.6, ease: 'sine.inOut' }, 3.75);
+      tl.to($('w8f'), { scale: 1.14, duration: 2.0, ease: 'sine.inOut' }, 8.95);
+      tl.to($('w8g'), { scale: 1.1, duration: 1.8, ease: 'sine.inOut' }, 11.2);
+      tl.to($('w8h'), { scale: 0.98, duration: 2.1, ease: 'sine.inOut' }, 13.3);
+      tl.to($('w8l'), { scale: 1.14, duration: 2.3, ease: 'sine.inOut' }, 18.95);
+      tl.to($('w8m'), { scale: 1.14, duration: 2.6, ease: 'sine.inOut' }, 27.3);
+      tl.to($('w8p'), { scale: 1.16, duration: 2.5, ease: 'sine.inOut' }, 32.1);
+      tl.to($('w8q'), { scale: 1.12, duration: 2.6, ease: 'sine.inOut' }, 34.9);
+      // BRIGAS: inversao + tremida (mesma semente da camada de textos)
+      [8.72, 31.19].forEach(function (t) { A.inverte(tl, $('c8-inv'), t, 2); });
+      A.treme(tl, $('c8-palco'), 8.72, 0.32, 16, 81);
+      A.treme(tl, $('c8-palco'), 31.19, 0.3, 14, 82);
+      tl.set({}, {}, 44.6);
+      window.__timelines['cortes'] = tl;
+    })();
+  </script>
+</template>

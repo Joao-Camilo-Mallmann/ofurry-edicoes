@@ -1,0 +1,133 @@
+{
+ "dur": 51.6,
+ "cues": [
+  {
+   "file": "@narr",
+   "at": 0,
+   "gain": 0
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Pencil 01.wav",
+   "at": 5.46,
+   "len": 0.9,
+   "fadeOut": 0.2,
+   "gain": -15
+  },
+  {
+   "file": "@sfx/Ambiente SFX/Windy Desert.mp3",
+   "at": 13.45,
+   "from": 20,
+   "len": 9.45,
+   "fadeIn": 0.8,
+   "fadeOut": 0.8,
+   "gain": -24
+  },
+  {
+   "file": "@sfx/Kitchen/Silverware Placed on Table 01.wav",
+   "at": 37.1,
+   "gain": -16
+  },
+  {
+   "file": "@sfx/Office Supplies/Paper Rustle.wav",
+   "at": 34.3,
+   "len": 1,
+   "fadeIn": 0.1,
+   "fadeOut": 0.4,
+   "gain": -18
+  },
+  {
+   "file": "@sfx/Office Supplies/Pen Cap Closed 02.wav",
+   "at": 43.98,
+   "gain": -22
+  },
+  {
+   "file": "@sfx/Office Supplies/Pen Cap Closed 01.wav",
+   "at": 45.78,
+   "gain": -18
+  },
+  {
+   "file": "@clipe/trechos/07-coisa-parecida-audio.wav",
+   "at": 43.3,
+   "from": 28.8,
+   "len": 8.3,
+   "fadeIn": 1.5,
+   "fadeOut": 2.8,
+   "gain": -9
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/No.10 _A New Beginning - Esther Abrami.mp3",
+   "at": 0,
+   "from": 41.26,
+   "len": 44.5,
+   "fadeIn": 0,
+   "fadeOut": 2.5,
+   "env": [
+    [
+     0,
+     -26.86
+    ],
+    [
+     0.74,
+     -26.48
+    ],
+    [
+     3.74,
+     -27.59
+    ],
+    [
+     6.74,
+     -27.92
+    ],
+    [
+     9.74,
+     -27.06
+    ],
+    [
+     12.74,
+     -27.41
+    ],
+    [
+     18.74,
+     -28.9
+    ],
+    [
+     21.74,
+     -28.45
+    ],
+    [
+     24.74,
+     -25.77
+    ],
+    [
+     27.74,
+     -24.7
+    ],
+    [
+     30.74,
+     -25.94
+    ],
+    [
+     36.74,
+     -26.43
+    ],
+    [
+     40.62,
+     -24.09
+    ],
+    [
+     41.22,
+     -20.66
+    ],
+    [
+     42.74,
+     -19.58
+    ],
+    [
+     44.5,
+     -20.26
+    ]
+   ]
+  }
+ ]
+}

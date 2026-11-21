@@ -1,0 +1,31 @@
+{
+  "dur": 19.3,
+  "cues": [
+    { "file": "@narr", "at": 0, "gain": 0 },
+
+    { "file": "@camadas/hora-do-almoco-sincronizado.wav", "at": 0, "from": 142.9, "len": 19.3, "fadeOut": 0.8, "gain": 0 },
+
+    { "file": "@sfx/Ambiente SFX/Windy Desert.mp3", "at": 0, "from": 90, "len": 7.4, "fadeIn": 0.8, "fadeOut": 0.6, "gain": -27 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 1.6, "gain": -17 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 4.48, "gain": -18 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 5.28, "gain": -18 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 6.16, "gain": -16 },
+
+    { "file": "@sw/2. Whoosh Swoosh.wav", "at": 7.22, "gain": -17 },
+    { "file": "@sfx/Impacts/Impact (2).wav", "at": 7.52, "len": 1.4, "fadeOut": 0.8, "gain": -17 },
+    { "file": "@sfx/Kitchen/Silverware Movement 03.wav", "at": 7.6, "gain": -20 },
+    { "file": "@sw/3. Whoosh Swoosh.wav", "at": 9.38, "gain": -17 },
+    { "file": "@sfx/Impacts/Impact (2).wav", "at": 9.92, "len": 1.4, "fadeOut": 0.8, "gain": -17 },
+    { "file": "@sfx/Kitchen/Glass Put Down and Slide.wav", "at": 9.9, "len": 1.0, "fadeOut": 0.4, "gain": -22 },
+    { "file": "@sw/5. Whoosh Swoosh.wav", "at": 11.38, "gain": -17 },
+    { "file": "@sfx/Impacts/Impact (2).wav", "at": 11.92, "len": 1.4, "fadeOut": 0.8, "gain": -17 },
+    { "file": "@sfx/Kitchen/Silverware Placed on Table 01.wav", "at": 12.0, "gain": -21 },
+    { "file": "@sw/6. Whoosh Swoosh.wav", "at": 14.74, "gain": -17 },
+    { "file": "@sfx/Impacts/Impact (2).wav", "at": 15.28, "len": 1.4, "fadeOut": 0.8, "gain": -17 },
+    { "file": "@sfx/Kitchen/Plates Staightening Up.wav", "at": 15.3, "len": 1.0, "fadeOut": 0.4, "gain": -22 },
+
+    { "file": "@sw/10. Whoosh Swoosh.wav", "at": 17.25, "gain": -19 },
+    { "file": "@sw/11. Whoosh Swoosh.wav", "at": 17.55, "gain": -19 },
+    { "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav", "at": 17.96, "gain": -15 }
+  ]
+}

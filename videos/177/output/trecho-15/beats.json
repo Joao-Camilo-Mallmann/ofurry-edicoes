@@ -1,0 +1,67 @@
+{
+  "id": "177-trecho-15",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": {"maxWords": 2, "maxChars": 16},
+  "camera": [
+    {"at": "@ou nenhuma", "tipo": "shake"},
+    {"at": "@a gente tem que", "tipo": "punch"},
+    {"at": "@7%", "tipo": "punch"},
+    {"at": "@177", "tipo": "punch"}
+  ],
+  "captions": [
+    {"from": "@a solução-0.1", "until": "@ser nenhum-0.1", "entry": "pop", "y": 0.72},
+    {"from": "@ser nenhum-0.1", "until": "@ou nenhuma-0.1", "entry": "whip"},
+    {"from": "@nessa caminhada-0.1", "until": "@perseguir-0.1", "entry": "pop", "y": 0.8},
+    {"from": "@E para quem-0.1", "until": "@todos os meses-0.1", "entry": "whip"},
+    {"from": "@esse número mágico-0.1", "until": "@é o 177-0.1", "entry": "whip"},
+    {"from": "@realidade vai-0.1", "until": "@calcular-0.1", "entry": "pop", "y": 0.72}
+  ],
+  "backdrops": [
+    {"at": 0, "backdrop": "black"},
+    {"at": "@a solução", "backdrop": "grade-video"},
+    {"at": "@nenhum produto", "backdrop": "black"},
+    {"at": "@começar", "backdrop": "stars"},
+    {"at": "@Só que pra isso", "backdrop": "black"},
+    {"at": "@Ou qual", "backdrop": "stars"},
+    {"at": "@todos os meses", "backdrop": "black"},
+    {"at": "@esse número mágico", "backdrop": "grade-video"},
+    {"at": "@o 177", "backdrop": "black"},
+    {"at": "@realidade vai", "backdrop": "grade-video"},
+    {"at": "@calcular", "backdrop": "black"}
+  ],
+  "sfx": [
+    {"at": "@ou nenhuma", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
+    {"at": "@que o mercado", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
+    {"at": "@esconde", "file": "@sfx/Mechanical/Gadget 02.wav", "gain": -22, "len": 0.8, "fadeOut": 0.3},
+    {"at": "@começar", "file": "@sfx/General/Click.wav", "gain": -20},
+    {"at": "@manter a", "file": "@sfx/General/Click.wav", "gain": -20},
+    {"at": "@esperar", "file": "@sfx/General/Click.wav", "gain": -20},
+    {"at": "@aonde você está", "file": "@sfx/General/Pop sound.mp3", "gain": -22},
+    {"at": "@a gente tem que", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4},
+    {"at": "@aportar por você", "file": "@sfx/Foley/Coins in Hand 02.wav", "gain": -22, "len": 1.0},
+    {"at": "@177", "file": "@sfx/General/Digital counting.mp3", "gain": -24, "len": 0.9, "fadeOut": 0.2},
+    {"at": "@177 mil>", "file": "@sfx/General/correct sfx.mp3", "gain": -20}
+  ],
+  "beats": [
+    {"kind": "cena", "tipo": "palco", "at": "@inicio", "until": "@a solução", "atores": [{"id": "cal", "icone": "calendar-days", "cor": "hl", "tam": 280, "balanca": false, "keys": [{"at": "@inicio", "x": 0.5, "y": 0.4}, {"at": "@decide tudo", "s": 1.15, "dur": 0.4}], "pulsaAt": ["@calendário"], "entra": "cair"}], "textos": [{"at": "@decide tudo", "ate": "@o calendário", "texto": "O QUE DECIDE TUDO", "x": 0.5, "y": 0.82, "tam": 64}, {"at": "@o calendário", "texto": "O CALENDÁRIO", "x": 0.5, "y": 0.82, "tam": 72, "cor": "hl"}]},
+    {"kind": "mascot", "at": "@a solução", "until": "@nenhum produto", "placement": "left-third", "poses": [{"at": "@a solução", "pose": "../../../../public/mascote/fox2.png"}, {"at": "@Não vai ser", "pose": "../../../../public/mascote/fox1.png"}], "entra": "lado"},
+    {"kind": "cena", "tipo": "palco", "at": "@ou nenhuma", "until": "@começar", "atores": [{"id": "prod", "icone": "sparkles", "cor": "hl", "tam": 220, "rotulo": "PRODUTO MILAGROSO", "entra": "cair", "keys": [{"at": "@ou nenhuma", "x": 0.22, "y": 0.42}, {"at": "@esconde", "x": 0.5, "y": 0.47, "s": 0.3, "o": 0, "dur": 0.6}], "riscaAt": "@ou nenhuma+0.35", "sai": "@esconde+0.5", "saiComo": "encolhe"}, {"id": "form", "icone": "lock", "tam": 220, "rotulo": "FÓRMULA SECRETA", "keys": [{"at": "@fórmula", "x": 0.78, "y": 0.42}, {"at": "@esconde", "x": 0.5, "y": 0.47, "s": 0.3, "o": 0, "dur": 0.6}], "riscaAt": "@que o mercado", "sai": "@esconde+0.5", "entra": "girar", "saiComo": "encolhe"}, {"id": "merc", "icone": "landmark", "tam": 260, "rotulo": "MERCADO", "entra": "rise", "keys": [{"at": "@o mercado", "x": 0.5, "y": 0.45}], "pulsaAt": ["@esconde+0.6"]}]},
+    {"kind": "broll", "at": "@nenhum produto", "until": "@ou nenhuma", "src": "../../acervo/broll/rolando-pagina-de-vendas.mp4", "entra": "flash", "zoom": [1.0, 1.12]},
+    {"kind": "cena", "tipo": "piada", "at": "@secreta", "until": "@esconde", "texto": "SÓ R$ 997 NO CURSO VIP", "dura": 0.7, "x": 0.42, "y": 0.84},
+    {"kind": "cena", "tipo": "lista", "at": "@começar", "until": "@Só que pra isso", "itens": [{"at": "@começar", "n": "1", "texto": "COMEÇAR"}, {"at": "@manter a", "n": "2", "texto": "MANTER"}, {"at": "@esperar", "n": "3", "texto": "ESPERAR"}]},
+    {"kind": "cena", "tipo": "palco", "at": "@Só que pra isso", "until": "@nessa caminhada", "atores": [{"id": "voce", "icone": "user", "tam": 200, "rotulo": "VOCÊ", "keys": [{"at": "@Só que pra isso", "x": 0.12, "y": 0.5}, {"at": "@você precisa", "x": 0.38, "dur": 1.0}], "entra": "elastico"}, {"id": "pegadas", "icone": "footprints", "cor": "whisper", "tam": 120, "keys": [{"at": "@você precisa+0.6", "x": 0.2, "y": 0.62}]}, {"id": "pin", "icone": "map-pin", "cor": "info", "tam": 150, "keys": [{"at": "@aonde você está", "x": 0.38, "y": 0.2}], "pulsaAt": ["@você está"], "entra": "cair"}, {"id": "meta", "icone": "flag", "cor": "hl", "tam": 220, "keys": [{"at": "@você está", "x": 0.85, "y": 0.47}], "entra": "girar"}], "setas": [{"de": "voce", "para": "meta", "at": "@você está", "cor": "text"}], "textos": [{"at": "@aonde você está", "texto": "ONDE VOCÊ ESTÁ?", "x": 0.5, "y": 0.85, "tam": 64, "cor": "info"}]},
+    {"kind": "cena", "tipo": "palco", "at": "@perseguir", "until": "@Ou qual", "atores": [{"id": "voce", "icone": "user", "tam": 200, "rotulo": "VOCÊ", "keys": [{"at": "@perseguir", "x": 0.2, "y": 0.5}, {"at": "@perseguir+0.05", "x": 0.42, "dur": 1.8}, {"at": "@mirar", "x": 0.22, "dur": 0.6}], "entra": "elastico"}, {"id": "trofeu", "icone": "trophy", "cor": "hl", "tam": 220, "rotulo": "1 MILHÃO", "keys": [{"at": "@perseguir", "x": 0.6, "y": 0.45}, {"at": "@perseguir+0.3", "x": 0.84, "dur": 1.6}], "riscaAt": "@a gente tem que", "sai": "@mirar", "entra": "elastico", "saiComo": "explode", "arco": 0.15}, {"id": "alvo", "icone": "target", "cor": "hl", "tam": 280, "keys": [{"at": "@mirar", "x": 0.72, "y": 0.45}], "pulsaAt": ["@diferença"], "entra": "girar"}], "setas": [{"de": "voce", "para": "alvo", "at": "@mirar+0.2", "cor": "hl"}], "textos": [{"at": "@número redondo", "ate": "@a gente tem que", "texto": "NÚMERO REDONDO", "x": 0.5, "y": 0.85, "tam": 60}, {"at": "@fazer diferença", "texto": "FAZ DIFERENÇA", "x": 0.5, "y": 0.85, "tam": 64, "cor": "hl"}]},
+    {"kind": "cena", "tipo": "foto3d", "at": "@nessa caminhada", "until": "@perseguir", "src": "../../acervo/fotos3d/familia-caminhando-natureza.png", "depth": "../../acervo/fotos3d/depth/familia-caminhando-natureza-depth.png", "camera": [{"at": "@nessa caminhada", "zoom": 1.08, "px": -0.45}, {"at": "@nessa caminhada+0.01", "zoom": 1.22, "px": 0.45, "dur": 2.3}]},
+    {"kind": "cena", "tipo": "grafico", "at": "@Ou qual", "until": "@E para quem", "modo": "rendimento", "meses": 132, "revela": [{"at": 0, "mes": 0}, {"at": "@Ou qual+0.1", "mes": 124, "dur": 2.6}], "vista": [{"at": 0, "x": 132, "y": 1200}], "viradaTexto": "APORTA POR VOCÊ", "perspectiva": true, "rotuloCabeca": false},
+    {"kind": "broll", "at": "@E para quem", "until": "@todos os meses", "src": "../../acervo/broll/notas-caindo-fundo-escuro.mp4", "entra": "zoom", "zoom": [1.08, 1.2]},
+    {"kind": "number", "at": "@todos os meses", "until": "@7%", "value": "R$ 1.000", "caption": "TODOS OS MESES", "tone": "neutral"},
+    {"kind": "cena", "tipo": "palco", "at": "@7%", "until": "@esse número mágico", "atores": [{"id": "pct", "icone": "percent", "cor": "hl", "tam": 280, "entra": "girar", "keys": [{"at": "@7%", "x": 0.5, "y": 0.47}], "pulsaAt": ["@ao ano"]}], "textos": [{"at": "@7%", "texto": "7% AO ANO", "x": 0.5, "y": 0.15, "fonte": "num", "tam": 170, "cor": "hl"}]},
+    {"kind": "cena", "tipo": "contador", "at": "@o 177", "until": "@realidade vai", "de": 0, "ate": 177000, "dur": 1.6, "prefixo": "R$ ", "cor": "hl", "tam": 230, "rotulo": "NÚMERO MÁGICO", "rotuloAt": "@177 mil>"},
+    {"kind": "mascot", "at": "@realidade vai", "until": "@calcular", "placement": "right-third", "poses": [{"at": "@realidade vai", "pose": "../../../../public/mascote/fox4.png"}, {"at": "@E pra isso", "pose": "../../../../public/mascote/fox1-antigo.webm"}], "entra": "giro"},
+    {"kind": "broll", "at": "@entender como", "until": "@calcular", "src": "../../acervo/broll/pai-e-filho-lendo.mp4", "entra": "whip", "zoom": [1.0, 1.1]},
+    {"kind": "cena", "tipo": "palco", "at": "@calcular", "until": "@fim", "atores": [{"id": "calc", "icone": "calculator", "cor": "hl", "tam": 260, "keys": [{"at": "@calcular", "x": 0.5, "y": 0.4}], "pulsaAt": ["@seu número"], "entra": "cair"}], "textos": [{"at": "@seu número", "texto": "O SEU NÚMERO", "x": 0.5, "y": 0.8, "tam": 72, "cor": "hl"}]},
+    {"kind": "cena", "tipo": "piada", "at": "@seu número+0.3", "until": "@fim", "texto": "SEM PLANILHA DE 40 ABAS", "dura": 0.6, "x": 0.5, "y": 0.13}
+  ]
+}

@@ -1,0 +1,24 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; pointer-events: none; }
+    #fx5-creme { position: absolute; inset: 0; background: #f6ecd6; opacity: 0; }
+    #fx5-branco { position: absolute; inset: 0; background: #ffffff; opacity: 0; }
+  </style>
+  <div data-hf-id="hf-h3gl" id="root" data-composition-id="fx" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-46jm" id="fx5-camada" class="clip" data-start="0" data-duration="17.3" data-track-index="0" style="position:absolute;inset:0">
+      <div data-hf-id="hf-ot7d" id="fx5-creme"></div>
+      <div data-hf-id="hf-9rgm" id="fx5-branco"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      [0.0, 4.5, 5.3, 6.18, 13.06].forEach(function (t) { A.flash(tl, $('fx5-creme'), t, { pico: 0.4, dur: 0.16 }); });
+      // cortes das pessoas: flash mais suave (tela dividida, a folha nao pisca)
+      [7.3, 9.46, 11.46, 14.82].forEach(function (t) { A.flash(tl, $('fx5-branco'), t, { pico: 0.3, dur: 0.16 }); });
+      window.__timelines['fx'] = tl;
+    })();
+  </script>
+</template>

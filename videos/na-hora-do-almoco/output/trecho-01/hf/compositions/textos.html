@@ -1,0 +1,122 @@
+<template>
+  <style>
+    @font-face { font-family: 'Garamond'; src: url('assets/fonts/eb-garamond-italic-400-latin.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: block; }
+    @font-face { font-family: 'Bebas Neue'; src: url('assets/fonts/BebasNeue-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Bold.otf') format('opentype'); font-weight: 700; font-display: block; }
+    #root { position: absolute; inset: 0; color: #ede8de; overflow: hidden; }
+    #t-palco { position: absolute; inset: 0; }
+    #root .bloco { position: absolute; inset: 0; }
+    #root .w { display: inline-block; }
+    #root .bebas { font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: 0.9; letter-spacing: 0.01em; }
+    #root .rot { font-family: 'MontserratLocal', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.5em; }
+    #root .centro { position: absolute; left: 0; right: 0; text-align: center; }
+    #root .tag { display: inline-block; background: #f2c230; color: #0e0c0a; padding: 6px 22px 2px; }
+    #root .glitch { position: absolute; left: 0; right: 0; top: 0; mix-blend-mode: screen; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="textos" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div id="t-palco">
+      <div id="t-nome" class="clip bloco" data-start="3.15" data-duration="2.4" data-track-index="0">
+        <div style="position:absolute;left:150px;top:560px">
+          <div id="t-nome-rot" class="rot sombra">ANTÔNIO CARLOS</div>
+          <div style="position:relative">
+            <div id="t-nome-big" class="bebas sombra" style="font-size:280px">BELCHIOR</div>
+            <div id="t-nome-r" class="bebas glitch" style="font-size:280px;color:#ff2a2a">BELCHIOR</div>
+            <div id="t-nome-c" class="bebas glitch" style="font-size:280px;color:#20e6ff">BELCHIOR</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="t-musica" class="clip bloco" data-start="6.68" data-duration="0.32" data-track-index="1">
+        <div class="centro" style="top:360px"><span id="t-musica-in" class="bebas w" style="font-size:400px;color:#0e0c0a">MÚSICA</span></div>
+      </div>
+      <div id="t-popular" class="clip bloco" data-start="7.0" data-duration="0.48" data-track-index="2">
+        <div class="centro" style="top:360px"><span id="t-popular-in" class="bebas sombra w" style="font-size:400px">POPULAR</span></div>
+      </div>
+      <div id="t-brasileira" class="clip bloco" data-start="7.48" data-duration="0.72" data-track-index="3" style="background:#0e0c0a">
+        <div class="centro" style="top:360px">
+          <div id="t-bras-in" class="bebas" style="font-size:400px;color:#f2c230">BRASILEIRA</div>
+          <div id="t-bras-r" class="bebas glitch" style="font-size:400px;color:#ff2a2a">BRASILEIRA</div>
+          <div id="t-bras-c" class="bebas glitch" style="font-size:400px;color:#20e6ff">BRASILEIRA</div>
+        </div>
+      </div>
+
+      <div id="t-cantor" class="clip bloco" data-start="8.76" data-duration="0.72" data-track-index="4">
+        <div class="centro" style="top:640px"><span id="t-cantor-in" class="bebas sombra w" style="font-size:320px">CANTOR</span></div>
+      </div>
+      <div id="t-compositor" class="clip bloco" data-start="9.48" data-duration="0.96" data-track-index="5">
+        <div class="centro" style="top:640px"><span id="t-compositor-in" class="bebas sombra w" style="font-size:320px">COMPOSITOR</span></div>
+      </div>
+      <div id="t-poeta" class="clip bloco" data-start="10.44" data-duration="0.86" data-track-index="6">
+        <div class="centro" style="top:640px"><span id="t-poeta-in" class="bebas sombra w" style="font-size:320px;color:#f2c230">E POETA</span></div>
+      </div>
+
+      <div id="t-rapaz" class="clip bloco" data-start="11.3" data-duration="2.98" data-track-index="7">
+        <div class="centro" style="top:700px">
+          <div class="bebas sombra" style="font-size:130px"><span id="t-rapaz-w1" class="w">APENAS UM RAPAZ</span></div>
+          <div style="margin-top:12px"><span id="t-rapaz-w4" class="bebas tag" style="font-size:150px">LATINO-AMERICANO</span></div>
+        </div>
+      </div>
+
+      <div id="t-ano" class="clip bloco" data-start="14.28" data-duration="1.32" data-track-index="8">
+        <div id="t-ano-in" class="centro" style="top:200px;color:#2b2118">
+          <div id="t-ano-num" class="bebas" style="font-size:560px;line-height:1">2026</div>
+        </div>
+      </div>
+
+      <div id="t-prof" class="clip bloco" data-start="18.8" data-duration="3.6" data-track-index="9">
+        <div class="centro" style="top:760px"><span id="t-prof-in" class="bebas tag" style="font-size:130px">UMA DAS MAIS PROFUNDAS</span></div>
+      </div>
+
+      <div id="t-silencio" class="clip bloco sombra" data-start="23.8" data-duration="3.2" data-track-index="10">
+        <div class="centro" style="top:70px"><div id="t-silencio-big" style="font-family:'Garamond',Georgia,serif;font-style:italic;font-size:250px;line-height:1">silêncio</div></div>
+      </div>
+
+      <div id="t-distantes" class="clip bloco" data-start="29.55" data-duration="2.85" data-track-index="11">
+        <div class="centro" style="top:820px"><span id="t-dist-w1" class="bebas sombra w" style="font-size:150px;margin-right:0.28em">BEM</span><span id="t-dist-w2" class="bebas sombra w" style="font-size:150px;color:#f2c230">DISTANTES</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+
+      tl.fromTo($('t-nome-rot'), { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.2, ease: 'expo.out' }, 3.32);
+      A.pancada(tl, $('t-nome-big'), 4.44, { de: 1.8 });
+      A.glitchTexto(tl, $('t-nome-r'), $('t-nome-c'), 4.44, 0.27, 7);
+      A.treme(tl, $('t-palco'), 4.44, 0.3, 16, 3);
+
+      A.pancada(tl, $('t-musica-in'), 6.68, { de: 1.5 });
+      A.pancada(tl, $('t-popular-in'), 7.0, { de: 1.5 });
+      A.pancada(tl, $('t-bras-in'), 7.48, { de: 1.6 });
+      A.glitchTexto(tl, $('t-bras-r'), $('t-bras-c'), 7.48, 0.24, 9);
+
+      A.pancada(tl, $('t-cantor-in'), 8.76);
+      A.pancada(tl, $('t-compositor-in'), 9.48);
+      A.pancada(tl, $('t-poeta-in'), 10.44);
+
+      tl.fromTo($('t-rapaz-w1'), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.25, ease: 'expo.out' }, 11.88);
+      A.pancada(tl, $('t-rapaz-w4'), 13.0, { de: 1.5 });
+      tl.to($('t-rapaz-w4'), { rotation: -2, duration: 0.12, ease: 'expo.out' }, 13.15);
+      tl.to([$('t-rapaz-w1'), $('t-rapaz-w4')], { opacity: 0, y: -30, duration: 0.15, ease: 'expo.in' }, 14.1);
+
+      A.pancada(tl, $('t-ano-in'), 14.28, { de: 1.3, dur: 0.18 });
+      A.counter(tl, $('t-ano-num'), 2026, 1970, 14.32, 1.05, 'power4.in');
+      tl.fromTo($('t-ano-num'), { scale: 1.12 }, { scale: 1, duration: 0.3, ease: 'expo.out' }, 15.4);
+      A.treme(tl, $('t-palco'), 15.4, 0.3, 14, 5);
+
+      A.pancada(tl, $('t-prof-in'), 19.0, { de: 1.4 });
+      tl.to($('t-prof-in'), { opacity: 0, y: -20, duration: 0.18, ease: 'expo.in' }, 22.2);
+
+      A.pancada(tl, $('t-silencio-big'), 24.04, { de: 1.2, dur: 0.6 });
+      A.dissolve(tl, $('t-silencio-big'), 25.6, 1.3, { seed: 21 });
+
+      A.pancada(tl, $('t-dist-w1'), 29.64, { de: 1.3, dur: 0.3 });
+      tl.fromTo($('t-dist-w2'), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 29.96);
+      tl.to([$('t-dist-w1'), $('t-dist-w2')], { opacity: 0, duration: 0.35 }, 32.0);
+
+      window.__timelines['textos'] = tl;
+    })();
+  </script>
+</template>

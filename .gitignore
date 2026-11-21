@@ -65,3 +65,23 @@ videos/**/render/
 
 # Links das skills para o Claude Code (recrie com: bun run skills:link)
 .claude/skills/
+
+# Mascote animado (loops com alfa) faz parte do padrao: entra no git apesar do *.webm acima
+!public/mascote/*.webm
+
+# Producao de video: finais, versoes antigas e referencias (pesados ou com direito autoral)
+videos/**/final/
+videos/**/midia/versoes-antigas/
+videos/**/midia/transcricao.anterior.json
+referencias/videos/
+# Projetos HyperFrames GERADOS pelo hf:build (regenerados de beats.json). O Na Hora do Almoco foi escrito a mao: fica.
+videos/177/output/*/hf/
+.claude/settings.local.json
+videos/**/*.wav
+videos/**/output/_backup-*/
+videos/**/snaps*/
+videos/**/hf/assets/img/
+videos/**/hf/assets/depth/
+videos/**/hf/assets/audio/
+videos/**/thumb/
+videos/**/output/_teste*/

@@ -1,0 +1,176 @@
+{
+ "dur": 29.3,
+ "cues": [
+  {
+   "file": "@narr",
+   "at": 0,
+   "gain": 0
+  },
+  {
+   "file": "@sfx/Office Supplies/Paper Rustle.wav",
+   "at": 1.38,
+   "len": 1.2,
+   "fadeOut": 0.5,
+   "gain": -14
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Magic Marker 01.wav",
+   "at": 4.25,
+   "len": 0.9,
+   "fadeOut": 0.3,
+   "gain": -7
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Magic Marker 02.wav",
+   "at": 5.9,
+   "len": 0.9,
+   "fadeOut": 0.3,
+   "gain": -7
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Magic Marker 01.wav",
+   "at": 7.45,
+   "len": 0.9,
+   "fadeOut": 0.3,
+   "gain": -7
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Magic Marker 02.wav",
+   "at": 8.9,
+   "len": 1,
+   "fadeOut": 0.3,
+   "gain": -7
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Pencil 03.wav",
+   "at": 10.6,
+   "len": 1,
+   "fadeOut": 0.2,
+   "gain": -13
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble Loop 02.wav",
+   "at": 12.9,
+   "len": 5.3,
+   "fadeIn": 0.8,
+   "fadeOut": 1,
+   "gain": -17
+  },
+  {
+   "file": "@sfx/Kitchen/Silverware Movement 02.wav",
+   "at": 18.3,
+   "gain": -15
+  },
+  {
+   "file": "@sfx/Ambiente SFX/Windy Desert.mp3",
+   "at": 21,
+   "from": 90,
+   "len": 4.3,
+   "fadeIn": 0.6,
+   "fadeOut": 0.8,
+   "gain": -23
+  },
+  {
+   "file": "@sfx/Kitchen/Silverware Placed on Table 01.wav",
+   "at": 27.05,
+   "gain": -15
+  },
+  {
+   "id": "v5-vento-01-02",
+   "file": "@sfx/Ambiente SFX/Windy Desert.mp3",
+   "at": 0,
+   "from": 49.8,
+   "len": 4.4,
+   "fadeIn": 0.001,
+   "fadeOut": 2.4,
+   "gain": -18
+  },
+  {
+   "id": "v8-verso",
+   "file": "@clipe/so-audio/clipe-so-audio.wav",
+   "at": 1.6,
+   "from": 38.4,
+   "len": 10.6,
+   "fadeIn": 1.2,
+   "fadeOut": 1.8,
+   "fx": "radio",
+   "env": [
+    [
+     0,
+     -22
+    ],
+    [
+     12.2,
+     -22
+    ]
+   ]
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/Touching Moment - Wayne Jones(1).mp3",
+   "at": 0,
+   "from": 30.8,
+   "len": 29.3,
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "env": [
+    [
+     0,
+     -18.65
+    ],
+    [
+     0.3,
+     -18.74
+    ],
+    [
+     2.8,
+     -30.68
+    ],
+    [
+     8.2,
+     -33.92
+    ],
+    [
+     10.4,
+     -33.4
+    ],
+    [
+     12.9,
+     -25.2
+    ],
+    [
+     14.2,
+     -25.19
+    ],
+    [
+     17.2,
+     -26.33
+    ],
+    [
+     20.2,
+     -26.53
+    ],
+    [
+     23.2,
+     -27.45
+    ],
+    [
+     26.2,
+     -27.74
+    ],
+    [
+     28.19,
+     -27.5
+    ],
+    [
+     28.79,
+     -24.42
+    ],
+    [
+     29.3,
+     -24.41
+    ]
+   ]
+  }
+ ]
+}

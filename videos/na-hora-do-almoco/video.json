@@ -1,0 +1,78 @@
+{
+  "id": "na-hora-do-almoco",
+  "titulo": "Na Hora do Almoço (Belchior)",
+  "trechos": [
+    {
+      "id": "trecho-01",
+      "titulo": "Gancho: quem e Belchior",
+      "inicio": 0,
+      "fim": 29.4,
+      "bloco": "PARTE 1"
+    },
+    {
+      "id": "trecho-02",
+      "titulo": "A mesa",
+      "inicio": 29.4,
+      "fim": 58.7,
+      "bloco": "PARTE 2"
+    },
+    {
+      "id": "trecho-03",
+      "titulo": "O loop: acordes, rabeca, violino",
+      "inicio": 58.7,
+      "fim": 107.5,
+      "bloco": "PARTE 2"
+    },
+    {
+      "id": "trecho-04",
+      "titulo": "Medo",
+      "inicio": 107.5,
+      "fim": 142.9,
+      "bloco": "PARTE 3"
+    },
+    {
+      "id": "trecho-05",
+      "titulo": "A familia",
+      "inicio": 142.9,
+      "fim": 162.2,
+      "bloco": "PARTE 3"
+    },
+    {
+      "id": "trecho-06",
+      "titulo": "Ei, moco",
+      "inicio": 162.2,
+      "fim": 207.3,
+      "bloco": "PARTE 3"
+    },
+    {
+      "id": "trecho-07",
+      "titulo": "Festival, album, autobiografia",
+      "inicio": 207.3,
+      "fim": 277.8,
+      "bloco": "PARTE 4"
+    },
+    {
+      "id": "trecho-08",
+      "titulo": "O que ele canta",
+      "inicio": 277.8,
+      "fim": 322.4,
+      "bloco": "PARTE 4"
+    },
+    {
+      "id": "trecho-09",
+      "titulo": "Uma simples musica",
+      "inicio": 322.4,
+      "fim": 360.66,
+      "bloco": "PARTE 4"
+    },
+    {
+      "id": "trecho-10",
+      "titulo": "Encerramento",
+      "inicio": 360.66,
+      "fim": 401.25,
+      "bloco": "PARTE 4"
+    }
+  ],
+  "narracao": "midia/narracao.wav",
+  "transcricao": "midia/transcricao.json"
+}

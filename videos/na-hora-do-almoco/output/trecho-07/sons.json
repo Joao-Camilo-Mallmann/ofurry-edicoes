@@ -1,0 +1,284 @@
+{
+ "dur": 70.5,
+ "cues": [
+  {
+   "file": "@narr",
+   "at": 0,
+   "gain": 0
+  },
+  {
+   "file": "@clipe/trechos/01-intro-instrumental-audio.wav",
+   "at": 18.75,
+   "from": 0.5,
+   "len": 5.5,
+   "fadeIn": 0.3,
+   "fadeOut": 0.8,
+   "gain": -21
+  },
+  {
+   "file": "@sfx/General/spotlight.mp3",
+   "at": 0.3,
+   "gain": -22
+  },
+  {
+   "file": "@sfx/General/Applause.wav",
+   "at": 7,
+   "len": 3.2,
+   "fadeIn": 0.4,
+   "fadeOut": 1.6,
+   "gain": -27
+  },
+  {
+   "file": "@sfx/Horros SFX/needle_drop.wav",
+   "at": 13.6,
+   "gain": -17
+  },
+  {
+   "file": "@sfx/Horros SFX/record_dust_loop.wav",
+   "at": 13.7,
+   "len": 5,
+   "fadeIn": 0.3,
+   "fadeOut": 0.8,
+   "gain": -26
+  },
+  {
+   "file": "@sfx/Glitch SFX/TV Static.wav",
+   "at": 18.68,
+   "len": 0.35,
+   "fadeOut": 0.1,
+   "gain": -24
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Magic Marker 01.wav",
+   "at": 43.3,
+   "len": 0.7,
+   "fadeOut": 0.2,
+   "gain": -10
+  },
+  {
+   "file": "@sfx/Foley/Light Switch 01.wav",
+   "at": 59.05,
+   "gain": -18
+  },
+  {
+   "file": "@sfx/Foley/Light Switch 02.wav",
+   "at": 60.3,
+   "gain": -19
+  },
+  {
+   "file": "@sfx/Foley/Light Switch 01.wav",
+   "at": 61.6,
+   "gain": -20
+  },
+  {
+   "file": "@sfx/Ambiente SFX/Busy City Street.mp3",
+   "at": 57.4,
+   "from": 20,
+   "len": 5.6,
+   "fadeIn": 1,
+   "fadeOut": 1.2,
+   "gain": -32
+  },
+  {
+   "id": "v8-baque",
+   "file": "@sfx/Office Supplies/Hard Cover Book Close Cover 02.wav",
+   "at": 10.58,
+   "gain": -6,
+   "fadeIn": 0.01,
+   "fadeOut": 0.2
+  },
+  {
+   "id": "v8-baque",
+   "file": "@sfx/Office Supplies/Hard Cover Book Close Cover 02.wav",
+   "at": 36.48,
+   "gain": -6,
+   "fadeIn": 0.01,
+   "fadeOut": 0.2
+  },
+  {
+   "id": "v8-baque",
+   "file": "@sfx/Office Supplies/Hard Cover Book Close Cover 02.wav",
+   "at": 51.08,
+   "gain": -6,
+   "fadeIn": 0.01,
+   "fadeOut": 0.2
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/Infraction - No Copyright Music/Cinematic Classical Orchestra Dark Epic Trailer by Cold Cinema [No Copyright Music] ⧸ Emergence.mp4",
+   "at": 0,
+   "from": 110.8,
+   "len": 3,
+   "fadeIn": 0,
+   "fadeOut": 1.5,
+   "env": [
+    [
+     0,
+     -32.78
+    ],
+    [
+     0.73,
+     -35.35
+    ],
+    [
+     1.13,
+     -39.76
+    ],
+    [
+     1.5,
+     -41.07
+    ],
+    [
+     2.4,
+     -48.8
+    ],
+    [
+     3,
+     -92.69
+    ]
+   ]
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/Infraction - No Copyright Music/Cinematic Adventure Epic Podcast by Infraction [No Copyright Music] ⧸ Storyteller.mp4",
+   "at": 0,
+   "from": 3,
+   "len": 70.5,
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "env": [
+    [
+     0,
+     -22.08
+    ],
+    [
+     0.73,
+     -21.38
+    ],
+    [
+     1.13,
+     -24.01
+    ],
+    [
+     1.5,
+     -23.65
+    ],
+    [
+     6,
+     -23.98
+    ],
+    [
+     9,
+     -22.51
+    ],
+    [
+     15,
+     -24.18
+    ],
+    [
+     18.6,
+     -25.77
+    ],
+    [
+     19,
+     -33.87
+    ],
+    [
+     21,
+     -34.35
+    ],
+    [
+     24,
+     -33.43
+    ],
+    [
+     24.6,
+     -25.33
+    ],
+    [
+     30,
+     -24.72
+    ],
+    [
+     36,
+     -28.54
+    ],
+    [
+     39,
+     -29.24
+    ],
+    [
+     45,
+     -28.68
+    ],
+    [
+     51,
+     -28.87
+    ],
+    [
+     57,
+     -29.59
+    ],
+    [
+     60,
+     -29.42
+    ],
+    [
+     66,
+     -34.24
+    ],
+    [
+     67.5,
+     -34.31
+    ],
+    [
+     68.92,
+     -35.03
+    ],
+    [
+     69.52,
+     -32.8
+    ],
+    [
+     70.5,
+     -34.19
+    ]
+   ]
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/Yacoby - Schwartzy.mp3",
+   "at": 67.5,
+   "from": 0,
+   "len": 3,
+   "fadeIn": 1.2,
+   "fadeOut": 0,
+   "env": [
+    [
+     67.5,
+     -84.43
+    ],
+    [
+     68.1,
+     -40.62
+    ],
+    [
+     68.92,
+     -33.68
+    ],
+    [
+     69,
+     -32.6
+    ],
+    [
+     69.52,
+     -28.23
+    ],
+    [
+     70.5,
+     -24.9
+    ]
+   ]
+  }
+ ]
+}
