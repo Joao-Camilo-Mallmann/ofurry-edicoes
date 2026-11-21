@@ -46,7 +46,7 @@
       "camera": [{ "at": "@inicio", "zoom": 1.22, "py": -0.35 }, { "at": "@inicio+0.01", "zoom": 1.04, "py": 0.35, "dur": 3.6 }] },
 
     { "kind": "cena", "tipo": "grafico", "at": "@existe", "until": "@nunca para",
-      "modo": "rendimento", "meses": 30, "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
+      "modo": "rendimento", "meses": 30, "titulo": "QUANTO O DINHEIRO RENDE POR MÊS", "perspectiva": true, "semMes": true,
       "revela": [{ "at": "@existe", "mes": 0 }, { "at": "@existe+0.2", "mes": 24, "dur": 5.4 }],
       "vista": [{ "at": 0, "x": 24, "y": 1200 }] },
 
@@ -62,10 +62,10 @@
 
     { "kind": "cena", "tipo": "palco", "at": "@olhando", "until": "@Você basicamente",
       "atores": [
-        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260, "keys": [{ "at": "@olhando", "x": 0.22, "y": 0.42 }] },
-        { "id": "extrato", "icone": "receipt", "rotulo": "EXTRATO", "tam": 260, "entra": "rise",
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260, "entra": "pop", "keys": [{ "at": "@olhando", "x": 0.22, "y": 0.42 }] },
+        { "id": "extrato", "icone": "receipt", "rotulo": "EXTRATO", "tam": 260, "entra": "cair",
           "keys": [{ "at": "@o extrato", "x": 0.6, "y": 0.42 }, { "at": "@rendimento ridículo", "x": 0.52, "s": 0.85, "dur": 0.5 }] },
-        { "id": "lupa", "icone": "microscope", "cor": "hl", "tam": 230, "entra": "whip", "pulsaAt": ["@tão baixo"],
+        { "id": "lupa", "icone": "microscope", "cor": "hl", "tam": 230, "entra": "girar", "pulsaAt": ["@tão baixo"],
           "keys": [{ "at": "@ridículo", "x": 0.8, "y": 0.42 }] }
       ],
       "setas": [{ "de": "voce", "para": "extrato", "at": "@o extrato+0.2", "cor": "text" }],
@@ -73,38 +73,37 @@
 
     { "kind": "broll", "at": "@o extrato", "until": "@rendimento ridículo", "src": "../../acervo/broll/pessoa-digitando-celular.mp4", "entra": "zoom", "zoom": [1.0, 1.12], "moldura": true },
 
-    { "kind": "cena", "tipo": "palco", "at": "@Você basicamente", "until": "@Você sua",
+    { "kind": "cena", "tipo": "palco", "at": "@Você basicamente", "until": "@é 5",
       "atores": [
-        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260, "keys": [{ "at": "@Você basicamente", "x": 0.2, "y": 0.45 }] },
-        { "id": "mes", "icone": "calendar-days", "rotulo": "O MÊS INTEIRO", "cor": "info", "tam": 220, "pulsaAt": ["@mês seguinte"],
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260, "entra": "rise", "keys": [{ "at": "@Você basicamente", "x": 0.2, "y": 0.45 }] },
+        { "id": "mes", "icone": "calendar-days", "rotulo": "O MÊS INTEIRO", "cor": "info", "tam": 220, "entra": "elastico", "arco": 0.12, "pulsaAt": ["@mês seguinte"],
           "keys": [{ "at": "@o mês inteiro", "x": 0.5, "y": 0.45 }, { "at": "@guardar", "x": 0.5, "y": 0.16, "s": 0.55, "dur": 0.6 }] },
         { "id": "cofre", "icone": "piggy-bank", "cor": "gain", "tam": 260, "entra": "whip", "pulsaAt": ["@rendimento#2"],
           "keys": [{ "at": "@guardar", "x": 0.8, "y": 0.45 }] }
       ],
       "fluxos": [
-        { "de": "voce", "para": "cofre", "at": "@guardar", "ate": "@E no mês", "icone": "banknote", "cor": "gain", "tam": 100, "por": 4 },
-        { "de": "cofre", "para": "voce", "at": "@5 reais", "ate": "@5 reais+0.05", "icone": "coins", "cor": "hl", "tam": 110, "por": 1, "viagem": 1.0 }
+        { "de": "voce", "para": "cofre", "at": "@guardar", "ate": "@E no mês", "icone": "banknote", "cor": "gain", "tam": 100, "por": 4 }
       ],
       "textos": [
         { "at": "@mil reais", "ate": "@rendimento#2", "texto": "R$ 1.000", "x": 0.5, "y": 0.8, "fonte": "num", "tam": 150, "cor": "gain" },
-        { "at": "@rendimento#2", "ate": "@5 reais", "texto": "RENDIMENTO", "x": 0.5, "y": 0.8, "tam": 70 },
-        { "at": "@5 reais", "texto": "R$ 5", "x": 0.5, "y": 0.8, "fonte": "num", "tam": 170, "cor": "hl" }
+        { "at": "@rendimento#2", "texto": "RENDIMENTO", "x": 0.5, "y": 0.8, "tam": 70 }
       ] },
+    { "kind": "cena", "tipo": "contador", "at": "@é 5", "until": "@Você sua", "de": 0, "ate": 5, "dur": 0.7, "prefixo": "R$ ", "cor": "hl", "tam": 280, "rotulo": "DE RENDIMENTO", "rotuloAt": "@5 reais+0.3" },
 
     { "kind": "broll", "at": "@trabalha", "until": "@guardar", "src": "../../acervo/broll/escritorio-movimentado.mp4", "entra": "flash", "zoom": [1.04, 1.14] },
 
     { "kind": "cena", "tipo": "palco", "at": "@Você sua", "until": "@fim",
       "atores": [
-        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260, "keys": [{ "at": "@Você sua", "x": 0.5, "y": 0.45 }, { "at": "@colocar", "x": 0.2, "dur": 0.6 }] },
-        { "id": "suor", "icone": "droplets", "cor": "info", "tam": 110, "balanca": false, "pulsaAt": ["@o mês todo"], "sai": "@esses mil",
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260, "entra": "elastico", "arco": 0.12, "keys": [{ "at": "@Você sua", "x": 0.5, "y": 0.45 }, { "at": "@colocar", "x": 0.2, "dur": 0.6 }] },
+        { "id": "suor", "icone": "droplets", "cor": "info", "tam": 110, "balanca": false, "pulsaAt": ["@o mês todo"], "sai": "@esses mil", "saiComo": "voa",
           "keys": [{ "at": "@sua", "x": 0.57, "y": 0.27 }, { "at": "@colocar", "x": 0.27, "dur": 0.6 }] },
-        { "id": "mercado", "icone": "landmark", "rotulo": "MERCADO", "tam": 260, "entra": "whip", "pulsaAt": ["@devolve"],
+        { "id": "mercado", "icone": "landmark", "rotulo": "MERCADO", "tam": 260, "entra": "cair", "pulsaAt": ["@devolve"],
           "keys": [{ "at": "@colocar", "x": 0.8, "y": 0.45 }] },
-        { "id": "bala", "icone": "candy", "cor": "hl", "tam": 170, "pulsaAt": ["@bala"], "sai": "@Dois pão",
+        { "id": "bala", "icone": "candy", "cor": "hl", "tam": 170, "entra": "girar", "arco": 0.2, "pulsaAt": ["@bala"], "sai": "@Dois pão", "saiComo": "explode",
           "keys": [{ "at": "@te devolve", "x": 0.8, "y": 0.45, "s": 0.5 }, { "at": "@te devolve+0.1", "x": 0.5, "y": 0.68, "s": 1, "dur": 1.2 }] },
-        { "id": "pao1", "icone": "croissant", "cor": "hl", "tam": 190,
+        { "id": "pao1", "icone": "croissant", "cor": "hl", "tam": 190, "entra": "cair",
           "keys": [{ "at": "@Dois pão", "x": 0.42, "y": 0.68 }, { "at": "@olha lá", "s": 0.7, "dur": 0.4 }] },
-        { "id": "pao2", "icone": "croissant", "cor": "hl", "tam": 190,
+        { "id": "pao2", "icone": "croissant", "cor": "hl", "tam": 190, "entra": "elastico",
           "keys": [{ "at": "@de queijo", "x": 0.58, "y": 0.68 }, { "at": "@olha lá", "s": 0.7, "dur": 0.4 }] }
       ],
       "fluxos": [{ "de": "voce", "para": "mercado", "at": "@esses mil", "ate": "@e o mercado", "icone": "banknote", "cor": "gain", "tam": 100, "por": 4 }],

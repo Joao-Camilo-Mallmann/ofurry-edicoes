@@ -49,9 +49,9 @@
         { "at": "@bem simples", "pose": "../../../../public/mascote/fox2-antigo.webm" }
       ] },
 
-    { "kind": "cena", "tipo": "formula", "at": "@7%", "until": "@Com essa taxa",
-      "titulo": "DESCONTADA A INFLAÇÃO", "tituloAt": "@ele vai",
-      "linhas": [{ "at": "@7%", "a": "7% A.A.", "op": "→", "b": "0,56% A.M.", "bAt": "@0,56%", "cor": "hl" }] },
+    { "kind": "cena", "tipo": "contador", "at": "@7%", "until": "@0,56%", "de": 0, "ate": 7, "dur": 0.8, "sufixo": "%", "cor": "hl", "tam": 320,
+      "rotulo": "AO ANO · DESCONTADA A INFLAÇÃO", "rotuloAt": "@ao ano" },
+    { "kind": "number", "at": "@0,56%", "until": "@Com essa taxa", "value": "0,56%", "caption": "AO MÊS", "tone": "highlight" },
 
     { "kind": "broll", "at": "@descontado", "until": "@ele vai", "src": "../../acervo/broll/mercado-timelapse.mp4", "entra": "flash", "zoom": [1.0, 1.12] },
     { "kind": "broll", "at": "@ao mês", "until": "@Com essa taxa", "src": "../../acervo/broll/relogio-disco.mp4", "entra": "whip", "zoom": [1.05, 1.15], "moldura": true },
@@ -62,9 +62,9 @@
 
     { "kind": "cena", "tipo": "palco", "at": "@E se agora", "until": "@100 mil",
       "atores": [
-        { "id": "taxa", "icone": "percent", "cor": "hl", "tam": 240,
+        { "id": "taxa", "icone": "percent", "cor": "hl", "tam": 240, "entra": "girar", "arco": 0.15,
           "keys": [{ "at": "@pegar essa taxa", "x": 0.25, "y": 0.42 }, { "at": "@colocar em cima", "x": 0.5, "y": 0.18, "s": 0.8, "dur": 0.6 }, { "at": "@persegue", "x": 0.74, "dur": 0.7 }] },
-        { "id": "redondo", "icone": "circle", "tam": 280, "pulsaAt": ["@redondo"],
+        { "id": "redondo", "icone": "circle", "tam": 280, "entra": "elastico", "pulsaAt": ["@redondo"],
           "keys": [{ "at": "@daquele número", "x": 0.5, "y": 0.52 }, { "at": "@persegue", "x": 0.74, "dur": 0.7 }] },
         { "id": "todos", "icone": "users", "rotulo": "TODO MUNDO", "tam": 240, "entra": "whip",
           "keys": [{ "at": "@todo mundo", "x": 0.18, "y": 0.52 }, { "at": "@persegue", "x": 0.44, "dur": 0.9 }] }

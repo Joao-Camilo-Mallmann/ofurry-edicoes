@@ -58,7 +58,9 @@ export function lintBeatSheet(sheet: BeatSheet, cards: CaptionCard[] = []): Lint
   const sorted = [...new Set(events.map((e) => Math.round(e * 100) / 100))].sort((a, b) => a - b);
   for (let i = 0; i < sorted.length - 1; i++) {
     const gap = sorted[i + 1] - sorted[i];
-    if (gap > House.timing.maxStaticHold) {
+    // a "cauda" (tela final depois da narracao) e parada de proposito: espaco dos cards do YouTube
+    const fimFala = sheet.duration - ((sheet as { cauda?: number }).cauda ?? 0);
+    if (gap > House.timing.maxStaticHold && sorted[i] < fimFala - 0.5) {
       issues.push({ at: sorted[i], until: sorted[i + 1], rule: 'parado', message: `${gap.toFixed(1)} s sem nada novo na tela (max ${House.timing.maxStaticHold} s)` });
     }
   }

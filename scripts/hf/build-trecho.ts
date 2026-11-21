@@ -426,17 +426,19 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
           <div id="${id}-sway" style="position:absolute;inset:0">${posesHtml}</div>
         </div>
       </div>
-      ${beat.nameTag ? `<div id="${id}-tag" class="clip" data-start="0.4" data-duration="${r3(Math.min(2.3, dur - 0.4))}" data-track-index="9" style="position:absolute;left:${Math.round(place * W - 300)}px;width:600px;text-align:center;top:${H - Math.round(h * 0.16) - 30}px"><span id="${id}-tag-in" class="house-inline" style="background:#fff;color:#B35C00;font-family:var(--font-caption);font-weight:800;font-size:30px;padding:8px 28px;border-radius:40px">OFurry</span></div>` : ''}
+      ${beat.nameTag ? `<div id="${id}-tag" class="clip" data-start="0.4" data-duration="${r3(Math.max(0.3, Math.min(2.3, (beat.shrinkAt !== undefined ? rel(beat.shrinkAt) : dur) - 0.4)))}" data-track-index="9" style="position:absolute;left:${Math.round(place * W - 300)}px;width:600px;text-align:center;top:${H - Math.round(h * 0.16) - 30}px"><span id="${id}-tag-in" class="house-inline" style="background:#fff;color:#B35C00;font-family:var(--font-caption);font-weight:800;font-size:30px;padding:8px 28px;border-radius:40px">OFurry</span></div>` : ''}
     </div>\n`;
-      // entradas 3D (girar, deslizar de lado, zoom) alternando pelo trecho; balanco 3D leve o tempo todo
-      const ENTRADAS = ['lado', 'giro', 'rise', 'zoom'];
-      const entra = (beat as { entra?: string }).entra ?? ENTRADAS[(hashStr(sheet.id) + mascotes) % ENTRADAS.length];
+      // SEM 3D no Furry (Joao, 21/11/2026: "nas cenas do meu personagem nao usar 3D nele, apenas nos outros elementos;
+      // ele pode ficar mais parado no centro ou do outro lado"): entra subindo ou deslizando reto e fica parado
+      // (o loop .webm ja respira e mexe o rabo).
+      const ENTRADAS = ['rise', 'lado'];
+      const pedida = (beat as { entra?: string }).entra;
+      const entra = pedida === 'lado' || pedida === 'rise' ? pedida : ENTRADAS[(hashStr(sheet.id) + mascotes) % ENTRADAS.length];
       const lado = place > 0.5 ? 1 : -1;
-      if (entra === 'lado') script = `      tl.fromTo($("${id}-enter"), { x: ${lado * 620}, rotationY: ${lado * -55}, transformPerspective: 1400, opacity: 0.2 }, { x: 0, rotationY: 0, opacity: 1, duration: ${r3(11 / FPS)}, ease: "expo.out" }, 0);\n`;
-      else if (entra === 'giro') script = `      tl.fromTo($("${id}-enter"), { rotationY: ${lado * 95}, transformPerspective: 1200, scale: 0.85, opacity: 0.3 }, { rotationY: 0, scale: 1, opacity: 1, duration: ${r3(10 / FPS)}, ease: "back.out(1.6)" }, 0);\n`;
-      else if (entra === 'zoom') script = `      tl.fromTo($("${id}-enter"), { scale: 1.45, y: 120, opacity: 0.2 }, { scale: 1, y: 0, opacity: 1, duration: ${r3(9 / FPS)}, ease: "expo.out", transformOrigin: "50% 100%" }, 0);\n`;
-      else script = `      House.entry(tl, $("${id}-enter"), "rise", 0, { distance: 260, frames: 8 });\n`;
-      script += `      House.drive(tl, 0, ${dur}, function (t) { $("${id}-sway").style.transform = "perspective(1400px) rotateY(" + (Math.sin(t * 0.9) * 6).toFixed(2) + "deg) translateY(" + (Math.sin(t * 1.3) * 4).toFixed(2) + "px) scale(" + (1 + Math.sin(t * 2.4) * 0.01).toFixed(4) + ")"; });\n`;
+      if (entra === 'lado') script = `      tl.fromTo($("${id}-enter"), { x: ${lado * 520}, opacity: 0.2 }, { x: 0, opacity: 1, duration: ${r3(10 / FPS)}, ease: "expo.out" }, 0);
+`;
+      else script = `      House.entry(tl, $("${id}-enter"), "rise", 0, { distance: 260, frames: 8 });
+`;
       if (beat.nameTag) script += `      House.entry(tl, $("${id}-tag-in"), "pop", 0.4);\n`;
       if (beat.shrinkAt !== undefined) {
         const tx = Math.round(0.89 * W - place * W);
@@ -559,7 +561,7 @@ function cameraEvents(beatIds: { id: string; beat: Beat }[]): CamEvt[] {
   const evs: CamEvt[] = [...(cfg.camera ?? [])];
   if (cfg.cameraAuto !== false) {
     const h = hashStr(sheet.id);
-    const ats = [...new Set(beatIds.filter(({ beat }) => !(beat.kind === 'cena' && (beat as { tipo?: string }).tipo === 'piada')).map(({ beat }) => r3(beat.at)))].filter((t) => t > 0.05).sort((a, b) => a - b);
+    const ats = [...new Set(beatIds.filter(({ beat }) => beat.kind !== 'mascot' && !(beat.kind === 'cena' && (beat as { tipo?: string }).tipo === 'piada')).map(({ beat }) => r3(beat.at)))].filter((t) => t > 0.05).sort((a, b) => a - b);
     let last = -9;
     ats.forEach((t, k) => {
       if (t - last < 0.6) return;
@@ -631,11 +633,15 @@ function buildIndex(beatIds: { id: string; beat: Beat }[], audioSrc?: string): s
   const host = (id: string, start: number, d: number, track: number, z: number, extra = '') =>
     `      <div id="${id}" data-composition-id="${id}" data-composition-src="compositions/${id}.html" data-start="${r3(start)}" data-duration="${r3(d)}" data-track-index="${track}" data-track-kind="${id === 'legendas' ? 'captions' : 'graphics'}" data-width="${W}" data-height="${H}" style="z-index:${z}"${extra}></div>`;
   // a camera move o fundo e as cenas; legenda, textura e poeira ficam por cima, fora da camera
-  const naCamera = [host('fundo', 0, dur, 0, 1, ' data-house-backdrop'), ...beatIds.map(({ id, beat }, i) => host(id, beat.at, beat.until - beat.at, i + 1, 10 + i))];
+  // O Furry fica FORA da camera (sem tremida, giro ou inclinacao nele: "nao usar 3D nele") e por cima das cenas.
+  const ehMascote = (b: Beat) => b.kind === 'mascot';
+  const naCamera = [host('fundo', 0, dur, 0, 1, ' data-house-backdrop'), ...beatIds.map(({ id, beat }, i) => ({ id, beat, i })).filter(({ beat }) => !ehMascote(beat)).map(({ id, beat, i }) => host(id, beat.at, beat.until - beat.at, i + 1, 10 + i))];
+  const mascotes = beatIds.map(({ id, beat }, i) => ({ id, beat, i })).filter(({ beat }) => ehMascote(beat)).map(({ id, beat, i }) => host(id, beat.at, beat.until - beat.at, i + 1, 80 + i));
   const hosts = [
     `      <div id="camera-mao" style="position:absolute;inset:0;z-index:1"><div id="camera" style="position:absolute;inset:0;transform-origin:50% 50%">`,
     ...naCamera,
     `      </div></div>`,
+    ...mascotes,
     // blend "screen" NO HOST: dentro da sub-composicao o blend so enxerga o vazio e o preto do overlay escurecia o video todo
     host('textura', 0, dur, beatIds.length + 3, 90, ' data-house-backdrop').replace('style="z-index:90"', 'style="z-index:90;mix-blend-mode:screen"'),
     `      <div id="camera-rgb" style="position:absolute;inset:0;z-index:95;opacity:0;pointer-events:none;background:repeating-linear-gradient(0deg, rgba(255,0,60,0.22) 0px, rgba(255,0,60,0.22) 6px, transparent 6px, transparent 14px, rgba(0,229,255,0.2) 14px, rgba(0,229,255,0.2) 19px, transparent 19px, transparent 31px);mix-blend-mode:screen"></div>`,
@@ -704,6 +710,22 @@ async function main() {
   writeFileSync(join(COMP, 'legendas.html'), buildCaptions());
   if (sheet.filmDust !== false) writeFileSync(join(COMP, 'poeira.html'), buildDust());
 
+  // Furry fica mais tempo (Joao, 21/11/2026: "a cena do personagem pode ficar mais tempo"): quando a cena dele
+  // termina, ele encolhe para o canto direito e continua ~3,5 s reagindo por cima da cena seguinte.
+  // Desligar numa batida: "canto": false; tempo: "segura": <s>.
+  const fim = sheet.duration;
+  sheet.beats.forEach((b, i) => {
+    if (b.kind !== 'mascot') return;
+    const m = b as typeof b & { canto?: boolean; segura?: number };
+    if (m.canto === false || m.shrinkAt !== undefined || m.placement === 'corner-left' || m.placement === 'corner-right') return;
+    const proxMascote = sheet.beats.slice(i + 1).filter((x) => x.kind === 'mascot').map((x) => x.at);
+    const limite = Math.min(fim, ...proxMascote);
+    const novo = Math.min(limite, m.until + (m.segura ?? 3.5));
+    if (novo - m.until < 1) return;
+    m.shrinkAt = m.until;
+    m.until = r3(novo);
+    (m as { _canto?: boolean })._canto = true;
+  });
   const beatIds = sheet.beats.map((beat, i) => ({ id: `b${String(i + 1).padStart(2, '0')}-${beat.kind}`, beat }));
   for (const { id, beat } of beatIds) writeFileSync(join(COMP, `${id}.html`), await buildBeat(beat, id));
 

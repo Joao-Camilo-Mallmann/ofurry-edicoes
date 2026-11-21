@@ -1,9 +1,9 @@
 # Inventário de assets do PC
 
-Gerado por `bun run assets:inventario` em 20/11/2026 a partir de `D:/YT/!Assets`.
+Gerado por `bun run assets:inventario` em 21/11/2026 a partir de `D:/YT/!Assets`.
 **Não edite à mão**: rode o comando de novo quando entrar material novo. Como navegar e as regras de uso: `INDEX.md`.
 
-- 2237 arquivos em 64 pastas.
+- 2321 arquivos em 67 pastas.
 - A coluna "No código" é exatamente o que vai no `file` do `sfx`/`trilha.json` ou no `src` de uma batida.
 - Para achar algo: Ctrl+F aqui (ex.: "coin", "click", "cash", "whoosh", "typewriter") ou
   `rg -i "coin" docs/assets/inventario.md`.
@@ -12,6 +12,7 @@ Gerado por `bun run assets:inventario` em 20/11/2026 a partir de `D:/YT/!Assets`
 
 | Pasta | Arquivos |
 |---|---|
+| [(raiz)](#raiz) | 1 |
 | [B-roll](#b-roll) | 1 |
 | [B-roll/celular](#b-roll-celular) | 3 |
 | [B-roll/comida](#b-roll-comida) | 6 |
@@ -24,13 +25,15 @@ Gerado por `bun run assets:inventario` em 20/11/2026 a partir de `D:/YT/!Assets`
 | [B-roll/tempo](#b-roll-tempo) | 9 |
 | [B-roll/trabalho](#b-roll-trabalho) | 5 |
 | [Canais](#canais) | 4 |
-| [Efeitos-Videos-Green-Screan](#efeitos-videos-green-screan) | 3 |
 | [Furry](#furry) | 12 |
 | [Furry/_previews](#furry-previews) | 4 |
+| [Green-Screen](#green-screen) | 3 |
 | [Icones](#icones) | 56 |
+| [Imagens-IA](#imagens-ia) | 1 |
+| [Imagens-IA/anos-70-casa-e-familia](#imagens-ia-anos-70-casa-e-familia) | 70 |
 | [MESTRES DO VINTADE](#mestres-do-vintade) | 9 |
 | [Meme](#meme) | 14 |
-| [Musicas](#musicas) | 6 |
+| [Musicas](#musicas) | 18 |
 | [Musicas/Infraction - No Copyright Music](#musicas-infraction-no-copyright-music) | 4 |
 | [Overlays](#overlays) | 1 |
 | [Overlays/fundos](#overlays-fundos) | 1 |
@@ -76,6 +79,12 @@ Gerado por `bun run assets:inventario` em 20/11/2026 a partir de `D:/YT/!Assets`
 | [TEMPLATE - THUMBNAIL](#template-thumbnail) | 4 |
 | [Tutor](#tutor) | 7 |
 | [Tutor/old](#tutor-old) | 4 |
+
+## (raiz)
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| README.md | md | 3 KB | `D:/YT/!Assets/README.md` |
 
 ## B-roll
 
@@ -193,14 +202,6 @@ Gerado por `bun run assets:inventario` em 20/11/2026 a partir de `D:/YT/!Assets`
 | alves-d08-banner.jpg | imagem | 5 KB | `D:/YT/!Assets/Canais/alves-d08-banner.jpg` |
 | jc-avatar.jpg | imagem | 24 KB | `D:/YT/!Assets/Canais/jc-avatar.jpg` |
 
-## Efeitos-Videos-Green-Screan
-
-| Arquivo | Tipo | Tamanho | No código |
-|---|---|---|---|
-| Fire green screen VFX.mp4 | video | 3.3 MB | `D:/YT/!Assets/Efeitos-Videos-Green-Screan/Fire green screen VFX.mp4` |
-| Growth Bar Graph Animation Overlay Green Screen.mp4 | video | 391 KB | `D:/YT/!Assets/Efeitos-Videos-Green-Screan/Growth Bar Graph Animation Overlay Green Screen.mp4` |
-| play pause.mp4 | video | 208 KB | `D:/YT/!Assets/Efeitos-Videos-Green-Screan/play pause.mp4` |
-
 ## Furry
 
 | Arquivo | Tipo | Tamanho | No código |
@@ -226,6 +227,14 @@ Gerado por `bun run assets:inventario` em 20/11/2026 a partir de `D:/YT/!Assets`
 | fox2_loop_fhd_preview.mp4 | video | 1.2 MB | `D:/YT/!Assets/Furry/_previews/fox2_loop_fhd_preview.mp4` |
 | fox3_loop_fhd_preview.mp4 | video | 844 KB | `D:/YT/!Assets/Furry/_previews/fox3_loop_fhd_preview.mp4` |
 | fox4_loop_fhd_preview.mp4 | video | 1.2 MB | `D:/YT/!Assets/Furry/_previews/fox4_loop_fhd_preview.mp4` |
+
+## Green-Screen
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| Fire green screen VFX.mp4 | video | 3.3 MB | `D:/YT/!Assets/Green-Screen/Fire green screen VFX.mp4` |
+| Growth Bar Graph Animation Overlay Green Screen.mp4 | video | 391 KB | `D:/YT/!Assets/Green-Screen/Growth Bar Graph Animation Overlay Green Screen.mp4` |
+| play pause.mp4 | video | 208 KB | `D:/YT/!Assets/Green-Screen/play pause.mp4` |
 
 ## Icones
 
@@ -288,6 +297,87 @@ Gerado por `bun run assets:inventario` em 20/11/2026 a partir de `D:/YT/!Assets`
 | wind.png | imagem | 33 KB | `D:/YT/!Assets/Icones/wind.png` |
 | world.png | imagem | 30 KB | `D:/YT/!Assets/Icones/world.png` |
 
+## Imagens-IA
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| README.md | md | 2 KB | `D:/YT/!Assets/Imagens-IA/README.md` |
+
+## Imagens-IA/anos-70-casa-e-familia
+
+| Arquivo | Tipo | Tamanho | No código |
+|---|---|---|---|
+| A1-mesa-no-sal.png | imagem | 1.7 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A1-mesa-no-sal.png` |
+| A10-bairro-a-noite.png | imagem | 2.0 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A10-bairro-a-noite.png` |
+| A11-palco-festival-1971.png | imagem | 1.8 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A11-palco-festival-1971.png` |
+| A12-violao-papel-lapis.png | imagem | 2.4 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A12-violao-papel-lapis.png` |
+| A13-folha-em-branco.png | imagem | 2.4 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A13-folha-em-branco.png` |
+| A15-sala-tv-anos-70.png | imagem | 1.4 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A15-sala-tv-anos-70.png` |
+| A16-mao-fechada.png | imagem | 1.4 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A16-mao-fechada.png` |
+| A17-prato-vazio.png | imagem | 1.4 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A17-prato-vazio.png` |
+| A18-boca.png | imagem | 1.7 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A18-boca.png` |
+| A19-relogio-meio-dia.png | imagem | 2.1 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A19-relogio-meio-dia.png` |
+| A2-mesa-vazia.png | imagem | 1.8 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A2-mesa-vazia.png` |
+| A20-fogao-panela.png | imagem | 2.1 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A20-fogao-panela.png` |
+| A21-corredor-mesa-posta.png | imagem | 2.0 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A21-corredor-mesa-posta.png` |
+| A22-porta-fechada-fresta.png | imagem | 2.0 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A22-porta-fechada-fresta.png` |
+| A23-cabeceira-chapeu.png | imagem | 2.3 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A23-cabeceira-chapeu.png` |
+| A24-copo-derramado.png | imagem | 2.4 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A24-copo-derramado.png` |
+| A25-janela-noite-sozinho.png | imagem | 1.9 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A25-janela-noite-sozinho.png` |
+| A26-papeis-escritos.png | imagem | 2.2 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A26-papeis-escritos.png` |
+| A27-estrada-sertao.png | imagem | 1.9 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A27-estrada-sertao.png` |
+| A28-parede-retratos.png | imagem | 2.3 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A28-parede-retratos.png` |
+| A29-prato-esfriando.png | imagem | 2.1 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A29-prato-esfriando.png` |
+| A3-prato-de-cima.png | imagem | 2.6 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A3-prato-de-cima.png` |
+| A30-jovem-no-degrau.png | imagem | 2.0 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A30-jovem-no-degrau.png` |
+| A31-3d-copo-mesa-sal.png | imagem | 2.1 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A31-3d-copo-mesa-sal.png` |
+| A32-3d-cadeira-horizonte.png | imagem | 1.9 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A32-3d-cadeira-horizonte.png` |
+| A33-3d-cortina-janela.png | imagem | 2.3 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A33-3d-cortina-janela.png` |
+| A34-3d-radio-janela.png | imagem | 2.1 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A34-3d-radio-janela.png` |
+| A35-3d-vinil-sala.png | imagem | 2.2 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A35-3d-vinil-sala.png` |
+| A36-3d-corredor-portas.png | imagem | 2.6 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A36-3d-corredor-portas.png` |
+| A4-rabeca.png | imagem | 2.1 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A4-rabeca.png` |
+| A5-violino-macro.png | imagem | 2.0 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A5-violino-macro.png` |
+| A6-maos-na-mesa.png | imagem | 2.0 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A6-maos-na-mesa.png` |
+| A7-cadeiras-distantes.png | imagem | 1.5 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A7-cadeiras-distantes.png` |
+| A8-radio-antigo.png | imagem | 2.2 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A8-radio-antigo.png` |
+| A9-toca-discos.png | imagem | 2.3 MB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/A9-toca-discos.png` |
+| A1-mesa-no-sal-depth.png | imagem | 88 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A1-mesa-no-sal-depth.png` |
+| A10-bairro-a-noite-depth.png | imagem | 92 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A10-bairro-a-noite-depth.png` |
+| A11-palco-festival-1971-depth.png | imagem | 41 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A11-palco-festival-1971-depth.png` |
+| A12-violao-papel-lapis-depth.png | imagem | 57 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A12-violao-papel-lapis-depth.png` |
+| A13-folha-em-branco-depth.png | imagem | 72 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A13-folha-em-branco-depth.png` |
+| A15-sala-tv-anos-70-depth.png | imagem | 59 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A15-sala-tv-anos-70-depth.png` |
+| A16-mao-fechada-depth.png | imagem | 52 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A16-mao-fechada-depth.png` |
+| A17-prato-vazio-depth.png | imagem | 40 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A17-prato-vazio-depth.png` |
+| A18-boca-depth.png | imagem | 75 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A18-boca-depth.png` |
+| A19-relogio-meio-dia-depth.png | imagem | 71 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A19-relogio-meio-dia-depth.png` |
+| A2-mesa-vazia-depth.png | imagem | 86 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A2-mesa-vazia-depth.png` |
+| A20-fogao-panela-depth.png | imagem | 68 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A20-fogao-panela-depth.png` |
+| A21-corredor-mesa-posta-depth.png | imagem | 29 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A21-corredor-mesa-posta-depth.png` |
+| A22-porta-fechada-fresta-depth.png | imagem | 17 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A22-porta-fechada-fresta-depth.png` |
+| A23-cabeceira-chapeu-depth.png | imagem | 74 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A23-cabeceira-chapeu-depth.png` |
+| A24-copo-derramado-depth.png | imagem | 50 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A24-copo-derramado-depth.png` |
+| A25-janela-noite-sozinho-depth.png | imagem | 27 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A25-janela-noite-sozinho-depth.png` |
+| A26-papeis-escritos-depth.png | imagem | 42 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A26-papeis-escritos-depth.png` |
+| A27-estrada-sertao-depth.png | imagem | 48 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A27-estrada-sertao-depth.png` |
+| A28-parede-retratos-depth.png | imagem | 43 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A28-parede-retratos-depth.png` |
+| A29-prato-esfriando-depth.png | imagem | 72 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A29-prato-esfriando-depth.png` |
+| A3-prato-de-cima-depth.png | imagem | 105 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A3-prato-de-cima-depth.png` |
+| A30-jovem-no-degrau-depth.png | imagem | 45 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A30-jovem-no-degrau-depth.png` |
+| A31-3d-copo-mesa-sal-depth.png | imagem | 56 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A31-3d-copo-mesa-sal-depth.png` |
+| A32-3d-cadeira-horizonte-depth.png | imagem | 72 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A32-3d-cadeira-horizonte-depth.png` |
+| A33-3d-cortina-janela-depth.png | imagem | 65 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A33-3d-cortina-janela-depth.png` |
+| A34-3d-radio-janela-depth.png | imagem | 47 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A34-3d-radio-janela-depth.png` |
+| A35-3d-vinil-sala-depth.png | imagem | 55 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A35-3d-vinil-sala-depth.png` |
+| A36-3d-corredor-portas-depth.png | imagem | 32 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A36-3d-corredor-portas-depth.png` |
+| A4-rabeca-depth.png | imagem | 85 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A4-rabeca-depth.png` |
+| A5-violino-macro-depth.png | imagem | 74 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A5-violino-macro-depth.png` |
+| A6-maos-na-mesa-depth.png | imagem | 75 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A6-maos-na-mesa-depth.png` |
+| A7-cadeiras-distantes-depth.png | imagem | 28 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A7-cadeiras-distantes-depth.png` |
+| A8-radio-antigo-depth.png | imagem | 44 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A8-radio-antigo-depth.png` |
+| A9-toca-discos-depth.png | imagem | 99 KB | `D:/YT/!Assets/Imagens-IA/anos-70-casa-e-familia/depth/A9-toca-discos-depth.png` |
+
 ## MESTRES DO VINTADE
 
 | Arquivo | Tipo | Tamanho | No código |
@@ -326,9 +416,21 @@ Gerado por `bun run assets:inventario` em 20/11/2026 a partir de `D:/YT/!Assets`
 | Arquivo | Tipo | Tamanho | No código |
 |---|---|---|---|
 | Auckland - VYEN.mp3 | audio | 5.7 MB | `@mus/Auckland - VYEN.mp3` |
+| Decision - The Tower of Light.mp3 | audio | 7.3 MB | `@mus/Decision - The Tower of Light.mp3` |
+| Falling Rain - Myuu.mp3 | audio | 6.7 MB | `@mus/Falling Rain - Myuu.mp3` |
 | Foggy - Nat Keefe.mp3 | audio | 5.6 MB | `@mus/Foggy - Nat Keefe.mp3` |
+| Garythargy - Schwartzy.mp3 | audio | 7.1 MB | `@mus/Garythargy - Schwartzy.mp3` |
+| Kayak - The Grey Room _ Density & Time.mp3 | audio | 6.5 MB | `@mus/Kayak - The Grey Room _ Density & Time.mp3` |
+| No.1 A Minor Waltz - Esther Abrami.mp3 | audio | 5.5 MB | `@mus/No.1 A Minor Waltz - Esther Abrami.mp3` |
 | No.10 _A New Beginning - Esther Abrami.mp3 | audio | 5.9 MB | `@mus/No.10 _A New Beginning - Esther Abrami.mp3` |
+| No.3 Morning Folk Song - Esther Abrami.mp3 | audio | 5.1 MB | `@mus/No.3 Morning Folk Song - Esther Abrami.mp3` |
+| No.4 Piano Journey - Esther Abrami.mp3 | audio | 4.5 MB | `@mus/No.4 Piano Journey - Esther Abrami.mp3` |
+| No.7 Alone With My Thoughts - Esther Abrami.mp3 | audio | 5.7 MB | `@mus/No.7 Alone With My Thoughts - Esther Abrami.mp3` |
+| No.8 Requiem - Esther Abrami.mp3 | audio | 5.9 MB | `@mus/No.8 Requiem - Esther Abrami.mp3` |
+| No.9_Esther’s Waltz - Esther Abrami.mp3 | audio | 4.5 MB | `@mus/No.9_Esther’s Waltz - Esther Abrami.mp3` |
+| Rain Fuse - French Fuse.mp3 | audio | 4.3 MB | `@mus/Rain Fuse - French Fuse.mp3` |
 | Touching Moment - Wayne Jones(1).mp3 | audio | 5.9 MB | `@mus/Touching Moment - Wayne Jones(1).mp3` |
+| Traversing - Godmode.mp3 | audio | 3.9 MB | `@mus/Traversing - Godmode.mp3` |
 | Yacoby - Schwartzy.mp3 | audio | 7.2 MB | `@mus/Yacoby - Schwartzy.mp3` |
 | anxiety_soundridemusic.mp3 | audio | 5.5 MB | `@mus/anxiety_soundridemusic.mp3` |
 

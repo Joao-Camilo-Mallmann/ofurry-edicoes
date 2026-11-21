@@ -53,10 +53,10 @@
 
     { "kind": "cena", "tipo": "palco", "at": "@Se você aporta", "until": "@dobrou",
       "atores": [
-        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 220, "keys": [{ "at": "@Se você aporta", "x": 0.22, "y": 0.3 }] },
-        { "id": "invest", "icone": "landmark", "rotulo": "INVESTIMENTOS", "tam": 260, "entra": "whip",
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 220, "entra": "rise", "keys": [{ "at": "@Se você aporta", "x": 0.22, "y": 0.3 }] },
+        { "id": "invest", "icone": "landmark", "rotulo": "INVESTIMENTOS", "tam": 260, "entra": "girar",
           "keys": [{ "at": "@aporta", "x": 0.78, "y": 0.48 }, { "at": "@Na prática", "s": 1.25, "dur": 0.5 }] },
-        { "id": "patri", "icone": "piggy-bank", "cor": "gain", "rotulo": "SEU PATRIMÔNIO", "tam": 220, "entra": "whip", "pulsaAt": ["@gerando mil"],
+        { "id": "patri", "icone": "piggy-bank", "cor": "gain", "rotulo": "SEU PATRIMÔNIO", "tam": 220, "entra": "cair", "pulsaAt": ["@gerando mil"],
           "keys": [{ "at": "@o seu patrimônio", "x": 0.22, "y": 0.68 }] }
       ],
       "fluxos": [
@@ -69,11 +69,11 @@
         { "at": "@gerando mil", "ate": "@Na prática", "texto": "+ R$ 1.000 SOZINHO", "x": 0.5, "y": 0.93, "tam": 64, "cor": "hl" }
       ] },
 
-    { "kind": "number", "at": "@dobrou", "until": "@sem trabalhar", "value": "2×", "caption": "CAPACIDADE DE INVESTIR", "tone": "gain" },
+    { "kind": "cena", "tipo": "contador", "at": "@dobrou", "until": "@sem trabalhar", "de": 1, "ate": 2, "dur": 0.6, "sufixo": "×", "cor": "gain", "tam": 320, "rotulo": "CAPACIDADE DE INVESTIR", "rotuloAt": "@capacidade" },
 
     { "kind": "cena", "tipo": "palco", "at": "@sem trabalhar", "until": "@E é literalmente",
       "atores": [
-        { "id": "relogio", "icone": "clock", "tam": 300, "riscaAt": "@a mais",
+        { "id": "relogio", "icone": "clock", "tam": 300, "entra": "elastico", "riscaAt": "@a mais",
           "keys": [{ "at": "@sem trabalhar", "x": 0.5, "y": 0.42 }, { "at": "@uma hora", "r": 360, "dur": 0.7 }] }
       ],
       "textos": [{ "at": "@uma hora", "texto": "UMA HORA A MAIS", "x": 0.5, "y": 0.82, "tam": 80 }] },
@@ -86,11 +86,11 @@
 
     { "kind": "cena", "tipo": "palco", "at": "@E ela não", "until": "@Ela só trabalha",
       "atores": [
-        { "id": "aumento", "icone": "hand-coins", "rotulo": "AUMENTO", "tam": 240, "riscaAt": "@aumento>",
+        { "id": "aumento", "icone": "hand-coins", "rotulo": "AUMENTO", "tam": 240, "entra": "cair", "arco": 0.12, "riscaAt": "@aumento>",
           "keys": [{ "at": "@pede aumento", "x": 0.5, "y": 0.42 }, { "at": "@não pede férias", "x": 0.18, "s": 0.7, "dur": 0.5 }] },
-        { "id": "ferias", "icone": "tree-palm", "rotulo": "FÉRIAS", "tam": 240, "riscaAt": "@férias>",
+        { "id": "ferias", "icone": "tree-palm", "rotulo": "FÉRIAS", "tam": 240, "entra": "girar", "arco": 0.12, "riscaAt": "@férias>",
           "keys": [{ "at": "@pede férias", "x": 0.5, "y": 0.42 }, { "at": "@também", "x": 0.82, "s": 0.7, "dur": 0.5 }] },
-        { "id": "segunda", "icone": "calendar-x", "rotulo": "SEGUNDA-FEIRA RUIM", "tam": 240, "entra": "rise", "riscaAt": "@ruim+0.25",
+        { "id": "segunda", "icone": "calendar-x", "rotulo": "SEGUNDA-FEIRA RUIM", "tam": 240, "entra": "elastico", "riscaAt": "@ruim+0.25",
           "keys": [{ "at": "@tem uma", "x": 0.5, "y": 0.42 }] }
       ],
       "textos": [
@@ -107,9 +107,9 @@
 
     { "kind": "cena", "tipo": "palco", "at": "@E a cada", "until": "@essa máquina",
       "atores": [
-        { "id": "aporte", "icone": "hand-coins", "cor": "gain", "rotulo": "APORTE", "tam": 220, "keys": [{ "at": "@cada aporte", "x": 0.2, "y": 0.28 }] },
-        { "id": "reinv", "icone": "repeat", "cor": "gain", "rotulo": "REINVESTIMENTO", "tam": 220, "entra": "whip", "keys": [{ "at": "@reinvestimento", "x": 0.2, "y": 0.7 }] },
-        { "id": "maq", "icone": "cog", "cor": "brand", "tam": 300, "balanca": false,
+        { "id": "aporte", "icone": "hand-coins", "cor": "gain", "rotulo": "APORTE", "tam": 220, "entra": "rise", "keys": [{ "at": "@cada aporte", "x": 0.2, "y": 0.28 }] },
+        { "id": "reinv", "icone": "repeat", "cor": "gain", "rotulo": "REINVESTIMENTO", "tam": 220, "entra": "cair", "keys": [{ "at": "@reinvestimento", "x": 0.2, "y": 0.7 }] },
+        { "id": "maq", "icone": "cog", "cor": "brand", "tam": 300, "balanca": false, "entra": "girar",
           "keys": [{ "at": "@E a cada", "x": 0.75, "y": 0.48 }, { "at": "@E a cada+0.1", "r": 420, "dur": 2.9 }, { "at": "@você faz", "s": 1.2, "dur": 0.5 }] }
       ],
       "fluxos": [

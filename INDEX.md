@@ -79,7 +79,7 @@ arquivo, com o caminho que vai no código: [`docs/assets/inventario.md`](docs/as
 | ↳ mais músicas | YouTube Studio → Biblioteca de áudio (o João deixa aberta no navegador); salvar em `Musicas\` | |
 | **mascote Furry** | `Furry\fox1-4.png` (poses) e `Furry\fox1-4_loop_fhd.webm` (animados, transparentes); ícones do canal `Furry\Icon Principal.png` | cópia em `public/mascote/` (o build usa o `.webm`) |
 | **ícones** | no código: qualquer Lucide pelo nome (`wallet`, `piggy-bank`, `landmark`...), mapa em `.agents/skills/ofurry-house-motion/references/icones-financas.md`; no PC: `Icones\` (56 PNG, estilos misturados, uso raro) | `"icone": "wallet"` |
-| **animações prontas** | no código: as cenas do kit (`hf/kit/ofurry-cenas.js`), 468 Lucide Animated, 31 presets Remotion (`src/presets/`); no PC: `MESTRES DO VINTADE\` (poeira, ruído, granulado), `Efeitos-Videos-Green-Screan\` | |
+| **animações prontas** | no código: as cenas do kit (`hf/kit/ofurry-cenas.js`), 468 Lucide Animated, 31 presets Remotion (`src/presets/`); no PC: `MESTRES DO VINTADE\` (poeira, ruído, granulado), `Green-Screen\` | |
 | **B-roll real (vídeo filmado)** | por vídeo: `videos/<id>/acervo/broll/` (créditos em `CREDITOS.md`); fonte: mixkit.co (só licença "Free"), Pexels, Pixabay | `bun run broll:preparar <id> <arquivo> <nome>` e `"kind": "broll"` |
 | **memes** | `Meme\` (gatos, sirene, explosão em green screen) | |
 | **thumbnail** | `TEMPLATE - THUMBNAIL\` (PSD); thumb gerada pelo Google Flow (ver `D:\YT\Docs`) | |

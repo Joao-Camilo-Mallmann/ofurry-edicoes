@@ -47,8 +47,8 @@
     { "kind": "cena", "tipo": "palco", "at": "@Se alguém", "until": "@qual número",
       "atores": [
         { "id": "alguem", "icone": "user", "rotulo": "ALGUÉM", "tam": 260, "entra": "whip", "keys": [{ "at": "@alguém", "x": 0.72, "y": 0.42 }] },
-        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260, "keys": [{ "at": "@te falar", "x": 0.28, "y": 0.42 }] },
-        { "id": "cofre", "icone": "piggy-bank", "cor": "gain", "tam": 170, "balanca": false,
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260, "entra": "cair", "keys": [{ "at": "@te falar", "x": 0.28, "y": 0.42 }] },
+        { "id": "cofre", "icone": "piggy-bank", "cor": "gain", "tam": 170, "balanca": false, "entra": "elastico",
           "keys": [{ "at": "@algum dinheiro", "x": 0.72, "y": 0.16 }, { "at": "@investido", "x": 0.5, "y": 0.2, "s": 1.2, "dur": 0.6 }] }
       ],
       "fluxos": [{ "de": "alguem", "para": "voce", "at": "@falar", "ate": "@algum dinheiro", "icone": "message-circle", "cor": "text", "tam": 100, "por": 2 }],
@@ -73,7 +73,7 @@
 
     { "kind": "cena", "tipo": "palco", "at": "@Mas porque", "until": "@E olha",
       "atores": [
-        { "id": "redondo", "icone": "circle", "tam": 300, "pulsaAt": ["@redondos"],
+        { "id": "redondo", "icone": "circle", "tam": 300, "entra": "girar", "pulsaAt": ["@redondos"],
           "keys": [{ "at": "@Mas porque", "x": 0.5, "y": 0.42 }, { "at": "@a matemática", "x": 0.68, "dur": 0.6 }, { "at": "@liga muito", "x": 1.25, "r": 540, "dur": 1.3 }] },
         { "id": "juros", "icone": "trending-up", "cor": "gain", "tam": 300, "rotulo": "JUROS COMPOSTOS", "entra": "whip",
           "keys": [{ "at": "@juros compostos", "x": 0.3, "y": 0.42 }, { "at": "@número redondo", "x": 0.5, "s": 1.2, "dur": 0.8 }] }
@@ -87,7 +87,7 @@
       "src": "../../acervo/fotos3d/silhueta-na-praia.png", "depth": "../../acervo/fotos3d/depth/silhueta-na-praia-depth.png",
       "camera": [{ "at": "@E olha", "zoom": 1.08, "px": -0.45 }, { "at": "@E olha+0.01", "zoom": 1.2, "px": 0.45, "dur": 3.9 }] },
 
-    { "kind": "number", "at": "@É o 177", "until": "@E não é só", "value": "R$ 177 MIL", "countFrom": 100, "tone": "highlight" },
+    { "kind": "cena", "tipo": "contador", "at": "@É o 177", "until": "@E não é só", "de": 100000, "ate": 177000, "dur": 2.0, "prefixo": "R$ ", "cor": "hl", "tam": 240 },
     { "kind": "mascot", "at": "@E você pode", "until": "@E não é só", "placement": "corner-right",
       "poses": [
         { "at": "@E você pode", "pose": "../../../../public/mascote/fox2.png" },
@@ -96,9 +96,9 @@
 
     { "kind": "cena", "tipo": "palco", "at": "@E não é só", "until": "@Mas antes de eu",
       "atores": [
-        { "id": "dados", "icone": "dices", "rotulo": "ALEATÓRIO", "tam": 240, "riscaAt": "@peguei",
+        { "id": "dados", "icone": "dices", "rotulo": "ALEATÓRIO", "tam": 240, "entra": "cair", "riscaAt": "@peguei",
           "keys": [{ "at": "@aleatório", "x": 0.3, "y": 0.5 }] },
-        { "id": "clique", "icone": "mouse-pointer-click", "rotulo": "CLICAR", "cor": "hl", "tam": 240, "entra": "whip", "pulsaAt": ["@atenção", "@clicar"],
+        { "id": "clique", "icone": "mouse-pointer-click", "rotulo": "CLICAR", "cor": "hl", "tam": 240, "entra": "elastico", "pulsaAt": ["@atenção", "@clicar"],
           "keys": [{ "at": "@chamar a sua", "x": 0.7, "y": 0.5 }, { "at": "@clicar", "x": 0.66, "s": 1.15, "dur": 0.4 }] }
       ],
       "textos": [{ "at": "@E não é só", "texto": "R$ 177 MIL", "x": 0.5, "y": 0.17, "fonte": "num", "tam": 140, "cor": "hl" }] },

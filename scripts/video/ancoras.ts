@@ -132,6 +132,8 @@ export function loadResolvedSheet(beatsPath: string): { sheet: any; errors: stri
   }
   if (dropped.length) console.warn(`  ${dropped.length} item(ns) opcional(is) removido(s), a frase nao existe mais:\n    ${dropped.join('\n    ')}`);
   const sheet = resolveAnchorsDeep(raw, words, raw.duration, errors);
+  // "cauda": segundos de tela final DEPOIS da narracao (assinatura + cards do YouTube); use "@fim+N" nas batidas
+  if (typeof sheet.cauda === 'number' && sheet.cauda > 0) sheet.duration = Math.round((sheet.duration + sheet.cauda) * 1000) / 1000;
   for (const b of sheet.beats ?? []) b.until = Math.min(b.until, sheet.duration);
   return { sheet, errors, words };
 }

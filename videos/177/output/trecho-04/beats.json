@@ -38,9 +38,9 @@
   "beats": [
     { "kind": "cena", "tipo": "palco", "at": "@inicio", "until": "@E essa é",
       "atores": [
-        { "id": "maioria", "icone": "users", "rotulo": "A MAIORIA", "tam": 280,
+        { "id": "maioria", "icone": "users", "rotulo": "A MAIORIA", "tam": 280, "entra": "rise",
           "keys": [{ "at": "@inicio", "x": 0.4, "y": 0.42 }, { "at": "@desiste", "x": 0.78, "s": 0.4, "o": 0, "dur": 0.35 }] },
-        { "id": "saida", "icone": "log-out", "cor": "loss", "tam": 260, "entra": "whip", "pulsaAt": ["@desiste+0.4"],
+        { "id": "saida", "icone": "log-out", "cor": "loss", "tam": 260, "entra": "elastico", "pulsaAt": ["@desiste+0.4"],
           "keys": [{ "at": "@maioria", "x": 0.8, "y": 0.42 }] }
       ],
       "textos": [{ "at": "@desiste", "texto": "DESISTE", "x": 0.5, "y": 0.8, "tam": 90, "cor": "loss" }] },
@@ -50,9 +50,9 @@
 
     { "kind": "cena", "tipo": "palco", "at": "@Você coloca", "until": "@Mas não",
       "atores": [
-        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260,
+        { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 260, "entra": "pop",
           "keys": [{ "at": "@Você coloca", "x": 0.25, "y": 0.52 }, { "at": "@gigantesco", "y": 0.56, "s": 0.92, "dur": 0.4 }] },
-        { "id": "peso", "icone": "dumbbell", "tam": 200, "balanca": false,
+        { "id": "peso", "icone": "dumbbell", "tam": 200, "balanca": false, "entra": "cair",
           "keys": [{ "at": "@esforço", "x": 0.25, "y": 0.18, "s": 0.8 }, { "at": "@gigantesco", "s": 1.5, "dur": 0.5 }] },
         { "id": "retorno", "icone": "hand-coins", "cor": "gain", "tam": 240, "entra": "whip", "riscaAt": "@nada",
           "keys": [{ "at": "@não recebe", "x": 0.75, "y": 0.52 }] }
@@ -71,9 +71,9 @@
 
     { "kind": "cena", "tipo": "palco", "at": "@Não pelo", "until": "@Que qualquer",
       "atores": [
-        { "id": "hoje", "icone": "coins", "rotulo": "RENDEM HOJE", "tam": 220, "pulsaAt": ["@rendem hoje"], "riscaAt": "@mas porque", "sai": "@abre uma porta",
+        { "id": "hoje", "icone": "coins", "rotulo": "RENDEM HOJE", "tam": 220, "entra": "girar", "pulsaAt": ["@rendem hoje"], "riscaAt": "@mas porque", "sai": "@abre uma porta", "saiComo": "explode",
           "keys": [{ "at": "@Não pelo", "x": 0.5, "y": 0.42 }] },
-        { "id": "porta", "icone": "door-open", "cor": "hl", "rotulo": "UMA PORTA", "tam": 260, "entra": "rise",
+        { "id": "porta", "icone": "door-open", "cor": "hl", "rotulo": "UMA PORTA", "tam": 260, "entra": "elastico",
           "keys": [{ "at": "@abre uma porta", "x": 0.25, "y": 0.42 }] },
         { "id": "futuro", "icone": "trending-up", "cor": "gain", "rotulo": "LÁ NO FUTURO", "tam": 260, "entra": "whip",
           "keys": [{ "at": "@vai render", "x": 0.77, "y": 0.42 }, { "at": "@lá no futuro", "s": 1.3, "dur": 0.6 }] }

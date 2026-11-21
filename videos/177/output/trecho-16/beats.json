@@ -54,7 +54,7 @@
     { "kind": "cena", "tipo": "palco", "at": "@Você vai pegar", "until": "@multiplicar pela",
       "atores": [
         { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{ "at": "@Você vai pegar", "x": 0.5, "y": 0.42 }, { "at": "@pegar", "x": 0.25, "dur": 0.6 }] },
-        { "id": "cofre", "icone": "piggy-bank", "rotulo": "INVESTIDO", "cor": "gain", "entra": "whip", "keys": [{ "at": "@todo o seu", "x": 0.75, "y": 0.42 }] }
+        { "id": "cofre", "icone": "piggy-bank", "rotulo": "INVESTIDO", "cor": "gain", "entra": "cair", "keys": [{ "at": "@todo o seu", "x": 0.75, "y": 0.42 }] }
       ],
       "fluxos": [{ "de": "cofre", "para": "voce", "at": "@valor investido", "ate": "@multiplicar pela", "icone": "banknote", "por": 4, "cor": "gain", "tam": 90 }],
       "textos": [{ "at": "@todo o seu", "texto": "TODO O SEU VALOR", "x": 0.5, "y": 0.18, "tam": 72 }] },
@@ -78,8 +78,8 @@
     { "kind": "cena", "tipo": "palco", "at": "@essa taxa que", "until": "@Hoje esse valor",
       "atores": [
         { "id": "mes", "icone": "calendar", "rotulo": "AO MÊS", "cor": "hl", "tam": 220, "keys": [{ "at": "@essa taxa que", "x": 0.28, "y": 0.5 }] },
-        { "id": "ano", "icone": "calendar-range", "rotulo": "AO ANO", "cor": "gain", "tam": 220, "entra": "whip", "keys": [{ "at": "@equivalente", "x": 0.72, "y": 0.5 }] },
-        { "id": "dado", "icone": "dice-5", "tam": 150, "entra": "pop",
+        { "id": "ano", "icone": "calendar-range", "rotulo": "AO ANO", "cor": "gain", "tam": 220, "entra": "girar", "keys": [{ "at": "@equivalente", "x": 0.72, "y": 0.5 }] },
+        { "id": "dado", "icone": "dice-5", "tam": 150, "entra": "cair",
           "keys": [{ "at": "@não é um número", "x": 0.5, "y": 0.8, "r": -25 }, { "at": "@número aleatório", "r": 20, "dur": 0.25 }, { "at": "@aleatório", "r": -5, "dur": 0.2 }],
           "riscaAt": "@aleatório+0.15" }
       ],
@@ -110,7 +110,7 @@
     { "kind": "cena", "tipo": "palco", "at": "@E assim você", "until": "@fim",
       "atores": [
         { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{ "at": "@E assim você", "x": 0.5, "y": 0.45 }, { "at": "@consegue", "x": 0.25, "dur": 0.6 }] },
-        { "id": "data", "icone": "calendar-check", "rotulo": "SUA DATA", "cor": "hl", "entra": "whip", "keys": [{ "at": "@descobrir", "x": 0.75, "y": 0.45 }], "pulsaAt": ["@na sua data", "@data"] }
+        { "id": "data", "icone": "calendar-check", "rotulo": "SUA DATA", "cor": "hl", "entra": "elastico", "keys": [{ "at": "@descobrir", "x": 0.75, "y": 0.45 }], "pulsaAt": ["@na sua data", "@data"] }
       ],
       "setas": [{ "de": "voce", "para": "data", "at": "@descobrir+0.2", "cor": "hl" }],
       "textos": [{ "at": "@seu valor real", "texto": "SEU VALOR REAL", "x": 0.5, "y": 0.18, "tam": 72 }] }

@@ -3,99 +3,628 @@
   "fps": 30,
   "audio": "midia/narracao.wav",
   "subtitlePath": "midia/narracao.json",
-  "cardOptions": { "maxWords": 2, "maxChars": 16 },
+  "cardOptions": {
+    "maxWords": 2,
+    "maxChars": 16
+  },
   "camera": [
-    { "at": "@like", "tipo": "punch" },
-    { "at": "@compartilhe", "tipo": "punch" },
-    { "at": "@número mágico", "tipo": "shake" },
-    { "at": "@E relaxa", "tipo": "flash" }
+    {
+      "at": "@like",
+      "tipo": "punch"
+    },
+    {
+      "at": "@compartilhe",
+      "tipo": "punch"
+    },
+    {
+      "at": "@número mágico",
+      "tipo": "shake"
+    },
+    {
+      "at": "@E relaxa",
+      "tipo": "flash"
+    }
   ],
   "captions": [
-    { "from": "@a mais gente-0.1", "until": "@por que está-0.1", "entry": "pop" },
-    { "from": "@E olha se a sua-0.1", "until": "@fritando-0.1", "entry": "pop", "y": 0.84 },
-    { "from": "@Ou achando-0.1", "until": "@E olha se a sua-0.1", "entry": "glitch", "y": 0.72 },
-    { "from": "@Eu destrincho-0.1", "until": "@Bom eu sou-0.5", "entry": "pop", "y": 0.9 }
+    {
+      "from": "@a mais gente-0.1",
+      "until": "@por que está-0.1",
+      "entry": "pop"
+    },
+    {
+      "from": "@E olha se a sua-0.1",
+      "until": "@fritando-0.1",
+      "entry": "pop",
+      "y": 0.84
+    },
+    {
+      "from": "@Ou achando-0.1",
+      "until": "@E olha se a sua-0.1",
+      "entry": "glitch",
+      "y": 0.72
+    },
+    {
+      "from": "@Eu destrincho-0.1",
+      "until": "@E meu Deus-0.1",
+      "entry": "pop",
+      "y": 0.9
+    },
+    {
+      "from": "@E meu Deus-0.1",
+      "until": "@Bom eu sou-0.1",
+      "entry": "pop",
+      "y": 0.72
+    }
   ],
   "backdrops": [
-    { "at": 0, "backdrop": "black" },
-    { "at": "@Ou achando", "backdrop": "grade-video" },
-    { "at": "@E olha se a sua", "backdrop": "black" },
-    { "at": "@E relaxa", "backdrop": "stars" },
-    { "at": "@Bom eu sou", "backdrop": "grade-video" }
+    {
+      "at": 0,
+      "backdrop": "black"
+    },
+    {
+      "at": "@Ou achando",
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@E olha se a sua",
+      "backdrop": "black"
+    },
+    {
+      "at": "@E relaxa",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@E meu Deus",
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@aí>+0.6",
+      "backdrop": "black"
+    }
   ],
   "sfx": [
-    { "at": "@aleatório+0.35", "file": "@sfx/Office Supplies/Paper Rustle.wav", "gain": -22, "len": 0.4 },
-    { "at": "@like", "file": "@sfx/General/Pop sound.mp3", "gain": -20 },
-    { "at": "@compartilhe", "file": "@sfx/General/Pop sound.mp3", "gain": -20 },
-    { "at": "@travado", "file": "@sfx/Mechanical/Switch 02.wav", "gain": -22 },
-    { "at": "@taxa", "file": "@sfx/General/Click.wav", "gain": -20 },
-    { "at": "@aporte", "file": "@sfx/General/Click.wav", "gain": -20 },
-    { "at": "@número mágico", "file": "@sfx/General/Click.wav", "gain": -20 },
-    { "at": "@E relaxa", "file": "@sfx/General/Ding.mp3", "gain": -22 }
+    {
+      "at": "@aleatório+0.35",
+      "file": "@sfx/Office Supplies/Paper Rustle.wav",
+      "gain": -22,
+      "len": 0.4
+    },
+    {
+      "at": "@like",
+      "file": "@sfx/General/Pop sound.mp3",
+      "gain": -20
+    },
+    {
+      "at": "@compartilhe",
+      "file": "@sfx/General/Pop sound.mp3",
+      "gain": -20
+    },
+    {
+      "at": "@travado",
+      "file": "@sfx/Mechanical/Switch 02.wav",
+      "gain": -22
+    },
+    {
+      "at": "@taxa",
+      "file": "@sfx/General/Click.wav",
+      "gain": -20
+    },
+    {
+      "at": "@aporte",
+      "file": "@sfx/General/Click.wav",
+      "gain": -20
+    },
+    {
+      "at": "@número mágico",
+      "file": "@sfx/General/Click.wav",
+      "gain": -20
+    },
+    {
+      "at": "@E relaxa",
+      "file": "@sfx/General/Ding.mp3",
+      "gain": -22
+    }
   ],
   "beats": [
-    { "kind": "cena", "tipo": "palco", "at": "@inicio", "until": "@deixa um like",
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@inicio",
+      "until": "@deixa um like",
       "atores": [
-        { "id": "dado", "icone": "dice-5", "tam": 160,
-          "keys": [{ "at": "@não tão aleatório", "x": 0.5, "y": 0.72, "r": -30 }, { "at": "@tão aleatório", "r": 25, "dur": 0.25 }, { "at": "@aleatório", "r": -8, "dur": 0.25 }],
-          "riscaAt": "@aleatório+0.35" },
-        { "id": "cabeca", "icone": "brain", "cor": "brand", "tam": 170, "keys": [{ "at": "@te fez pensar", "x": 0.82, "y": 0.42 }], "pulsaAt": ["@pensar"] }
-      ],
-      "textos": [{ "at": "@inicio", "texto": "R$ 177 MIL", "x": 0.5, "y": 0.4, "tam": 230, "fonte": "num", "cor": "hl" }] },
-
-    { "kind": "cena", "tipo": "palco", "at": "@deixa um like", "until": "@Ou achando",
-      "atores": [
-        { "id": "like", "icone": "thumbs-up", "rotulo": "LIKE", "cor": "brand",
-          "keys": [{ "at": "@like", "x": 0.2, "y": 0.42 }, { "at": "@like+0.2", "y": 0.33, "dur": 0.15 }, { "at": "@like+0.4", "y": 0.42, "dur": 0.2 }, { "at": "@entender", "x": 0.12, "y": 0.2, "s": 0.5, "dur": 0.5 }],
-          "pulsaAt": ["@like", "@também"], "sai": "@travado" },
-        { "id": "share", "icone": "share-2", "rotulo": "COMPARTILHE", "cor": "info",
-          "keys": [{ "at": "@compartilhe", "x": 0.5, "y": 0.42 }, { "at": "@compartilhe+0.2", "y": 0.33, "dur": 0.15 }, { "at": "@compartilhe+0.4", "y": 0.42, "dur": 0.2 }, { "at": "@entender", "x": 0.28, "y": 0.2, "s": 0.5, "dur": 0.5 }],
-          "pulsaAt": ["@o vídeo"], "sai": "@travado" },
-        { "id": "gente", "icone": "users", "rotulo": "MAIS GENTE", "entra": "whip",
-          "keys": [{ "at": "@mais gente", "x": 0.8, "y": 0.42 }, { "at": "@travado", "x": 0.5, "y": 0.45, "s": 1.15, "dur": 0.5 }] },
-        { "id": "cadeado", "icone": "lock", "cor": "loss", "tam": 150, "keys": [{ "at": "@travado+0.3", "x": 0.5, "y": 0.13 }], "pulsaAt": ["@fase inicial"] }
-      ],
-      "fluxos": [{ "de": "share", "para": "gente", "at": "@mais gente", "ate": "@entender", "icone": "play", "por": 3, "cor": "info", "tam": 60 }],
-      "textos": [{ "at": "@fase inicial", "texto": "FASE INICIAL", "x": 0.5, "y": 0.84, "tam": 68, "cor": "loss" }] },
-
-    { "kind": "broll", "at": "@a mais gente", "until": "@por que está", "src": "../../acervo/broll/multidao-atravessando-rua.mp4", "entra": "zoom", "zoom": [1.0, 1.12] },
-
-    { "kind": "mascot", "at": "@Ou achando", "until": "@E olha se a sua", "placement": "right-third", "entra": "lado",
-      "poses": [
-        { "at": "@Ou achando", "pose": "../../../../public/mascote/fox3.png" },
-        { "at": "@quando na real", "pose": "../../../../public/mascote/fox1-antigo.webm" }
-      ] },
-
-    { "kind": "cena", "tipo": "palco", "at": "@E olha se a sua", "until": "@E relaxa",
-      "atores": [
-        { "id": "cabeca", "icone": "brain", "rotulo": "SUA CABEÇA", "tam": 300,
-          "keys": [{ "at": "@E olha se a sua", "x": 0.5, "y": 0.42 }, { "at": "@fritando", "r": -7, "dur": 0.12 }, { "at": "@fritando+0.15", "r": 7, "dur": 0.12 }, { "at": "@fritando+0.3", "r": -5, "dur": 0.12 }, { "at": "@fritando+0.45", "r": 0, "dur": 0.12 }],
-          "pulsaAt": ["@taxa+0.5", "@aporte+0.5", "@número mágico+0.5"] },
-        { "id": "fogo1", "icone": "flame", "cor": "brand", "tam": 120, "keys": [{ "at": "@fritando", "x": 0.37, "y": 0.2 }], "pulsaAt": ["@com taxa", "@aporte"] },
-        { "id": "fogo2", "icone": "flame", "cor": "loss", "tam": 120, "keys": [{ "at": "@fritando+0.15", "x": 0.63, "y": 0.2 }], "pulsaAt": ["@taxa", "@número mágico"] },
-        { "id": "e1", "balanca": false, "keys": [{ "at": "@E olha se a sua", "x": 0.04, "y": 0.3, "o": 0 }] },
-        { "id": "e2", "balanca": false, "keys": [{ "at": "@E olha se a sua", "x": 0.96, "y": 0.3, "o": 0 }] },
-        { "id": "e3", "balanca": false, "keys": [{ "at": "@E olha se a sua", "x": 0.04, "y": 0.75, "o": 0 }] }
-      ],
-      "fluxos": [
-        { "de": "e1", "para": "cabeca", "at": "@taxa", "ate": "@taxa+0.5", "icone": "percent", "por": 4, "cor": "brand", "tam": 80, "viagem": 0.6 },
-        { "de": "e2", "para": "cabeca", "at": "@aporte", "ate": "@aporte+0.5", "icone": "banknote", "por": 4, "cor": "gain", "tam": 80, "viagem": 0.6 },
-        { "de": "e3", "para": "cabeca", "at": "@número mágico", "ate": "@número mágico+0.5", "icone": "sparkles", "por": 4, "cor": "hl", "tam": 80, "viagem": 0.6 }
+        {
+          "id": "dado",
+          "icone": "dice-5",
+          "tam": 160,
+          "keys": [
+            {
+              "at": "@não tão aleatório",
+              "x": 0.5,
+              "y": 0.72,
+              "r": -30
+            },
+            {
+              "at": "@tão aleatório",
+              "r": 25,
+              "dur": 0.25
+            },
+            {
+              "at": "@aleatório",
+              "r": -8,
+              "dur": 0.25
+            }
+          ],
+          "riscaAt": "@aleatório+0.35"
+        },
+        {
+          "id": "cabeca",
+          "icone": "brain",
+          "cor": "brand",
+          "tam": 170,
+          "keys": [
+            {
+              "at": "@te fez pensar",
+              "x": 0.82,
+              "y": 0.42
+            }
+          ],
+          "pulsaAt": [
+            "@pensar"
+          ]
+        }
       ],
       "textos": [
-        { "at": "@taxa", "ate": "@aporte", "texto": "TAXA", "x": 0.5, "y": 0.84, "tam": 140, "fonte": "num", "cor": "brand" },
-        { "at": "@aporte", "ate": "@número mágico", "texto": "APORTE", "x": 0.5, "y": 0.84, "tam": 140, "fonte": "num" },
-        { "at": "@número mágico", "texto": "NÚMERO MÁGICO", "x": 0.5, "y": 0.84, "tam": 140, "fonte": "num", "cor": "hl" }
-      ] },
-    { "kind": "broll", "at": "@E olha se a sua", "until": "@fritando", "src": "../../acervo/broll/homem-exausto-escritorio.mp4", "entra": "flash", "zoom": [1.0, 1.12], "escurece": 0.45 },
-    { "kind": "cena", "tipo": "piada", "at": "@fritando+0.35", "until": "@fritando+1.3", "dura": 0.8, "texto": "CHEIRINHO DE QUEIMADO", "x": 0.5, "y": 0.84 },
-
-    { "kind": "cena", "tipo": "fim", "at": "@E relaxa", "until": "@Bom eu sou-0.5",
-      "titulo": "COMO INVESTIR MELHOR QUE 90% DAS PESSOAS", "chamada": "PRÓXIMO VÍDEO", "tituloAt": "@como investir" },
-
-    { "kind": "mascot", "at": "@Bom eu sou", "until": "@fim", "placement": "center", "entra": "zoom", "nameTag": true,
+        {
+          "at": "@inicio",
+          "texto": "R$ 177 MIL",
+          "x": 0.5,
+          "y": 0.4,
+          "tam": 230,
+          "fonte": "num",
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@deixa um like",
+      "until": "@Ou achando",
+      "atores": [
+        {
+          "id": "like",
+          "icone": "thumbs-up",
+          "rotulo": "LIKE",
+          "cor": "brand",
+          "keys": [
+            {
+              "at": "@like",
+              "x": 0.2,
+              "y": 0.42
+            },
+            {
+              "at": "@like+0.2",
+              "y": 0.33,
+              "dur": 0.15
+            },
+            {
+              "at": "@like+0.4",
+              "y": 0.42,
+              "dur": 0.2
+            },
+            {
+              "at": "@entender",
+              "x": 0.12,
+              "y": 0.2,
+              "s": 0.5,
+              "dur": 0.5
+            }
+          ],
+          "pulsaAt": [
+            "@like",
+            "@também"
+          ],
+          "sai": "@travado"
+        },
+        {
+          "id": "share",
+          "icone": "share-2",
+          "rotulo": "COMPARTILHE",
+          "cor": "info",
+          "keys": [
+            {
+              "at": "@compartilhe",
+              "x": 0.5,
+              "y": 0.42
+            },
+            {
+              "at": "@compartilhe+0.2",
+              "y": 0.33,
+              "dur": 0.15
+            },
+            {
+              "at": "@compartilhe+0.4",
+              "y": 0.42,
+              "dur": 0.2
+            },
+            {
+              "at": "@entender",
+              "x": 0.28,
+              "y": 0.2,
+              "s": 0.5,
+              "dur": 0.5
+            }
+          ],
+          "pulsaAt": [
+            "@o vídeo"
+          ],
+          "sai": "@travado"
+        },
+        {
+          "id": "gente",
+          "icone": "users",
+          "rotulo": "MAIS GENTE",
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@mais gente",
+              "x": 0.8,
+              "y": 0.42
+            },
+            {
+              "at": "@travado",
+              "x": 0.5,
+              "y": 0.45,
+              "s": 1.15,
+              "dur": 0.5
+            }
+          ]
+        },
+        {
+          "id": "cadeado",
+          "icone": "lock",
+          "cor": "loss",
+          "tam": 150,
+          "keys": [
+            {
+              "at": "@travado+0.3",
+              "x": 0.5,
+              "y": 0.13
+            }
+          ],
+          "pulsaAt": [
+            "@fase inicial"
+          ]
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "share",
+          "para": "gente",
+          "at": "@mais gente",
+          "ate": "@entender",
+          "icone": "play",
+          "por": 3,
+          "cor": "info",
+          "tam": 60
+        }
+      ],
+      "textos": [
+        {
+          "at": "@fase inicial",
+          "texto": "FASE INICIAL",
+          "x": 0.5,
+          "y": 0.84,
+          "tam": 68,
+          "cor": "loss"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@a mais gente",
+      "until": "@por que está",
+      "src": "../../acervo/broll/multidao-atravessando-rua.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1.0,
+        1.12
+      ]
+    },
+    {
+      "kind": "mascot",
+      "at": "@Ou achando",
+      "until": "@E olha se a sua",
+      "placement": "right-third",
+      "entra": "lado",
       "poses": [
-        { "at": "@Bom eu sou", "pose": "../../../../public/mascote/fox2.png" }
-      ] }
-  ]
+        {
+          "at": "@Ou achando",
+          "pose": "../../../../public/mascote/fox3.png"
+        },
+        {
+          "at": "@quando na real",
+          "pose": "../../../../public/mascote/fox1-antigo.webm"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@E olha se a sua",
+      "until": "@E relaxa",
+      "atores": [
+        {
+          "id": "cabeca",
+          "icone": "brain",
+          "rotulo": "SUA CABEÇA",
+          "tam": 300,
+          "keys": [
+            {
+              "at": "@E olha se a sua",
+              "x": 0.5,
+              "y": 0.42
+            },
+            {
+              "at": "@fritando",
+              "r": -7,
+              "dur": 0.12
+            },
+            {
+              "at": "@fritando+0.15",
+              "r": 7,
+              "dur": 0.12
+            },
+            {
+              "at": "@fritando+0.3",
+              "r": -5,
+              "dur": 0.12
+            },
+            {
+              "at": "@fritando+0.45",
+              "r": 0,
+              "dur": 0.12
+            }
+          ],
+          "pulsaAt": [
+            "@taxa+0.5",
+            "@aporte+0.5",
+            "@número mágico+0.5"
+          ]
+        },
+        {
+          "id": "fogo1",
+          "icone": "flame",
+          "cor": "brand",
+          "tam": 120,
+          "keys": [
+            {
+              "at": "@fritando",
+              "x": 0.37,
+              "y": 0.2
+            }
+          ],
+          "pulsaAt": [
+            "@com taxa",
+            "@aporte"
+          ]
+        },
+        {
+          "id": "fogo2",
+          "icone": "flame",
+          "cor": "loss",
+          "tam": 120,
+          "keys": [
+            {
+              "at": "@fritando+0.15",
+              "x": 0.63,
+              "y": 0.2
+            }
+          ],
+          "pulsaAt": [
+            "@taxa",
+            "@número mágico"
+          ]
+        },
+        {
+          "id": "e1",
+          "balanca": false,
+          "keys": [
+            {
+              "at": "@E olha se a sua",
+              "x": 0.04,
+              "y": 0.3,
+              "o": 0
+            }
+          ]
+        },
+        {
+          "id": "e2",
+          "balanca": false,
+          "keys": [
+            {
+              "at": "@E olha se a sua",
+              "x": 0.96,
+              "y": 0.3,
+              "o": 0
+            }
+          ]
+        },
+        {
+          "id": "e3",
+          "balanca": false,
+          "keys": [
+            {
+              "at": "@E olha se a sua",
+              "x": 0.04,
+              "y": 0.75,
+              "o": 0
+            }
+          ]
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "e1",
+          "para": "cabeca",
+          "at": "@taxa",
+          "ate": "@taxa+0.5",
+          "icone": "percent",
+          "por": 4,
+          "cor": "brand",
+          "tam": 80,
+          "viagem": 0.6
+        },
+        {
+          "de": "e2",
+          "para": "cabeca",
+          "at": "@aporte",
+          "ate": "@aporte+0.5",
+          "icone": "banknote",
+          "por": 4,
+          "cor": "gain",
+          "tam": 80,
+          "viagem": 0.6
+        },
+        {
+          "de": "e3",
+          "para": "cabeca",
+          "at": "@número mágico",
+          "ate": "@número mágico+0.5",
+          "icone": "sparkles",
+          "por": 4,
+          "cor": "hl",
+          "tam": 80,
+          "viagem": 0.6
+        }
+      ],
+      "textos": [
+        {
+          "at": "@taxa",
+          "ate": "@aporte",
+          "texto": "TAXA",
+          "x": 0.5,
+          "y": 0.84,
+          "tam": 140,
+          "fonte": "num",
+          "cor": "brand"
+        },
+        {
+          "at": "@aporte",
+          "ate": "@número mágico",
+          "texto": "APORTE",
+          "x": 0.5,
+          "y": 0.84,
+          "tam": 140,
+          "fonte": "num"
+        },
+        {
+          "at": "@número mágico",
+          "texto": "NÚMERO MÁGICO",
+          "x": 0.5,
+          "y": 0.84,
+          "tam": 140,
+          "fonte": "num",
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@E olha se a sua",
+      "until": "@fritando",
+      "src": "../../acervo/broll/homem-exausto-escritorio.mp4",
+      "entra": "flash",
+      "zoom": [
+        1.0,
+        1.12
+      ],
+      "escurece": 0.45
+    },
+    {
+      "kind": "cena",
+      "tipo": "piada",
+      "at": "@fritando+0.35",
+      "until": "@fritando+1.3",
+      "dura": 0.8,
+      "texto": "CHEIRINHO DE QUEIMADO",
+      "x": 0.5,
+      "y": 0.84
+    },
+    {
+      "kind": "cena",
+      "tipo": "fim",
+      "at": "@E relaxa",
+      "until": "@E meu Deus",
+      "titulo": "COMO INVESTIR MELHOR QUE 90% DAS PESSOAS",
+      "chamada": "PRÓXIMO VÍDEO",
+      "tituloAt": "@como investir"
+    },
+    {
+      "kind": "mascot",
+      "at": "@E meu Deus",
+      "until": "@Bom eu sou",
+      "placement": "left-third",
+      "entra": "lado",
+      "canto": false,
+      "poses": [
+        {
+          "at": "@E meu Deus",
+          "pose": "../../../../public/mascote/fox3.png"
+        },
+        {
+          "at": "@por hoje",
+          "pose": "../../../../public/mascote/fox4.png"
+        }
+      ]
+    },
+    {
+      "kind": "mascot",
+      "at": "@Bom eu sou",
+      "until": "@aí>+0.6",
+      "placement": "right-third",
+      "entra": "rise",
+      "nameTag": false,
+      "poses": [
+        {
+          "at": "@Bom eu sou",
+          "pose": "../../../../public/mascote/fox2.png"
+        }
+      ],
+      "canto": false
+    },
+    {
+      "kind": "cena",
+      "tipo": "marca",
+      "at": "@eu sou o Furry",
+      "until": "@aí>+0.6",
+      "src": "@assets/Furry/Icon Minimalista.png",
+      "texto": "OFURRY",
+      "x": 0.28,
+      "y": 0.62
+    },
+    {
+      "kind": "cena",
+      "tipo": "fim",
+      "at": "@aí>+0.6",
+      "until": "@fim+15",
+      "titulo": "COMO INVESTIR MELHOR QUE 90% DAS PESSOAS",
+      "chamada": "PRÓXIMO VÍDEO"
+    },
+    {
+      "kind": "mascot",
+      "at": "@aí>+0.6",
+      "until": "@fim+15",
+      "placement": "corner-right",
+      "entra": "rise",
+      "canto": false,
+      "poses": [
+        {
+          "at": "@aí>+0.6",
+          "pose": "../../../../public/mascote/fox1.png"
+        }
+      ]
+    }
+  ],
+  "cauda": 15
 }

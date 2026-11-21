@@ -148,7 +148,8 @@
           "cor": "text",
           "lado": "baixo"
         }
-      ]
+      ],
+      "perspectiva": true
     },
     {
       "kind": "mascot",

@@ -54,7 +54,7 @@
     { "kind": "cena", "tipo": "palco", "at": "@extremamente", "until": "@E eu sei",
       "atores": [
         { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{ "at": "@extremamente", "x": 0.5, "y": 0.45 }, { "at": "@importante", "x": 0.22, "dur": 0.6 }] },
-        { "id": "cofre", "icone": "piggy-bank", "rotulo": "APORTES", "cor": "gain", "entra": "whip", "keys": [{ "at": "@importante+0.3", "x": 0.78, "y": 0.45 }], "pulsaAt": ["@seus aportes"] }
+        { "id": "cofre", "icone": "piggy-bank", "rotulo": "APORTES", "cor": "gain", "entra": "cair", "keys": [{ "at": "@importante+0.3", "x": 0.78, "y": 0.45 }], "pulsaAt": ["@seus aportes"] }
       ],
       "fluxos": [{ "de": "voce", "para": "cofre", "at": "@mantenha os seus", "ate": "@E eu sei", "icone": "banknote", "por": 3, "cor": "gain", "tam": 90 }],
       "textos": [
@@ -67,7 +67,7 @@
     { "kind": "cena", "tipo": "palco", "at": "@Você vai investir", "until": "@Mas bom",
       "atores": [
         { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{ "at": "@Você vai investir", "x": 0.22, "y": 0.45 }], "pulsaAt": ["@de rendimento"] },
-        { "id": "cofre", "icone": "piggy-bank", "rotulo": "INVESTIDO", "cor": "gain", "entra": "whip", "keys": [{ "at": "@investir", "x": 0.78, "y": 0.45 }] }
+        { "id": "cofre", "icone": "piggy-bank", "rotulo": "INVESTIDO", "cor": "gain", "entra": "girar", "keys": [{ "at": "@investir", "x": 0.78, "y": 0.45 }] }
       ],
       "fluxos": [
         { "de": "voce", "para": "cofre", "at": "@valor absurdo", "ate": "@e vai ver", "icone": "banknote", "por": 7, "cor": "gain", "tam": 110 },
@@ -88,7 +88,7 @@
     { "kind": "cena", "tipo": "palco", "at": "@Depois eu te", "until": "@E última dica",
       "atores": [
         { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{ "at": "@Depois eu te", "x": 0.5, "y": 0.45 }, { "at": "@garanto", "x": 0.22, "dur": 0.6 }], "pulsaAt": ["@agradecer+0.9", "@muito#2"] },
-        { "id": "futuro", "icone": "user-check", "rotulo": "VOCÊ DO FUTURO", "cor": "gain", "tam": 300, "entra": "whip", "keys": [{ "at": "@você do futuro", "x": 0.76, "y": 0.45 }] }
+        { "id": "futuro", "icone": "user-check", "rotulo": "VOCÊ DO FUTURO", "cor": "gain", "tam": 300, "entra": "elastico", "keys": [{ "at": "@você do futuro", "x": 0.76, "y": 0.45 }] }
       ],
       "fluxos": [{ "de": "futuro", "para": "voce", "at": "@agradecer", "ate": "@E última dica", "icone": "heart", "por": 4, "cor": "hl", "tam": 70 }],
       "textos": [
@@ -112,9 +112,9 @@
       "atores": [
         { "id": "cdi", "icone": "percent", "rotulo": "CDI", "cor": "info",
           "keys": [{ "at": "@Como exemplo", "x": 0.3, "y": 0.45 }, { "at": "@as taxas", "x": 0.22, "y": 0.3, "s": 0.7, "dur": 0.7 }] },
-        { "id": "tesouro", "icone": "landmark", "rotulo": "TESOURO DIRETO", "cor": "hl",
+        { "id": "tesouro", "icone": "landmark", "rotulo": "TESOURO DIRETO", "cor": "hl", "entra": "cair",
           "keys": [{ "at": "@tesouro direto", "x": 0.7, "y": 0.45 }, { "at": "@as taxas", "x": 0.78, "y": 0.3, "s": 0.7, "dur": 0.7 }] },
-        { "id": "calc", "icone": "calculator", "cor": "info", "tam": 240, "entra": "rise",
+        { "id": "calc", "icone": "calculator", "cor": "info", "tam": 240, "entra": "elastico",
           "keys": [{ "at": "@você pode pegar", "x": 0.5, "y": 0.6 }], "pulsaAt": ["@calcular", "@mais precisa"] }
       ],
       "fluxos": [
@@ -129,7 +129,7 @@
       ] },
 
     { "kind": "cena", "tipo": "grafico", "at": "@quando que de fato", "until": "@E transformar",
-      "modo": "rendimento", "meses": 132, "rotuloCabeca": false, "viradaTexto": "CRUZOU A LINHA",
+      "modo": "rendimento", "meses": 132, "rotuloCabeca": false, "viradaTexto": "CRUZOU A LINHA", "perspectiva": true,
       "revela": [{ "at": 0, "mes": 96 }, { "at": "@quando que de fato+0.2", "mes": 132, "dur": 1.4 }],
       "vista": [{ "at": 0, "x": 132, "y": 1200 }] },
 

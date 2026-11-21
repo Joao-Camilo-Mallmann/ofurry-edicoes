@@ -38,9 +38,9 @@
   "beats": [
     { "kind": "cena", "tipo": "palco", "at": "@inicio", "until": "@Como Einstein",
       "atores": [
-        { "id": "data", "icone": "calendar-check", "cor": "hl", "rotulo": "ESSA DATA", "tam": 280,
+        { "id": "data", "icone": "calendar-check", "cor": "hl", "rotulo": "ESSA DATA", "tam": 280, "entra": "cair",
           "keys": [{ "at": "@inicio", "x": 0.5, "y": 0.42 }, { "at": "@existe", "x": 0.28, "dur": 0.6 }] },
-        { "id": "motivo", "icone": "lightbulb", "rotulo": "UM MOTIVO", "tam": 260, "entra": "whip", "pulsaAt": ["@simples"],
+        { "id": "motivo", "icone": "lightbulb", "rotulo": "UM MOTIVO", "tam": 260, "entra": "elastico", "pulsaAt": ["@simples"],
           "keys": [{ "at": "@um motivo", "x": 0.72, "y": 0.42 }] }
       ],
       "setas": [{ "de": "data", "para": "motivo", "at": "@um motivo+0.15", "cor": "text" }],
@@ -89,7 +89,7 @@
       ] },
 
     { "kind": "cena", "tipo": "grafico", "at": "@E o rendimento", "until": "@fim",
-      "modo": "rendimento", "meses": 130, "titulo": "QUANTO O DINHEIRO RENDE POR MÊS", "virada": false,
+      "modo": "rendimento", "meses": 130, "titulo": "QUANTO O DINHEIRO RENDE POR MÊS", "virada": false, "perspectiva": true, "semMes": true,
       "revela": [{ "at": "@E o rendimento", "mes": 0 }, { "at": "@E o rendimento+0.2", "mes": 12, "dur": 1.6 }, { "at": "@Já o rendimento", "mes": 120, "dur": 2.6 }],
       "vista": [{ "at": 0, "x": 24, "y": 1200 }, { "at": "@Já o rendimento", "x": 130, "y": 1200, "dur": 2.6 }],
       "marcos": [

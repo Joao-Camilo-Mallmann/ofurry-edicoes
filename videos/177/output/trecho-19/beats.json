@@ -50,7 +50,7 @@
     { "kind": "cena", "tipo": "palco", "at": "@Cada ano que", "until": "@agora a máquina",
       "atores": [
         { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "keys": [{ "at": "@Cada ano que", "x": 0.5, "y": 0.42 }, { "at": "@passou", "x": 0.82, "dur": 0.6 }] },
-        { "id": "cofre", "icone": "piggy-bank", "rotulo": "INVESTIDO", "cor": "gain", "entra": "whip", "keys": [{ "at": "@guardando", "x": 0.33, "y": 0.42 }] }
+        { "id": "cofre", "icone": "piggy-bank", "rotulo": "INVESTIDO", "cor": "gain", "entra": "cair", "keys": [{ "at": "@guardando", "x": 0.33, "y": 0.42 }] }
       ],
       "fluxos": [{ "de": "voce", "para": "cofre", "at": "@dinheiro investindo", "ate": "@agora a máquina+0.3", "icone": "banknote", "por": 3, "cor": "gain", "tam": 90 }],
       "textos": [
@@ -80,14 +80,9 @@
     { "kind": "broll", "at": "@A cada ano", "until": "@seus próprios", "src": "../../acervo/broll/fabrica-a-noite-aerea.mp4", "entra": "zoom", "zoom": [1.0, 1.12] },
     { "kind": "cena", "tipo": "piada", "at": "@trabalhar sozinho+0.3", "until": "@trabalhar sozinho+1.3", "dura": 0.8, "texto": "TRABALHA ATÉ NO FERIADO", "x": 0.5, "y": 0.1 },
 
-    { "kind": "cena", "tipo": "grafico", "at": "@E em alguns anos", "until": "@E vai ser a partir",
-      "modo": "patrimonio", "meses": 260, "rotuloCabeca": false, "titulo": "VIVENDO DA PRÓPRIA RENDA",
-      "revela": [{ "at": 0, "mes": 124 }, { "at": "@alguns anos", "mes": 195, "dur": 1.2 }, { "at": "@própria renda", "mes": 246, "dur": 1.2 }],
-      "vista": [{ "at": 0, "x": 260, "y": 640000 }],
-      "marcos": [
-        { "mes": 195, "at": "@alguns anos+0.9", "rotulo": "R$ 354 MIL · 2.000/MÊS", "cor": "gain", "lado": "esq" },
-        { "mes": 246, "at": "@própria renda+0.9", "rotulo": "R$ 531 MIL · 3.000/MÊS", "cor": "hl", "lado": "esq" }
-      ] },
+    { "kind": "cena", "tipo": "barras", "at": "@E em alguns anos", "until": "@E vai ser a partir", "titulo": "VIVENDO DA PRÓPRIA RENDA",
+      "anos": 11, "deAno": 10, "revela": [{ "at": 0, "ano": 9 }, { "at": "@alguns anos", "ano": 16, "dur": 1.4 }, { "at": "@própria renda", "ano": 20, "dur": 1.2 }],
+      "destaques": [{ "at": "@alguns anos+1.2", "ano": 16, "rotulo": "R$ 354 MIL", "cor": "gain" }] },
 
     { "kind": "cena", "tipo": "foto3d", "at": "@E vai ser a partir", "until": "@Você pode trocar",
       "src": "../../acervo/fotos3d/silhueta-na-praia.png", "depth": "../../acervo/fotos3d/depth/silhueta-na-praia-depth.png",
@@ -96,10 +91,10 @@
     { "kind": "cena", "tipo": "palco", "at": "@Você pode trocar", "until": "@Porque você não",
       "atores": [
         { "id": "velho", "icone": "building-2", "tam": 220, "keys": [{ "at": "@Você pode trocar", "x": 0.15, "y": 0.42 }] },
-        { "id": "novo", "icone": "building", "tam": 220, "cor": "info", "entra": "whip", "keys": [{ "at": "@trocar de emprego", "x": 0.48, "y": 0.42 }] },
+        { "id": "novo", "icone": "building", "tam": 220, "cor": "info", "entra": "cair", "keys": [{ "at": "@trocar de emprego", "x": 0.48, "y": 0.42 }] },
         { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 150,
           "keys": [{ "at": "@Você pode trocar", "x": 0.26, "y": 0.64 }, { "at": "@emprego", "x": 0.6, "y": 0.64, "dur": 0.9 }] },
-        { "id": "escudo", "icone": "shield", "rotulo": "MENOS ASSUSTADO", "cor": "gain", "tam": 220,
+        { "id": "escudo", "icone": "shield", "rotulo": "MENOS ASSUSTADO", "cor": "gain", "tam": 220, "entra": "elastico",
           "keys": [{ "at": "@menos assustado", "x": 0.84, "y": 0.45 }], "pulsaAt": ["@acontecer+0.5", "@na sua vida"] },
         { "id": "raio", "icone": "cloud-lightning", "cor": "loss", "tam": 150, "entra": "whip", "keys": [{ "at": "@algum problema", "x": 0.84, "y": 0.12 }] }
       ],
@@ -109,7 +104,7 @@
     { "kind": "cena", "tipo": "palco", "at": "@Porque você não", "until": "@porque a sua renda",
       "atores": [
         { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "tam": 170, "keys": [{ "at": "@Porque você não", "x": 0.17, "y": 0.4 }] },
-        { "id": "crise", "icone": "cloud-lightning", "rotulo": "CRISE", "tam": 300, "entra": "whip",
+        { "id": "crise", "icone": "cloud-lightning", "rotulo": "CRISE", "tam": 300, "entra": "girar",
           "keys": [{ "at": "@Porque você não", "x": 0.58, "y": 0.36 }, { "at": "@preocupar", "r": -8, "dur": 0.25 }, { "at": "@com a crise", "r": 8, "dur": 0.25 }],
           "riscaAt": "@crise" }
       ] },
@@ -120,7 +115,7 @@
       "atores": [
         { "id": "maquina", "icone": "printer", "cor": "gain", "tam": 150, "keys": [{ "at": "@porque a sua renda", "x": 0.3, "y": 0.13 }] },
         { "id": "renda", "icone": "wallet", "rotulo": "SUA RENDA", "cor": "gain", "keys": [{ "at": "@porque a sua renda", "x": 0.3, "y": 0.5 }] },
-        { "id": "trabalho", "icone": "briefcase-business", "rotulo": "SEU TRABALHO", "entra": "whip", "keys": [{ "at": "@não depende", "x": 0.74, "y": 0.5 }], "riscaAt": "@seu trabalho+0.1" }
+        { "id": "trabalho", "icone": "briefcase-business", "rotulo": "SEU TRABALHO", "entra": "cair", "keys": [{ "at": "@não depende", "x": 0.74, "y": 0.5 }], "riscaAt": "@seu trabalho+0.1" }
       ],
       "fluxos": [{ "de": "maquina", "para": "renda", "at": "@porque a sua renda+0.2", "ate": "@fim", "icone": "coins", "por": 3, "cor": "gain", "tam": 60, "arco": 0 }],
       "setas": [{ "de": "trabalho", "para": "renda", "at": "@não depende", "ate": "@seu trabalho", "cor": "whisper" }],

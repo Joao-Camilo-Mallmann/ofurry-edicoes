@@ -49,14 +49,14 @@
 
     { "kind": "cena", "tipo": "palco", "at": "@vamos lembrar", "until": "@O primeiro milhão",
       "atores": [
-        { "id": "trofeu", "icone": "trophy", "rotulo": "NOSSO OBJETIVO", "cor": "hl", "keys": [{ "at": "@vamos lembrar", "x": 0.7, "y": 0.42 }, { "at": "@persegue", "x": 0.84, "dur": 0.5 }], "pulsaAt": ["@nosso objetivo"] },
+        { "id": "trofeu", "icone": "trophy", "rotulo": "NOSSO OBJETIVO", "cor": "hl", "entra": "elastico", "keys": [{ "at": "@vamos lembrar", "x": 0.7, "y": 0.42 }, { "at": "@persegue", "x": 0.84, "dur": 0.5 }], "pulsaAt": ["@nosso objetivo"] },
         { "id": "p1", "icone": "user", "tam": 150, "entra": "whip", "keys": [{ "at": "@todo mundo", "x": 0.06, "y": 0.58 }, { "at": "@todo mundo+0.1", "x": 0.5, "dur": 1.3 }] },
         { "id": "p2", "icone": "user", "tam": 150, "entra": "whip", "keys": [{ "at": "@todo mundo+0.2", "x": 0.04, "y": 0.58 }, { "at": "@todo mundo+0.3", "x": 0.37, "dur": 1.3 }] },
         { "id": "p3", "icone": "user", "tam": 150, "entra": "whip", "keys": [{ "at": "@todo mundo+0.4", "x": 0.02, "y": 0.58 }, { "at": "@todo mundo+0.5", "x": 0.24, "dur": 1.3 }] }
       ],
       "textos": [{ "at": "@todo mundo", "texto": "TODO MUNDO PERSEGUE", "x": 0.45, "y": 0.15, "tam": 68 }] },
 
-    { "kind": "number", "at": "@O primeiro milhão", "until": "@Se a gente", "value": "R$ 1.000.000", "countFrom": 0, "caption": "O PRIMEIRO MILHÃO", "tone": "highlight" },
+    { "kind": "cena", "tipo": "contador", "at": "@O primeiro milhão", "until": "@Se a gente", "de": 0, "ate": 1000000, "dur": 1.0, "prefixo": "R$", "cor": "hl", "tam": 220, "rotulo": "O PRIMEIRO MILHÃO" },
 
     { "kind": "cena", "tipo": "numeros", "at": "@Se a gente", "until": "@em aproximadamente",
       "itens": [
@@ -64,13 +64,11 @@
         { "at": "@7%", "valor": "7%", "sub": "AO ANO", "cor": "gain" }
       ] },
 
-    { "kind": "cena", "tipo": "grafico", "at": "@em aproximadamente", "until": "@Só que aí que",
-      "modo": "patrimonio", "meses": 340, "rotuloCabeca": false,
-      "revela": [{ "at": 0, "mes": 0 }, { "at": "@em aproximadamente+0.1", "mes": 337, "dur": 1.8 }],
-      "vista": [{ "at": 0, "x": 340, "y": 1100000 }],
-      "marcos": [{ "mes": 337, "at": "@28 anos", "rotulo": "R$ 1 MILHÃO · 28 ANOS", "cor": "hl", "lado": "esq" }] },
+    { "kind": "cena", "tipo": "barras", "at": "@em aproximadamente", "until": "@Só que aí que",
+      "anos": 10, "deAno": 19, "revela": [{ "at": 0, "ano": 18 }, { "at": "@em aproximadamente+0.2", "ano": 28, "dur": 2.0 }],
+      "destaques": [{ "at": "@28 anos", "ano": 28, "rotulo": "R$ 1 MILHÃO", "cor": "hl" }] },
     { "kind": "broll", "at": "@em aproximadamente", "until": "@28 anos", "src": "../../acervo/broll/nuvens-timelapse.mp4", "entra": "zoom", "zoom": [1.0, 1.1] },
-    { "kind": "cena", "tipo": "piada", "at": "@28 anos+0.4", "until": "@28 anos+1.4", "dura": 0.9, "texto": "DÁ TEMPO DE VER 7 COPAS", "x": 0.4, "y": 0.42 },
+    { "kind": "cena", "tipo": "piada", "at": "@28 anos+0.4", "until": "@28 anos+1.4", "dura": 0.9, "texto": "DÁ TEMPO DE VER 7 COPAS", "x": 0.45, "y": 0.1 },
 
     { "kind": "mascot", "at": "@Só que aí que", "until": "@No milhão", "placement": "right-third", "entra": "giro",
       "poses": [
@@ -78,7 +76,7 @@
         { "at": "@mais engraçada", "pose": "../../../../public/mascote/fox2.png" }
       ] },
 
-    { "kind": "cena", "tipo": "barra", "at": "@No milhão", "until": "@Ou seja", "total": "R$ 1 MILHÃO", "totalAt": "@No milhão",
+    { "kind": "cena", "tipo": "rosca", "at": "@No milhão", "until": "@Ou seja", "centro": "R$ 1 MILHÃO", "centroAt": "@No milhão",
       "partes": [
         { "at": "@336 mil", "valor": 336000, "rotulo": "DO SEU BOLSO", "cor": "text" },
         { "at": "@664 mil", "valor": 664000, "rotulo": "DOS RENDIMENTOS", "cor": "gain" }
@@ -87,7 +85,7 @@
     { "kind": "broll", "at": "@vão vir", "until": "@Ou seja", "src": "../../acervo/broll/notas-caindo-fundo-escuro.mp4", "de": 2, "entra": "whip", "zoom": [1.04, 1.14], "escurece": 0.1 },
 
     { "kind": "cena", "tipo": "grafico", "at": "@Ou seja", "until": "@A parte difícil não",
-      "modo": "patrimonio", "meses": 340, "rotuloCabeca": false,
+      "modo": "patrimonio", "meses": 340, "rotuloCabeca": false, "perspectiva": true,
       "revela": [{ "at": 0, "mes": 337 }],
       "vista": [{ "at": 0, "x": 340, "y": 1100000 }],
       "marcos": [
@@ -109,7 +107,7 @@
 
     { "kind": "cena", "tipo": "palco", "at": "@só rende", "until": "@você não está",
       "atores": [
-        { "id": "cofre", "icone": "piggy-bank", "rotulo": "HOJE", "cor": "gain", "keys": [{ "at": "@só rende", "x": 0.3, "y": 0.48 }] },
+        { "id": "cofre", "icone": "piggy-bank", "rotulo": "HOJE", "cor": "gain", "entra": "cair", "keys": [{ "at": "@só rende", "x": 0.3, "y": 0.48 }] },
         { "id": "voce", "icone": "user", "rotulo": "VOCÊ", "entra": "whip", "keys": [{ "at": "@só rende+0.2", "x": 0.72, "y": 0.48 }], "pulsaAt": ["@por mês#2"] }
       ],
       "fluxos": [{ "de": "cofre", "para": "voce", "at": "@65 reais", "ate": "@você não está", "icone": "coins", "por": 1.5, "cor": "gain", "tam": 60 }],

@@ -6,7 +6,7 @@
  * Todos os tempos dentro de `p` (at, keyframes) estao em segundos DO TRECHO (ja resolvidos das ancoras "@frase");
  * t0 e o inicio da batida no trecho, entao T = t0 + tLocal.
  *
- * Tipos: grafico, tabela, balanca, maquina, calendario, formula, barra, comparar, lista, numeros, citacao, fim, palco (icones em movimento), piada, foto3d (assincrona).
+ * Tipos: grafico, tabela, balanca, maquina, calendario, formula, barra, comparar, lista, numeros, citacao, fim, palco (icones em movimento), piada, barras, rosca, contador, foto3d (assincrona).
  * Cores sempre pelo significado: --gain ganho/rendimento, --text aporte/seu dinheiro, --highlight virada/destaque,
  * --loss perda, --brand marca, --info apoio.
  */
@@ -145,7 +145,8 @@
     var serie = modo === 'rendimento' ? sim.rend : sim.P;
     var virMes = -1;
     if (modo === 'rendimento') for (var m = 1; m <= N; m++) if (sim.rend[m] >= A) { virMes = m; break; }
-    var st = stage(root, { ry: -4, rx: 2 });
+    // perspectiva: o mesmo grafico deitado em 3D, com a camera passando (variacao visual)
+    var st = stage(root, p.perspectiva ? { ry: -18, rx: 24 } : { ry: -4, rx: 2 });
     var X0 = 250, X1 = 1690, Y0 = 860, Y1 = 210;
     var s = svg('svg', { width: W, height: H, viewBox: '0 0 ' + W + ' ' + H, style: 'position:absolute;inset:0;overflow:visible' }, st.cam);
     var defs = svg('defs', {}, s);
@@ -178,7 +179,7 @@
 
     return function (tl) {
       var T = t0 + tl;
-      st.move(T, t0, dur, 0.8);
+      st.move(T, t0, dur, p.perspectiva ? 1.4 : 0.8);
       if (title) popText(title, T, t0, undefined, 'rise');
       var h = kf(p.revela, T, 'mes', N, 1.6);
       var vx = kf(p.vista, T, 'x', N, 1.2);
@@ -849,6 +850,11 @@
           fluxos: [{ de: id, para: id, at, ate, icone: 'coins' (svg injetado), cor, tam: 70, por: 3 (itens/s), viagem: 0.9, arco: -0.18 }],
           setas:  [{ de: id, para: id, at, ate, cor, rotulo }],
           textos: [{ at, ate, texto, x, y, tam: 84, cor, fonte: 'cap'|'num' }] }  */
+  var ENTRADAS_PALCO = ['pop', 'cair', 'girar', 'elastico', 'whip', 'rise'];
+  var quica = function (t) { var n1 = 7.5625, d1 = 2.75; if (t < 1 / d1) return n1 * t * t; if (t < 2 / d1) return n1 * (t -= 1.5 / d1) * t + 0.75; if (t < 2.5 / d1) return n1 * (t -= 2.25 / d1) * t + 0.9375; return n1 * (t -= 2.625 / d1) * t + 0.984375; };
+  var elast = function (t) { return t === 0 || t === 1 ? t : Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * ((2 * Math.PI) / 3)) + 1; };
+  // progresso (0-1) dentro do trecho de keyframe ativo: para trajetorias em arco
+  var kfProg = function (list, T, dur) { for (var i = list.length - 1; i >= 1; i--) { if (T > list[i].at) { var d = list[i].dur !== undefined ? list[i].dur : dur; return d <= 0 ? 1 : E.io(c01((T - list[i].at) / d)); } } return 0; };
   var k01 = function (s) { var h = 0; for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 997; return h / 97; };
   OF.palco = function (root, p, t0, dur) {
     var st = stage(root, { ry: 0, rx: 0 });
@@ -893,17 +899,28 @@
         var o = atores[id], a = o.a, ks = a.keys || [{ at: t0 }];
         var at = ks[0].at !== undefined ? ks[0].at : t0;
         var q = pos(o, T);
-        var kind = a.entra || 'pop';
-        var pe = prog(T, at, kind === 'pop' ? 0.18 : 0.25, kind === 'pop' ? E.back : E.out5);
+        // entradas: pop, rise, whip, cair (despenca e quica), girar (gira 1 volta), elastico (estica e volta)
+        var kind = a.entra || ENTRADAS_PALCO[(k01(id) * 10 | 0) % ENTRADAS_PALCO.length];
+        var pe = prog(T, at, kind === 'pop' ? 0.18 : kind === 'cair' ? 0.45 : kind === 'elastico' ? 0.5 : 0.25, kind === 'pop' ? E.back : kind === 'cair' ? quica : kind === 'elastico' ? elast : E.out5);
         var sai = a.sai !== undefined ? c01((T - a.sai) / 0.2) : 0;
+        var saiComo = a.saiComo || 'desce';
         var vis = T >= at ? 1 : 0;
         var idle = a.balanca === false ? 0 : 1;
         var bob = Math.sin((T + k01(id)) * 2.1) * 6 * idle, tilt = Math.sin((T + k01(id)) * 1.3) * 2 * idle;
-        var dx = kind === 'whip' ? (1 - pe) * -260 : 0, dy = kind === 'rise' ? (1 - pe) * 120 : 0;
-        var sc = q.s * (kind === 'pop' ? 0.4 + 0.6 * pe : 1);
+        var dx = kind === 'whip' ? (1 - pe) * -260 : 0, dy = kind === 'rise' ? (1 - pe) * 120 : kind === 'cair' ? (pe - 1) * 520 : 0;
+        var sc = q.s * (kind === 'pop' ? 0.4 + 0.6 * pe : kind === 'elastico' ? Math.max(0.05, pe) : kind === 'girar' ? 0.3 + 0.7 * pe : 1);
+        var giro = kind === 'girar' ? (1 - pe) * -360 : 0;
+        // trajetoria em arco entre keyframes (a: arco, fracao da altura)
+        if (a.arco) { var segP = kfProg(ks, T, 0.7); dy -= Math.sin(Math.PI * segP) * a.arco * H; }
+        // saidas: desce (padrao), explode (cresce e some), voa (sobe girando), encolhe
+        if (sai > 0) {
+          if (saiComo === 'explode') sc *= 1 + sai * 0.8;
+          else if (saiComo === 'voa') { dy -= sai * 700; giro += sai * 160; }
+          else if (saiComo === 'encolhe') sc *= 1 - sai;
+        }
         (a.pulsaAt || []).forEach(function (pa) { var d = T - pa; if (d >= 0 && d < 0.35) sc *= 1 + 0.18 * Math.sin((d / 0.35) * Math.PI); });
         o.box.style.opacity = (vis * Math.min(1, pe * 1.5) * q.o * (1 - sai)).toFixed(3);
-        o.box.style.transform = 'translate(' + (q.x - o.size / 2 + dx).toFixed(1) + 'px,' + (q.y - o.size / 2 + bob + dy + sai * 60).toFixed(1) + 'px) rotate(' + (q.r + tilt).toFixed(2) + 'deg) scale(' + sc.toFixed(4) + ')';
+        o.box.style.transform = 'translate(' + (q.x - o.size / 2 + dx).toFixed(1) + 'px,' + (q.y - o.size / 2 + bob + dy + (saiComo === 'desce' ? sai * 60 : 0)).toFixed(1) + 'px) rotate(' + (q.r + tilt + giro).toFixed(2) + 'deg) scale(' + sc.toFixed(4) + ')';
         o.box.style.filter = 'none';
         o.x = q.x; o.y = q.y; o.s = q.s;
         if (o.risco) {
@@ -940,7 +957,7 @@
           var x = lerp(A.x, B.x, e), y = lerp(A.y, B.y, e) + arco * Math.sin(Math.PI * e);
           var sz = (f.tam || 100) / 2;
           n.style.opacity = (u < 0.1 ? u / 0.1 : u > 0.85 ? (1 - u) / 0.15 : 1).toFixed(3);
-          n.style.transform = 'translate(' + (x - sz).toFixed(1) + 'px,' + (y - sz).toFixed(1) + 'px) rotate(' + (u * 220 * (i % 2 ? 1 : -1)).toFixed(1) + 'deg) scale(' + (0.7 + 0.3 * Math.sin(Math.PI * u)).toFixed(3) + ')';
+          n.style.transform = 'translate(' + (x - sz).toFixed(1) + 'px,' + (y - sz).toFixed(1) + 'px) rotate(' + (f.gira === false ? 0 : u * 220 * (i % 2 ? 1 : -1)).toFixed(1) + 'deg) scale(' + (0.7 + 0.3 * Math.sin(Math.PI * u)).toFixed(3) + ')';
         });
         if (B && T >= o.a0 + viagem && T < o.a1 + viagem) B.box.style.filter = 'drop-shadow(0 0 24px ' + (C[f.cor || 'gain'] || f.cor) + ')';
       });
@@ -970,6 +987,164 @@
       // 2 quadros de "soco" na entrada
       var k = on && T - at < 2 / 30 ? 1.12 : 1;
       n.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) rotate(' + (p.rot !== undefined ? p.rot : -4) + 'deg) scale(' + k + ')';
+    };
+  };
+
+  // ================================================================ BARRAS ano a ano (do bolso x juros, empilhado)
+  /* Variacao do grafico de linha (Joao, 21/11/2026: "queria mais variacao de motion tambem de grafico, ficou repetindo").
+     p: { anos: 10 (quantos anos), deAno: 1, aporte, taxa, revela: [{at, ano, dur}] (ate que ano as barras ja subiram),
+          destaques: [{at, ano, rotulo, cor}], titulo, perspectiva: true (inclina em 3D) }
+     Cada barra = patrimonio no fim do ano: parte branca = do seu bolso, parte verde = juros. */
+  OF.barras = function (root, p, t0, dur) {
+    var N = p.anos || 10, d0 = p.deAno || 1, A = p.aporte || 1000;
+    var sim = simula((d0 + N) * 12, A, p.taxa || 0.07);
+    var st = stage(root, p.perspectiva === false ? { ry: -3, rx: 2 } : { ry: -14, rx: 16 });
+    var X0 = 260, X1 = 1680, Y0 = 880, Y1 = 230;
+    var maxV = sim.P[(d0 + N - 1) * 12] * 1.12;
+    var bw = ((X1 - X0) / N) * 0.62;
+    var title = p.titulo ? el('div', { style: 'position:absolute;left:0;right:0;top:70px;text-align:center;' + FONT_CAP + 'font-size:54px;font-style:italic;font-weight:600;color:' + C.text, text: p.titulo }, root) : null;
+    var base = el('div', { style: 'position:absolute;left:' + X0 + 'px;top:' + Y0 + 'px;width:' + (X1 - X0) + 'px;height:3px;background:' + C.text + ';opacity:.8' }, st.cam);
+    var bars = [];
+    for (var k = 0; k < N; k++) {
+      var ano = d0 + k, m = ano * 12;
+      var cx = X0 + ((k + 0.5) * (X1 - X0)) / N;
+      var g1 = el('div', { style: 'position:absolute;left:' + (cx - bw / 2) + 'px;width:' + bw + 'px;bottom:' + (H - Y0) + 'px;height:0px;display:flex;flex-direction:column-reverse;transform-origin:50% 100%' }, st.cam);
+      var bolso = el('div', { style: 'width:100%;background:linear-gradient(180deg,#fdfdfd,#cfcfcf);' }, g1);
+      var juros = el('div', { style: 'width:100%;background:linear-gradient(180deg,#6dff86,' + C.gain + ');box-shadow:0 0 22px ' + C.gain + '77' }, g1);
+      var lb = el('div', { style: 'position:absolute;left:' + (cx - 80) + 'px;width:160px;top:' + (Y0 + 14) + 'px;text-align:center;' + FONT_CAP + 'font-size:26px;color:' + C.whisper, text: 'ANO ' + ano }, st.cam);
+      var val = el('div', { style: 'position:absolute;left:' + (cx - 110) + 'px;width:220px;text-align:center;' + FONT_NUM + 'font-size:44px;color:' + C.text + ';opacity:0' }, st.cam);
+      bars.push({ g: g1, bolso: bolso, juros: juros, lb: lb, val: val, P: sim.P[m], B: sim.bolso[m], ano: ano });
+    }
+    var dest = (p.destaques || []).map(function (d) { return { d: d, n: el('div', { style: 'position:absolute;' + FONT_CAP + 'font-size:34px;color:#000;background:' + (C[d.cor || 'hl'] || d.cor) + ';padding:4px 16px;white-space:nowrap;opacity:0', text: d.rotulo || '' }, st.cam) }; });
+    var leg = el('div', { style: 'position:absolute;left:' + X0 + 'px;top:' + (Y1 - 60) + 'px;' + FONT_CAP + 'font-size:28px;color:' + C.text, html: '<span style="color:#fdfdfd">■</span> DO SEU BOLSO &nbsp;&nbsp; <span style="color:' + C.gain + '">■</span> JUROS' }, st.cam);
+    return function (tl) {
+      var T = t0 + tl;
+      st.move(T, t0, dur, 1);
+      if (title) popText(title, T, t0, undefined, 'rise');
+      base.style.opacity = prog(T, t0, 0.3) * 0.8;
+      leg.style.opacity = prog(T, t0 + 0.2, 0.3);
+      var ate = kf(p.revela, T, 'ano', d0 + N - 1, 1.2);
+      bars.forEach(function (b, k) {
+        var f = c01(ate - b.ano + 1);
+        var e = E.back(f);
+        var hTot = (b.P / maxV) * (Y0 - Y1) * e;
+        b.g.style.height = Math.max(0, hTot).toFixed(1) + 'px';
+        b.bolso.style.height = Math.max(0, hTot * (b.B / b.P)).toFixed(1) + 'px';
+        b.juros.style.height = Math.max(0, hTot * (1 - b.B / b.P)).toFixed(1) + 'px';
+        b.lb.style.opacity = f > 0 ? 1 : 0.35;
+        b.val.style.top = (Y0 - hTot - 52).toFixed(1) + 'px';
+        var destacada = (p.destaques || []).some(function (d) { return d.ano === b.ano && T >= d.at; });
+        b.val.style.opacity = f >= 1 && !destacada && (k === bars.length - 1 || k % 3 === 2) ? 1 : 0;
+        b.val.textContent = brl(b.P, { mil: true });
+      });
+      dest.forEach(function (o) {
+        var b = bars[o.d.ano - d0];
+        if (!b) return;
+        var on = T >= o.d.at ? prog(T, o.d.at, 0.2, E.back) : 0;
+        o.n.style.opacity = on;
+        o.n.style.left = (parseFloat(b.g.style.left) + bw / 2 - 120) + 'px';
+        o.n.style.top = (Y0 - parseFloat(b.g.style.height) - 110) + 'px';
+        o.n.style.transform = 'scale(' + (0.6 + 0.4 * on).toFixed(3) + ')';
+        b.g.style.filter = on ? 'drop-shadow(0 0 18px ' + (C[o.d.cor || 'hl'] || o.d.cor) + ')' : 'none';
+      });
+    };
+  };
+
+  // ================================================================ ROSCA (donut): partes de um total
+  /* p: { centro: 'R$ 177 MIL', centroAt, partes: [{at, valor, rotulo, cor}], gira: true } */
+  OF.rosca = function (root, p, t0, dur) {
+    var st = stage(root, { ry: -10, rx: 12 });
+    var cx = W / 2 - 220, cy = H / 2 + 20, R = 300, esp = 92;
+    var s = svg('svg', { width: W, height: H, style: 'position:absolute;inset:0;overflow:visible' }, st.cam);
+    svg('circle', { cx: cx, cy: cy, r: R, fill: 'none', stroke: 'rgba(255,255,255,0.08)', 'stroke-width': esp }, s);
+    var total = p.partes.reduce(function (a, b) { return a + b.valor; }, 0);
+    var C2 = 2 * Math.PI * R, acc = 0;
+    var arcs = p.partes.map(function (pt, i) {
+      var col = C[pt.cor || (i ? 'gain' : 'text')] || pt.cor;
+      var frac = pt.valor / total;
+      var a = svg('circle', { cx: cx, cy: cy, r: R, fill: 'none', stroke: col, 'stroke-width': esp, 'stroke-dasharray': '0 ' + C2, transform: 'rotate(' + (-90 + acc * 360) + ' ' + cx + ' ' + cy + ')', style: 'filter:drop-shadow(0 0 16px ' + col + '88)' }, s);
+      var lb = el('div', { style: 'position:absolute;left:' + (cx + R + 140) + 'px;top:' + (cy - 150 + i * 170) + 'px;opacity:0' }, st.cam);
+      var v = el('div', { style: FONT_NUM + 'font-size:120px;line-height:0.95;color:' + col, text: brl(pt.valor, { mil: true }) }, lb);
+      el('div', { style: FONT_CAP + 'font-size:36px;color:' + C.text, text: (pt.rotulo || '') + ' · ' + Math.round(frac * 100) + '%' }, lb);
+      var o = { a: a, lb: lb, frac: frac, start: acc, pt: pt };
+      acc += frac;
+      return o;
+    });
+    var centro = el('div', { style: 'position:absolute;left:' + (cx - 240) + 'px;width:480px;top:' + (cy - 60) + 'px;text-align:center;' + FONT_NUM + 'font-size:110px;color:' + C.text + ';opacity:0', text: p.centro || brl(total, { mil: true }) }, st.cam);
+    return function (tl) {
+      var T = t0 + tl;
+      st.move(T, t0, dur, 0.8);
+      var rot = p.gira === false ? 0 : (T - t0) * 4;
+      arcs.forEach(function (o) {
+        var at = o.pt.at !== undefined ? o.pt.at : t0;
+        var pr = prog(T, at, 0.7, E.io);
+        o.a.setAttribute('stroke-dasharray', (C2 * o.frac * pr).toFixed(1) + ' ' + C2.toFixed(1));
+        o.a.setAttribute('transform', 'rotate(' + (-90 + o.start * 360 + rot).toFixed(2) + ' ' + cx + ' ' + cy + ')');
+        o.lb.style.opacity = T >= at ? Math.min(1, pr * 1.6) : 0;
+        o.lb.style.transform = 'translateX(' + ((1 - pr) * 60).toFixed(1) + 'px)';
+      });
+      popText(centro, T, p.centroAt !== undefined ? p.centroAt : t0 + 0.2, undefined, 'pop');
+    };
+  };
+
+  // ================================================================ CONTADOR tipo odometro (digitos rolando)
+  /* p: { de: 0, ate: 177000, at, dur: 1.6, prefixo: 'R$ ', sufixo: '', rotulo, rotuloAt, cor: 'hl', tam: 260, milhar: true } */
+  OF.contador = function (root, p, t0, dur) {
+    var st = stage(root, { ry: 0, rx: 6 });
+    var cor = C[p.cor || 'hl'] || p.cor, tam = p.tam || 260;
+    var fmt = function (v) { return Math.round(v).toLocaleString('pt-BR'); };
+    var alvo = fmt(p.ate);
+    var linha = el('div', { style: 'position:absolute;left:0;right:0;top:' + (H / 2 - tam * 0.62) + 'px;display:flex;justify-content:center;align-items:flex-start;' + FONT_NUM + 'font-size:' + tam + 'px;line-height:1;color:' + cor + ';text-shadow:0 0 34px ' + cor + '66' }, st.cam);
+    if (p.prefixo) el('div', { text: p.prefixo, style: 'margin-right:18px' }, linha);
+    var cols = [];
+    for (var i = 0; i < alvo.length; i++) {
+      var ch = alvo[i];
+      if (!/[0-9]/.test(ch)) { el('div', { text: ch }, linha); continue; }
+      var janela = el('div', { style: 'height:' + tam + 'px;overflow:hidden;position:relative;width:' + (tam * 0.48) + 'px' }, linha);
+      var fita = el('div', { style: 'position:absolute;left:0;top:0;width:100%;text-align:center' }, janela);
+      for (var d = 0; d < 20; d++) el('div', { text: String(d % 10), style: 'height:' + tam + 'px' }, fita);
+      cols.push({ fita: fita, idx: cols.length });
+    }
+    if (p.sufixo) el('div', { text: p.sufixo, style: 'margin-left:18px' }, linha);
+    var rot = p.rotulo ? el('div', { style: 'position:absolute;left:0;right:0;top:' + (H / 2 + tam * 0.5) + 'px;text-align:center;' + FONT_CAP + 'font-size:52px;color:' + C.text, text: p.rotulo }, st.cam) : null;
+    var nd = cols.length;
+    return function (tl) {
+      var T = t0 + tl;
+      st.move(T, t0, dur, 0.5);
+      var at = p.at !== undefined ? p.at : t0;
+      var pr = prog(T, at, p.dur || 1.6, E.out5);
+      var v = (p.de || 0) + ((p.ate - (p.de || 0)) * pr);
+      // cada coluna gira proporcional ao seu "peso": a ultima gira mais (efeito odometro)
+      // odometro: cada digito mostra floor(v/pot)%10 e so rola para o proximo nos ultimos 10% da volta do digito de baixo
+      // em cascata: o ultimo digito rola continuo; um digito so gira quando todos os de baixo estao em 9
+      var vi = Math.max(0, v), roll = vi % 1, todosNove = true;
+      for (var ci = cols.length - 1; ci >= 0; ci--) {
+        var c = cols[ci], pot = Math.pow(10, nd - 1 - c.idx);
+        var d = Math.floor(vi / pot) % 10;
+        var r = pot === 1 ? roll : todosNove ? roll : 0;
+        c.fita.style.transform = 'translateY(' + (-(d + r) * tam).toFixed(1) + 'px)';
+        todosNove = todosNove && d === 9;
+      }
+      linha.style.opacity = Math.min(1, prog(T, t0, 0.2) * 1.5);
+      if (rot) popText(rot, T, p.rotuloAt !== undefined ? p.rotuloAt : at + (p.dur || 1.6) * 0.6, undefined, 'rise');
+    };
+  };
+
+  // ================================================================ MARCA (vinheta do logo: barra laranja + logo + OFURRY)
+  /* Padrao do canal no "eu sou o Furry" (catalogo 03, T008): barra laranja que se abre do centro + logo + nome.
+     p: { src (logo PNG, ex. "@assets/Furry/Icon Minimalista.png"), texto: 'OFURRY', y: 0.8 } */
+  OF.marca = function (root, p, t0, dur) {
+    var y = (p.y !== undefined ? p.y : 0.8) * H, cx = (p.x !== undefined ? p.x : 0.5) * W;
+    var bar = el('div', { style: 'position:absolute;left:' + cx + 'px;top:' + (y - 55) + 'px;height:110px;width:0;background:' + C.brand + ';box-shadow:0 0 40px ' + C.brand + '88;overflow:hidden;display:flex;align-items:center;justify-content:center' }, root);
+    var txt = el('div', { style: FONT_NUM + 'font-size:96px;letter-spacing:0.12em;color:#000;white-space:nowrap;opacity:0', text: p.texto || 'OFURRY' }, bar);
+    var logo = p.src ? el('img', { src: p.src, style: 'position:absolute;left:' + (cx - 110) + 'px;top:' + (y - 300) + 'px;width:220px;height:220px;object-fit:contain;opacity:0' }, root) : null;
+    return function (tl) {
+      var T = t0 + tl;
+      var pb = prog(T, t0, 0.22, E.out5), w = 860 * pb;
+      bar.style.width = w.toFixed(1) + 'px';
+      bar.style.left = (cx - w / 2).toFixed(1) + 'px';
+      txt.style.opacity = prog(T, t0 + 0.15, 0.2);
+      if (logo) { var pl = prog(T, t0 + 0.1, 0.3, E.back); logo.style.opacity = pl; logo.style.transform = 'translateY(' + ((1 - pl) * 60).toFixed(1) + 'px) scale(' + (0.6 + 0.4 * pl).toFixed(3) + ')'; }
     };
   };
 

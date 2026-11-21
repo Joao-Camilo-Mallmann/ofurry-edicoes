@@ -107,6 +107,31 @@ segs.forEach((s, i) => {
 // trilha
 const trilhaPath = join(dir, 'trilha.json');
 const infraction = new Set<string>();
+/**
+ * Final do video (padrao do canal, pedido do Joao em 21/11/2026): a trilha CORTA antes da assinatura ("eu sou o Furry"),
+ * os efeitos param, a voz fica pura, e depois da ultima palavra entra uma musica mais dramatica sobre a tela final.
+ * trilha.json: "final": { "trecho": "trecho-21", "corteEm": "@Bom eu sou", "entraEm": "@por aí>", "musica": "@mus/...",
+ *                          "from": 60, "nivel": -18, "ganho": 0 }
+ */
+type Final = { trecho: string; corteEm: string; entraEm: string; musica: string; from?: number; nivel?: number; ganho?: number };
+let corteAbs = Infinity;
+let finalCfg: (Final & { entraAbs: number }) | undefined;
+if (existsSync(trilhaPath)) {
+  const f = (JSON.parse(readFileSync(trilhaPath, 'utf8')) as { final?: Final }).final;
+  const seg = f && segs.find((x) => x.id === f.trecho);
+  if (f && seg) {
+    const wp = join(seg.dir, 'midia', 'narracao.json');
+    const words = existsSync(wp) ? parseWords(readFileSync(wp, 'utf8')) : [];
+    const errs: string[] = [];
+    const r = resolveAnchorsDeep({ c: f.corteEm, e: f.entraEm }, words, seg.dur, errs) as { c: number; e: number };
+    if (errs.length) {
+      console.error(`final da trilha: ${errs.join('; ')}`);
+      process.exit(1);
+    }
+    corteAbs = seg.out0 + r.c;
+    finalCfg = { ...f, entraAbs: seg.out0 + r.e };
+  }
+}
 if (existsSync(trilhaPath)) {
   const tr = JSON.parse(readFileSync(trilhaPath, 'utf8')) as { abaixoDaVoz?: number; xfade?: number; faixas: { file: string; desde: string; from?: number; ganho?: number }[] };
   const alvo = -14 - (tr.abaixoDaVoz ?? 21);
@@ -140,7 +165,8 @@ if (existsSync(trilhaPath)) {
     const xIn = i > 0 && emenda(i - 1) ? xf : 0;
     const xOut = i < runs.length - 1 && emenda(i + 1) ? xf : 0;
     const a = Math.max(0, run.a - xIn / 2);
-    const b = Math.min(total, run.b + xOut / 2);
+    const corta = corteAbs < run.b + xOut / 2 && corteAbs > a;
+    const b = corta ? corteAbs : Math.min(total, run.b + xOut / 2);
     const len = b - a;
     const from = Math.max(0, (f.from ?? 0) + (run.abs - absStart(f.desde)) - xIn / 2);
     const fileDur = probeDur(file);
@@ -148,7 +174,7 @@ if (existsSync(trilhaPath)) {
     const loops = Math.max(0, Math.ceil((from + len) / Math.max(1, fileDur)) - 1);
     const src = loops ? `[${k}:a]aloop=loop=${loops}:size=${Math.round(fileDur * 48000)},` : `[${k}:a]`;
     const fin = xIn || 1.2;
-    const fout = xOut || 2.5;
+    const fout = corta ? 0.6 : xOut || 2.5;
     filters.push(
       `${src}aresample=48000,aformat=channel_layouts=stereo,atrim=${from.toFixed(3)}:${(from + len).toFixed(3)},asetpts=PTS-STARTPTS,` +
         `loudnorm=I=${alvo}:LRA=6:TP=-9,aresample=48000,volume=${(f.ganho ?? 0).toFixed(1)}dB,` +
@@ -181,6 +207,7 @@ segs.forEach((s) => {
     }
     if (fx.at > s.dur + 0.01) continue;
     const at = Math.max(0, s.out0 + fx.at - (fx.pico ?? 0));
+    if (at >= corteAbs) continue; // na assinatura a voz fica pura
     const k = addInput(file);
     const trim = fx.len ? `atrim=${(fx.from ?? 0).toFixed(3)}:${((fx.from ?? 0) + fx.len).toFixed(3)},asetpts=PTS-STARTPTS,` : fx.from ? `atrim=start=${fx.from},asetpts=PTS-STARTPTS,` : '';
     const fo = fx.fadeOut ?? 0.08;
@@ -190,6 +217,25 @@ segs.forEach((s) => {
     nSfx++;
   }
 });
+
+// musica dramatica do final, sobre a tela final (depois da ultima palavra)
+if (finalCfg && finalCfg.entraAbs < total) {
+  const file = resolveFile(finalCfg.musica);
+  if (!existsSync(file)) {
+    console.error(`musica do final nao encontrada: ${file}`);
+    process.exit(1);
+  }
+  if (/Infraction/i.test(file)) infraction.add(file.split('/').pop()!);
+  const len = total - finalCfg.entraAbs;
+  const from = finalCfg.from ?? 0;
+  const k = addInput(file);
+  filters.push(
+    `[${k}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=${from.toFixed(3)}:${(from + len).toFixed(3)},asetpts=PTS-STARTPTS,` +
+      `loudnorm=I=${finalCfg.nivel ?? -18}:LRA=8:TP=-3,aresample=48000,volume=${(finalCfg.ganho ?? 0).toFixed(1)}dB,` +
+      `afade=t=in:st=0:d=0.15,afade=t=out:st=${Math.max(0, len - 3.5).toFixed(3)}:d=3.5,adelay=${Math.round(finalCfg.entraAbs * 1000)}:all=1[mfinal]`
+  );
+  labels.push('[mfinal]');
+}
 
 filters.push(`${labels.join('')}amix=inputs=${labels.length}:normalize=0:dropout_transition=0,apad,atrim=0:${total.toFixed(3)},${NORMALIZA}[mix]`);
 

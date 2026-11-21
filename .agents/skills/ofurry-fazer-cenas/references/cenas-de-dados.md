@@ -124,3 +124,27 @@ canais de edição de rap/anime... não deixa o Furry sempre no meio, jogadas de
   "zoom": [1, 1.12], "moldura": true }`. Inserts de 0,6–2,5 s na palavra que a imagem mostra; legenda por cima
   (janela de `captions` no mesmo intervalo). Catálogo do vídeo: `videos/<id>/acervo/CATALOGO.md`.
 - **Foto 3D real:** `foto3d` com quadro de B-roll + mapa de profundidade (`acervo/fotos3d/`), 1,6–3,9 s.
+
+## Variedade (Joao, 21/11/2026: "queria mais variacao de motion tambem de grafico, ficou repetindo tudo")
+
+Regra: a mesma cena nao aparece duas vezes seguidas, e no maximo 1 grafico de linha por trecho. Escolha pela ideia:
+
+| Ideia na fala | Cena |
+|---|---|
+| crescimento ao longo do tempo, curva, virada | `grafico` (linha); alterne com `"perspectiva": true` (deitado em 3D) |
+| "ano a ano", "no 5º ano", "depois de 10 anos", comparar anos | `barras`: `anos`, `deAno`, `revela:[{at,ano,dur}]`, `destaques:[{at,ano,rotulo,cor}]`, `titulo`, `perspectiva` (padrao true) — branco = do bolso, verde = juros |
+| partes de um total (do bolso x juros, 123 + 54, 336 + 664) | `rosca`: `centro`, `centroAt`, `partes:[{at,valor,rotulo,cor}]`, `gira` |
+| revelar UM numero grande (177 mil, 1 milhao, 64 reais) | `contador` (odometro): `de`, `ate`, `at`, `dur`, `prefixo`, `sufixo`, `rotulo`, `rotuloAt`, `cor`, `tam` |
+| assinatura "eu sou o Furry" | `marca`: `src` (logo), `texto`, `x`, `y` |
+
+Palco: varie a entrada de cada ator — `entra`: `pop`, `cair` (despenca e quica), `girar` (1 volta), `elastico`, `whip`,
+`rise` (sem `entra`, cada ator sorteia uma) —, a saida — `saiComo`: `desce`, `explode`, `voa`, `encolhe` — e a
+trajetoria (`arco`: 0.1–0.25 faz o ator andar em arco entre keyframes). Fluxos: `gira: false` para setas/pegadas.
+
+Furry: SEM 3D (sem giro, inclinacao ou balanco: pedido do Joao); entra subindo ou deslizando reto e fica parado no
+centro ou num lado. Ele fica FORA da camera global. Depois da cena dele, encolhe para o canto e segue ~3,5 s por cima da
+cena seguinte (desligar: `"canto": false`; tempo: `"segura": s`).
+
+Final do video: `"cauda": 15` no beats.json do ultimo trecho (tela final depois da fala, `"@fim+15"`), `marca` na
+assinatura e o `final` do `trilha.json` (corta a trilha antes da assinatura, musica dramatica na tela final). Exemplo:
+`videos/177/output/trecho-21`.

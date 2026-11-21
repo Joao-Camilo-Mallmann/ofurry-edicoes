@@ -55,17 +55,15 @@
       ],
       "rotulo": "BONS MARCOS", "rotuloAt": "@bons marcos" },
 
-    { "kind": "cena", "tipo": "grafico", "at": "@mas não dizem", "until": "@E o que importa",
-      "modo": "patrimonio", "meses": 130, "rotuloCabeca": false, "titulo": "A CURVA DOS JUROS COMPOSTOS",
-      "revela": [{ "at": "@mas não dizem", "mes": 0 }, { "at": "@mas não dizem+0.1", "mes": 130, "dur": 2.0 }],
-      "vista": [{ "at": 0, "x": 130, "y": 200000 }],
-      "marcos": [{ "mes": 50, "at": "@onde você está", "rotulo": "ONDE VOCÊ ESTÁ", "cor": "hl", "lado": "cima" }] },
+    { "kind": "cena", "tipo": "barras", "at": "@mas não dizem", "until": "@E o que importa", "anos": 10, "titulo": "A CURVA DOS JUROS COMPOSTOS",
+      "revela": [{ "at": "@mas não dizem", "ano": 0 }, { "at": "@mas não dizem+0.1", "ano": 10, "dur": 2.0 }],
+      "destaques": [{ "at": "@onde você está", "ano": 4, "rotulo": "ONDE VOCÊ ESTÁ", "cor": "hl" }] },
 
     { "kind": "cena", "tipo": "palco", "at": "@quanto dinheiro", "until": "@Duas pessoas",
       "atores": [
-        { "id": "grana", "icone": "banknote", "cor": "gain", "tam": 240, "balanca": false, "pulsaAt": ["@te ajuda"],
+        { "id": "grana", "icone": "banknote", "cor": "gain", "tam": 240, "balanca": false, "entra": "elastico", "pulsaAt": ["@te ajuda"],
           "keys": [{ "at": "@quanto dinheiro", "x": 0.5, "y": 0.42 }, { "at": "@mas o quanto", "x": 0.7, "dur": 0.6 }, { "at": "@dos investimentos", "x": 0.86, "dur": 1.0 }] },
-        { "id": "corda", "icone": "link", "cor": "hl", "tam": 130,
+        { "id": "corda", "icone": "link", "cor": "hl", "tam": 130, "entra": "girar",
           "keys": [{ "at": "@puxar o carro", "x": 0.52, "y": 0.43 }, { "at": "@dos investimentos", "x": 0.68, "dur": 1.0 }] },
         { "id": "carro", "icone": "car", "tam": 280, "entra": "whip",
           "keys": [{ "at": "@puxar o carro", "x": 0.32, "y": 0.44 }, { "at": "@dos investimentos", "x": 0.5, "dur": 1.0 }] }
@@ -79,9 +77,9 @@
 
     { "kind": "cena", "tipo": "palco", "at": "@Duas pessoas", "until": "@Tudo depende",
       "atores": [
-        { "id": "p1", "icone": "user", "rotulo": "PESSOA 1", "tam": 230, "pulsaAt": ["@mesmo patrimônio"],
+        { "id": "p1", "icone": "user", "rotulo": "PESSOA 1", "tam": 230, "entra": "cair", "arco": 0.15, "pulsaAt": ["@mesmo patrimônio"],
           "keys": [{ "at": "@Duas pessoas", "x": 0.3, "y": 0.46 }, { "at": "@momentos diferentes", "x": 0.2, "y": 0.68, "s": 0.8, "dur": 0.7 }] },
-        { "id": "p2", "icone": "user", "rotulo": "PESSOA 2", "tam": 230, "pulsaAt": ["@mesmo patrimônio"],
+        { "id": "p2", "icone": "user", "rotulo": "PESSOA 2", "tam": 230, "entra": "elastico", "arco": 0.15, "pulsaAt": ["@mesmo patrimônio"],
           "keys": [{ "at": "@Duas pessoas+0.3", "x": 0.7, "y": 0.46 }, { "at": "@momentos diferentes", "x": 0.8, "y": 0.3, "s": 0.8, "dur": 0.7 }] }
       ],
       "setas": [{ "de": "p1", "para": "p2", "at": "@da curva", "cor": "gain" }],
@@ -90,20 +88,12 @@
         { "at": "@momentos diferentes", "texto": "MOMENTOS DIFERENTES", "x": 0.5, "y": 0.9, "tam": 70 }
       ] },
 
-    { "kind": "section", "at": "@Tudo depende", "until": "@A maioria", "text": "TUDO DEPENDE" },
-    { "kind": "cena", "tipo": "palco", "at": "@Tudo depende", "until": "@A maioria",
-      "atores": [
-        { "id": "grana", "icone": "coins", "cor": "gain", "rotulo": "ESSE DINHEIRO", "tam": 240,
-          "keys": [{ "at": "@Tudo depende", "x": 0.5, "y": 0.5 }, { "at": "@ele rende", "s": 1.35, "dur": 0.6 }] },
-        { "id": "tempo", "icone": "clock", "cor": "info", "rotulo": "QUANTO TEMPO", "tam": 220, "entra": "whip",
-          "keys": [{ "at": "@quanto tempo", "x": 0.18, "y": 0.5 }, { "at": "@dinheiro rende", "r": 360, "dur": 0.8 }] },
-        { "id": "taxa", "icone": "percent", "cor": "hl", "rotulo": "QUAL É A TAXA", "tam": 220, "entra": "whip", "pulsaAt": ["@taxa que"],
-          "keys": [{ "at": "@qual é a taxa", "x": 0.82, "y": 0.5 }] }
+    { "kind": "cena", "tipo": "lista", "at": "@Tudo depende", "until": "@A maioria", "titulo": "TUDO DEPENDE",
+      "itens": [
+        { "at": "@quanto tempo", "n": "1", "texto": "QUANTO TEMPO RENDE" },
+        { "at": "@qual é a taxa", "n": "2", "texto": "QUAL É A TAXA" }
       ],
-      "setas": [
-        { "de": "tempo", "para": "grana", "at": "@quanto tempo+0.3", "cor": "info" },
-        { "de": "taxa", "para": "grana", "at": "@qual é a taxa+0.3", "cor": "hl" }
-      ] },
+      "ativo": [{ "at": "@quanto tempo", "i": 0 }, { "at": "@qual é a taxa", "i": 1 }] },
 
     { "kind": "cena", "tipo": "foto3d", "at": "@A maioria", "until": "@números redondos",
       "src": "../../acervo/fotos3d/multidao-atravessando-rua.png", "depth": "../../acervo/fotos3d/depth/multidao-atravessando-rua-depth.png",
@@ -118,9 +108,9 @@
 
     { "kind": "cena", "tipo": "palco", "at": "@E continua", "until": "@Quantas vezes",
       "atores": [
-        { "id": "lesma", "icone": "snail", "tam": 240,
+        { "id": "lesma", "icone": "snail", "tam": 240, "entra": "rise",
           "keys": [{ "at": "@E continua", "x": 0.12, "y": 0.46 }, { "at": "@E continua+0.1", "x": 0.42, "dur": 3.0 }] },
-        { "id": "ampulheta", "icone": "hourglass", "cor": "loss", "tam": 240, "entra": "whip",
+        { "id": "ampulheta", "icone": "hourglass", "cor": "loss", "tam": 240, "entra": "cair",
           "keys": [{ "at": "@atrasado", "x": 0.78, "y": 0.46 }, { "at": "@atrasado+0.2", "r": 180, "dur": 0.5 }] }
       ],
       "textos": [
