@@ -1,0 +1,527 @@
+{
+  "id": "177-trecho-01",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": {
+    "maxWords": 2,
+    "maxChars": 16
+  },
+  "captions": [
+    {
+      "from": "@inicio",
+      "until": "@o primeiro",
+      "entry": "whip"
+    },
+    {
+      "from": "@Mas existe",
+      "until": "@número muito",
+      "entry": "whip",
+      "estilo": "invertida"
+    },
+    {
+      "from": "@a máquina",
+      "until": "@Olha esse número",
+      "entry": "pop",
+      "y": 0.88
+    },
+    {
+      "from": "@Olha esse número",
+      "until": "@um milhão",
+      "entry": "whip"
+    },
+    {
+      "from": "@Ele vai parecer",
+      "until": "@E o pior",
+      "entry": "pop",
+      "y": 0.72,
+      "estilo": "invertida"
+    },
+    {
+      "from": "@é que muita",
+      "until": "@sem saber",
+      "entry": "whip",
+      "y": 0.86
+    },
+    {
+      "from": "@E desiste",
+      "until": "@ou até",
+      "entry": "pop",
+      "estilo": "invertida"
+    }
+  ],
+  "backdrops": [
+    {
+      "at": 0,
+      "backdrop": "black"
+    },
+    {
+      "at": "@o primeiro",
+      "backdrop": "grid"
+    },
+    {
+      "at": "@número muito",
+      "backdrop": "black"
+    },
+    {
+      "at": "@É a partir dele",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@Olha esse número",
+      "backdrop": "black"
+    },
+    {
+      "at": "@Ele vai parecer",
+      "backdrop": "grid"
+    },
+    {
+      "at": "@sem saber",
+      "backdrop": "black"
+    },
+    {
+      "at": "@Fica comigo",
+      "backdrop": "stars"
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@o primeiro milhão",
+      "file": "@sfx/General/Ding.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@muito mais cedo",
+      "file": "@sfx/General/Ding.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@imprimir dinheiro",
+      "file": "@sfx/Mechanical/Gadget 03.wav",
+      "gain": -18,
+      "len": 1
+    },
+    {
+      "at": "@trabalha",
+      "file": "@sfx/Foley/Coins Poured Out 02.wav",
+      "gain": -22,
+      "len": 1.6,
+      "fadeOut": 0.6
+    },
+    {
+      "at": "@e também",
+      "file": "@sfx/Office Supplies/Paper Rustle.wav",
+      "gain": -22,
+      "len": 0.4
+    },
+    {
+      "at": "@mil>",
+      "file": "@sfx/Office Supplies/Paper Rustle.wav",
+      "gain": -22,
+      "len": 0.4
+    },
+    {
+      "at": "@é que muita",
+      "file": "@sfx/General/Clock Tick.mp3",
+      "gain": -22,
+      "len": 1.3,
+      "fadeOut": 0.3
+    },
+    {
+      "at": "@chegando perto",
+      "file": "@sfx/General/Lose.wav",
+      "gain": -24
+    },
+    {
+      "at": "@qual é esse número",
+      "file": "@sfx/General/Click.wav",
+      "gain": -20
+    },
+    {
+      "at": "@de onde",
+      "file": "@sfx/General/Click.wav",
+      "gain": -20
+    },
+    {
+      "at": "@quanto tempo",
+      "file": "@sfx/General/Click.wav",
+      "gain": -20
+    }
+  ],
+  "beats": [
+    {
+      "kind": "broll",
+      "at": "@inicio",
+      "until": "@sempre",
+      "src": "../../acervo/broll/multidao-atravessando-rua.mp4",
+      "entra": "flash",
+      "zoom": [
+        1,
+        1.14
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@sempre",
+      "until": "@o primeiro",
+      "src": "../../acervo/broll/corredor-pista-camera-lenta.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1.04,
+        1.16
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@o primeiro",
+      "until": "@Mas existe",
+      "atores": [
+        {
+          "id": "meta",
+          "icone": "flag",
+          "rotulo": "1 MILHÃO",
+          "cor": "hl",
+          "tam": 230,
+          "entra": "pop",
+          "keys": [
+            {
+              "at": "@o primeiro",
+              "x": 0.8,
+              "y": 0.4
+            }
+          ],
+          "pulsaAt": [
+            "@milhão"
+          ]
+        },
+        {
+          "id": "p1",
+          "icone": "user",
+          "tam": 150,
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@o primeiro",
+              "x": 0.08,
+              "y": 0.44
+            },
+            {
+              "at": "@o primeiro+0.05",
+              "x": 0.46,
+              "dur": 1.4
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "icone": "user",
+          "tam": 150,
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@o primeiro+0.12",
+              "x": 0.05,
+              "y": 0.64
+            },
+            {
+              "at": "@o primeiro+0.17",
+              "x": 0.38,
+              "dur": 1.3
+            }
+          ]
+        },
+        {
+          "id": "p3",
+          "icone": "user",
+          "tam": 150,
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@o primeiro+0.24",
+              "x": 0.04,
+              "y": 0.24
+            },
+            {
+              "at": "@o primeiro+0.29",
+              "x": 0.32,
+              "dur": 1.2
+            }
+          ]
+        }
+      ],
+      "setas": [
+        {
+          "de": "p1",
+          "para": "meta",
+          "at": "@primeiro+0.2",
+          "cor": "hl"
+        }
+      ],
+      "textos": [
+        {
+          "at": "@milhão",
+          "texto": "R$ 1.000.000",
+          "fonte": "num",
+          "tam": 150,
+          "cor": "hl",
+          "x": 0.5,
+          "y": 0.84
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@Mas existe",
+      "until": "@número muito",
+      "src": "../../acervo/broll/notas-caindo-fundo-escuro.mp4",
+      "entra": "flash",
+      "zoom": [
+        1.1,
+        1.2
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "grafico",
+      "at": "@número muito",
+      "until": "@É a partir dele",
+      "modo": "patrimonio",
+      "meses": 340,
+      "rotuloCabeca": false,
+      "revela": [
+        {
+          "at": "@número muito",
+          "mes": 0
+        },
+        {
+          "at": "@número muito+0.05",
+          "mes": 340,
+          "dur": 1.3
+        }
+      ],
+      "vista": [
+        {
+          "at": 0,
+          "x": 340,
+          "y": 1100000
+        },
+        {
+          "at": "@faz o seu jogo",
+          "x": 190,
+          "y": 420000,
+          "dur": 1.6
+        }
+      ],
+      "marcos": [
+        {
+          "mes": 337,
+          "at": "@antes do primeiro",
+          "rotulo": "1 MILHÃO",
+          "cor": "text"
+        },
+        {
+          "mes": 124,
+          "at": "@muito mais cedo",
+          "rotulo": "???",
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "maquina3d",
+      "at": "@É a partir dele",
+      "until": "@Olha esse número",
+      "ligaAt": "@imprimir dinheiro",
+      "ritmo": [
+        {
+          "at": 0,
+          "v": 3
+        },
+        {
+          "at": "@sem você",
+          "v": 6,
+          "dur": 0.8
+        }
+      ],
+      "contador": [
+        {
+          "at": "@imprimir dinheiro",
+          "v": 0
+        },
+        {
+          "at": "@trabalha",
+          "v": 1000,
+          "dur": 1.8
+        }
+      ],
+      "escala": 1.35
+    },
+    {
+      "kind": "broll",
+      "at": "@trabalha",
+      "until": "@sem você",
+      "src": "../../acervo/broll/engrenagens-relogio.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1,
+        1.1
+      ],
+      "escurece": 0.3
+    },
+    {
+      "kind": "cena",
+      "tipo": "numeros",
+      "at": "@Olha esse número",
+      "until": "@Ele vai parecer",
+      "itens": [
+        {
+          "at": "@um milhão",
+          "valor": "1 MILHÃO",
+          "riscaAt": "@e também"
+        },
+        {
+          "at": "@o 100 mil",
+          "valor": "100 MIL",
+          "riscaAt": "@mil>"
+        }
+      ]
+    },
+    {
+      "kind": "mascot",
+      "at": "@Ele vai parecer",
+      "until": "@E você vai achar",
+      "placement": "center",
+      "poses": [
+        {
+          "at": "@Ele vai parecer",
+          "pose": "../../../../public/mascote/fox3.png"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@E você vai achar",
+      "until": "@Mas eu não errei",
+      "src": "../../acervo/broll/homem-maos-na-cabeca.mp4",
+      "entra": "flash",
+      "zoom": [
+        1,
+        1.1
+      ]
+    },
+    {
+      "kind": "mascot",
+      "at": "@Mas eu não errei",
+      "until": "@é que muita",
+      "placement": "center",
+      "nameTag": true,
+      "poses": [
+        {
+          "at": "@Mas eu não errei",
+          "pose": "../../../../public/mascote/fox1.png"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@é que muita",
+      "until": "@sem saber",
+      "src": "../../acervo/broll/relogio-fundo-preto.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1,
+        1.25
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "calendario",
+      "at": "@sem saber",
+      "until": "@E desiste",
+      "titulo": "ANOS SEM SABER",
+      "preenche": [
+        {
+          "at": "@sem saber",
+          "m": 0
+        },
+        {
+          "at": "@sem saber+0.05",
+          "m": 80,
+          "dur": 1.8
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@E desiste",
+      "until": "@ou até",
+      "src": "../../acervo/broll/homem-exausto-escritorio.mp4",
+      "entra": "flash",
+      "zoom": [
+        1.05,
+        1.15
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "calendario",
+      "at": "@ou até",
+      "until": "@Fica comigo",
+      "titulo": "ANOS SEM SABER",
+      "preenche": [
+        {
+          "at": "@ou até",
+          "m": 80
+        },
+        {
+          "at": "@ou até+0.05",
+          "m": 100,
+          "dur": 0.9
+        }
+      ],
+      "marcos": [
+        {
+          "mes": 100,
+          "at": "@chegando perto",
+          "cor": "loss",
+          "rotulo": "DESISTIU"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "piada",
+      "at": "@chegando perto+0.6",
+      "until": "@Fica comigo",
+      "texto": "FALTAVAM SÓ 24 MESES",
+      "dura": 0.9,
+      "x": 0.68,
+      "y": 0.86
+    },
+    {
+      "kind": "cena",
+      "tipo": "lista",
+      "at": "@Fica comigo",
+      "until": "@fim",
+      "itens": [
+        {
+          "at": "@qual é esse número",
+          "n": "1",
+          "texto": "QUAL É O NÚMERO"
+        },
+        {
+          "at": "@de onde",
+          "n": "2",
+          "texto": "DE ONDE ELE VEM"
+        },
+        {
+          "at": "@quanto tempo",
+          "n": "3",
+          "texto": "QUANTO TEMPO FALTA"
+        }
+      ]
+    }
+  ]
+}

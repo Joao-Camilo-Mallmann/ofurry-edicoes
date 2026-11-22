@@ -1,0 +1,54 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #tv7-sala { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 46%, #2a2018 0%, #17120d 60%, #0e0b08 100%); }
+    #tv7-aparelho { position: absolute; left: 50%; top: 50%; width: 1010px; height: 760px; margin-left: -505px; margin-top: -410px; }
+    #tv7-caixa { position: absolute; inset: 0; border-radius: 46px; background: #3a2a1c; box-shadow: inset 0 0 0 10px #2c2016; }
+    #tv7-moldura { position: absolute; left: 44px; top: 44px; width: 760px; height: 580px; border-radius: 60px / 48px; background: #0c0a08; overflow: hidden; }
+    #tv7-video { position: absolute; left: 0; top: 0; width: 760px; height: 580px; object-fit: cover; }
+    #tv7-linhas { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(0,0,0,0.16) 0px, rgba(0,0,0,0.16) 2px, rgba(0,0,0,0) 2px, rgba(0,0,0,0) 5px); }
+    #tv7-brilho { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0) 60%, rgba(0,0,0,0.45) 100%); }
+    #tv7-painel { position: absolute; right: 44px; top: 44px; width: 150px; height: 580px; }
+    #root .botao { position: absolute; left: 45px; width: 60px; height: 60px; border-radius: 50%; background: #1d150f; box-shadow: inset 0 0 0 4px #4a3726; }
+    #root .grade { position: absolute; left: 22px; width: 106px; height: 6px; border-radius: 3px; background: #22190f; }
+    #root .pe { position: absolute; bottom: -54px; width: 22px; height: 60px; background: #22190f; }
+  </style>
+  <div id="root" data-composition-id="tv" data-width="1920" data-height="1080">
+    <div id="tv7-cena" style="position:absolute;inset:0">
+      <div id="tv7-sala"></div>
+      <div id="tv7-aparelho">
+        <div class="pe" style="left:150px;transform:rotate(8deg)"></div>
+        <div class="pe" style="right:150px;transform:rotate(-8deg)"></div>
+        <div id="tv7-caixa"></div>
+        <div id="tv7-moldura">
+          <video id="tv7-video" class="clip" data-start="18.7" data-duration="5.6" data-track-index="1" src="assets/video/tv-clipe.mp4" muted playsinline></video>
+          <div id="tv7-linhas"></div>
+          <div id="tv7-brilho"></div>
+          <div id="tv7-flash" style="position:absolute;inset:0;background:#f4efe4"></div>
+        </div>
+        <div id="tv7-painel">
+          <div class="botao" style="top:40px"></div>
+          <div class="botao" style="top:130px"></div>
+          <div class="grade" style="top:260px"></div><div class="grade" style="top:282px"></div>
+          <div class="grade" style="top:304px"></div><div class="grade" style="top:326px"></div>
+          <div class="grade" style="top:348px"></div><div class="grade" style="top:370px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var $ = function (id) { return document.getElementById(id); };
+      // a cena so existe entre 18.7 e 24.3; a TV liga (clarao que encolhe) e a camera se aproxima devagar
+      tl.set($('tv7-cena'), { opacity: 0 }, 0);
+      tl.set($('tv7-cena'), { opacity: 1 }, 18.7);
+      tl.fromTo($('tv7-flash'), { opacity: 1, scaleY: 0.02 }, { scaleY: 1, duration: 0.18, ease: 'power2.out' }, 18.7);
+      tl.to($('tv7-flash'), { opacity: 0, duration: 0.35, ease: 'power2.out' }, 18.88);
+      tl.fromTo($('tv7-aparelho'), { scale: 0.86 }, { scale: 1.0, duration: 5.6, ease: 'sine.inOut' }, 18.7);
+      tl.to($('tv7-cena'), { opacity: 0, duration: 0.3 }, 24.0);
+      tl.set({}, {}, 70.5);
+      window.__timelines['tv'] = tl;
+    })();
+  </script>
+</template>

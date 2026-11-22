@@ -1,0 +1,68 @@
+<template>
+  <style>
+    @font-face { font-family: 'Bebas Neue'; src: url('assets/fonts/BebasNeue-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Bold.otf') format('opentype'); font-weight: 700; font-display: block; }
+    @font-face { font-family: 'Garamond'; src: url('assets/fonts/eb-garamond-italic-400-latin.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: block; }
+    #root { position: absolute; inset: 0; color: #ede8de; overflow: hidden; }
+    #t5-palco { position: absolute; inset: 0; }
+    #root .bloco { position: absolute; inset: 0; }
+    #root .bebas { font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: 0.9; letter-spacing: 0.01em; }
+    #root .garamond { font-family: 'Garamond', Georgia, serif; font-style: italic; font-weight: 400; line-height: 1; }
+    #root .rot { font-family: 'MontserratLocal', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.5em; }
+    #root .w { display: inline-block; }
+    #root .tag { display: inline-block; background: #f2c230; color: #0e0c0a; padding: 6px 22px 2px; }
+    /* nomes no painel da direita (a folha ocupa a esquerda) */
+    #root .nome { position: absolute; left: 1010px; bottom: 110px; }
+  </style>
+  <div data-hf-id="hf-vkib" id="root" data-composition-id="textos" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div data-hf-id="hf-oouy" id="t5-palco">
+      <div data-hf-id="hf-azay" id="t5-estr" class="clip bloco" data-start="1.5" data-duration="5.8" data-track-index="0">
+        <div data-hf-id="hf-xc6d" style="position:absolute;left:0;right:0;top:80px;text-align:center">
+          <div data-hf-id="hf-030c" id="t5-estr-a" class="bebas sombra" style="font-size:200px">A ESTRUTURA</div>
+          <div data-hf-id="hf-tpqp" id="t5-estr-b" class="garamond sombra" style="font-size:190px;margin-top:10px">da família</div>
+        </div>
+        <div data-hf-id="hf-pnxb" style="position:absolute;left:0;right:0;top:820px;text-align:center">
+          <span data-hf-id="hf-do08" id="t5-tag1" class="bebas tag w" style="font-size:96px">TRADICIONAL</span>
+          <span data-hf-id="hf-g5ue" id="t5-tag2" class="bebas tag w" style="font-size:96px;background:#0e0c0a;color:#ede8de">BRASILEIRA</span>
+          <span data-hf-id="hf-ppws" id="t5-tag3" class="bebas tag w" style="font-size:96px">CEARENSE</span>
+        </div>
+      </div>
+      <div data-hf-id="hf-n40f" id="t5-pai" class="clip bloco" data-start="7.3" data-duration="2.16" data-track-index="1">
+        <div data-hf-id="hf-wfgr" class="nome"><span data-hf-id="hf-b5e6" id="t5-pai-in" class="bebas sombra w" style="font-size:210px">O PAI</span></div>
+      </div>
+      <div data-hf-id="hf-54dv" id="t5-mae" class="clip bloco" data-start="9.46" data-duration="2.0" data-track-index="2">
+        <div data-hf-id="hf-8vjf" class="nome"><span data-hf-id="hf-wt1s" id="t5-mae-in" class="bebas sombra w" style="font-size:210px">A MÃE</span></div>
+      </div>
+      <div data-hf-id="hf-epxd" id="t5-irma" class="clip bloco" data-start="11.46" data-duration="3.36" data-track-index="3">
+        <div data-hf-id="hf-8h8e" class="nome">
+          <span data-hf-id="hf-oll8" id="t5-irma-in" class="bebas sombra w" style="font-size:210px">A IRMÃ</span>
+          <div data-hf-id="hf-yeow"><span data-hf-id="hf-lmh0" id="t5-irma-tag" class="bebas tag w" style="font-size:70px">A MAIS NOVA</span></div>
+        </div>
+      </div>
+      <div data-hf-id="hf-000s" id="t5-avo" class="clip bloco" data-start="14.82" data-duration="2.48" data-track-index="4">
+        <div data-hf-id="hf-82xd" class="nome"><span data-hf-id="hf-pml4" id="t5-avo-in" class="bebas sombra w" style="font-size:210px">A AVÓ</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      A.pancada(tl, $('t5-estr-a'), 1.62, { de: 1.4 });
+      tl.fromTo($('t5-estr-b'), { opacity: 0, y: 24, filter: 'blur(10px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.45, ease: 'power3.out' }, 2.42);
+      A.pancada(tl, $('t5-tag1'), 4.5, { de: 1.6 });
+      A.pancada(tl, $('t5-tag2'), 5.3, { de: 1.6 });
+      A.pancada(tl, $('t5-tag3'), 6.18, { de: 1.6 });
+      A.treme(tl, $('t5-palco'), 6.18, 0.25, 10, 51);
+      tl.to([$('t5-estr-a'), $('t5-estr-b'), $('t5-tag1'), $('t5-tag2'), $('t5-tag3')], { opacity: 0, y: -24, duration: 0.15, ease: 'expo.in' }, 7.12);
+
+      A.pancada(tl, $('t5-pai-in'), 7.54);
+      A.pancada(tl, $('t5-mae-in'), 9.94);
+      A.pancada(tl, $('t5-irma-in'), 11.94);
+      A.pancada(tl, $('t5-irma-tag'), 12.58, { de: 1.5 });
+      A.pancada(tl, $('t5-avo-in'), 15.3);
+      window.__timelines['textos'] = tl;
+    })();
+  </script>
+</template>

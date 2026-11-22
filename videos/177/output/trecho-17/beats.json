@@ -1,0 +1,701 @@
+{
+  "id": "177-trecho-17",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": {
+    "maxWords": 2,
+    "maxChars": 16
+  },
+  "camera": [
+    {
+      "at": "@valor absurdo",
+      "tipo": "punch"
+    },
+    {
+      "at": "@CDI",
+      "tipo": "punch"
+    },
+    {
+      "at": "@cruzar uma linha",
+      "tipo": "punch"
+    },
+    {
+      "at": "@uma data",
+      "tipo": "shake"
+    }
+  ],
+  "captions": [
+    {
+      "from": "@E eu sei-0.1",
+      "until": "@Você vai investir-0.1",
+      "entry": "whip",
+      "y": 0.84
+    },
+    {
+      "from": "@Mas bom-0.1",
+      "until": "@Depois eu te-0.1",
+      "entry": "glitch",
+      "y": 0.72
+    },
+    {
+      "from": "@você do futuro-0.1",
+      "until": "@agradecer-0.1",
+      "entry": "pop",
+      "estilo": "invertida"
+    },
+    {
+      "from": "@prefira algum-0.1",
+      "until": "@Como exemplo-0.1",
+      "entry": "whip"
+    }
+  ],
+  "backdrops": [
+    {
+      "at": 0,
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@extremamente",
+      "backdrop": "black"
+    },
+    {
+      "at": "@E eu sei",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@Você vai investir",
+      "backdrop": "black"
+    },
+    {
+      "at": "@Mas bom",
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@Depois eu te",
+      "backdrop": "black"
+    },
+    {
+      "at": "@E última dica",
+      "backdrop": "grid"
+    },
+    {
+      "at": "@prefira algum",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@Como exemplo",
+      "backdrop": "black"
+    },
+    {
+      "at": "@quando que de fato",
+      "backdrop": "grid"
+    },
+    {
+      "at": "@E transformar",
+      "backdrop": "stars"
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@segundo",
+      "file": "@sfx/General/Click.wav",
+      "gain": -20
+    },
+    {
+      "at": "@mantenha os seus",
+      "file": "@sfx/Foley/Coins in Hand 01.wav",
+      "gain": -22,
+      "len": 0.9,
+      "fadeOut": 0.3
+    },
+    {
+      "at": "@valor absurdo",
+      "file": "@sfx/Foley/Coins Poured Out 01.wav",
+      "gain": -22,
+      "len": 1.2,
+      "fadeOut": 0.4
+    },
+    {
+      "at": "@migalha",
+      "file": "@sfx/General/Lose.wav",
+      "gain": -24
+    },
+    {
+      "at": "@agradecer",
+      "file": "@sfx/General/Ding.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@última dica",
+      "file": "@sfx/General/Click.wav",
+      "gain": -20
+    },
+    {
+      "at": "@CDI",
+      "file": "@sfx/General/Pop sound.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@tesouro direto",
+      "file": "@sfx/General/Pop sound.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@calcular",
+      "file": "@sfx/General/Digital counting.mp3",
+      "gain": -24,
+      "len": 0.8,
+      "fadeOut": 0.2
+    },
+    {
+      "at": "@cruzar uma linha",
+      "file": "@sfx/General/correct sfx.mp3",
+      "gain": -20
+    },
+    {
+      "at": "@uma data",
+      "file": "@sfx/Office Supplies/Paper Rustle.wav",
+      "gain": -22,
+      "len": 0.4
+    }
+  ],
+  "beats": [
+    {
+      "kind": "cena",
+      "tipo": "lista",
+      "at": "@inicio",
+      "until": "@extremamente",
+      "titulo": "3 PASSOS",
+      "itens": [
+        {
+          "at": "@inicio",
+          "n": "1",
+          "texto": "QUANTO RENDE HOJE"
+        },
+        {
+          "at": "@inicio",
+          "n": "2",
+          "texto": "MANTER OS APORTES"
+        },
+        {
+          "at": "@inicio",
+          "n": "3",
+          "texto": "RENDA PREVISÍVEL"
+        }
+      ],
+      "ativo": [
+        {
+          "at": "@inicio",
+          "i": 0
+        },
+        {
+          "at": "@segundo",
+          "i": 1
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@extremamente",
+      "until": "@E eu sei",
+      "atores": [
+        {
+          "id": "voce",
+          "icone": "user",
+          "rotulo": "VOCÊ",
+          "keys": [
+            {
+              "at": "@extremamente",
+              "x": 0.5,
+              "y": 0.45
+            },
+            {
+              "at": "@importante",
+              "x": 0.22,
+              "dur": 0.6
+            }
+          ]
+        },
+        {
+          "id": "cofre",
+          "icone": "piggy-bank",
+          "rotulo": "APORTES",
+          "cor": "gain",
+          "entra": "cair",
+          "keys": [
+            {
+              "at": "@importante+0.3",
+              "x": 0.78,
+              "y": 0.45
+            }
+          ],
+          "pulsaAt": [
+            "@seus aportes"
+          ]
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "voce",
+          "para": "cofre",
+          "at": "@mantenha os seus",
+          "ate": "@E eu sei",
+          "icone": "banknote",
+          "por": 3,
+          "cor": "gain",
+          "tam": 90
+        }
+      ],
+      "textos": [
+        {
+          "at": "@extremamente",
+          "ate": "@mantenha os seus",
+          "texto": "EXTREMAMENTE IMPORTANTE",
+          "x": 0.5,
+          "y": 0.17,
+          "tam": 72
+        },
+        {
+          "at": "@mantenha os seus",
+          "texto": "MANTENHA OS APORTES",
+          "x": 0.5,
+          "y": 0.17,
+          "tam": 72,
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@E eu sei",
+      "until": "@Você vai investir",
+      "src": "../../acervo/broll/jovem-estudando-a-noite.mp4",
+      "entra": "flash",
+      "zoom": [
+        1,
+        1.12
+      ],
+      "escurece": 0.45
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@Você vai investir",
+      "until": "@Mas bom",
+      "atores": [
+        {
+          "id": "voce",
+          "icone": "user",
+          "rotulo": "VOCÊ",
+          "keys": [
+            {
+              "at": "@Você vai investir",
+              "x": 0.22,
+              "y": 0.45
+            }
+          ],
+          "pulsaAt": [
+            "@de rendimento"
+          ]
+        },
+        {
+          "id": "cofre",
+          "icone": "piggy-bank",
+          "rotulo": "INVESTIDO",
+          "cor": "gain",
+          "entra": "girar",
+          "keys": [
+            {
+              "at": "@investir",
+              "x": 0.78,
+              "y": 0.45
+            }
+          ]
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "voce",
+          "para": "cofre",
+          "at": "@valor absurdo",
+          "ate": "@e vai ver",
+          "icone": "banknote",
+          "por": 7,
+          "cor": "gain",
+          "tam": 110
+        },
+        {
+          "de": "cofre",
+          "para": "voce",
+          "at": "@uma migalha",
+          "ate": "@uma migalha+0.2",
+          "icone": "cookie",
+          "por": 1,
+          "cor": "hl",
+          "tam": 60,
+          "viagem": 1.2
+        }
+      ],
+      "textos": [
+        {
+          "at": "@valor absurdo",
+          "ate": "@uma migalha",
+          "texto": "VALOR ABSURDO",
+          "x": 0.5,
+          "y": 0.17,
+          "tam": 80,
+          "cor": "gain"
+        },
+        {
+          "at": "@uma migalha",
+          "texto": "UMA MIGALHA",
+          "x": 0.5,
+          "y": 0.17,
+          "tam": 80,
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "piada",
+      "at": "@de rendimento",
+      "until": "@de rendimento+1",
+      "dura": 0.8,
+      "texto": "NEM DÁ PRA MOLHAR NO CAFÉ",
+      "x": 0.5,
+      "y": 0.84
+    },
+    {
+      "kind": "mascot",
+      "at": "@Mas bom",
+      "until": "@Depois eu te",
+      "placement": "right-third",
+      "entra": "giro",
+      "poses": [
+        {
+          "at": "@Mas bom",
+          "pose": "../../../../public/mascote/fox4.png"
+        },
+        {
+          "at": "@Essa parte",
+          "pose": "../../../../public/mascote/fox3.png"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@Depois eu te",
+      "until": "@E última dica",
+      "atores": [
+        {
+          "id": "voce",
+          "icone": "user",
+          "rotulo": "VOCÊ",
+          "keys": [
+            {
+              "at": "@Depois eu te",
+              "x": 0.5,
+              "y": 0.45
+            },
+            {
+              "at": "@garanto",
+              "x": 0.22,
+              "dur": 0.6
+            }
+          ],
+          "pulsaAt": [
+            "@agradecer+0.9",
+            "@muito#2"
+          ]
+        },
+        {
+          "id": "futuro",
+          "icone": "user-check",
+          "rotulo": "VOCÊ DO FUTURO",
+          "cor": "gain",
+          "tam": 300,
+          "entra": "elastico",
+          "keys": [
+            {
+              "at": "@você do futuro",
+              "x": 0.76,
+              "y": 0.45
+            }
+          ]
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "futuro",
+          "para": "voce",
+          "at": "@agradecer",
+          "ate": "@E última dica",
+          "icone": "heart",
+          "por": 4,
+          "cor": "hl",
+          "tam": 70
+        }
+      ],
+      "textos": [
+        {
+          "at": "@Depois eu te",
+          "ate": "@agradecer",
+          "texto": "EU TE GARANTO",
+          "x": 0.5,
+          "y": 0.17,
+          "tam": 72
+        },
+        {
+          "at": "@agradecer",
+          "texto": "VAI TE AGRADECER",
+          "x": 0.5,
+          "y": 0.17,
+          "tam": 72,
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@você do futuro",
+      "until": "@agradecer",
+      "src": "../../acervo/broll/familia-caminhando-natureza.mp4",
+      "entra": "zoom",
+      "moldura": true,
+      "zoom": [
+        1,
+        1.1
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "lista",
+      "at": "@E última dica",
+      "until": "@prefira algum",
+      "titulo": "3 PASSOS",
+      "itens": [
+        {
+          "at": "@E última dica",
+          "n": "1",
+          "texto": "QUANTO RENDE HOJE"
+        },
+        {
+          "at": "@E última dica",
+          "n": "2",
+          "texto": "MANTER OS APORTES"
+        },
+        {
+          "at": "@E última dica",
+          "n": "3",
+          "texto": "RENDA PREVISÍVEL"
+        }
+      ],
+      "ativo": [
+        {
+          "at": "@E última dica",
+          "i": 1
+        },
+        {
+          "at": "@última dica",
+          "i": 2
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@prefira algum",
+      "until": "@renda previsível",
+      "src": "../../acervo/broll/calendario-no-tablet.mp4",
+      "entra": "whip",
+      "zoom": [
+        1.05,
+        1.18
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@Como exemplo",
+      "until": "@quando que de fato",
+      "atores": [
+        {
+          "id": "cdi",
+          "icone": "percent",
+          "rotulo": "CDI",
+          "cor": "info",
+          "keys": [
+            {
+              "at": "@Como exemplo",
+              "x": 0.3,
+              "y": 0.45
+            },
+            {
+              "at": "@as taxas",
+              "x": 0.22,
+              "y": 0.3,
+              "s": 0.7,
+              "dur": 0.7
+            }
+          ]
+        },
+        {
+          "id": "tesouro",
+          "icone": "landmark",
+          "rotulo": "TESOURO DIRETO",
+          "cor": "hl",
+          "entra": "cair",
+          "keys": [
+            {
+              "at": "@tesouro direto",
+              "x": 0.7,
+              "y": 0.45
+            },
+            {
+              "at": "@as taxas",
+              "x": 0.78,
+              "y": 0.3,
+              "s": 0.7,
+              "dur": 0.7
+            }
+          ]
+        },
+        {
+          "id": "calc",
+          "icone": "calculator",
+          "cor": "info",
+          "tam": 240,
+          "entra": "elastico",
+          "keys": [
+            {
+              "at": "@você pode pegar",
+              "x": 0.5,
+              "y": 0.6
+            }
+          ],
+          "pulsaAt": [
+            "@calcular",
+            "@mais precisa"
+          ]
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "cdi",
+          "para": "calc",
+          "at": "@esse valor",
+          "ate": "@calcular+0.3",
+          "icone": "percent",
+          "por": 3,
+          "cor": "info",
+          "tam": 60
+        },
+        {
+          "de": "tesouro",
+          "para": "calc",
+          "at": "@esse valor+0.15",
+          "ate": "@calcular+0.3",
+          "icone": "percent",
+          "por": 3,
+          "cor": "hl",
+          "tam": 60
+        }
+      ],
+      "textos": [
+        {
+          "at": "@ou tesouro",
+          "ate": "@as taxas",
+          "texto": "OU",
+          "x": 0.5,
+          "y": 0.42,
+          "tam": 130,
+          "fonte": "num",
+          "cor": "brand"
+        },
+        {
+          "at": "@as taxas",
+          "ate": "@calcular",
+          "texto": "AS TAXAS",
+          "x": 0.5,
+          "y": 0.12,
+          "tam": 72
+        },
+        {
+          "at": "@calcular",
+          "texto": "CALCULAR",
+          "x": 0.5,
+          "y": 0.12,
+          "tam": 72,
+          "cor": "info"
+        },
+        {
+          "at": "@muito mais precisa",
+          "texto": "MUITO MAIS PRECISO",
+          "x": 0.5,
+          "y": 0.87,
+          "tam": 64,
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "grafico",
+      "at": "@quando que de fato",
+      "until": "@E transformar",
+      "modo": "rendimento",
+      "meses": 132,
+      "rotuloCabeca": false,
+      "viradaTexto": "CRUZOU A LINHA",
+      "perspectiva": true,
+      "revela": [
+        {
+          "at": 0,
+          "mes": 96
+        },
+        {
+          "at": "@quando que de fato+0.2",
+          "mes": 132,
+          "dur": 1.4
+        }
+      ],
+      "vista": [
+        {
+          "at": 0,
+          "x": 132,
+          "y": 1200
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "calendario",
+      "at": "@E transformar",
+      "until": "@fim",
+      "meses": 132,
+      "titulo": "DA META PARA UMA DATA",
+      "preenche": [
+        {
+          "at": "@E transformar",
+          "m": 0
+        },
+        {
+          "at": "@E transformar+0.2",
+          "m": 124,
+          "dur": 2.8
+        }
+      ],
+      "marcos": [
+        {
+          "mes": 124,
+          "at": "@uma data",
+          "cor": "hl",
+          "rotulo": "SUA DATA"
+        }
+      ]
+    }
+  ]
+}

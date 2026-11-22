@@ -1,0 +1,59 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0e0c0a; }
+    #root .foto { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #f8-fecha { position: absolute; inset: 0; overflow: hidden; }
+    #f8-fecha .bar { position: absolute; background: #0e0c0a; }
+    #f8-top { left: 0; right: 0; top: 0; height: 540px; transform-origin: 50% 0; }
+    #f8-bot { left: 0; right: 0; bottom: 0; height: 540px; transform-origin: 50% 100%; }
+    #f8-esq { left: 0; top: 0; bottom: 0; width: 960px; transform-origin: 0 50%; }
+    #f8-dir { right: 0; top: 0; bottom: 0; width: 960px; transform-origin: 100% 50%; }
+    #f8-vin { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 55%, rgba(14,12,10,0) 25%, rgba(14,12,10,0.95) 75%); }
+  </style>
+  <div id="root" data-composition-id="fotos" data-width="1920" data-height="1080">
+    <!-- "jovens que perdem a juventude": a foto perde a cor -->
+    <canvas id="f8-jovem" class="clip foto" data-start="21.2" data-duration="5.8" data-track-index="0"></canvas>
+    <!-- "se fechar para os outros": ele sozinho no sal, a camera se afasta -->
+    <canvas id="f8-sozinho" class="clip foto" data-start="37.5" data-duration="7.1" data-track-index="1"></canvas>
+    <!-- o quadro "se fecha": vinheta e barras pretas apertam das bordas; em "mental" fecha de vez -->
+    <div id="f8-fecha" class="clip" data-start="37.4" data-duration="7.2" data-track-index="2">
+      <div id="f8-vin"></div>
+      <div id="f8-top" class="bar"></div><div id="f8-bot" class="bar"></div><div id="f8-esq" class="bar"></div><div id="f8-dir" class="bar"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var I = function (n) { return 'assets/img/' + n + '.png'; };
+      var D = function (n) { return 'assets/depth/' + n + '-depth.png'; };
+      var shots = [
+        { id: 'f8-jovem', img: 'F77-bracos-ceu', start: 21.2, dur: 5.8, o: { anchorY: 0.4 }, keys: [
+          { t: 0, zoom: 1.3, py: -0.3, sat: 0.95, blurY: 0.04 },
+          { t: 0.25, zoom: 1.08, blurY: 0, ease: 'expo.out' },
+          { t: 1.4, sat: 0.9 },
+          { t: 4.6, sat: 0.0, bright: 0.9, ease: 'power1.inOut' },
+          { t: 5.8, zoom: 1.18, py: 0.3, sat: 0.0, ease: 'sine.inOut' } ] },
+        { id: 'f8-sozinho', img: 'F75-belchior-sozinho', start: 37.5, dur: 7.1, o: { anchorY: 0.6 }, keys: [
+          { t: 0, zoom: 1.6, x: -0.12, py: -0.2, sat: 0.6, bright: 1, blurX: 0.05 },
+          { t: 0.25, zoom: 1.45, blurX: 0, ease: 'expo.out' },
+          { t: 3.6, sat: 0.0, bright: 0.85, ease: 'sine.inOut' },
+          { t: 5.3, zoom: 1.02, x: -0.06, py: 0.25, fade: 0, ease: 'sine.inOut' },
+          { t: 6.4, fade: 1, ease: 'power2.in' } ] }
+      ];
+      var g = function (id) { return document.getElementById(id); };
+      tl.fromTo([g('f8-top'), g('f8-bot')], { scaleY: 0 }, { scaleY: 0.26, duration: 4.2, ease: 'power2.inOut' }, 37.4);
+      tl.fromTo([g('f8-esq'), g('f8-dir')], { scaleX: 0 }, { scaleX: 0.22, duration: 4.2, ease: 'power2.inOut' }, 37.4);
+      tl.fromTo(g('f8-vin'), { opacity: 0 }, { opacity: 0.85, duration: 4.2, ease: 'sine.inOut' }, 37.4);
+      tl.to([g('f8-top'), g('f8-bot')], { scaleY: 1, duration: 1.6, ease: 'power3.inOut' }, 42.4);
+      tl.to([g('f8-esq'), g('f8-dir')], { scaleX: 1, duration: 1.6, ease: 'power3.inOut' }, 42.4);
+      Promise.all(shots.map(function (s) {
+        return A.photo(document.getElementById(s.id), Object.assign({ src: I(s.img), depth: D(s.img) }, s.o))
+          .then(function (c) { A.camera(tl, c, s.start, s.dur, s.keys); });
+      })).catch(function (e) { console.error(e); }).then(function () {
+        tl.set({}, {}, 44.6);
+        window.__timelines['fotos'] = tl;
+      });
+    })();
+  </script>
+</template>

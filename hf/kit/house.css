@@ -34,6 +34,11 @@
   white-space: nowrap;
 }
 .house-caption.is-whisper { font-weight: 300; font-size: 56px; color: var(--whisper); }
+/* Joao, 21/11/2026: "usar mais a fonte invertida... contraste com o video e a fonte, pra nao ficar sempre branco com sombra" */
+.house-caption.is-invertida { color: #000; background: #fff; text-shadow: none; font-weight: 900; letter-spacing: 0.01em; padding: 2px 24px 8px; }
+.house-caption.is-invertida .house-emph { color: #000; }
+.house-caption.is-tarja { color: #000; background: var(--text); text-shadow: none; padding: 4px 26px 8px; transform-origin: 50% 50%; box-shadow: 10px 10px 0 var(--brand); }
+.house-caption.is-tarja .house-emph { color: #000; background: var(--highlight); padding: 0 10px; }
 .house-emph { color: var(--highlight); font-size: 1.25em; }
 .house-slice { position: absolute; left: 0; right: 0; top: 0; opacity: 0; }
 

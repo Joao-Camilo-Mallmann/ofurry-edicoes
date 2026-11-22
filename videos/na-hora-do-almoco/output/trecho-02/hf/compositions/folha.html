@@ -1,0 +1,51 @@
+<template>
+  <style>
+    @font-face { font-family: 'Maquina'; src: url('assets/fonts/special-elite-latin.woff2') format('woff2'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'Bebas Neue'; src: url('assets/fonts/BebasNeue-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Bold.otf') format('opentype'); font-weight: 700; font-display: block; }
+    @font-face { font-family: 'Caveat'; src: url('assets/fonts/caveat-latin.woff2') format('woff2'); font-weight: 400 700; font-display: block; }
+    #root { position: absolute; inset: 0; }
+    #fo2 { position: absolute; inset: 0; opacity: 0; }
+    #fo2-cena { position: absolute; inset: 0; }
+    #fo2-tag { position: absolute; right: 90px; top: 72px; font-family: 'Bebas Neue', sans-serif; font-size: 64px; line-height: 1; color: #0e0c0a; background: #f2c230; padding: 10px 26px 4px; letter-spacing: 0.02em; }
+    #fo2-sub { position: absolute; right: 92px; top: 158px; font-family: 'MontserratLocal', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.4em; color: #ede8de; }
+  </style>
+  <div id="root" data-composition-id="folha" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <!-- a folha da letra: entra em 1.45 (corte seco), folha inteira, desce ate o verso inicial e marca no ritmo da fala -->
+    <div id="fo2">
+      <div id="fo2-cena"></div>
+      <div id="fo2-tag">O VERSO INICIAL</div>
+      <div id="fo2-sub">BELCHIOR CANTA</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      A.fontes().then(function () {
+        var F = A.folhaPalco($('fo2-cena'), window.LETRA, { tilt: 24, giro: -2.5, zoomInicial: 0.52 });
+        var l0 = F.acha('centro da sala'), l1 = F.acha('comida e tristeza');
+        // visivel so entre 1.45 e 12.85
+        tl.set($('fo2'), { opacity: 0 }, 0);
+        tl.set($('fo2'), { opacity: 1 }, 1.45);
+        // camera na mao o tempo todo; folha inteira respira (zoom leve) antes de descer
+        F.tremor(tl, 29.3, 1);
+        tl.fromTo(F.papel, { scale: 0.48 }, { scale: 0.53, duration: 1.5, ease: 'sine.out' }, 1.45);
+        // 2.9-4.3: desce ate a primeira estrofe (centro entre os dois versos)
+        F.camera(tl, 2.9, 1.4, l0.linha, { zoom: 1.55, oy: 26, tilt: 5, giro: -1 });
+        // marca-texto no ritmo da fala + nota a mao (definidos em marcas.js, para os proximos trechos herdarem)
+        A.marcasAte(tl, F, 'trecho-02');
+        // 10.35: deriva pra direita, pra nota caber
+        F.camera(tl, 10.35, 0.8, l1.linha, { zoom: 1.5, ox: -260, oy: -14, tilt: 5, giro: -1 });
+        // rotulo
+        tl.fromTo($('fo2-tag'), { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.25, ease: 'expo.out' }, 1.5);
+        tl.fromTo($('fo2-sub'), { opacity: 0 }, { opacity: 0.85, duration: 0.25 }, 2.6);
+        tl.to([$('fo2-tag'), $('fo2-sub')], { opacity: 0, duration: 0.2 }, 4.0);
+        tl.set($('fo2'), { opacity: 0 }, 12.85);
+        tl.set({}, {}, 29.3);
+        window.__timelines['folha'] = tl;
+      });
+    })();
+  </script>
+</template>

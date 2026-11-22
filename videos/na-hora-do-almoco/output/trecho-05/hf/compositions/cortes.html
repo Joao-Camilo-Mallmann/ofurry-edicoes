@@ -1,0 +1,39 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #c5-palco { position: absolute; inset: 0; }
+    #root .vw { position: absolute; inset: 0; overflow: hidden; }
+    #root .vid { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    /* painel da direita (tela dividida com a folha da letra) */
+    #root .vwd { position: absolute; left: 960px; top: 0; width: 960px; height: 1080px; overflow: hidden; }
+    #root .vwd .vid { width: 960px; height: 1080px; }
+    #root .col { position: absolute; top: 0; width: 474px; height: 1080px; overflow: hidden; }
+    #root .col .vid { width: 474px; height: 1080px; }
+    #c5-inv { position: absolute; inset: 0; background: #fff; mix-blend-mode: difference; opacity: 0; }
+  </style>
+  <div data-hf-id="hf-gruq" id="root" data-composition-id="cortes" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div data-hf-id="hf-1xxz" id="c5-palco">
+      <!-- a estrutura da familia: a mesa -->
+      <div data-hf-id="hf-gil9" id="w5-1" class="vw"><video data-hf-id="hf-wfgb" id="c5-v1" class="clip vid" src="assets/video/clipe.mp4" data-start="0" data-duration="7.3" data-media-start="0.5" data-playback-rate="0.8" data-track-index="0" muted playsinline></video></div>
+      <!-- pai e irma sao fotos 3D (camada fotos); mae e avo no clipe, no painel da direita -->
+      <div data-hf-id="hf-92th" id="w5-mae" class="vwd"><video data-hf-id="hf-szt5" id="c5-mae" class="clip vid" src="assets/video/clipe.mp4" data-start="9.46" data-duration="2.0" data-media-start="78.3" data-playback-rate="0.6" data-track-index="2" muted playsinline></video></div>
+      <div data-hf-id="hf-rziu" id="w5-avo" class="vwd"><video data-hf-id="hf-hf63" id="c5-avo" class="clip vid" src="assets/video/clipe.mp4" data-start="14.82" data-duration="2.48" data-media-start="89.3" data-playback-rate="0.5" data-track-index="4" muted playsinline></video></div>
+      <div data-hf-id="hf-67z7" id="c5-inv"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      tl.fromTo($('w5-1'), { scale: 1.02 }, { scale: 1.18, duration: 7.3, ease: 'sine.inOut' }, 0);
+      [['w5-mae', 9.46], ['w5-avo', 14.82]].forEach(function (c) {
+        A.soco(tl, $(c[0]), c[1], 1.3, 1.04, 0.32);
+        tl.to($(c[0]), { scale: 1.12, duration: 1.6, ease: 'sine.inOut' }, c[1] + 0.35);
+      });
+      A.inverte(tl, $('c5-inv'), 7.3, 2);
+      tl.set({}, {}, 17.3);
+      window.__timelines['cortes'] = tl;
+    })();
+  </script>
+</template>

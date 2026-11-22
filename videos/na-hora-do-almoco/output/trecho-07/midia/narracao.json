@@ -1,0 +1,860 @@
+[
+ {
+  "id": "w0",
+  "text": "Bom,",
+  "start": 1.23,
+  "end": 1.63
+ },
+ {
+  "id": "w1",
+  "text": "não",
+  "start": 1.63,
+  "end": 1.87
+ },
+ {
+  "id": "w2",
+  "text": "é",
+  "start": 1.87,
+  "end": 2.03
+ },
+ {
+  "id": "w3",
+  "text": "à",
+  "start": 2.03,
+  "end": 2.11
+ },
+ {
+  "id": "w4",
+  "text": "toa",
+  "start": 2.11,
+  "end": 2.43
+ },
+ {
+  "id": "w5",
+  "text": "que",
+  "start": 2.43,
+  "end": 2.59
+ },
+ {
+  "id": "w6",
+  "text": "essa",
+  "start": 2.59,
+  "end": 2.83
+ },
+ {
+  "id": "w7",
+  "text": "música",
+  "start": 2.83,
+  "end": 2.99
+ },
+ {
+  "id": "w8",
+  "text": "recebeu",
+  "start": 3.07,
+  "end": 3.55
+ },
+ {
+  "id": "w9",
+  "text": "um",
+  "start": 3.55,
+  "end": 3.63
+ },
+ {
+  "id": "w10",
+  "text": "prêmio",
+  "start": 3.63,
+  "end": 4.03
+ },
+ {
+  "id": "w11",
+  "text": "no",
+  "start": 4.03,
+  "end": 4.19
+ },
+ {
+  "id": "w12",
+  "text": "quarto",
+  "start": 4.19,
+  "end": 4.51
+ },
+ {
+  "id": "w13",
+  "text": "festival",
+  "start": 4.59,
+  "end": 5.07
+ },
+ {
+  "id": "w14",
+  "text": "universitário",
+  "start": 5.07,
+  "end": 5.71
+ },
+ {
+  "id": "w15",
+  "text": "de",
+  "start": 5.71,
+  "end": 5.87
+ },
+ {
+  "id": "w16",
+  "text": "música",
+  "start": 5.87,
+  "end": 6.27
+ },
+ {
+  "id": "w17",
+  "text": "brasileira",
+  "start": 6.27,
+  "end": 6.91
+ },
+ {
+  "id": "w18",
+  "text": "em",
+  "start": 6.99,
+  "end": 7.23
+ },
+ {
+  "id": "w19",
+  "text": "1971.",
+  "start": 7.23,
+  "end": 8.91
+ },
+ {
+  "id": "w20",
+  "text": "Ela",
+  "start": 8.91,
+  "end": 9.23
+ },
+ {
+  "id": "w21",
+  "text": "se",
+  "start": 9.23,
+  "end": 9.39
+ },
+ {
+  "id": "w22",
+  "text": "tornou",
+  "start": 9.39,
+  "end": 9.79
+ },
+ {
+  "id": "w23",
+  "text": "o",
+  "start": 9.79,
+  "end": 9.95
+ },
+ {
+  "id": "w24",
+  "text": "primeiro",
+  "start": 9.95,
+  "end": 10.35
+ },
+ {
+  "id": "w25",
+  "text": "grande",
+  "start": 10.35,
+  "end": 10.59
+ },
+ {
+  "id": "w26",
+  "text": "sucesso",
+  "start": 10.83,
+  "end": 11.47
+ },
+ {
+  "id": "w27",
+  "text": "do",
+  "start": 11.63,
+  "end": 11.79
+ },
+ {
+  "id": "w28",
+  "text": "nosso",
+  "start": 11.79,
+  "end": 12.11
+ },
+ {
+  "id": "w29",
+  "text": "querido",
+  "start": 12.11,
+  "end": 12.43
+ },
+ {
+  "id": "w30",
+  "text": "Belchior.",
+  "start": 12.43,
+  "end": 13.55
+ },
+ {
+  "id": "w31",
+  "text": "Posteriormente,",
+  "start": 13.55,
+  "end": 14.35
+ },
+ {
+  "id": "w32",
+  "text": "ela",
+  "start": 14.35,
+  "end": 14.59
+ },
+ {
+  "id": "w33",
+  "text": "foi",
+  "start": 14.59,
+  "end": 14.83
+ },
+ {
+  "id": "w34",
+  "text": "até",
+  "start": 14.83,
+  "end": 15.15
+ },
+ {
+  "id": "w35",
+  "text": "eternizada",
+  "start": 15.15,
+  "end": 16.19
+ },
+ {
+  "id": "w36",
+  "text": "no",
+  "start": 16.19,
+  "end": 16.43
+ },
+ {
+  "id": "w37",
+  "text": "seu",
+  "start": 16.43,
+  "end": 16.67
+ },
+ {
+  "id": "w38",
+  "text": "primeiro",
+  "start": 16.67,
+  "end": 17.07
+ },
+ {
+  "id": "w39",
+  "text": "álbum",
+  "start": 17.07,
+  "end": 17.63
+ },
+ {
+  "id": "w40",
+  "text": "e",
+  "start": 17.79,
+  "end": 18.03
+ },
+ {
+  "id": "w41",
+  "text": "também",
+  "start": 18.03,
+  "end": 18.35
+ },
+ {
+  "id": "w42",
+  "text": "no",
+  "start": 18.35,
+  "end": 18.51
+ },
+ {
+  "id": "w43",
+  "text": "seu",
+  "start": 18.51,
+  "end": 18.75
+ },
+ {
+  "id": "w44",
+  "text": "clipe",
+  "start": 18.75,
+  "end": 19.07
+ },
+ {
+  "id": "w45",
+  "text": "em",
+  "start": 19.15,
+  "end": 19.31
+ },
+ {
+  "id": "w46",
+  "text": "1974.",
+  "start": 19.31,
+  "end": 21.39
+ },
+ {
+  "id": "w47",
+  "text": "Escutando",
+  "start": 24.18,
+  "end": 24.98
+ },
+ {
+  "id": "w48",
+  "text": "essa",
+  "start": 24.98,
+  "end": 25.14
+ },
+ {
+  "id": "w49",
+  "text": "canção",
+  "start": 25.14,
+  "end": 25.46
+ },
+ {
+  "id": "w50",
+  "text": "é",
+  "start": 25.54,
+  "end": 25.7
+ },
+ {
+  "id": "w51",
+  "text": "bem",
+  "start": 25.7,
+  "end": 25.94
+ },
+ {
+  "id": "w52",
+  "text": "possível",
+  "start": 25.94,
+  "end": 26.42
+ },
+ {
+  "id": "w53",
+  "text": "que",
+  "start": 26.42,
+  "end": 26.58
+ },
+ {
+  "id": "w54",
+  "text": "você",
+  "start": 26.58,
+  "end": 26.82
+ },
+ {
+  "id": "w55",
+  "text": "se",
+  "start": 26.82,
+  "end": 27.06
+ },
+ {
+  "id": "w56",
+  "text": "identifique",
+  "start": 27.06,
+  "end": 27.86
+ },
+ {
+  "id": "w57",
+  "text": "com",
+  "start": 27.86,
+  "end": 28.1
+ },
+ {
+  "id": "w58",
+  "text": "a",
+  "start": 28.1,
+  "end": 28.18
+ },
+ {
+  "id": "w59",
+  "text": "letra.",
+  "start": 28.18,
+  "end": 28.82
+ },
+ {
+  "id": "w60",
+  "text": "E",
+  "start": 28.82,
+  "end": 28.98
+ },
+ {
+  "id": "w61",
+  "text": "é",
+  "start": 28.98,
+  "end": 29.06
+ },
+ {
+  "id": "w62",
+  "text": "exatamente",
+  "start": 29.14,
+  "end": 29.62
+ },
+ {
+  "id": "w63",
+  "text": "essa",
+  "start": 29.78,
+  "end": 29.86
+ },
+ {
+  "id": "w64",
+  "text": "intenção.",
+  "start": 30.1,
+  "end": 31.14
+ },
+ {
+  "id": "w65",
+  "text": "Famílias,",
+  "start": 31.14,
+  "end": 33.06
+ },
+ {
+  "id": "w66",
+  "text": "infelizmente,",
+  "start": 33.06,
+  "end": 33.7
+ },
+ {
+  "id": "w67",
+  "text": "são",
+  "start": 33.7,
+  "end": 33.94
+ },
+ {
+  "id": "w68",
+  "text": "comuns.",
+  "start": 33.94,
+  "end": 34.74
+ },
+ {
+  "id": "w69",
+  "text": "E",
+  "start": 34.74,
+  "end": 34.9
+ },
+ {
+  "id": "w70",
+  "text": "a",
+  "start": 34.9,
+  "end": 35.06
+ },
+ {
+  "id": "w71",
+  "text": "letra",
+  "start": 35.06,
+  "end": 35.38
+ },
+ {
+  "id": "w72",
+  "text": "mostra",
+  "start": 35.78,
+  "end": 36.26
+ },
+ {
+  "id": "w73",
+  "text": "o",
+  "start": 36.26,
+  "end": 36.42
+ },
+ {
+  "id": "w74",
+  "text": "que",
+  "start": 36.42,
+  "end": 36.66
+ },
+ {
+  "id": "w75",
+  "text": "muitos",
+  "start": 36.66,
+  "end": 36.98
+ },
+ {
+  "id": "w76",
+  "text": "vivem.",
+  "start": 36.98,
+  "end": 37.7
+ },
+ {
+  "id": "w77",
+  "text": "Belchior",
+  "start": 37.7,
+  "end": 38.5
+ },
+ {
+  "id": "w78",
+  "text": "respondeu",
+  "start": 38.58,
+  "end": 38.98
+ },
+ {
+  "id": "w79",
+  "text": "em",
+  "start": 38.98,
+  "end": 39.14
+ },
+ {
+  "id": "w80",
+  "text": "entrevistas",
+  "start": 39.14,
+  "end": 39.86
+ },
+ {
+  "id": "w81",
+  "text": "que,",
+  "start": 40.02,
+  "end": 40.42
+ },
+ {
+  "id": "w82",
+  "text": "de",
+  "start": 40.42,
+  "end": 40.66
+ },
+ {
+  "id": "w83",
+  "text": "certa",
+  "start": 40.66,
+  "end": 40.9
+ },
+ {
+  "id": "w84",
+  "text": "forma,",
+  "start": 40.98,
+  "end": 41.38
+ },
+ {
+  "id": "w85",
+  "text": "a",
+  "start": 41.38,
+  "end": 41.54
+ },
+ {
+  "id": "w86",
+  "text": "letra",
+  "start": 41.54,
+  "end": 41.94
+ },
+ {
+  "id": "w87",
+  "text": "era",
+  "start": 41.94,
+  "end": 42.18
+ },
+ {
+  "id": "w88",
+  "text": "também",
+  "start": 42.18,
+  "end": 42.42
+ },
+ {
+  "id": "w89",
+  "text": "uma",
+  "start": 42.42,
+  "end": 42.66
+ },
+ {
+  "id": "w90",
+  "text": "autobiografia,",
+  "start": 42.66,
+  "end": 43.78
+ },
+ {
+  "id": "w91",
+  "text": "também",
+  "start": 44.02,
+  "end": 44.18
+ },
+ {
+  "id": "w92",
+  "text": "uma",
+  "start": 44.42,
+  "end": 44.66
+ },
+ {
+  "id": "w93",
+  "text": "memória",
+  "start": 44.66,
+  "end": 45.14
+ },
+ {
+  "id": "w94",
+  "text": "compartilhada",
+  "start": 45.14,
+  "end": 45.94
+ },
+ {
+  "id": "w95",
+  "text": "por",
+  "start": 45.94,
+  "end": 46.18
+ },
+ {
+  "id": "w96",
+  "text": "quem",
+  "start": 46.18,
+  "end": 46.42
+ },
+ {
+  "id": "w97",
+  "text": "viveu",
+  "start": 46.42,
+  "end": 46.98
+ },
+ {
+  "id": "w98",
+  "text": "ou",
+  "start": 46.98,
+  "end": 47.22
+ },
+ {
+  "id": "w99",
+  "text": "vivencia",
+  "start": 47.22,
+  "end": 47.78
+ },
+ {
+  "id": "w100",
+  "text": "esse",
+  "start": 47.94,
+  "end": 48.1
+ },
+ {
+  "id": "w101",
+  "text": "cotidiano.",
+  "start": 48.1,
+  "end": 49.06
+ },
+ {
+  "id": "w102",
+  "text": "Isso",
+  "start": 49.38,
+  "end": 49.86
+ },
+ {
+  "id": "w103",
+  "text": "traz",
+  "start": 49.86,
+  "end": 50.5
+ },
+ {
+  "id": "w104",
+  "text": "muito",
+  "start": 50.5,
+  "end": 50.82
+ },
+ {
+  "id": "w105",
+  "text": "mais",
+  "start": 50.82,
+  "end": 51.14
+ },
+ {
+  "id": "w106",
+  "text": "autenticidade",
+  "start": 51.3,
+  "end": 52.34
+ },
+ {
+  "id": "w107",
+  "text": "para",
+  "start": 52.34,
+  "end": 52.66
+ },
+ {
+  "id": "w108",
+  "text": "a",
+  "start": 52.66,
+  "end": 52.74
+ },
+ {
+  "id": "w109",
+  "text": "música.",
+  "start": 52.74,
+  "end": 53.46
+ },
+ {
+  "id": "w110",
+  "text": "Porque",
+  "start": 53.46,
+  "end": 53.78
+ },
+ {
+  "id": "w111",
+  "text": "o",
+  "start": 53.78,
+  "end": 53.94
+ },
+ {
+  "id": "w112",
+  "text": "artista",
+  "start": 53.94,
+  "end": 54.34
+ },
+ {
+  "id": "w113",
+  "text": "não",
+  "start": 54.58,
+  "end": 54.74
+ },
+ {
+  "id": "w114",
+  "text": "simplesmente",
+  "start": 54.74,
+  "end": 55.38
+ },
+ {
+  "id": "w115",
+  "text": "inventou",
+  "start": 55.38,
+  "end": 56.02
+ },
+ {
+  "id": "w116",
+  "text": "uma",
+  "start": 56.02,
+  "end": 56.18
+ },
+ {
+  "id": "w117",
+  "text": "família",
+  "start": 56.18,
+  "end": 56.58
+ },
+ {
+  "id": "w118",
+  "text": "feliz.",
+  "start": 56.58,
+  "end": 57.46
+ },
+ {
+  "id": "w119",
+  "text": "Ele",
+  "start": 57.46,
+  "end": 57.7
+ },
+ {
+  "id": "w120",
+  "text": "sim",
+  "start": 57.7,
+  "end": 57.94
+ },
+ {
+  "id": "w121",
+  "text": "descreveu",
+  "start": 58.1,
+  "end": 58.98
+ },
+ {
+  "id": "w122",
+  "text": "milhões",
+  "start": 58.98,
+  "end": 59.46
+ },
+ {
+  "id": "w123",
+  "text": "de",
+  "start": 59.46,
+  "end": 59.7
+ },
+ {
+  "id": "w124",
+  "text": "casas",
+  "start": 59.7,
+  "end": 60.34
+ },
+ {
+  "id": "w125",
+  "text": "ao",
+  "start": 60.34,
+  "end": 60.66
+ },
+ {
+  "id": "w126",
+  "text": "redor",
+  "start": 60.66,
+  "end": 60.98
+ },
+ {
+  "id": "w127",
+  "text": "do",
+  "start": 60.98,
+  "end": 61.22
+ },
+ {
+  "id": "w128",
+  "text": "nosso",
+  "start": 61.22,
+  "end": 61.54
+ },
+ {
+  "id": "w129",
+  "text": "país",
+  "start": 61.54,
+  "end": 61.86
+ },
+ {
+  "id": "w130",
+  "text": "e",
+  "start": 62.1,
+  "end": 62.34
+ },
+ {
+  "id": "w131",
+  "text": "desenvolveu",
+  "start": 62.34,
+  "end": 63.14
+ },
+ {
+  "id": "w132",
+  "text": "uma",
+  "start": 63.14,
+  "end": 63.3
+ },
+ {
+  "id": "w133",
+  "text": "crítica",
+  "start": 63.3,
+  "end": 63.86
+ },
+ {
+  "id": "w134",
+  "text": "social,",
+  "start": 63.86,
+  "end": 64.58
+ },
+ {
+  "id": "w135",
+  "text": "nos",
+  "start": 64.58,
+  "end": 64.82
+ },
+ {
+  "id": "w136",
+  "text": "pondo",
+  "start": 64.82,
+  "end": 65.3
+ },
+ {
+  "id": "w137",
+  "text": "a",
+  "start": 65.3,
+  "end": 65.46
+ },
+ {
+  "id": "w138",
+  "text": "refletir",
+  "start": 65.46,
+  "end": 66.18
+ },
+ {
+  "id": "w139",
+  "text": "sobre",
+  "start": 66.42,
+  "end": 66.66
+ },
+ {
+  "id": "w140",
+  "text": "o",
+  "start": 66.66,
+  "end": 66.82
+ },
+ {
+  "id": "w141",
+  "text": "nosso",
+  "start": 66.82,
+  "end": 67.22
+ },
+ {
+  "id": "w142",
+  "text": "relacionamento.",
+  "start": 67.22,
+  "end": 68.82
+ }
+]

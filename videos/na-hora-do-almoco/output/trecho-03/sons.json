@@ -1,0 +1,204 @@
+{
+ "dur": 48.8,
+ "cues": [
+  {
+   "file": "@narr",
+   "at": 0,
+   "gain": 0
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble Loop 03.wav",
+   "at": 37.6,
+   "len": 11.2,
+   "fadeIn": 1.5,
+   "fadeOut": 1.5,
+   "gain": -21
+  },
+  {
+   "id": "v8-baque",
+   "file": "@sfx/Office Supplies/Hard Cover Book Close Cover 02.wav",
+   "at": 43.68,
+   "gain": -6,
+   "fadeIn": 0.01,
+   "fadeOut": 0.2
+  },
+  {
+   "id": "v8-instrumental",
+   "file": "@clipe/karaoke/na-hora-do-almoco-karaoke-runy.m4a",
+   "at": 22.6,
+   "from": 93.26,
+   "len": 12,
+   "fadeIn": 1.2,
+   "fadeOut": 2.5,
+   "fx": "radio",
+   "env": [
+    [
+     22.6,
+     -22
+    ],
+    [
+     34.6,
+     -22
+    ]
+   ]
+  },
+  {
+   "id": "v9-prato",
+   "file": "@sfx/Kitchen/Plates Put Away 02.wav",
+   "at": 9.1,
+   "gain": -15,
+   "fadeIn": 0.01,
+   "fadeOut": 0.15
+  },
+  {
+   "id": "v9-prato",
+   "file": "@sfx/Kitchen/Plates Removing 02.wav",
+   "at": 9.16,
+   "gain": -18,
+   "fadeIn": 0.01,
+   "fadeOut": 0.15
+  },
+  {
+   "id": "v9-prato",
+   "file": "@sfx/Kitchen/Plates Put Away 02.wav",
+   "at": 9.6,
+   "gain": -17,
+   "fadeIn": 0.01,
+   "fadeOut": 0.15
+  },
+  {
+   "id": "v9-prato",
+   "file": "@sfx/Kitchen/Plates Removing 02.wav",
+   "at": 9.66,
+   "gain": -18,
+   "fadeIn": 0.01,
+   "fadeOut": 0.15
+  },
+  {
+   "id": "v9-agulha",
+   "file": "@sfx/Horros SFX/needle_drop.wav",
+   "at": 17.25,
+   "gain": -14,
+   "fadeIn": 0.01,
+   "fadeOut": 0.2
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/Touching Moment - Wayne Jones(1).mp3",
+   "at": 0,
+   "from": 60.1,
+   "len": 48.8,
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "env": [
+    [
+     0,
+     -24.41
+    ],
+    [
+     0.69,
+     -24.62
+    ],
+    [
+     1.09,
+     -27.74
+    ],
+    [
+     5.9,
+     -29.28
+    ],
+    [
+     11.9,
+     -30.49
+    ],
+    [
+     17.9,
+     -30.3
+    ],
+    [
+     21.3,
+     -30.81
+    ],
+    [
+     23.8,
+     -38.83
+    ],
+    [
+     29.9,
+     -37.33
+    ],
+    [
+     32.1,
+     -37.33
+    ],
+    [
+     34.6,
+     -29.6
+    ],
+    [
+     35.9,
+     -29.81
+    ],
+    [
+     41.9,
+     -29.33
+    ],
+    [
+     45.8,
+     -30.15
+    ],
+    [
+     47.3,
+     -31
+    ],
+    [
+     47.93,
+     -32.04
+    ],
+    [
+     48.53,
+     -29.9
+    ],
+    [
+     48.8,
+     -30.29
+    ]
+   ]
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/Infraction - No Copyright Music/Cinematic Classical Orchestra Dark Epic Trailer by Cold Cinema [No Copyright Music] ⧸ Emergence.mp4",
+   "at": 45.8,
+   "from": 0,
+   "len": 3,
+   "fadeIn": 1.2,
+   "fadeOut": 0,
+   "env": [
+    [
+     45.8,
+     -83.72
+    ],
+    [
+     46.4,
+     -39.85
+    ],
+    [
+     47.3,
+     -32.14
+    ],
+    [
+     47.93,
+     -29.93
+    ],
+    [
+     48.53,
+     -24.83
+    ],
+    [
+     48.8,
+     -23.88
+    ]
+   ]
+  }
+ ]
+}

@@ -27,8 +27,9 @@ function useSubtitle(sheet: BeatSheet): string | undefined {
 
 const BackdropLayer: React.FC<{ backdrop: Backdrop }> = ({ backdrop }) => {
   if (backdrop === 'transparent') return null;
-  if (backdrop === 'black') return <AbsoluteFill style={{ backgroundColor: House.colors.bg }} />;
-  if (backdrop === 'grid') return <GridFloor />;
+  // 'preto-puro' e 'grade-video' sao do HyperFrames; no Remotion antigo viram preto e grade
+  if (backdrop === 'black' || backdrop === 'preto-puro') return <AbsoluteFill style={{ backgroundColor: House.colors.bg }} />;
+  if (backdrop === 'grid' || backdrop === 'grade-video') return <GridFloor />;
   if (backdrop === 'stars') return <Starfield />;
   return <BlurPlate src={backdrop.blur} video={backdrop.video} />;
 };
@@ -88,7 +89,7 @@ const BeatView: React.FC<{ beat: Beat; fps: number; frames: number }> = ({ beat,
         <Mascot
           pose={beat.pose}
           poses={beat.poses?.map((p) => ({ at: rel(p.at), pose: p.pose }))}
-          placement={beat.placement}
+          placement={beat.placement === 'auto' ? 'center' : beat.placement}
           shrinkAt={beat.shrinkAt !== undefined ? rel(beat.shrinkAt) : undefined}
           nameTag={beat.nameTag}
         />

@@ -1,0 +1,659 @@
+{
+  "id": "177-trecho-20",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": {
+    "maxWords": 2,
+    "maxChars": 16
+  },
+  "camera": [
+    {
+      "at": "@O primeiro milhão",
+      "tipo": "punch"
+    },
+    {
+      "at": "@664 mil",
+      "tipo": "punch"
+    },
+    {
+      "at": "@um milhão>",
+      "tipo": "shake"
+    },
+    {
+      "at": "@esses 10 anos",
+      "tipo": "punch"
+    },
+    {
+      "at": "@cada vez mais",
+      "tipo": "punch"
+    }
+  ],
+  "captions": [
+    {
+      "from": "@inicio",
+      "until": "@vamos lembrar-0.1",
+      "entry": "whip",
+      "estilo": "invertida"
+    },
+    {
+      "from": "@em aproximadamente-0.1",
+      "until": "@28 anos-0.1",
+      "entry": "pop"
+    },
+    {
+      "from": "@vão vir-0.1",
+      "until": "@Ou seja-0.1",
+      "entry": "pop",
+      "y": 0.82,
+      "estilo": "invertida"
+    },
+    {
+      "from": "@de você ter-0.1",
+      "until": "@A parte difícil não-0.1",
+      "entry": "pop",
+      "y": 0.18
+    },
+    {
+      "from": "@Só que aí que-0.1",
+      "until": "@No milhão-0.1",
+      "entry": "glitch",
+      "y": 0.72,
+      "estilo": "tarja"
+    },
+    {
+      "from": "@Ou seja-0.1",
+      "until": "@o seu primeiro milhão-0.1",
+      "entry": "pop",
+      "y": 0.12,
+      "estilo": "invertida"
+    },
+    {
+      "from": "@você não está-0.1",
+      "until": "@fim",
+      "entry": "glitch",
+      "y": 0.72
+    }
+  ],
+  "backdrops": [
+    {
+      "at": 0,
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@vamos lembrar",
+      "backdrop": "black"
+    },
+    {
+      "at": "@O primeiro milhão",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@Se a gente",
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@em aproximadamente",
+      "backdrop": "black"
+    },
+    {
+      "at": "@Os seus primeiros 177",
+      "backdrop": "black"
+    },
+    {
+      "at": "@Só que aí que",
+      "backdrop": "grid"
+    },
+    {
+      "at": "@No milhão",
+      "backdrop": "black"
+    },
+    {
+      "at": "@Ou seja",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@A parte difícil não",
+      "backdrop": "black"
+    },
+    {
+      "at": "@A parte difícil é",
+      "backdrop": "grid"
+    },
+    {
+      "at": "@só rende",
+      "backdrop": "black"
+    },
+    {
+      "at": "@você não está",
+      "backdrop": "stars"
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@O primeiro milhão",
+      "file": "@sfx/General/Digital counting.mp3",
+      "gain": -24,
+      "len": 0.9,
+      "fadeOut": 0.2
+    },
+    {
+      "at": "@7%",
+      "file": "@sfx/General/Click.wav",
+      "gain": -20
+    },
+    {
+      "at": "@28 anos",
+      "file": "@sfx/General/Ding.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@336 mil",
+      "file": "@sfx/Foley/Coins in Hand 02.wav",
+      "gain": -22,
+      "len": 1,
+      "fadeOut": 0.3
+    },
+    {
+      "at": "@664 mil",
+      "file": "@sfx/Foley/Coins Poured Out 05.wav",
+      "gain": -21,
+      "len": 1.8,
+      "fadeOut": 0.6
+    },
+    {
+      "at": "@atravessado",
+      "file": "@sfx/General/correct sfx.mp3",
+      "gain": -20
+    },
+    {
+      "at": "@um milhão>",
+      "file": "@sfx/Office Supplies/Paper Rustle.wav",
+      "gain": -22,
+      "len": 0.4
+    },
+    {
+      "at": "@esses 10 anos",
+      "file": "@sfx/General/Ding.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@só rende",
+      "file": "@sfx/Foley/Coins in Hand 03.wav",
+      "gain": -24,
+      "len": 0.8,
+      "fadeOut": 0.3
+    },
+    {
+      "at": "@Os seus primeiros 177",
+      "file": "@sfx/General/Click.wav",
+      "gain": -21
+    },
+    {
+      "at": "@E os próximos 177",
+      "file": "@sfx/General/Click.wav",
+      "gain": -21
+    },
+    {
+      "at": "@E na sequência",
+      "file": "@sfx/General/Click.wav",
+      "gain": -21
+    },
+    {
+      "at": "@cada etapa",
+      "file": "@sfx/General/Ascending sound effect.mp3",
+      "gain": -25,
+      "len": 2,
+      "fadeOut": 0.4
+    }
+  ],
+  "beats": [
+    {
+      "kind": "broll",
+      "at": "@inicio",
+      "until": "@vamos lembrar",
+      "src": "../../acervo/broll/corredor-pista-camera-lenta.mp4",
+      "entra": "flash",
+      "zoom": [
+        1,
+        1.12
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@vamos lembrar",
+      "until": "@O primeiro milhão",
+      "atores": [
+        {
+          "id": "trofeu",
+          "icone": "trophy",
+          "rotulo": "NOSSO OBJETIVO",
+          "cor": "hl",
+          "entra": "elastico",
+          "keys": [
+            {
+              "at": "@vamos lembrar",
+              "x": 0.7,
+              "y": 0.42
+            },
+            {
+              "at": "@persegue",
+              "x": 0.84,
+              "dur": 0.5
+            }
+          ],
+          "pulsaAt": [
+            "@nosso objetivo"
+          ]
+        },
+        {
+          "id": "p1",
+          "icone": "user",
+          "tam": 150,
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@todo mundo",
+              "x": 0.06,
+              "y": 0.58
+            },
+            {
+              "at": "@todo mundo+0.1",
+              "x": 0.5,
+              "dur": 1.3
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "icone": "user",
+          "tam": 150,
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@todo mundo+0.2",
+              "x": 0.04,
+              "y": 0.58
+            },
+            {
+              "at": "@todo mundo+0.3",
+              "x": 0.37,
+              "dur": 1.3
+            }
+          ]
+        },
+        {
+          "id": "p3",
+          "icone": "user",
+          "tam": 150,
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@todo mundo+0.4",
+              "x": 0.02,
+              "y": 0.58
+            },
+            {
+              "at": "@todo mundo+0.5",
+              "x": 0.24,
+              "dur": 1.3
+            }
+          ]
+        }
+      ],
+      "textos": [
+        {
+          "at": "@todo mundo",
+          "texto": "TODO MUNDO PERSEGUE",
+          "x": 0.45,
+          "y": 0.15,
+          "tam": 68
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "contador",
+      "at": "@O primeiro milhão",
+      "until": "@Se a gente",
+      "de": 0,
+      "ate": 1000000,
+      "dur": 1,
+      "prefixo": "R$",
+      "cor": "hl",
+      "tam": 220,
+      "rotulo": "O PRIMEIRO MILHÃO"
+    },
+    {
+      "kind": "cena",
+      "tipo": "numeros",
+      "at": "@Se a gente",
+      "until": "@em aproximadamente",
+      "itens": [
+        {
+          "at": "@mil reais",
+          "valor": "R$ 1.000",
+          "sub": "POR MÊS",
+          "cor": "text"
+        },
+        {
+          "at": "@7%",
+          "valor": "7%",
+          "sub": "AO ANO",
+          "cor": "gain"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "barras",
+      "at": "@em aproximadamente",
+      "until": "@Os seus primeiros 177",
+      "anos": 10,
+      "deAno": 19,
+      "revela": [
+        {
+          "at": 0,
+          "ano": 18
+        },
+        {
+          "at": "@em aproximadamente+0.2",
+          "ano": 28,
+          "dur": 2
+        }
+      ],
+      "destaques": [
+        {
+          "at": "@28 anos",
+          "ano": 28,
+          "rotulo": "R$ 1 MILHÃO",
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "etapas",
+      "at": "@Os seus primeiros 177",
+      "until": "@Só que aí que",
+      "titulo": "CADA 177 MIL A MAIS",
+      "passo": 177000,
+      "etapas": 3,
+      "extras": 2,
+      "mesesEixo": 340,
+      "itens": [
+        {
+          "at": "@Os seus primeiros 177",
+          "rotulo": "10 ANOS"
+        },
+        {
+          "at": "@E os próximos 177",
+          "rotulo": "6 ANOS"
+        },
+        {
+          "at": "@E na sequência",
+          "rotulo": "4 ANOS"
+        }
+      ],
+      "extrasAt": "@cada etapa",
+      "rapidoAt": "@cada vez mais",
+      "rapidoTexto": "CADA VEZ MAIS RÁPIDO »",
+      "milhaoAt": "@cada vez mais+0.7"
+    },
+    {
+      "kind": "broll",
+      "at": "@em aproximadamente",
+      "until": "@28 anos",
+      "src": "../../acervo/broll/nuvens-timelapse.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1,
+        1.1
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "piada",
+      "at": "@28 anos+0.4",
+      "until": "@28 anos+1.4",
+      "dura": 0.9,
+      "texto": "DÁ TEMPO DE VER 7 COPAS",
+      "x": 0.45,
+      "y": 0.1
+    },
+    {
+      "kind": "mascot",
+      "at": "@Só que aí que",
+      "until": "@No milhão",
+      "placement": "right-third",
+      "entra": "giro",
+      "poses": [
+        {
+          "at": "@Só que aí que",
+          "pose": "../../../../public/mascote/fox1-antigo.webm"
+        },
+        {
+          "at": "@mais engraçada",
+          "pose": "../../../../public/mascote/fox2.png"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "rosca",
+      "at": "@No milhão",
+      "until": "@Ou seja",
+      "centro": "R$ 1 MILHÃO",
+      "centroAt": "@No milhão",
+      "partes": [
+        {
+          "at": "@336 mil",
+          "valor": 336000,
+          "rotulo": "DO SEU BOLSO",
+          "cor": "text"
+        },
+        {
+          "at": "@664 mil",
+          "valor": 664000,
+          "rotulo": "DOS RENDIMENTOS",
+          "cor": "gain"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@vão vir",
+      "until": "@Ou seja",
+      "src": "../../acervo/broll/notas-caindo-fundo-escuro.mp4",
+      "de": 2,
+      "entra": "whip",
+      "zoom": [
+        1.04,
+        1.14
+      ],
+      "escurece": 0.1
+    },
+    {
+      "kind": "cena",
+      "tipo": "grafico",
+      "at": "@Ou seja",
+      "until": "@A parte difícil não",
+      "modo": "patrimonio",
+      "meses": 340,
+      "rotuloCabeca": false,
+      "perspectiva": true,
+      "revela": [
+        {
+          "at": 0,
+          "mes": 337
+        }
+      ],
+      "vista": [
+        {
+          "at": 0,
+          "x": 340,
+          "y": 1100000
+        }
+      ],
+      "marcos": [
+        {
+          "mes": 337,
+          "at": "@seu primeiro milhão",
+          "rotulo": "1 MILHÃO",
+          "cor": "text",
+          "lado": "esq"
+        },
+        {
+          "mes": 124,
+          "at": "@consequência",
+          "rotulo": "R$ 177 MIL · A VIRADA",
+          "cor": "hl",
+          "lado": "cima"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "foto3d",
+      "at": "@de você ter",
+      "until": "@A parte difícil não",
+      "src": "../../acervo/fotos3d/voo-sobre-montanha.png",
+      "depth": "../../acervo/fotos3d/depth/voo-sobre-montanha-depth.png",
+      "camera": [
+        {
+          "at": "@de você ter",
+          "zoom": 1.28,
+          "px": -0.9,
+          "py": 0.35
+        },
+        {
+          "at": "@de você ter+0.01",
+          "zoom": 1.02,
+          "px": 0.9,
+          "py": -0.35,
+          "dur": 2.6
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "numeros",
+      "at": "@A parte difícil não",
+      "until": "@A parte difícil é",
+      "rotulo": "A PARTE DIFÍCIL",
+      "rotuloAt": "@A parte difícil não",
+      "itens": [
+        {
+          "at": "@fazer um milhão",
+          "valor": "1 MILHÃO",
+          "riscaAt": "@um milhão>"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "calendario",
+      "at": "@A parte difícil é",
+      "until": "@só rende",
+      "titulo": "ESPERAR ESSES 10 ANOS",
+      "preenche": [
+        {
+          "at": "@A parte difícil é",
+          "m": 0
+        },
+        {
+          "at": "@A parte difícil é+0.1",
+          "m": 120,
+          "dur": 2
+        }
+      ],
+      "marcos": [
+        {
+          "mes": 120,
+          "at": "@esses 10 anos",
+          "cor": "hl",
+          "rotulo": "10 ANOS"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@só rende",
+      "until": "@você não está",
+      "atores": [
+        {
+          "id": "cofre",
+          "icone": "piggy-bank",
+          "rotulo": "HOJE",
+          "cor": "gain",
+          "entra": "cair",
+          "keys": [
+            {
+              "at": "@só rende",
+              "x": 0.3,
+              "y": 0.48
+            }
+          ]
+        },
+        {
+          "id": "voce",
+          "icone": "user",
+          "rotulo": "VOCÊ",
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@só rende+0.2",
+              "x": 0.72,
+              "y": 0.48
+            }
+          ],
+          "pulsaAt": [
+            "@por mês#2"
+          ]
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "cofre",
+          "para": "voce",
+          "at": "@65 reais",
+          "ate": "@você não está",
+          "icone": "coins",
+          "por": 1.5,
+          "cor": "gain",
+          "tam": 60
+        }
+      ],
+      "textos": [
+        {
+          "at": "@65 reais",
+          "texto": "R$ 64 POR MÊS",
+          "x": 0.5,
+          "y": 0.17,
+          "tam": 140,
+          "fonte": "num",
+          "cor": "gain"
+        }
+      ]
+    },
+    {
+      "kind": "mascot",
+      "at": "@você não está",
+      "until": "@fim",
+      "placement": "left-third",
+      "entra": "zoom",
+      "poses": [
+        {
+          "at": "@você não está",
+          "pose": "../../../../public/mascote/fox1.png"
+        },
+        {
+          "at": "@Você está onde",
+          "pose": "../../../../public/mascote/fox2.png"
+        }
+      ]
+    }
+  ]
+}

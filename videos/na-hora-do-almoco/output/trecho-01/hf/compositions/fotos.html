@@ -1,0 +1,41 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0e0c0a; }
+    #root .foto { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root .grad { position: absolute; inset: 0; }
+    #f-sepia { background: radial-gradient(ellipse at 50% 45%, #efe3c8 0%, #d9c49c 55%, #a88e66 100%); }
+    #f-amarelo { background: #f2c230; }
+  </style>
+  <div id="root" data-composition-id="fotos" data-width="1920" data-height="1080">
+    <div id="f-amarelo" class="clip grad" data-start="6.68" data-duration="0.32" data-track-index="0"></div>
+    <canvas id="f-compositor" class="clip foto" data-start="9.48" data-duration="0.96" data-track-index="1"></canvas>
+    <div id="f-sepia" class="clip grad" data-start="14.28" data-duration="1.32" data-track-index="2"></div>
+    <canvas id="f-silencio" class="clip foto" data-start="22.6" data-duration="3.7" data-track-index="3"></canvas>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      Promise.all([
+        A.photo(document.getElementById('f-compositor'), { src: 'assets/img/A12-violao-papel-lapis.png', depth: 'assets/depth/A12-violao-papel-lapis-depth.png' })
+          .then(function (c) {
+            A.camera(tl, c, 9.48, 0.96, [
+              { t: 0, zoom: 1.35, x: 0.06, px: 0.6, blurX: 0.06 },
+              { t: 0.16, zoom: 1.18, blurX: 0, ease: 'expo.out' },
+              { t: 0.96, zoom: 1.24, px: -0.4, ease: 'sine.out' }]);
+          }),
+        // "o silencio ensurdecedor de uma familia": a mesa vazia, a camera sobe e se afasta
+        A.photo(document.getElementById('f-silencio'), { src: 'assets/img/A2-mesa-vazia.png', depth: 'assets/depth/A2-mesa-vazia-depth.png' })
+          .then(function (c) {
+            A.camera(tl, c, 22.6, 3.7, [
+              { t: 0, zoom: 1.5, y: 0.04, px: 0.5, py: 0.6, blurY: 0.05, sat: 0.7 },
+              { t: 0.25, zoom: 1.38, blurY: 0, ease: 'expo.out' },
+              { t: 3.7, zoom: 1.12, y: -0.03, px: -0.4, py: -0.5, sat: 0.55, ease: 'sine.inOut' }]);
+          })
+      ]).catch(function (e) { console.error(e); }).then(function () {
+          tl.set({}, {}, 32.4);
+          window.__timelines['fotos'] = tl;
+        });
+    })();
+  </script>
+</template>

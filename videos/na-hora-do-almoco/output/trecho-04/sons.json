@@ -1,0 +1,250 @@
+{
+ "dur": 35.4,
+ "cues": [
+  {
+   "file": "@narr",
+   "at": 0,
+   "gain": 0
+  },
+  {
+   "file": "@clipe/trechos/04-medo-audio.wav",
+   "at": 2.4,
+   "from": 0,
+   "len": 6,
+   "fadeIn": 0.4,
+   "fadeOut": 0.8,
+   "env": [
+    [
+     2.4,
+     -20
+    ],
+    [
+     3.5,
+     -11
+    ],
+    [
+     7.4,
+     -11
+    ],
+    [
+     8,
+     -25
+    ],
+    [
+     22.8,
+     -25
+    ]
+   ],
+   "fx": "radio"
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble Loop 02.wav",
+   "at": 0,
+   "len": 2.6,
+   "fadeIn": 1,
+   "fadeOut": 0.3,
+   "gain": -22
+  },
+  {
+   "file": "@sfx/General/Heartbeat.wav",
+   "at": 8.2,
+   "len": 10.4,
+   "fadeIn": 1,
+   "fadeOut": 1,
+   "gain": -20
+  },
+  {
+   "file": "@sfx/General/keyboard press.mp3",
+   "at": 29.25,
+   "len": 0.4,
+   "fadeOut": 0.1,
+   "gain": -17
+  },
+  {
+   "file": "@sfx/General/keyboard press.mp3",
+   "at": 30.4,
+   "len": 0.4,
+   "fadeOut": 0.1,
+   "gain": -17
+  },
+  {
+   "file": "@sfx/Ambiente SFX/Windy Desert.mp3",
+   "at": 31.9,
+   "from": 20,
+   "len": 3.5,
+   "fadeIn": 1,
+   "fadeOut": 0.8,
+   "gain": -26
+  },
+  {
+   "file": "@sfx/Office Supplies/Paper Rustle.wav",
+   "at": 1.96,
+   "len": 0.8,
+   "fadeOut": 0.3,
+   "gain": -16
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Pen 01.wav",
+   "at": 2.63,
+   "len": 0.45,
+   "fadeOut": 0.15,
+   "gain": -16
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Pen 01.wav",
+   "at": 3.66,
+   "len": 0.45,
+   "fadeOut": 0.15,
+   "gain": -16
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Pen 01.wav",
+   "at": 4.46,
+   "len": 0.45,
+   "fadeOut": 0.15,
+   "gain": -16
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Pen 01.wav",
+   "at": 5.02,
+   "len": 0.45,
+   "fadeOut": 0.15,
+   "gain": -16
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Pen 01.wav",
+   "at": 5.5,
+   "len": 0.45,
+   "fadeOut": 0.15,
+   "gain": -15
+  },
+  {
+   "file": "@sfx/Office Supplies/Paper Rustle.wav",
+   "at": 8.28,
+   "len": 0.8,
+   "fadeOut": 0.3,
+   "gain": -17
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Magic Marker 01.wav",
+   "at": 8.95,
+   "len": 1,
+   "fadeOut": 0.3,
+   "gain": -8
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/Touching Moment - Wayne Jones(1).mp3",
+   "at": 0,
+   "from": 108.9,
+   "len": 3,
+   "fadeIn": 0,
+   "fadeOut": 1.5,
+   "env": [
+    [
+     0,
+     -30.29
+    ],
+    [
+     0.45,
+     -31.84
+    ],
+    [
+     0.85,
+     -36.22
+    ],
+    [
+     1.1,
+     -37.08
+    ],
+    [
+     1.5,
+     -39.74
+    ],
+    [
+     2.4,
+     -50.33
+    ],
+    [
+     3,
+     -96.17
+    ]
+   ]
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/Infraction - No Copyright Music/Cinematic Classical Orchestra Dark Epic Trailer by Cold Cinema [No Copyright Music] ⧸ Emergence.mp4",
+   "at": 0,
+   "from": 3,
+   "len": 35.4,
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "env": [
+    [
+     0,
+     -23.88
+    ],
+    [
+     0.45,
+     -23.23
+    ],
+    [
+     0.85,
+     -25.64
+    ],
+    [
+     1.1,
+     -25.27
+    ],
+    [
+     1.5,
+     -25.97
+    ],
+    [
+     3.6,
+     -32.02
+    ],
+    [
+     6.9,
+     -31.52
+    ],
+    [
+     9.4,
+     -23.29
+    ],
+    [
+     15,
+     -22.92
+    ],
+    [
+     18,
+     -23.42
+    ],
+    [
+     21,
+     -25.34
+    ],
+    [
+     24,
+     -26.4
+    ],
+    [
+     30,
+     -25.89
+    ],
+    [
+     34.16,
+     -26.55
+    ],
+    [
+     34.76,
+     -23.59
+    ],
+    [
+     35.4,
+     -23.64
+    ]
+   ]
+  }
+ ]
+}

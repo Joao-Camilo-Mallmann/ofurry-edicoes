@@ -1,0 +1,175 @@
+{
+ "dur": 45.1,
+ "cues": [
+  {
+   "file": "@narr",
+   "at": 0,
+   "gain": 0
+  },
+  {
+   "file": "@sfx/Drumbs/Cymbals/Reverse 05.mp3",
+   "at": 14.6,
+   "len": 1.08,
+   "fadeOut": 0.05,
+   "gain": -6
+  },
+  {
+   "file": "@sfx/Impacts/Impact (2).wav",
+   "at": 15.577,
+   "len": 2.5,
+   "fadeOut": 1.5,
+   "gain": -18,
+   "_alinhado": true
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Pencil 03.wav",
+   "at": 31.13,
+   "len": 0.9,
+   "fadeOut": 0.2,
+   "gain": -16
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble Loop 02.wav",
+   "at": 35,
+   "len": 10.1,
+   "fadeIn": 1,
+   "fadeOut": 2,
+   "gain": -21
+  },
+  {
+   "file": "@sfx/Ambiente SFX/Windy Desert.mp3",
+   "at": 39.3,
+   "from": 20,
+   "len": 5.8,
+   "fadeIn": 1,
+   "fadeOut": 1.5,
+   "gain": -20
+  },
+  {
+   "file": "@sfx/Office Supplies/Paper Rustle.wav",
+   "at": 9.05,
+   "len": 0.9,
+   "fadeOut": 0.3,
+   "gain": -16
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Pen 01.wav",
+   "at": 9.7,
+   "len": 0.7,
+   "fadeOut": 0.2,
+   "gain": -15
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Pen 01.wav",
+   "at": 11.9,
+   "len": 0.7,
+   "fadeOut": 0.2,
+   "gain": -15
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Pencil 03.wav",
+   "at": 12.6,
+   "len": 0.6,
+   "fadeOut": 0.2,
+   "gain": -16
+  },
+  {
+   "file": "@clipe/trechos/06-ei-moco-audio.wav",
+   "at": 1.5,
+   "from": 1.5,
+   "len": 19,
+   "fadeIn": 2,
+   "fadeOut": 2.2,
+   "env": [
+    [
+     0,
+     -20
+    ],
+    [
+     1.9,
+     -22
+    ],
+    [
+     20.5,
+     -22
+    ]
+   ],
+   "fx": "radio"
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/Infraction - No Copyright Music/Cinematic Classical Orchestra Dark Epic Trailer by Cold Cinema [No Copyright Music] ⧸ Emergence.mp4",
+   "at": 0,
+   "from": 55.7,
+   "len": 45.1,
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "env": [
+    [
+     0,
+     -36.34
+    ],
+    [
+     4.3,
+     -35.66
+    ],
+    [
+     7.3,
+     -36.18
+    ],
+    [
+     13.3,
+     -38.2
+    ],
+    [
+     18.3,
+     -38.19
+    ],
+    [
+     20.8,
+     -30.13
+    ],
+    [
+     22.3,
+     -30.12
+    ],
+    [
+     25.3,
+     -29.45
+    ],
+    [
+     28.3,
+     -29.51
+    ],
+    [
+     31.3,
+     -29.66
+    ],
+    [
+     34.3,
+     -30.42
+    ],
+    [
+     37.3,
+     -28.75
+    ],
+    [
+     40.3,
+     -29.42
+    ],
+    [
+     43.3,
+     -32.32
+    ],
+    [
+     43.8,
+     -32.43
+    ],
+    [
+     45.1,
+     -36.87
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,236 @@
+{
+ "dur": 44.6,
+ "cues": [
+  {
+   "file": "@narr",
+   "at": 0,
+   "gain": 0
+  },
+  {
+   "file": "@sfx/Kitchen/Silverware Movement 02.wav",
+   "at": 6.5,
+   "len": 1.8,
+   "fadeOut": 0.4,
+   "gain": -20
+  },
+  {
+   "file": "@sfx/Kitchen/Pots Bang 01.wav",
+   "at": 8.74,
+   "len": 0.8,
+   "fadeOut": 0.4,
+   "gain": -22
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble Loop 02.wav",
+   "at": 13,
+   "len": 2.5,
+   "fadeIn": 0.3,
+   "fadeOut": 0.6,
+   "gain": -21
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble Loop 03.wav",
+   "at": 27,
+   "len": 7.6,
+   "fadeIn": 1,
+   "fadeOut": 1.5,
+   "gain": -23
+  },
+  {
+   "file": "@sfx/Ambiente SFX/Windy Desert.mp3",
+   "at": 37.5,
+   "from": 90,
+   "len": 6,
+   "fadeIn": 1,
+   "fadeOut": 2.5,
+   "gain": -27
+  },
+  {
+   "file": "@sfx/Office Supplies/Paper Rustle.wav",
+   "at": 6.36,
+   "len": 0.8,
+   "fadeOut": 0.3,
+   "gain": -17
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Pen 01.wav",
+   "at": 6.7,
+   "len": 0.6,
+   "fadeOut": 0.2,
+   "gain": -16
+  },
+  {
+   "file": "@sfx/Office Supplies/Write on Paper with Pen 01.wav",
+   "at": 7.5,
+   "len": 0.8,
+   "fadeOut": 0.2,
+   "gain": -16
+  },
+  {
+   "file": "@sfx/Trailer Construction/0026_dark atmos 1.wav",
+   "at": 37.5,
+   "from": 0,
+   "len": 6.9,
+   "fadeIn": 2,
+   "fadeOut": 2.2,
+   "gain": -23
+  },
+  {
+   "id": "v8-baque",
+   "file": "@sfx/Office Supplies/Hard Cover Book Close Cover 02.wav",
+   "at": 3.22,
+   "gain": -6,
+   "fadeIn": 0.01,
+   "fadeOut": 0.2
+  },
+  {
+   "id": "v8-baque",
+   "file": "@sfx/Office Supplies/Hard Cover Book Close Cover 02.wav",
+   "at": 15.29,
+   "gain": -6,
+   "fadeIn": 0.01,
+   "fadeOut": 0.2
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/Infraction - No Copyright Music/Cinematic Adventure Epic Podcast by Infraction [No Copyright Music] ⧸ Storyteller.mp4",
+   "at": 0,
+   "from": 73.5,
+   "len": 3,
+   "fadeIn": 0,
+   "fadeOut": 1.5,
+   "env": [
+    [
+     0,
+     -34.19
+    ],
+    [
+     1.26,
+     -38.5
+    ],
+    [
+     1.5,
+     -41.12
+    ],
+    [
+     1.66,
+     -43.71
+    ],
+    [
+     2.4,
+     -50.13
+    ],
+    [
+     3,
+     -94.06
+    ]
+   ]
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/Yacoby - Schwartzy.mp3",
+   "at": 0,
+   "from": 3,
+   "len": 44.6,
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "env": [
+    [
+     0,
+     -24.9
+    ],
+    [
+     1.26,
+     -23.04
+    ],
+    [
+     1.66,
+     -25.62
+    ],
+    [
+     3,
+     -25.1
+    ],
+    [
+     9,
+     -25.66
+    ],
+    [
+     30,
+     -25.53
+    ],
+    [
+     33,
+     -25.77
+    ],
+    [
+     36,
+     -26.55
+    ],
+    [
+     37.2,
+     -26.47
+    ],
+    [
+     39.6,
+     -32.24
+    ],
+    [
+     41.6,
+     -31.88
+    ],
+    [
+     43.1,
+     -32.34
+    ],
+    [
+     43.45,
+     -32.83
+    ],
+    [
+     44.05,
+     -30.67
+    ],
+    [
+     44.6,
+     -31.44
+    ]
+   ]
+  },
+  {
+   "id": "v11-cama",
+   "file": "@mus/No.10 _A New Beginning - Esther Abrami.mp3",
+   "at": 41.6,
+   "from": 0,
+   "len": 3,
+   "fadeIn": 1.2,
+   "fadeOut": 0,
+   "env": [
+    [
+     41.6,
+     -78.24
+    ],
+    [
+     42.2,
+     -34.53
+    ],
+    [
+     43.1,
+     -27.04
+    ],
+    [
+     43.45,
+     -25.91
+    ],
+    [
+     44.05,
+     -20.96
+    ],
+    [
+     44.6,
+     -19.18
+    ]
+   ]
+  }
+ ]
+}

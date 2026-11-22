@@ -1,0 +1,28 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; pointer-events: none; }
+    #fx2-creme { position: absolute; inset: 0; background: #f6ecd6; opacity: 0; }
+    #fx2-branco { position: absolute; inset: 0; background: #ffffff; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="fx" data-width="1920" data-height="1080">
+    <div id="fx2-camada" class="clip" data-start="0" data-duration="29.3" data-track-index="0" style="position:absolute;inset:0">
+      <div id="fx2-creme"></div>
+      <div id="fx2-branco"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      // flash creme nas viradas de bloco e nos cortes (a folha, 1.45-12.85, nao tem cortes)
+      [0.0, 1.45, 12.83, 15.28, 16.73, 18.18, 19.58, 20.98, 23.18, 25.18, 26.98].forEach(function (t) {
+        A.flash(tl, $('fx2-creme'), t, { pico: t === 1.45 ? 0.35 : 0.6, dur: 0.2 });
+      });
+      // branco forte nas pancadas
+      [12.82, 17.2, 25.3].forEach(function (t) { A.flash(tl, $('fx2-branco'), t, { pico: 0.55, dur: 0.16 }); });
+      tl.set({}, {}, 29.3);
+      window.__timelines['fx'] = tl;
+    })();
+  </script>
+</template>

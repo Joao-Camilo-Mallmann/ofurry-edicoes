@@ -1,0 +1,625 @@
+{
+  "id": "177-trecho-08",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": {
+    "maxWords": 2,
+    "maxChars": 16
+  },
+  "captions": [
+    {
+      "from": "@inicio",
+      "until": "@Eu já tenho-0.1",
+      "entry": "pop",
+      "y": 0.72,
+      "estilo": "invertida"
+    },
+    {
+      "from": "@E o que importa-0.1",
+      "until": "@quanto dinheiro-0.1",
+      "entry": "whip"
+    },
+    {
+      "from": "@carro dos-0.1",
+      "until": "@Duas pessoas-0.1",
+      "entry": "pop"
+    },
+    {
+      "from": "@A maioria-0.1",
+      "until": "@números redondos-0.1",
+      "entry": "whip",
+      "estilo": "invertida"
+    },
+    {
+      "from": "@Quantas vezes-0.1",
+      "until": "@fim",
+      "entry": "pop",
+      "y": 0.72
+    }
+  ],
+  "camera": [
+    {
+      "at": "@100 mil",
+      "tipo": "punch"
+    },
+    {
+      "at": "@puxar o carro",
+      "tipo": "whip"
+    },
+    {
+      "at": "@ponto de virada",
+      "tipo": "punch"
+    },
+    {
+      "at": "@atrasado",
+      "tipo": "shake"
+    }
+  ],
+  "backdrops": [
+    {
+      "at": 0,
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@Eu já tenho",
+      "backdrop": "black"
+    },
+    {
+      "at": "@mas não dizem",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@E o que importa",
+      "backdrop": "black"
+    },
+    {
+      "at": "@Duas pessoas",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@Tudo depende",
+      "backdrop": "black"
+    },
+    {
+      "at": "@A maioria",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@E continua",
+      "backdrop": "black"
+    },
+    {
+      "at": "@Quantas vezes",
+      "backdrop": "grade-video"
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@10 mil",
+      "file": "@sfx/General/Pop sound.mp3",
+      "gain": -21
+    },
+    {
+      "at": "@50 mil",
+      "file": "@sfx/General/Pop sound.mp3",
+      "gain": -21
+    },
+    {
+      "at": "@100 mil",
+      "file": "@sfx/General/Pop sound.mp3",
+      "gain": -21
+    },
+    {
+      "at": "@onde você está",
+      "file": "@sfx/General/Ding.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@puxar o carro",
+      "file": "@sfx/Mechanical/Gadget 04.wav",
+      "gain": -22,
+      "len": 0.8,
+      "fadeOut": 0.3
+    },
+    {
+      "at": "@100 mil reais",
+      "file": "@sfx/General/cash ting.mp3",
+      "gain": -21
+    },
+    {
+      "at": "@qual é a taxa",
+      "file": "@sfx/General/Click.wav",
+      "gain": -21
+    },
+    {
+      "at": "@ponto de virada",
+      "file": "@sfx/General/correct sfx.mp3",
+      "gain": -20
+    },
+    {
+      "at": "@atrasado",
+      "file": "@sfx/General/Clock Tick.mp3",
+      "gain": -22,
+      "len": 0.8,
+      "fadeOut": 0.2
+    }
+  ],
+  "beats": [
+    {
+      "kind": "mascot",
+      "at": "@inicio",
+      "until": "@Eu já tenho",
+      "placement": "left-third",
+      "entra": "lado",
+      "poses": [
+        {
+          "at": "@inicio",
+          "pose": "../../../../public/mascote/fox1-antigo.webm"
+        },
+        {
+          "at": "@de fato",
+          "pose": "../../../../public/mascote/fox4.png"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@medem",
+      "until": "@de fato",
+      "src": "../../acervo/broll/predios-em-obra-aerea.mp4",
+      "entra": "flash",
+      "zoom": [
+        1,
+        1.12
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "numeros",
+      "at": "@Eu já tenho",
+      "until": "@mas não dizem",
+      "itens": [
+        {
+          "at": "@10 mil",
+          "valor": "10 MIL",
+          "riscaAt": "@fim"
+        },
+        {
+          "at": "@50 mil",
+          "valor": "50 MIL",
+          "riscaAt": "@fim"
+        },
+        {
+          "at": "@100 mil",
+          "valor": "100 MIL",
+          "riscaAt": "@fim"
+        }
+      ],
+      "rotulo": "BONS MARCOS",
+      "rotuloAt": "@bons marcos"
+    },
+    {
+      "kind": "cena",
+      "tipo": "barras",
+      "at": "@mas não dizem",
+      "until": "@E o que importa",
+      "anos": 10,
+      "titulo": "A CURVA DOS JUROS COMPOSTOS",
+      "revela": [
+        {
+          "at": "@mas não dizem",
+          "ano": 0
+        },
+        {
+          "at": "@mas não dizem+0.1",
+          "ano": 10,
+          "dur": 2
+        }
+      ],
+      "destaques": [
+        {
+          "at": "@onde você está",
+          "ano": 4,
+          "rotulo": "ONDE VOCÊ ESTÁ",
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@quanto dinheiro",
+      "until": "@Duas pessoas",
+      "atores": [
+        {
+          "id": "grana",
+          "icone": "banknote",
+          "cor": "gain",
+          "tam": 240,
+          "balanca": false,
+          "entra": "elastico",
+          "pulsaAt": [
+            "@te ajuda"
+          ],
+          "keys": [
+            {
+              "at": "@quanto dinheiro",
+              "x": 0.5,
+              "y": 0.42
+            },
+            {
+              "at": "@mas o quanto",
+              "x": 0.7,
+              "dur": 0.6
+            },
+            {
+              "at": "@dos investimentos",
+              "x": 0.86,
+              "dur": 1
+            }
+          ]
+        },
+        {
+          "id": "corda",
+          "icone": "link",
+          "cor": "hl",
+          "tam": 130,
+          "entra": "girar",
+          "keys": [
+            {
+              "at": "@puxar o carro",
+              "x": 0.52,
+              "y": 0.43
+            },
+            {
+              "at": "@dos investimentos",
+              "x": 0.68,
+              "dur": 1
+            }
+          ]
+        },
+        {
+          "id": "carro",
+          "icone": "car",
+          "tam": 280,
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@puxar o carro",
+              "x": 0.32,
+              "y": 0.44
+            },
+            {
+              "at": "@dos investimentos",
+              "x": 0.5,
+              "dur": 1
+            }
+          ]
+        }
+      ],
+      "textos": [
+        {
+          "at": "@parado",
+          "ate": "@mas o quanto",
+          "texto": "PARADO",
+          "x": 0.5,
+          "y": 0.8,
+          "tam": 84,
+          "cor": "whisper"
+        },
+        {
+          "at": "@puxar o carro",
+          "texto": "PUXAR O CARRO",
+          "x": 0.5,
+          "y": 0.82,
+          "tam": 84,
+          "cor": "gain"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@carro dos",
+      "until": "@Duas pessoas",
+      "src": "../../acervo/broll/motor-de-carro-close.mp4",
+      "entra": "whip",
+      "zoom": [
+        1.04,
+        1.16
+      ],
+      "moldura": true
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@Duas pessoas",
+      "until": "@Tudo depende",
+      "atores": [
+        {
+          "id": "p1",
+          "icone": "user",
+          "rotulo": "PESSOA 1",
+          "tam": 230,
+          "entra": "cair",
+          "arco": 0.15,
+          "pulsaAt": [
+            "@mesmo patrimônio"
+          ],
+          "keys": [
+            {
+              "at": "@Duas pessoas",
+              "x": 0.3,
+              "y": 0.46
+            },
+            {
+              "at": "@momentos diferentes",
+              "x": 0.2,
+              "y": 0.68,
+              "s": 0.8,
+              "dur": 0.7
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "icone": "user",
+          "rotulo": "PESSOA 2",
+          "tam": 230,
+          "entra": "elastico",
+          "arco": 0.15,
+          "pulsaAt": [
+            "@mesmo patrimônio"
+          ],
+          "keys": [
+            {
+              "at": "@Duas pessoas+0.3",
+              "x": 0.7,
+              "y": 0.46
+            },
+            {
+              "at": "@momentos diferentes",
+              "x": 0.8,
+              "y": 0.3,
+              "s": 0.8,
+              "dur": 0.7
+            }
+          ]
+        }
+      ],
+      "setas": [
+        {
+          "de": "p1",
+          "para": "p2",
+          "at": "@da curva",
+          "cor": "gain"
+        }
+      ],
+      "textos": [
+        {
+          "at": "@100 mil reais",
+          "ate": "@momentos diferentes",
+          "texto": "R$ 100 MIL",
+          "x": 0.5,
+          "y": 0.2,
+          "fonte": "num",
+          "tam": 150,
+          "cor": "hl"
+        },
+        {
+          "at": "@momentos diferentes",
+          "texto": "MOMENTOS DIFERENTES",
+          "x": 0.5,
+          "y": 0.9,
+          "tam": 70
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "lista",
+      "at": "@Tudo depende",
+      "until": "@A maioria",
+      "titulo": "TUDO DEPENDE",
+      "itens": [
+        {
+          "at": "@quanto tempo",
+          "n": "1",
+          "texto": "QUANTO TEMPO RENDE"
+        },
+        {
+          "at": "@qual é a taxa",
+          "n": "2",
+          "texto": "QUAL É A TAXA"
+        }
+      ],
+      "ativo": [
+        {
+          "at": "@quanto tempo",
+          "i": 0
+        },
+        {
+          "at": "@qual é a taxa",
+          "i": 1
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "foto3d",
+      "at": "@A maioria",
+      "until": "@números redondos",
+      "src": "../../acervo/fotos3d/multidao-atravessando-rua.png",
+      "depth": "../../acervo/fotos3d/depth/multidao-atravessando-rua-depth.png",
+      "camera": [
+        {
+          "at": "@A maioria",
+          "zoom": 1.08,
+          "px": -0.45
+        },
+        {
+          "at": "@A maioria+0.01",
+          "zoom": 1.2,
+          "px": 0.45,
+          "dur": 2.2
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "grafico",
+      "at": "@números redondos",
+      "until": "@E continua",
+      "modo": "rendimento",
+      "meses": 130,
+      "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
+      "viradaTexto": "A VIRADA · R$ 177 MIL",
+      "revela": [
+        {
+          "at": "@números redondos",
+          "mes": 0
+        },
+        {
+          "at": "@números redondos+0.05",
+          "mes": 80,
+          "dur": 1
+        },
+        {
+          "at": "@nunca calcula",
+          "mes": 126,
+          "dur": 1.8
+        }
+      ],
+      "vista": [
+        {
+          "at": 0,
+          "x": 130,
+          "y": 1200
+        }
+      ],
+      "marcos": [
+        {
+          "mes": 80,
+          "at": "@números redondos+1.1",
+          "rotulo": "R$ 100 MIL GUARDADOS",
+          "cor": "text",
+          "lado": "baixo"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@E continua",
+      "until": "@Quantas vezes",
+      "atores": [
+        {
+          "id": "lesma",
+          "icone": "snail",
+          "tam": 240,
+          "entra": "rise",
+          "keys": [
+            {
+              "at": "@E continua",
+              "x": 0.12,
+              "y": 0.46
+            },
+            {
+              "at": "@E continua+0.1",
+              "x": 0.42,
+              "dur": 3
+            }
+          ]
+        },
+        {
+          "id": "ampulheta",
+          "icone": "hourglass",
+          "cor": "loss",
+          "tam": 240,
+          "entra": "cair",
+          "keys": [
+            {
+              "at": "@atrasado",
+              "x": 0.78,
+              "y": 0.46
+            },
+            {
+              "at": "@atrasado+0.2",
+              "r": 180,
+              "dur": 0.5
+            }
+          ]
+        }
+      ],
+      "textos": [
+        {
+          "at": "@E continua",
+          "ate": "@devagar",
+          "texto": "ACHANDO QUE ESTÁ",
+          "x": 0.5,
+          "y": 0.82,
+          "tam": 70
+        },
+        {
+          "at": "@devagar",
+          "ate": "@atrasado",
+          "texto": "DEVAGAR",
+          "x": 0.5,
+          "y": 0.82,
+          "tam": 84
+        },
+        {
+          "at": "@atrasado",
+          "texto": "ATRASADO",
+          "x": 0.5,
+          "y": 0.82,
+          "tam": 84,
+          "cor": "loss"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "piada",
+      "at": "@devagar+0.3",
+      "until": "@Quantas vezes",
+      "dura": 0.8,
+      "texto": "DEVAGAR E SEMPRE, UÉ",
+      "tam": 64,
+      "x": 0.5,
+      "y": 0.17
+    },
+    {
+      "kind": "mascot",
+      "at": "@Quantas vezes",
+      "until": "@fim",
+      "placement": "right-third",
+      "entra": "giro",
+      "poses": [
+        {
+          "at": "@Quantas vezes",
+          "pose": "../../../../public/mascote/fox1.png"
+        },
+        {
+          "at": "@virar nossa vida",
+          "pose": "../../../../public/mascote/fox2-antigo.webm"
+        },
+        {
+          "at": "@mas nunca",
+          "pose": "../../../../public/mascote/fox4.png"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@nunca se",
+      "until": "@fim",
+      "src": "../../acervo/broll/nevoa-no-topo-da-montanha.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1,
+        1.12
+      ]
+    }
+  ]
+}

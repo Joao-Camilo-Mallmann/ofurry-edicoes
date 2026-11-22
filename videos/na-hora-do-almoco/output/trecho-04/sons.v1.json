@@ -1,0 +1,235 @@
+{
+ "dur": 35.4,
+ "cues": [
+  {
+   "file": "@narr",
+   "at": 0,
+   "gain": 0
+  },
+  {
+   "file": "@clipe/trechos/04-medo-audio.wav",
+   "at": 2.4,
+   "from": 0,
+   "len": 20.4,
+   "fadeIn": 0.4,
+   "fadeOut": 1.5,
+   "env": [
+    [
+     2.4,
+     -20
+    ],
+    [
+     3.5,
+     -11
+    ],
+    [
+     7.4,
+     -11
+    ],
+    [
+     8.0,
+     -25
+    ],
+    [
+     22.8,
+     -25
+    ]
+   ]
+  },
+  {
+   "file": "@mus/anxiety_soundridemusic.mp3",
+   "at": 22.2,
+   "from": 0,
+   "len": 13.2,
+   "fadeIn": 2.0,
+   "fadeOut": 1.5,
+   "gain": -30
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble Loop 02.wav",
+   "at": 0,
+   "len": 2.6,
+   "fadeIn": 1.0,
+   "fadeOut": 0.3,
+   "gain": -22
+  },
+  {
+   "file": "@sfx/Impacts/Impact (1).wav",
+   "at": 2.61,
+   "len": 2.0,
+   "fadeOut": 1.2,
+   "gain": -12
+  },
+  {
+   "file": "@sfx/Glitch SFX/Glitch Static.wav",
+   "at": 2.63,
+   "len": 0.25,
+   "fadeOut": 0.08,
+   "gain": -21
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav",
+   "at": 3.64,
+   "gain": -13
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav",
+   "at": 4.44,
+   "gain": -12
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav",
+   "at": 5.0,
+   "gain": -11
+  },
+  {
+   "file": "@sfx/Impacts/Impact (3).wav",
+   "at": 5.48,
+   "len": 2.0,
+   "fadeOut": 1.2,
+   "gain": -12
+  },
+  {
+   "file": "@sfx/Glitch SFX/Glitch Static.wav",
+   "at": 5.5,
+   "len": 0.3,
+   "fadeOut": 0.1,
+   "gain": -20
+  },
+  {
+   "file": "@sw/Smooth Zoom.mp3",
+   "at": 6.25,
+   "gain": -19
+  },
+  {
+   "file": "@sw/3. Whoosh Swoosh.wav",
+   "at": 8.25,
+   "gain": -18
+  },
+  {
+   "file": "@sfx/General/Heartbeat.wav",
+   "at": 8.2,
+   "len": 10.4,
+   "fadeIn": 1.0,
+   "fadeOut": 1.0,
+   "gain": -20
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav",
+   "at": 10.2,
+   "gain": -15
+  },
+  {
+   "file": "@sw/5. Whoosh Swoosh.wav",
+   "at": 11.28,
+   "gain": -19
+  },
+  {
+   "file": "@sw/6. Whoosh Swoosh.wav",
+   "at": 13.12,
+   "gain": -19
+  },
+  {
+   "file": "@sw/7. Whoosh Swoosh.wav",
+   "at": 14.88,
+   "gain": -19
+  },
+  {
+   "file": "@sw/10. Whoosh Swoosh.wav",
+   "at": 16.88,
+   "gain": -19
+  },
+  {
+   "file": "@sw/2. Whoosh Swoosh.wav",
+   "at": 18.66,
+   "gain": -17
+  },
+  {
+   "file": "@sw/3. Whoosh Swoosh.wav",
+   "at": 19.26,
+   "gain": -17
+  },
+  {
+   "file": "@sw/5. Whoosh Swoosh.wav",
+   "at": 19.86,
+   "gain": -17
+  },
+  {
+   "file": "@sw/6. Whoosh Swoosh.wav",
+   "at": 20.46,
+   "gain": -17
+  },
+  {
+   "file": "@sfx/Trailer Construction/0026_dark riser short 1.wav",
+   "at": 20.2,
+   "len": 1.8,
+   "fadeOut": 0.1,
+   "gain": -18
+  },
+  {
+   "file": "@sfx/Trailer Construction/0026_dark slam 9.wav",
+   "at": 21.96,
+   "gain": -11
+  },
+  {
+   "file": "@sfx/Glitch SFX/Glitch Static.wav",
+   "at": 21.98,
+   "len": 0.35,
+   "fadeOut": 0.1,
+   "gain": -19
+  },
+  {
+   "file": "@sw/Smooth Zoom.mp3",
+   "at": 22.7,
+   "gain": -20
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav",
+   "at": 24.44,
+   "gain": -15
+  },
+  {
+   "file": "@sw/11. Whoosh Swoosh.wav",
+   "at": 25.92,
+   "gain": -19
+  },
+  {
+   "file": "@sfx/Low End Sweeteners/Low End Rumble 01.wav",
+   "at": 26.76,
+   "gain": -15
+  },
+  {
+   "file": "@sw/12. Whoosh Swoosh.wav",
+   "at": 28.4,
+   "gain": -19
+  },
+  {
+   "file": "@sfx/General/keyboard press.mp3",
+   "at": 29.25,
+   "len": 0.4,
+   "fadeOut": 0.1,
+   "gain": -17
+  },
+  {
+   "file": "@sfx/General/keyboard press.mp3",
+   "at": 30.4,
+   "len": 0.4,
+   "fadeOut": 0.1,
+   "gain": -17
+  },
+  {
+   "file": "@sw/12. Whoosh Swoosh.wav",
+   "at": 31.45,
+   "gain": -23
+  },
+  {
+   "file": "@sfx/Ambiente SFX/Windy Desert.mp3",
+   "at": 31.9,
+   "from": 20,
+   "len": 3.5,
+   "fadeIn": 1.0,
+   "fadeOut": 0.8,
+   "gain": -26
+  }
+ ]
+}

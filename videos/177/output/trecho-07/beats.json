@@ -1,0 +1,761 @@
+{
+  "id": "177-trecho-07",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": {
+    "maxWords": 2,
+    "maxChars": 16
+  },
+  "captions": [
+    {
+      "from": "@começa a parte-0.1",
+      "until": "@Se você aporta-0.1",
+      "entry": "pop"
+    },
+    {
+      "from": "@a partir desse-0.1",
+      "until": "@liga a máquina-0.1",
+      "entry": "whip",
+      "estilo": "invertida"
+    },
+    {
+      "from": "@Ela só trabalha-0.1",
+      "until": "@todos os meses-0.1",
+      "entry": "pop"
+    },
+    {
+      "from": "@daqui a alguns-0.1",
+      "until": "@ela sozinha-0.1",
+      "entry": "pop",
+      "estilo": "invertida"
+    },
+    {
+      "from": "@E quando você-0.1",
+      "until": "@fim",
+      "entry": "pop",
+      "y": 0.72
+    }
+  ],
+  "camera": [
+    {
+      "at": "@vira",
+      "tipo": "punch"
+    },
+    {
+      "at": "@dobrou",
+      "tipo": "punch"
+    },
+    {
+      "at": "@liga a máquina",
+      "tipo": "punch"
+    },
+    {
+      "at": "@mais forte",
+      "tipo": "shake"
+    }
+  ],
+  "backdrops": [
+    {
+      "at": 0,
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@Se você aporta",
+      "backdrop": "black"
+    },
+    {
+      "at": "@dobrou",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@sem trabalhar",
+      "backdrop": "black"
+    },
+    {
+      "at": "@liga a máquina",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@E ela não",
+      "backdrop": "black"
+    },
+    {
+      "at": "@Ela só trabalha",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@E a cada",
+      "backdrop": "black"
+    },
+    {
+      "at": "@essa máquina",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@Se você continuar",
+      "backdrop": "black"
+    },
+    {
+      "at": "@E quando você",
+      "backdrop": "grade-video"
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@vira",
+      "file": "@sfx/Mechanical/Hydraulics 02.wav",
+      "gain": -22,
+      "len": 0.9,
+      "fadeOut": 0.3
+    },
+    {
+      "at": "@gerando mil",
+      "file": "@sfx/General/cash ting.mp3",
+      "gain": -20
+    },
+    {
+      "at": "@dobrou",
+      "file": "@sfx/General/Ding.mp3",
+      "gain": -21
+    },
+    {
+      "at": "@a partir desse",
+      "file": "@sfx/General/Ascending sound effect.mp3",
+      "gain": -20,
+      "len": 2.3,
+      "fadeOut": 0.2
+    },
+    {
+      "at": "@liga a máquina",
+      "file": "@sfx/Mechanical/Switch 05.wav",
+      "gain": -16,
+      "len": 0.6
+    },
+    {
+      "at": "@máquina de imprimir",
+      "file": "@sfx/Mechanical/Gadget 03.wav",
+      "gain": -17,
+      "len": 1.2
+    },
+    {
+      "at": "@imprimir dinheiro",
+      "file": "@sfx/Foley/Coins Poured Out 04.wav",
+      "gain": -19,
+      "len": 2.2,
+      "fadeOut": 0.8
+    },
+    {
+      "at": "@aumento>",
+      "file": "@sfx/Office Supplies/Paper Rustle.wav",
+      "gain": -23,
+      "len": 0.35
+    },
+    {
+      "at": "@férias>",
+      "file": "@sfx/Office Supplies/Paper Rustle.wav",
+      "gain": -23,
+      "len": 0.35
+    },
+    {
+      "at": "@ruim+0.25",
+      "file": "@sfx/Office Supplies/Paper Rustle.wav",
+      "gain": -23,
+      "len": 0.35
+    },
+    {
+      "at": "@mais forte",
+      "file": "@sfx/Mechanical/Gadget 07.wav",
+      "gain": -19,
+      "len": 1.2,
+      "fadeOut": 0.3
+    },
+    {
+      "at": "@render mais grana",
+      "file": "@sfx/General/correct sfx.mp3",
+      "gain": -20
+    }
+  ],
+  "beats": [
+    {
+      "kind": "cena",
+      "tipo": "balanca",
+      "at": "@inicio",
+      "until": "@Se você aporta",
+      "esquerda": "VOCÊ COLOCA",
+      "direita": "O DINHEIRO RENDE",
+      "valores": [
+        {
+          "at": 0,
+          "v": 1000
+        },
+        {
+          "at": "@vira",
+          "v": 1001,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@começa a parte",
+      "until": "@Se você aporta",
+      "src": "../../acervo/broll/executivo-dancando-escritorio.mp4",
+      "entra": "flash",
+      "zoom": [
+        1,
+        1.1
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@Se você aporta",
+      "until": "@dobrou",
+      "atores": [
+        {
+          "id": "voce",
+          "icone": "user",
+          "rotulo": "VOCÊ",
+          "tam": 220,
+          "entra": "rise",
+          "keys": [
+            {
+              "at": "@Se você aporta",
+              "x": 0.22,
+              "y": 0.3
+            }
+          ]
+        },
+        {
+          "id": "invest",
+          "icone": "landmark",
+          "rotulo": "INVESTIMENTOS",
+          "tam": 260,
+          "entra": "girar",
+          "keys": [
+            {
+              "at": "@aporta",
+              "x": 0.78,
+              "y": 0.48
+            },
+            {
+              "at": "@Na prática",
+              "s": 1.25,
+              "dur": 0.5
+            }
+          ]
+        },
+        {
+          "id": "patri",
+          "icone": "piggy-bank",
+          "cor": "gain",
+          "rotulo": "SEU PATRIMÔNIO",
+          "tam": 220,
+          "entra": "cair",
+          "pulsaAt": [
+            "@gerando mil"
+          ],
+          "keys": [
+            {
+              "at": "@o seu patrimônio",
+              "x": 0.22,
+              "y": 0.68
+            }
+          ]
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "voce",
+          "para": "invest",
+          "at": "@mil reais",
+          "ate": "@o seu",
+          "icone": "banknote",
+          "cor": "gain",
+          "tam": 100,
+          "por": 4
+        },
+        {
+          "de": "patri",
+          "para": "invest",
+          "at": "@gerando mil",
+          "ate": "@dobrou",
+          "icone": "banknote",
+          "cor": "hl",
+          "tam": 100,
+          "por": 4,
+          "arco": 0.18
+        },
+        {
+          "de": "voce",
+          "para": "invest",
+          "at": "@Na prática",
+          "ate": "@dobrou",
+          "icone": "banknote",
+          "cor": "gain",
+          "tam": 100,
+          "por": 4
+        }
+      ],
+      "textos": [
+        {
+          "at": "@mil reais",
+          "ate": "@o seu",
+          "texto": "R$ 1.000",
+          "x": 0.5,
+          "y": 0.12,
+          "fonte": "num",
+          "tam": 120,
+          "cor": "gain"
+        },
+        {
+          "at": "@gerando mil",
+          "ate": "@Na prática",
+          "texto": "+ R$ 1.000 SOZINHO",
+          "x": 0.5,
+          "y": 0.93,
+          "tam": 64,
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "contador",
+      "at": "@dobrou",
+      "until": "@sem trabalhar",
+      "de": 1,
+      "ate": 2,
+      "dur": 0.6,
+      "sufixo": "×",
+      "cor": "gain",
+      "tam": 320,
+      "rotulo": "CAPACIDADE DE INVESTIR",
+      "rotuloAt": "@capacidade"
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@sem trabalhar",
+      "until": "@E é literalmente",
+      "atores": [
+        {
+          "id": "relogio",
+          "icone": "clock",
+          "tam": 300,
+          "entra": "elastico",
+          "riscaAt": "@a mais",
+          "keys": [
+            {
+              "at": "@sem trabalhar",
+              "x": 0.5,
+              "y": 0.42
+            },
+            {
+              "at": "@uma hora",
+              "r": 360,
+              "dur": 0.7
+            }
+          ]
+        }
+      ],
+      "textos": [
+        {
+          "at": "@uma hora",
+          "texto": "UMA HORA A MAIS",
+          "x": 0.5,
+          "y": 0.82,
+          "tam": 80
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "maquina3d",
+      "at": "@E é literalmente",
+      "until": "@E ela não",
+      "ligaAt": "@liga a máquina",
+      "ritmo": [
+        {
+          "at": 0,
+          "v": 4
+        },
+        {
+          "at": "@imprimir dinheiro",
+          "v": 7,
+          "dur": 0.8
+        }
+      ],
+      "contador": [
+        {
+          "at": "@liga a máquina",
+          "v": 0
+        },
+        {
+          "at": "@máquina de imprimir",
+          "v": 1000,
+          "dur": 1
+        }
+      ],
+      "escala": 1.15,
+      "y": 0.56
+    },
+    {
+      "kind": "broll",
+      "at": "@a partir desse",
+      "until": "@liga a máquina",
+      "src": "../../acervo/broll/engrenagens-relogio.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1,
+        1.18
+      ]
+    },
+    {
+      "kind": "section",
+      "at": "@máquina de imprimir",
+      "until": "@E ela não",
+      "text": "MÁQUINA DE IMPRIMIR DINHEIRO"
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@E ela não",
+      "until": "@Ela só trabalha",
+      "atores": [
+        {
+          "id": "aumento",
+          "icone": "hand-coins",
+          "rotulo": "AUMENTO",
+          "tam": 240,
+          "entra": "cair",
+          "arco": 0.12,
+          "riscaAt": "@aumento>",
+          "keys": [
+            {
+              "at": "@pede aumento",
+              "x": 0.5,
+              "y": 0.42
+            },
+            {
+              "at": "@não pede férias",
+              "x": 0.18,
+              "s": 0.7,
+              "dur": 0.5
+            }
+          ]
+        },
+        {
+          "id": "ferias",
+          "icone": "tree-palm",
+          "rotulo": "FÉRIAS",
+          "tam": 240,
+          "entra": "girar",
+          "arco": 0.12,
+          "riscaAt": "@férias>",
+          "keys": [
+            {
+              "at": "@pede férias",
+              "x": 0.5,
+              "y": 0.42
+            },
+            {
+              "at": "@também",
+              "x": 0.82,
+              "s": 0.7,
+              "dur": 0.5
+            }
+          ]
+        },
+        {
+          "id": "segunda",
+          "icone": "calendar-x",
+          "rotulo": "SEGUNDA-FEIRA RUIM",
+          "tam": 240,
+          "entra": "elastico",
+          "riscaAt": "@ruim+0.25",
+          "keys": [
+            {
+              "at": "@tem uma",
+              "x": 0.5,
+              "y": 0.42
+            }
+          ]
+        }
+      ],
+      "textos": [
+        {
+          "at": "@E ela não",
+          "ate": "@não tem",
+          "texto": "NÃO PEDE",
+          "x": 0.5,
+          "y": 0.84,
+          "tam": 84
+        },
+        {
+          "at": "@não tem",
+          "texto": "NÃO TEM",
+          "x": 0.5,
+          "y": 0.84,
+          "tam": 84
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "maquina3d",
+      "at": "@Ela só trabalha",
+      "until": "@E a cada",
+      "ritmo": [
+        {
+          "at": 0,
+          "v": 4
+        }
+      ],
+      "contador": [
+        {
+          "at": 0,
+          "v": 1000
+        },
+        {
+          "at": "@aumentando",
+          "v": 1240,
+          "dur": 3
+        }
+      ],
+      "escala": 1.15,
+      "y": 0.56
+    },
+    {
+      "kind": "broll",
+      "at": "@Ela só trabalha",
+      "until": "@todos os meses",
+      "src": "../../acervo/broll/fabrica-a-noite-aerea.mp4",
+      "entra": "whip",
+      "zoom": [
+        1.04,
+        1.14
+      ],
+      "moldura": true
+    },
+    {
+      "kind": "cena",
+      "tipo": "piada",
+      "at": "@ruim+0.5",
+      "until": "@Ela só trabalha+0.4",
+      "dura": 0.8,
+      "texto": "NEM HOME OFFICE ELA PEDE",
+      "tam": 64,
+      "x": 0.5,
+      "y": 0.84
+    },
+    {
+      "kind": "section",
+      "at": "@todos os meses",
+      "until": "@E a cada",
+      "text": "TODOS OS MESES"
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@E a cada",
+      "until": "@essa máquina",
+      "atores": [
+        {
+          "id": "aporte",
+          "icone": "hand-coins",
+          "cor": "gain",
+          "rotulo": "APORTE",
+          "tam": 220,
+          "entra": "rise",
+          "keys": [
+            {
+              "at": "@cada aporte",
+              "x": 0.2,
+              "y": 0.28
+            }
+          ]
+        },
+        {
+          "id": "reinv",
+          "icone": "repeat",
+          "cor": "gain",
+          "rotulo": "REINVESTIMENTO",
+          "tam": 220,
+          "entra": "cair",
+          "keys": [
+            {
+              "at": "@reinvestimento",
+              "x": 0.2,
+              "y": 0.7
+            }
+          ]
+        },
+        {
+          "id": "maq",
+          "icone": "cog",
+          "cor": "brand",
+          "tam": 300,
+          "balanca": false,
+          "entra": "girar",
+          "keys": [
+            {
+              "at": "@E a cada",
+              "x": 0.75,
+              "y": 0.48
+            },
+            {
+              "at": "@E a cada+0.1",
+              "r": 420,
+              "dur": 2.9
+            },
+            {
+              "at": "@você faz",
+              "s": 1.2,
+              "dur": 0.5
+            }
+          ]
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "aporte",
+          "para": "maq",
+          "at": "@aporte e",
+          "ate": "@essa máquina",
+          "icone": "coins",
+          "cor": "gain",
+          "tam": 90,
+          "por": 3
+        },
+        {
+          "de": "reinv",
+          "para": "maq",
+          "at": "@reinvestimento",
+          "ate": "@essa máquina",
+          "icone": "coins",
+          "cor": "gain",
+          "tam": 90,
+          "por": 3,
+          "arco": 0.18
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "maquina3d",
+      "at": "@essa máquina",
+      "until": "@Se você continuar",
+      "ritmo": [
+        {
+          "at": 0,
+          "v": 4
+        },
+        {
+          "at": "@mais forte",
+          "v": 10,
+          "dur": 1
+        }
+      ],
+      "contador": [
+        {
+          "at": 0,
+          "v": 1240
+        },
+        {
+          "at": "@mais forte",
+          "v": 1940,
+          "dur": 1.2
+        }
+      ],
+      "escala": 1.15,
+      "y": 0.56
+    },
+    {
+      "kind": "section",
+      "at": "@mais forte",
+      "until": "@Se você continuar",
+      "text": "MAIS FORTE COM O TEMPO"
+    },
+    {
+      "kind": "cena",
+      "tipo": "grafico",
+      "at": "@Se você continuar",
+      "until": "@E quando você",
+      "modo": "rendimento",
+      "meses": 200,
+      "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
+      "viradaTexto": "A VIRADA · R$ 177 MIL",
+      "revela": [
+        {
+          "at": 0,
+          "mes": 124
+        },
+        {
+          "at": "@daqui a alguns",
+          "mes": 192,
+          "dur": 3.5
+        }
+      ],
+      "vista": [
+        {
+          "at": 0,
+          "x": 200,
+          "y": 2400
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@daqui a alguns",
+      "until": "@ela sozinha",
+      "src": "../../acervo/broll/nuvens-timelapse.mp4",
+      "entra": "flash",
+      "zoom": [
+        1,
+        1.1
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "foto3d",
+      "at": "@E quando você",
+      "until": "@trabalha para você",
+      "src": "../../acervo/fotos3d/familia-caminhando-natureza.png",
+      "depth": "../../acervo/fotos3d/depth/familia-caminhando-natureza-depth.png",
+      "camera": [
+        {
+          "at": "@E quando você",
+          "zoom": 1.28,
+          "px": -0.9,
+          "py": 0.35
+        },
+        {
+          "at": "@E quando você+0.01",
+          "zoom": 1.02,
+          "px": 0.9,
+          "py": -0.35,
+          "dur": 2.2
+        }
+      ]
+    },
+    {
+      "kind": "mascot",
+      "at": "@trabalha para você",
+      "until": "@fim",
+      "placement": "right-third",
+      "entra": "giro",
+      "poses": [
+        {
+          "at": "@trabalha para você",
+          "pose": "../../../../public/mascote/fox2.png"
+        },
+        {
+          "at": "@E não mais",
+          "pose": "../../../../public/mascote/fox2-antigo.webm"
+        }
+      ]
+    }
+  ]
+}

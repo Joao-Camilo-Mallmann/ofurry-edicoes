@@ -1,0 +1,570 @@
+{
+  "id": "177-trecho-14",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": {
+    "maxWords": 2,
+    "maxChars": 16
+  },
+  "camera": [
+    {
+      "at": "@10 anos",
+      "tipo": "punch"
+    },
+    {
+      "at": "@aos 35",
+      "tipo": "punch"
+    },
+    {
+      "at": "@aos 45",
+      "tipo": "punch"
+    },
+    {
+      "at": "@calendário",
+      "tipo": "whip"
+    }
+  ],
+  "captions": [
+    {
+      "from": "@inicio",
+      "until": "@esse prazo-0.1",
+      "entry": "whip",
+      "estilo": "invertida"
+    },
+    {
+      "from": "@E hoje-0.1",
+      "until": "@500-0.1",
+      "entry": "whip"
+    },
+    {
+      "from": "@Então aquela-0.1",
+      "until": "@quanto eu ganho-0.1",
+      "entry": "whip",
+      "estilo": "tarja"
+    },
+    {
+      "from": "@Então quem-0.1",
+      "until": "@25 anos>-0.1",
+      "entry": "pop",
+      "y": 0.8,
+      "estilo": "invertida"
+    },
+    {
+      "from": "@A virada na real-0.1",
+      "until": "@do tamanho-0.1",
+      "entry": "whip"
+    },
+    {
+      "from": "@mas sim>",
+      "until": "@fim",
+      "entry": "pop",
+      "y": 0.9
+    }
+  ],
+  "backdrops": [
+    {
+      "at": 0,
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@esse prazo",
+      "backdrop": "black"
+    },
+    {
+      "at": "@Então aquela",
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@Então quem",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@Quem começa com 35",
+      "backdrop": "black"
+    },
+    {
+      "at": "@A virada na real",
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@do tamanho",
+      "backdrop": "black"
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@prazo",
+      "file": "@sfx/General/Clock Tick.mp3",
+      "gain": -22,
+      "len": 1,
+      "fadeOut": 0.3
+    },
+    {
+      "at": "@aporta+0.3",
+      "file": "@sfx/Office Supplies/Paper Rustle.wav",
+      "gain": -22,
+      "len": 0.4
+    },
+    {
+      "at": "@500",
+      "file": "@sfx/Foley/Coins in Hand 01.wav",
+      "gain": -22,
+      "len": 0.8
+    },
+    {
+      "at": "@10 anos",
+      "file": "@sfx/General/Ding.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@do marco",
+      "file": "@sfx/General/Pop sound.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@quanto eu ganho",
+      "file": "@sfx/General/Typewriter.mp3",
+      "gain": -22,
+      "len": 0.8,
+      "fadeOut": 0.2
+    },
+    {
+      "at": "@Como quando",
+      "file": "@sfx/General/Typewriter.mp3",
+      "gain": -22,
+      "len": 0.8,
+      "fadeOut": 0.2
+    },
+    {
+      "at": "@Então quem",
+      "file": "@sfx/General/Clock ticking fast.mp3",
+      "gain": -24,
+      "len": 3,
+      "fadeOut": 0.5
+    },
+    {
+      "at": "@aos 35",
+      "file": "@sfx/General/Ding.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@aos 45",
+      "file": "@sfx/General/Ding.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@mas sim",
+      "file": "@sfx/Office Supplies/Paper Rustle.wav",
+      "gain": -22,
+      "len": 0.4
+    },
+    {
+      "at": "@calendário",
+      "file": "@sfx/General/correct sfx.mp3",
+      "gain": -20
+    }
+  ],
+  "beats": [
+    {
+      "kind": "broll",
+      "at": "@inicio",
+      "until": "@esse prazo",
+      "src": "../../acervo/broll/relogio-fundo-preto-aproximando.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1,
+        1.2
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@esse prazo",
+      "until": "@E hoje",
+      "atores": [
+        {
+          "id": "timer",
+          "icone": "timer",
+          "cor": "hl",
+          "tam": 220,
+          "rotulo": "PRAZO",
+          "balanca": false,
+          "keys": [
+            {
+              "at": "@esse prazo",
+              "x": 0.5,
+              "y": 0.3
+            }
+          ],
+          "entra": "girar"
+        },
+        {
+          "id": "aporta",
+          "icone": "hand-coins",
+          "tam": 170,
+          "keys": [
+            {
+              "at": "@quanto você",
+              "x": 0.5,
+              "y": 0.72
+            }
+          ],
+          "riscaAt": "@aporta+0.3",
+          "sai": "@aporta+0.6",
+          "entra": "cair",
+          "saiComo": "explode"
+        }
+      ],
+      "textos": [
+        {
+          "at": "@não depende",
+          "ate": "@E hoje",
+          "texto": "NÃO DEPENDE",
+          "x": 0.5,
+          "y": 0.1,
+          "tam": 64
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@500",
+      "until": "@Então aquela",
+      "atores": [
+        {
+          "id": "timer",
+          "icone": "timer",
+          "cor": "hl",
+          "tam": 220,
+          "rotulo": "PRAZO",
+          "balanca": false,
+          "keys": [
+            {
+              "at": "@500",
+              "x": 0.5,
+              "y": 0.3
+            },
+            {
+              "at": "@na média",
+              "s": 1.12,
+              "dur": 0.4
+            }
+          ],
+          "sai": "@O que muda",
+          "entra": "elastico",
+          "saiComo": "voa"
+        },
+        {
+          "id": "c500",
+          "icone": "coins",
+          "tam": 150,
+          "rotulo": "R$ 500",
+          "keys": [
+            {
+              "at": "@500",
+              "x": 0.2,
+              "y": 0.62
+            }
+          ],
+          "entra": "cair"
+        },
+        {
+          "id": "c2000",
+          "icone": "coins",
+          "tam": 280,
+          "rotulo": "R$ 2.000",
+          "keys": [
+            {
+              "at": "@2 mil",
+              "x": 0.8,
+              "y": 0.58
+            }
+          ],
+          "entra": "elastico"
+        },
+        {
+          "id": "f500",
+          "icone": "flag",
+          "cor": "hl",
+          "tam": 110,
+          "keys": [
+            {
+              "at": "@tamanho do marco",
+              "x": 0.2,
+              "y": 0.3
+            }
+          ],
+          "entra": "cair"
+        },
+        {
+          "id": "f2000",
+          "icone": "flag",
+          "cor": "hl",
+          "tam": 300,
+          "keys": [
+            {
+              "at": "@do marco",
+              "x": 0.8,
+              "y": 0.24
+            }
+          ],
+          "entra": "girar"
+        }
+      ],
+      "setas": [
+        {
+          "de": "c500",
+          "para": "timer",
+          "at": "@o tempo",
+          "ate": "@O que muda",
+          "cor": "hl"
+        },
+        {
+          "de": "c2000",
+          "para": "timer",
+          "at": "@o tempo",
+          "ate": "@O que muda",
+          "cor": "hl"
+        }
+      ],
+      "textos": [
+        {
+          "at": "@10 anos",
+          "ate": "@O que muda",
+          "texto": "10 ANOS",
+          "x": 0.5,
+          "y": 0.1,
+          "fonte": "num",
+          "tam": 150,
+          "cor": "hl"
+        },
+        {
+          "at": "@O que muda",
+          "ate": "@tamanho do marco",
+          "texto": "O QUE MUDA",
+          "x": 0.5,
+          "y": 0.1,
+          "tam": 64
+        },
+        {
+          "at": "@tamanho do marco",
+          "texto": "O TAMANHO DO MARCO",
+          "x": 0.5,
+          "y": 0.1,
+          "tam": 64,
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@E hoje",
+      "until": "@500",
+      "src": "../../acervo/broll/detalhes-de-notas-sequencia-rapida.mp4",
+      "entra": "flash",
+      "zoom": [
+        1.05,
+        1.15
+      ]
+    },
+    {
+      "kind": "type-on",
+      "at": "@quanto eu ganho",
+      "until": "@Como quando",
+      "text": "Quanto eu ganho?",
+      "eraseAt": "@de outra forma"
+    },
+    {
+      "kind": "type-on",
+      "at": "@Como quando",
+      "until": "@Então quem",
+      "text": "Quando eu começo?"
+    },
+    {
+      "kind": "mascot",
+      "at": "@Como quando",
+      "until": "@Então quem",
+      "placement": "corner-right",
+      "poses": [
+        {
+          "at": "@Como quando",
+          "pose": "../../../../public/mascote/fox1-antigo.webm"
+        }
+      ],
+      "entra": "giro"
+    },
+    {
+      "kind": "cena",
+      "tipo": "calendario",
+      "at": "@25 anos>",
+      "until": "@Quem começa com 35",
+      "idade": 25,
+      "titulo": "QUEM COMEÇA COM 25",
+      "preenche": [
+        {
+          "at": "@25 anos>",
+          "m": 0
+        },
+        {
+          "at": "@25 anos>+0.05",
+          "m": 120,
+          "dur": 1.8
+        }
+      ],
+      "marcos": [
+        {
+          "mes": 120,
+          "at": "@aos 35",
+          "cor": "hl",
+          "rotulo": "AOS 35"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "foto3d",
+      "at": "@Então quem",
+      "until": "@25 anos>",
+      "src": "../../acervo/fotos3d/estacao-lotada.png",
+      "depth": "../../acervo/fotos3d/depth/estacao-lotada-depth.png",
+      "camera": [
+        {
+          "at": "@Então quem",
+          "zoom": 1.28,
+          "px": -0.9,
+          "py": 0.35
+        },
+        {
+          "at": "@Então quem+0.01",
+          "zoom": 1.02,
+          "px": 0.9,
+          "py": -0.35,
+          "dur": 1.8
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@Quem começa com 35",
+      "until": "@A virada na real",
+      "atores": [
+        {
+          "id": "voce",
+          "icone": "user",
+          "tam": 200,
+          "rotulo": "VOCÊ",
+          "keys": [
+            {
+              "at": "@Quem começa com 35",
+              "x": 0.15,
+              "y": 0.5
+            },
+            {
+              "at": "@chega nesse ponto#2",
+              "x": 0.68,
+              "dur": 1
+            }
+          ],
+          "entra": "elastico",
+          "arco": 0.12
+        },
+        {
+          "id": "meta",
+          "icone": "flag",
+          "cor": "hl",
+          "tam": 240,
+          "keys": [
+            {
+              "at": "@Quem começa com 35",
+              "x": 0.85,
+              "y": 0.47
+            }
+          ],
+          "pulsaAt": [
+            "@aos 45"
+          ],
+          "entra": "cair"
+        }
+      ],
+      "setas": [
+        {
+          "de": "voce",
+          "para": "meta",
+          "at": "@com 35",
+          "ate": "@aos 45",
+          "cor": "text"
+        }
+      ],
+      "textos": [
+        {
+          "at": "@com 35",
+          "texto": "35",
+          "x": 0.15,
+          "y": 0.18,
+          "fonte": "num",
+          "tam": 200
+        },
+        {
+          "at": "@aos 45",
+          "texto": "45",
+          "x": 0.85,
+          "y": 0.18,
+          "fonte": "num",
+          "tam": 200,
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "piada",
+      "at": "@aos 45+0.2",
+      "until": "@A virada na real",
+      "texto": "CABELO BRANCO OPCIONAL",
+      "dura": 0.6,
+      "x": 0.45,
+      "y": 0.82
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@do tamanho",
+      "until": "@do calendário",
+      "atores": [
+        {
+          "id": "inv",
+          "icone": "hand-coins",
+          "tam": 240,
+          "rotulo": "INVESTIMENTO",
+          "keys": [
+            {
+              "at": "@do tamanho",
+              "x": 0.3,
+              "y": 0.42
+            }
+          ],
+          "riscaAt": "@mas sim",
+          "sai": "@do calendário-0.3",
+          "entra": "whip",
+          "saiComo": "voa"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@do calendário",
+      "until": "@fim",
+      "src": "../../acervo/broll/calendario-no-tablet.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1,
+        1.1
+      ],
+      "moldura": true,
+      "escurece": 0.08
+    }
+  ]
+}

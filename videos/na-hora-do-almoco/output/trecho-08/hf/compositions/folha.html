@@ -1,0 +1,33 @@
+<template>
+  <style>
+    @font-face { font-family: 'Maquina'; src: url('assets/fonts/special-elite-latin.woff2') format('woff2'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'Caveat'; src: url('assets/fonts/caveat-latin.woff2') format('woff2'); font-weight: 400 700; font-display: block; }
+    #root { position: absolute; inset: 0; }
+    #fo8 { position: absolute; inset: 0; opacity: 0; }
+    #fo8-cena { position: absolute; inset: 0; }
+  </style>
+  <div id="root" data-composition-id="folha" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <!-- "se comunicar com os parentes": a folha no verso "a gente se olha, se toca e se cala / e se desentende no instante em que fala" -->
+    <div id="fo8"><div id="fo8-cena"></div></div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      A.fontes().then(function () {
+        var F = A.folhaPalco($('fo8-cena'), window.LETRA, { tilt: 8, giro: -1.5, zoomInicial: 1.4 });
+        var alvo = F.acha('se desentende no instante em que fala');
+        F.camera(tl, 0, 0.05, alvo.linha, { zoom: 1.4, oy: 26, tilt: 8, giro: -1.5, ease: 'none' });
+        tl.set($('fo8'), { opacity: 0 }, 0);
+        tl.set($('fo8'), { opacity: 1 }, 6.4);
+        F.camera(tl, 6.4, 2.2, alvo.linha, { zoom: 1.5, oy: 20, tilt: 4, giro: -1, ease: 'sine.out' });
+        F.tremor(tl, 44.6, 0.9);
+        A.marcasAte(tl, F, 'trecho-08');
+        tl.set($('fo8'), { opacity: 0 }, 8.6);
+        tl.set({}, {}, 44.6);
+        window.__timelines['folha'] = tl;
+      });
+    })();
+  </script>
+</template>

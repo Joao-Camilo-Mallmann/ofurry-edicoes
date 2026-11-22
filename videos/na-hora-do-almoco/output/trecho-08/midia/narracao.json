@@ -1,0 +1,542 @@
+[
+ {
+  "id": "w0",
+  "text": "Belchior",
+  "start": 1.76,
+  "end": 2.56
+ },
+ {
+  "id": "w1",
+  "text": "canta",
+  "start": 2.64,
+  "end": 3.04
+ },
+ {
+  "id": "w2",
+  "text": "sobre",
+  "start": 3.04,
+  "end": 3.28
+ },
+ {
+  "id": "w3",
+  "text": "dificuldade",
+  "start": 3.44,
+  "end": 4.4
+ },
+ {
+  "id": "w4",
+  "text": "de",
+  "start": 4.4,
+  "end": 4.56
+ },
+ {
+  "id": "w5",
+  "text": "expressar",
+  "start": 4.56,
+  "end": 5.12
+ },
+ {
+  "id": "w6",
+  "text": "seus",
+  "start": 5.12,
+  "end": 5.44
+ },
+ {
+  "id": "w7",
+  "text": "sentimentos,",
+  "start": 5.44,
+  "end": 6.4
+ },
+ {
+  "id": "w8",
+  "text": "se",
+  "start": 6.4,
+  "end": 6.64
+ },
+ {
+  "id": "w9",
+  "text": "comunicar",
+  "start": 6.64,
+  "end": 7.36
+ },
+ {
+  "id": "w10",
+  "text": "com",
+  "start": 7.36,
+  "end": 7.52
+ },
+ {
+  "id": "w11",
+  "text": "os",
+  "start": 7.52,
+  "end": 7.68
+ },
+ {
+  "id": "w12",
+  "text": "parentes,",
+  "start": 7.68,
+  "end": 8.48
+ },
+ {
+  "id": "w13",
+  "text": "as",
+  "start": 8.48,
+  "end": 8.72
+ },
+ {
+  "id": "w14",
+  "text": "brigas",
+  "start": 8.72,
+  "end": 9.36
+ },
+ {
+  "id": "w15",
+  "text": "em",
+  "start": 9.36,
+  "end": 9.52
+ },
+ {
+  "id": "w16",
+  "text": "ambientes",
+  "start": 9.6,
+  "end": 10.08
+ },
+ {
+  "id": "w17",
+  "text": "que",
+  "start": 10.08,
+  "end": 10.24
+ },
+ {
+  "id": "w18",
+  "text": "deviam",
+  "start": 10.24,
+  "end": 10.72
+ },
+ {
+  "id": "w19",
+  "text": "ser",
+  "start": 10.72,
+  "end": 10.96
+ },
+ {
+  "id": "w20",
+  "text": "momentos",
+  "start": 10.96,
+  "end": 11.28
+ },
+ {
+  "id": "w21",
+  "text": "de",
+  "start": 11.28,
+  "end": 11.44
+ },
+ {
+  "id": "w22",
+  "text": "harmonia",
+  "start": 11.44,
+  "end": 11.92
+ },
+ {
+  "id": "w23",
+  "text": "e",
+  "start": 11.92,
+  "end": 12.08
+ },
+ {
+  "id": "w24",
+  "text": "paz,",
+  "start": 12.08,
+  "end": 12.8
+ },
+ {
+  "id": "w25",
+  "text": "a",
+  "start": 12.8,
+  "end": 13.04
+ },
+ {
+  "id": "w26",
+  "text": "opressão",
+  "start": 13.04,
+  "end": 13.52
+ },
+ {
+  "id": "w27",
+  "text": "de",
+  "start": 13.52,
+  "end": 13.68
+ },
+ {
+  "id": "w28",
+  "text": "um",
+  "start": 13.68,
+  "end": 13.76
+ },
+ {
+  "id": "w29",
+  "text": "lugar",
+  "start": 13.76,
+  "end": 14
+ },
+ {
+  "id": "w30",
+  "text": "onde",
+  "start": 14,
+  "end": 14.24
+ },
+ {
+  "id": "w31",
+  "text": "Todos",
+  "start": 14.63,
+  "end": 14.95
+ },
+ {
+  "id": "w32",
+  "text": "guardam",
+  "start": 14.95,
+  "end": 15.51
+ },
+ {
+  "id": "w33",
+  "text": "segredos,",
+  "start": 15.51,
+  "end": 16.39
+ },
+ {
+  "id": "w34",
+  "text": "mágoas",
+  "start": 16.39,
+  "end": 16.95
+ },
+ {
+  "id": "w35",
+  "text": "e",
+  "start": 17.11,
+  "end": 17.35
+ },
+ {
+  "id": "w36",
+  "text": "angústias.",
+  "start": 17.35,
+  "end": 18.39
+ },
+ {
+  "id": "w37",
+  "text": "Canta",
+  "start": 18.79,
+  "end": 19.27
+ },
+ {
+  "id": "w38",
+  "text": "sobre",
+  "start": 19.51,
+  "end": 19.83
+ },
+ {
+  "id": "w39",
+  "text": "jovens",
+  "start": 19.83,
+  "end": 20.47
+ },
+ {
+  "id": "w40",
+  "text": "que",
+  "start": 20.47,
+  "end": 20.63
+ },
+ {
+  "id": "w41",
+  "text": "perdem",
+  "start": 20.63,
+  "end": 21.03
+ },
+ {
+  "id": "w42",
+  "text": "sua",
+  "start": 21.19,
+  "end": 21.43
+ },
+ {
+  "id": "w43",
+  "text": "juventude,",
+  "start": 21.43,
+  "end": 22.55
+ },
+ {
+  "id": "w44",
+  "text": "a",
+  "start": 22.55,
+  "end": 22.71
+ },
+ {
+  "id": "w45",
+  "text": "sua",
+  "start": 22.71,
+  "end": 23.03
+ },
+ {
+  "id": "w46",
+  "text": "pureza,",
+  "start": 23.03,
+  "end": 23.99
+ },
+ {
+  "id": "w47",
+  "text": "a",
+  "start": 23.99,
+  "end": 24.15
+ },
+ {
+  "id": "w48",
+  "text": "sua",
+  "start": 24.15,
+  "end": 24.47
+ },
+ {
+  "id": "w49",
+  "text": "alegria",
+  "start": 24.47,
+  "end": 25.03
+ },
+ {
+  "id": "w50",
+  "text": "na",
+  "start": 25.11,
+  "end": 25.43
+ },
+ {
+  "id": "w51",
+  "text": "simplicidade.",
+  "start": 25.43,
+  "end": 26.71
+ },
+ {
+  "id": "w52",
+  "text": "Pois",
+  "start": 27.11,
+  "end": 27.51
+ },
+ {
+  "id": "w53",
+  "text": "começa",
+  "start": 27.51,
+  "end": 27.99
+ },
+ {
+  "id": "w54",
+  "text": "a",
+  "start": 27.99,
+  "end": 28.15
+ },
+ {
+  "id": "w55",
+  "text": "conviver",
+  "start": 28.15,
+  "end": 28.63
+ },
+ {
+  "id": "w56",
+  "text": "com",
+  "start": 28.63,
+  "end": 28.79
+ },
+ {
+  "id": "w57",
+  "text": "a",
+  "start": 28.79,
+  "end": 29.03
+ },
+ {
+  "id": "w58",
+  "text": "dor,",
+  "start": 29.03,
+  "end": 29.67
+ },
+ {
+  "id": "w59",
+  "text": "com",
+  "start": 29.67,
+  "end": 29.91
+ },
+ {
+  "id": "w60",
+  "text": "as",
+  "start": 29.91,
+  "end": 30.15
+ },
+ {
+  "id": "w61",
+  "text": "perdas,",
+  "start": 30.15,
+  "end": 30.95
+ },
+ {
+  "id": "w62",
+  "text": "as",
+  "start": 30.95,
+  "end": 31.19
+ },
+ {
+  "id": "w63",
+  "text": "brigas",
+  "start": 31.19,
+  "end": 31.67
+ },
+ {
+  "id": "w64",
+  "text": "e",
+  "start": 31.67,
+  "end": 31.83
+ },
+ {
+  "id": "w65",
+  "text": "guerras",
+  "start": 31.83,
+  "end": 32.31
+ },
+ {
+  "id": "w66",
+  "text": "internas",
+  "start": 32.31,
+  "end": 32.87
+ },
+ {
+  "id": "w67",
+  "text": "que",
+  "start": 32.87,
+  "end": 33.11
+ },
+ {
+  "id": "w68",
+  "text": "nunca",
+  "start": 33.11,
+  "end": 33.43
+ },
+ {
+  "id": "w69",
+  "text": "acabam.",
+  "start": 33.43,
+  "end": 34.31
+ },
+ {
+  "id": "w70",
+  "text": "Obriga",
+  "start": 34.71,
+  "end": 35.27
+ },
+ {
+  "id": "w71",
+  "text": "o",
+  "start": 35.27,
+  "end": 35.35
+ },
+ {
+  "id": "w72",
+  "text": "indivíduo",
+  "start": 35.51,
+  "end": 35.99
+ },
+ {
+  "id": "w73",
+  "text": "a",
+  "start": 35.99,
+  "end": 36.15
+ },
+ {
+  "id": "w74",
+  "text": "se",
+  "start": 36.15,
+  "end": 36.31
+ },
+ {
+  "id": "w75",
+  "text": "guardar,",
+  "start": 36.31,
+  "end": 37.35
+ },
+ {
+  "id": "w76",
+  "text": "se",
+  "start": 37.43,
+  "end": 37.67
+ },
+ {
+  "id": "w77",
+  "text": "fechar",
+  "start": 37.67,
+  "end": 38.23
+ },
+ {
+  "id": "w78",
+  "text": "para",
+  "start": 38.23,
+  "end": 38.47
+ },
+ {
+  "id": "w79",
+  "text": "os",
+  "start": 38.47,
+  "end": 38.63
+ },
+ {
+  "id": "w80",
+  "text": "outros,",
+  "start": 38.63,
+  "end": 39.03
+ },
+ {
+  "id": "w81",
+  "text": "acabando",
+  "start": 39.03,
+  "end": 39.59
+ },
+ {
+  "id": "w82",
+  "text": "cada",
+  "start": 39.59,
+  "end": 39.91
+ },
+ {
+  "id": "w83",
+  "text": "vez",
+  "start": 39.91,
+  "end": 40.23
+ },
+ {
+  "id": "w84",
+  "text": "mais",
+  "start": 40.23,
+  "end": 40.55
+ },
+ {
+  "id": "w85",
+  "text": "com",
+  "start": 40.79,
+  "end": 41.03
+ },
+ {
+  "id": "w86",
+  "text": "a",
+  "start": 41.03,
+  "end": 41.19
+ },
+ {
+  "id": "w87",
+  "text": "própria",
+  "start": 41.19,
+  "end": 41.59
+ },
+ {
+  "id": "w88",
+  "text": "saúde",
+  "start": 41.59,
+  "end": 42.07
+ },
+ {
+  "id": "w89",
+  "text": "mental.",
+  "start": 42.07,
+  "end": 43.35
+ }
+]

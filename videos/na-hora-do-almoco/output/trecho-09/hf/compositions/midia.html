@@ -1,0 +1,70 @@
+<template>
+  <style>
+    @font-face { font-family: 'Bebas Neue'; src: url('assets/fonts/BebasNeue-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Medium.otf') format('opentype'); font-weight: 500; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-SemiBold.otf') format('opentype'); font-weight: 600; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-Bold.otf') format('opentype'); font-weight: 700; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-ExtraBold.otf') format('opentype'); font-weight: 800; font-display: block; }
+    @font-face { font-family: 'Caveat'; src: url('assets/fonts/caveat-latin.woff2') format('woff2'); font-weight: 400 700; font-display: block; }
+    #root { position: absolute; inset: 0; }
+    #m9-cena { position: absolute; inset: 0; background: #15110d; perspective: 1800px; }
+    #m9-fone { position: absolute; left: 780px; top: 170px; width: 360px; height: 740px; border: 3px solid #ede8de; border-radius: 48px; }
+    #m9-capa { position: absolute; left: 38px; top: 70px; width: 278px; height: 278px; background: #f2c230; color: #0e0c0a; padding: 26px; }
+    #m9-capa b { display: block; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 64px; line-height: 0.92; }
+    #m9-capa i { display: block; font-style: normal; font-family: 'MontserratLocal', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.3em; margin-top: 14px; }
+    #m9-faixa { position: absolute; left: 38px; top: 380px; width: 278px; color: #ede8de; font-family: 'MontserratLocal', sans-serif; }
+    #m9-faixa b { display: block; font-weight: 700; font-size: 24px; }
+    #m9-faixa i { display: block; font-style: normal; font-weight: 500; font-size: 18px; opacity: 0.6; margin-top: 6px; }
+    #m9-barra { position: absolute; left: 38px; top: 480px; width: 278px; height: 3px; background: rgba(237,232,222,0.25); }
+    #m9-barra-in { position: absolute; left: 0; top: 0; width: 278px; height: 3px; background: #f2c230; transform-origin: 0 50%; }
+    #m9-pausa { position: absolute; left: 155px; top: 540px; width: 48px; height: 52px; }
+    #m9-pausa span { position: absolute; top: 0; width: 14px; height: 52px; background: #ede8de; }
+    #m9-player { position: absolute; left: 480px; top: 210px; width: 960px; height: 540px; border: 3px solid #ede8de; overflow: hidden; background: #0e0c0a; }
+    #m9-player img { position: absolute; left: 0; top: -60px; width: 960px; height: 720px; object-fit: cover; opacity: 0.85; }
+    #m9-play { position: absolute; left: 430px; top: 220px; width: 0; height: 0; border-top: 50px solid transparent; border-bottom: 50px solid transparent; border-left: 86px solid #ede8de; }
+    #m9-pbarra { position: absolute; left: 30px; right: 30px; bottom: 26px; height: 4px; background: rgba(237,232,222,0.3); }
+    #m9-pbarra-in { position: absolute; left: 0; top: 0; width: 900px; height: 4px; background: #f2c230; transform-origin: 0 50%; }
+    #root .m9-rot { position: absolute; left: 150px; top: 110px; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 150px; line-height: 1; color: #ede8de; }
+    #m9-sub { position: absolute; left: 0; right: 0; top: 800px; text-align: center; font-family: 'MontserratLocal', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.5em; padding-left: 0.5em; color: #ede8de; }
+  </style>
+  <div id="root" data-composition-id="midia" data-width="1920" data-height="1080">
+    <div id="m9-cena" class="clip" data-start="9.1" data-duration="4.65" data-track-index="0" data-layout-allow-overlap>
+      <div id="m9-fone">
+        <div id="m9-capa"><b>NA HORA DO ALMOÇO</b><i>BELCHIOR 1974</i></div>
+        <div id="m9-faixa"><b>Na Hora do Almoço</b><i>Belchior</i></div>
+        <div id="m9-barra"><div id="m9-barra-in"></div></div>
+        <div id="m9-pausa"><span style="left:0"></span><span style="left:34px"></span></div>
+      </div>
+      <div id="m9-player">
+        <!-- img: 'F10-cantando' (o preparar copia esta imagem) -->
+        <img src="assets/img/F10-cantando.png" alt="" />
+        <div id="m9-play"></div>
+        <div id="m9-pbarra"><div id="m9-pbarra-in"></div></div>
+      </div>
+      <div id="m9-rot1" class="m9-rot">STREAMING</div>
+      <div id="m9-rot2" class="m9-rot">VÍDEO</div>
+      <div id="m9-sub">UM VÍDEO DE OPINIÃO</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var $ = function (id) { return document.getElementById(id); };
+      // celular sobe ("no Spotify"), a musica toca
+      tl.fromTo($('m9-fone'), { y: 380, rotationY: -22, opacity: 0 }, { y: 0, rotationY: 0, opacity: 1, duration: 0.45, ease: 'power3.out' }, 9.1);
+      tl.fromTo($('m9-barra-in'), { scaleX: 0.08 }, { scaleX: 0.55, duration: 1.2, ease: 'none' }, 9.1);
+      tl.fromTo($('m9-rot1'), { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: 'power3.out' }, 9.2);
+      // "virou um video": o celular deita e vira player
+      tl.to($('m9-fone'), { rotationZ: -90, scale: 1.35, opacity: 0, duration: 0.45, ease: 'power3.in' }, 10.25);
+      tl.to($('m9-rot1'), { opacity: 0, duration: 0.2 }, 10.25);
+      tl.fromTo($('m9-player'), { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: 'power3.out' }, 10.55);
+      tl.fromTo($('m9-rot2'), { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: 'power3.out' }, 10.6);
+      tl.to($('m9-play'), { opacity: 0, scale: 0.8, duration: 0.25 }, 11.0);
+      tl.fromTo($('m9-pbarra-in'), { scaleX: 0 }, { scaleX: 0.4, duration: 2.6, ease: 'none' }, 11.0);
+      tl.fromTo($('m9-sub'), { opacity: 0, y: 12 }, { opacity: 0.9, y: 0, duration: 0.4, ease: 'power2.out' }, 11.55);
+      tl.to([$('m9-player'), $('m9-rot2'), $('m9-sub')], { opacity: 0, duration: 0.3 }, 13.4);
+      window.__timelines['midia'] = tl;
+    })();
+  </script>
+</template>

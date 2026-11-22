@@ -1,0 +1,25 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; pointer-events: none; }
+    #fx-creme { position: absolute; inset: 0; background: #f6ecd6; opacity: 0; }
+    #fx-branco { position: absolute; inset: 0; background: #ffffff; opacity: 0; }
+    #fx-preto { position: absolute; inset: 0; background: #0e0c0a; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="fx" data-width="1920" data-height="1080">
+    <div id="fx-camada" class="clip" data-start="0" data-duration="44.6" data-track-index="0" style="position:absolute;inset:0">
+      <div id="fx-creme"></div>
+      <div id="fx-branco"></div>
+      <div id="fx-preto"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      [3.38, 6.38, 8.58, 13.0, 15.38, 18.58, 21.18, 27.0, 34.58, 37.48].forEach(function (t) { A.flash(tl, $('fx-creme'), t, { pico: (t === 6.38 || t === 15.38) ? 0.3 : t === 37.48 ? 0.2 : 0.5, dur: 0.2 }); });
+      [8.72, 11.92, 13.04, 31.19].forEach(function (t) { A.flash(tl, $('fx-branco'), t, { pico: 0.5, dur: 0.16 }); });
+      window.__timelines['fx'] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,27 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; pointer-events: none; }
+    #fx7-creme { position: absolute; inset: 0; background: #f6ecd6; opacity: 0; }
+    #fx7-branco { position: absolute; inset: 0; background: #ffffff; opacity: 0; }
+  </style>
+  <div data-hf-id="hf-h3gl" id="root" data-composition-id="fx" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-uwy9" id="fx7-camada" class="clip" data-start="0" data-duration="70.5" data-track-index="0" style="position:absolute;inset:0">
+      <div data-hf-id="hf-3zej" id="fx7-creme"></div>
+      <div data-hf-id="hf-e9pc" id="fx7-branco"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      // creme nas viradas de bloco e nos cortes rapidos
+      [8.8, 11.6, 13.5, 18.7, 24.3, 27.1, 28.8, 30.1, 31.0, 33.6, 35.8, 37.6, 49.3, 53.5, 57.4, 66.4].forEach(function (t, i) {
+        A.flash(tl, $('fx7-creme'), t, { pico: (i >= 5 && i <= 7) ? 0.7 : 0.5, dur: (i >= 5 && i <= 7) ? 0.1 : 0.22 });
+      });
+      // branco forte nas palavras-chave
+      [7.2, 10.8, 17.1, 36.7, 42.7, 51.3, 59.0, 63.3].forEach(function (t) { A.flash(tl, $('fx7-branco'), t, { pico: 0.5, dur: 0.16 }); });
+      window.__timelines['fx'] = tl;
+    })();
+  </script>
+</template>

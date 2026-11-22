@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- Na Hora do Almoco - trecho 09 (uma simples musica). Final 5:50.4-6:28.7 -->
+<html lang="pt-BR" data-composition-variables='[{"id":"transparente","type":"boolean","label":"So textos (exportar alpha)","default":false}]'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="assets/kit/almoco.js"></script>
+    <link rel="stylesheet" href="assets/kit/almoco.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent; }
+      #root { width: 100%; height: 100%; position: relative; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="38.26" data-width="1920" data-height="1080" data-fps="30">
+      <div id="fotos" data-composition-id="fotos" data-composition-src="compositions/fotos.html" data-start="0" data-duration="38.26" data-track-index="0" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:1" data-house-backdrop></div>
+      <div id="cortes" data-composition-id="cortes" data-composition-src="compositions/cortes.html" data-start="0" data-duration="38.26" data-track-index="5" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:3" data-house-backdrop></div>
+      <div id="midia" data-composition-id="midia" data-composition-src="compositions/midia.html" data-start="0" data-duration="38.26" data-track-index="5" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:6"></div>
+      <div id="brolls" data-composition-id="brolls" data-composition-src="compositions/brolls.html" data-start="0" data-duration="38.26" data-track-index="20" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:4" data-house-backdrop></div>
+      <div id="textos" data-composition-id="textos" data-composition-src="compositions/textos.html" data-start="0" data-duration="38.26" data-track-index="2" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:10"></div>
+      <div id="fx" data-composition-id="fx" data-composition-src="compositions/fx.html" data-start="0" data-duration="38.26" data-track-index="7" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:40" data-house-backdrop></div>
+      <div id="filme" data-composition-id="filme" data-composition-src="compositions/filme.html" data-start="0" data-duration="38.26" data-track-index="3" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:50" data-house-backdrop></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="38.26" data-track-index="4" data-volume="1"></audio>
+    </div>
+    <script>
+      var vars = (window.__hyperframes && window.__hyperframes.getVariables && window.__hyperframes.getVariables()) || {};
+      if (vars.transparente === true) {
+        document.querySelectorAll("[data-house-backdrop]").forEach(function (el) { el.style.opacity = "0"; });
+      }
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

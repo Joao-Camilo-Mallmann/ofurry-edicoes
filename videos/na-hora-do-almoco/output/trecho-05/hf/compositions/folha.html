@@ -1,0 +1,39 @@
+<template>
+  <style>
+    @font-face { font-family: 'Maquina'; src: url('assets/fonts/special-elite-latin.woff2') format('woff2'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'Bebas Neue'; src: url('assets/fonts/BebasNeue-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'MontserratLocal'; src: url('assets/fonts/Montserrat-SemiBold.otf') format('opentype'); font-weight: 600; font-display: block; }
+    @font-face { font-family: 'Caveat'; src: url('assets/fonts/caveat-latin.woff2') format('woff2'); font-weight: 400 700; font-display: block; }
+    #root { position: absolute; inset: 0; }
+    /* tela dividida: a folha na esquerda (860 px), a pessoa citada na direita */
+    #fo5 { position: absolute; left: 0; top: 0; width: 960px; height: 1080px; overflow: hidden; opacity: 0; }
+    #fo5-cena { position: absolute; inset: 0; }
+    #fo5-div { position: absolute; left: 954px; top: 0; width: 8px; height: 1080px; background: #f2c230; opacity: 0; }
+  </style>
+  <div data-hf-id="hf-8cje" id="root" data-composition-id="folha" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <!-- data-layout-ignore: a folha e cenario (tinta sobre papel); as linhas na borda com vinheta nao sao texto de leitura -->
+    <div data-hf-id="hf-luqa" id="fo5" data-layout-ignore><div data-hf-id="hf-ym31" id="fo5-cena"></div></div>
+    <div data-hf-id="hf-frpj" id="fo5-div"></div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      A.fontes().then(function () {
+        var F = A.folhaPalco($('fo5-cena'), window.LETRA, { tilt: 0, giro: -1.5, zoomInicial: 1.2 });
+        var irma = F.acha('minha irma mais nova');
+        // ja enquadrada na estrofe da familia (linha do meio) antes de entrar
+        F.camera(tl, 0, 0.05, irma.linha, { zoom: 1.2, oy: -8, tilt: 0, giro: -1.5, ease: 'none' });
+        tl.set($('fo5'), { opacity: 0 }, 0);
+        // 7.3 ("o pai na cabeceira"): a folha desliza da esquerda e divide a tela
+        tl.fromTo($('fo5'), { opacity: 1, x: -960 }, { x: 0, duration: 0.42, ease: 'expo.out' }, 7.3);
+        tl.fromTo($('fo5-div'), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 7.5);
+        F.tremor(tl, 17.3, 0.7);
+        A.marcasAte(tl, F, 'trecho-05');
+        tl.set({}, {}, 17.3);
+        window.__timelines['folha'] = tl;
+      });
+    })();
+  </script>
+</template>

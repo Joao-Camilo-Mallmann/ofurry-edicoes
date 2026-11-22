@@ -1,0 +1,60 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #c6-palco { position: absolute; inset: 0; }
+    #root .vw { position: absolute; inset: 0; overflow: hidden; }
+    #root .vid { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    #c6-inv { position: absolute; inset: 0; background: #fff; mix-blend-mode: difference; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="cortes" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div id="c6-palco">
+      <!-- "Ei, moco": o Belchior cantando, cortes rapidos -->
+      <div id="c6w1" class="vw"><video id="c6-v1" class="clip vid" src="assets/video/clipe.mp4" data-start="0" data-duration="2.2" data-media-start="100" data-track-index="0" muted playsinline></video></div>
+      <div id="c6w2" class="vw"><video id="c6-v2" class="clip vid" src="assets/video/clipe.mp4" data-start="2.2" data-duration="1.7" data-media-start="44.6" data-track-index="1" muted playsinline></video></div>
+      <div id="c6w3" class="vw"><video id="c6-v3" class="clip vid" src="assets/video/clipe.mp4" data-start="3.9" data-duration="1.1" data-media-start="47" data-track-index="2" muted playsinline></video></div>
+      <div id="c6w4" class="vw"><video id="c6-v4" class="clip vid" src="assets/video/clipe.mp4" data-start="5.0" data-duration="2.3" data-media-start="91.5" data-track-index="3" muted playsinline></video></div>
+      <div id="c6w5" class="vw"><video id="c6-v5" class="clip vid" src="assets/video/clipe.mp4" data-start="7.3" data-duration="1.8" data-media-start="133" data-track-index="4" muted playsinline></video></div>
+      <!-- 9.1-13.6: a folha da letra ("deixemos de coisas, cuidemos da vida") -->
+      <div id="c6w9" class="vw"><video id="c6-v9" class="clip vid" src="assets/video/clipe.mp4" data-start="13.6" data-duration="5.2" data-media-start="125" data-playback-rate="0.6" data-track-index="8" muted playsinline></video></div>
+      <!-- "a parte mais triste e pesada": close em camera lenta -->
+      <div id="c6w10" class="vw"><video id="c6-v10" class="clip vid" src="assets/video/clipe.mp4" data-start="18.8" data-duration="5.8" data-media-start="48" data-playback-rate="0.5" data-track-index="9" muted playsinline></video></div>
+      <!-- 24.6-28.4: "alguem jovem" e foto 3D (F10, cantando) -->
+      <div id="c6w12" class="vw"><video id="c6-v12" class="clip vid" src="assets/video/clipe.mp4" data-start="28.4" data-duration="3.77" data-media-start="6" data-playback-rate="0.8" data-track-index="11" muted playsinline></video></div>
+      <!-- "a familia": um rosto por corte -->
+      <div id="c6w13" class="vw"><video id="c6-v13" class="clip vid" src="assets/video/clipe.mp4" data-start="32.17" data-duration="0.43" data-media-start="78.4" data-track-index="12" muted playsinline></video></div>
+      <div id="c6w14" class="vw"><video id="c6-v14" class="clip vid" src="assets/video/clipe.mp4" data-start="32.6" data-duration="0.4" data-media-start="86.4" data-track-index="13" muted playsinline></video></div>
+      <div id="c6w15" class="vw"><video id="c6-v15" class="clip vid" src="assets/video/clipe.mp4" data-start="33.0" data-duration="0.4" data-media-start="89.5" data-track-index="14" muted playsinline></video></div>
+      <div id="c6w16" class="vw"><video id="c6-v16" class="clip vid" src="assets/video/clipe.mp4" data-start="33.4" data-duration="0.5" data-media-start="122.6" data-track-index="15" muted playsinline></video></div>
+      <div id="c6w17" class="vw"><video id="c6-v17" class="clip vid" src="assets/video/clipe.mp4" data-start="33.9" data-duration="1.1" data-media-start="140" data-track-index="16" muted playsinline></video></div>
+      <div id="c6-inv"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var $ = function (id) { return document.getElementById(id); };
+      // golpe de zoom em cada corte
+      [['c6w1', 0, 1.12], ['c6w2', 2.2, 1.28], ['c6w3', 3.9, 1.2], ['c6w4', 5.0, 1.15], ['c6w5', 7.3, 1.2],
+       ['c6w9', 13.6, 1.3], ['c6w10', 18.8, 1.12],
+       ['c6w12', 28.4, 1.2], ['c6w13', 32.17, 1.25], ['c6w14', 32.6, 1.25], ['c6w15', 33.0, 1.25], ['c6w16', 33.4, 1.25], ['c6w17', 33.9, 1.2]]
+        .forEach(function (c) { A.soco(tl, $(c[0]), c[1], c[2], 1.04, 0.3); });
+      // derivas lentas nos planos longos
+      tl.to($('c6w4'), { scale: 1.12, duration: 1.9, ease: 'sine.inOut' }, 5.3);
+      tl.to($('c6w9'), { scale: 1.18, duration: 4.8, ease: 'sine.inOut' }, 13.9);
+      tl.to($('c6w10'), { scale: 1.2, x: -40, duration: 5.4, ease: 'sine.inOut' }, 19.1);
+      // "o peso": a camera afunda
+      tl.fromTo($('c6w12'), { y: -60 }, { y: 40, duration: 0.5, ease: 'expo.out' }, 29.03);
+      tl.to($('c6w12'), { scale: 1.14, duration: 2.6, ease: 'sine.inOut' }, 29.5);
+      // whip de "Ei, moco"
+      tl.fromTo($('c6w2'), { x: 800 }, { x: 0, duration: 0.25, ease: 'expo.out' }, 2.2);
+      // inversao + tremida nos momentos fortes
+      A.inverte(tl, $('c6-inv'), 2.24, 2);
+      A.inverte(tl, $('c6-inv'), 15.69, 3);
+      A.treme(tl, $('c6-palco'), 2.24, 0.3, 16, 61);
+      A.treme(tl, $('c6-palco'), 15.69, 0.35, 18, 62);
+      tl.set({}, {}, 45.1);
+      window.__timelines['cortes'] = tl;
+    })();
+  </script>
+</template>

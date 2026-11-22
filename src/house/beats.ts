@@ -10,21 +10,23 @@ import type { CardOptions } from './captions';
 import type { EntryKind } from './motion';
 import type { HouseTone } from './theme';
 
-export type MascotPlacement = 'center' | 'left-third' | 'right-third' | 'corner-left' | 'corner-right';
+export type MascotPlacement = 'auto' | 'center' | 'left-third' | 'right-third' | 'corner-left' | 'corner-right';
 
-export type Backdrop = 'black' | 'grid' | 'stars' | 'transparent' | { blur: string; video?: boolean };
+export type Backdrop = 'black' | 'preto-puro' | 'grade-video' | 'grid' | 'stars' | 'transparent' | { blur: string; video?: boolean };
 
 export type Beat =
   | { kind: 'type-on'; at: number; until: number; text: string; eraseAt?: number; italic?: boolean }
   | { kind: 'icon'; at: number; until: number; icon: string; label?: string; tone?: HouseTone; strikeAt?: number; x?: number; y?: number; loopEvery?: number; animated?: boolean }
-  | { kind: 'icons'; at: number; until: number; items: { icon: string; label?: string; at: number; tone?: HouseTone; strikeAt?: number }[]; relation?: string; y?: number }
+  | { kind: 'icons'; at: number; until: number; items: { icon: string; label?: string; at: number; tone?: HouseTone; strikeAt?: number; animated?: boolean }[]; relation?: string; y?: number }
   | { kind: 'number'; at: number; until: number; value: string; countFrom?: number; caption?: string; tone?: HouseTone }
-  | { kind: 'mascot'; at: number; until: number; pose?: string; poses?: { at: number; pose?: string }[]; placement?: MascotPlacement; shrinkAt?: number; nameTag?: boolean }
+  | { kind: 'mascot'; at: number; until: number; pose?: string; poses?: { at: number; pose?: string }[]; placement?: MascotPlacement; shrinkAt?: number; nameTag?: boolean; /** ignorado: o Furry nunca e espelhado */ flip?: boolean }
   | { kind: 'proof'; at: number; until: number; src?: string; highlight?: [number, number, number, number]; highlightAt?: number }
   | { kind: 'chapter'; at: number; until: number; number: number | string; title: string }
   | { kind: 'section'; at: number; until: number; text: string }
   | { kind: 'thumb'; at: number; until: number; src: string }
-  | { kind: 'broll'; at: number; until: number; src: string; video?: boolean };
+  | { kind: 'broll'; at: number; until: number; src: string; video?: boolean; de?: number; zoom?: [number, number]; entra?: 'flash' | 'zoom' | 'whip' | 'corte'; moldura?: boolean; escurece?: number; x?: number; y?: number }
+  /** Cena de dados/metafora do kit hf/kit/ofurry-cenas.js (so HyperFrames). Parametros por tipo: ver o arquivo. */
+  | { kind: 'cena'; at: number; until: number; tipo: 'grafico' | 'tabela' | 'balanca' | 'maquina' | 'maquina3d' | 'calendario' | 'formula' | 'barra' | 'comparar' | 'lista' | 'numeros' | 'citacao' | 'fim' | 'palco' | 'piada' | 'foto3d' | 'barras' | 'rosca' | 'contador' | 'corrida' | 'etapas' | 'marca'; [param: string]: unknown };
 
 export interface CaptionWindow {
   from: number;
@@ -32,6 +34,9 @@ export interface CaptionWindow {
   entry?: EntryKind;
   y?: number;
   whisper?: boolean;
+  /** 'invertida': a letra inverte o que passa por tras (blend difference; brilha no preto, escurece no video claro);
+   *  'tarja': letra preta num bloco branco. Padrao: branca com sombra. (Joao, 21/11/2026) */
+  estilo?: 'invertida' | 'tarja';
 }
 
 export interface BeatSheet {

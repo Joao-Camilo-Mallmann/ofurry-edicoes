@@ -1,0 +1,46 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0e0c0a; }
+    #root .foto { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+  </style>
+  <div id="root" data-composition-id="fotos" data-width="1920" data-height="1080">
+    <!-- closes da mesa, gerados no estilo do clipe: um por frase da letra -->
+    <canvas id="f4-mao1" class="clip foto" data-start="11.34" data-duration="1.84" data-track-index="0"></canvas>
+    <canvas id="f4-boca" class="clip foto" data-start="13.18" data-duration="1.76" data-track-index="2"></canvas>
+    <canvas id="f4-peito" class="clip foto" data-start="14.94" data-duration="2.0" data-track-index="3"></canvas>
+    <canvas id="f4-mao2" class="clip foto" data-start="16.94" data-duration="1.76" data-track-index="1"></canvas>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var I = function (n) { return 'assets/img/' + n + '.png'; };
+      var D = function (n) { return 'assets/depth/' + n + '-depth.png'; };
+      var shots = [
+        { id: 'f4-mao1', img: 'A16-mao-fechada', start: 11.34, dur: 1.84, keys: [
+          { t: 0, zoom: 1.5, x: -0.1, px: -0.6, sat: 0.55, blurX: 0.05 },
+          { t: 0.18, zoom: 1.32, blurX: 0, ease: 'expo.out' },
+          { t: 1.84, zoom: 1.4, px: 0.5, ease: 'sine.inOut' } ] },
+        { id: 'f4-boca', img: 'A18-boca', start: 13.18, dur: 1.76, keys: [
+          { t: 0, zoom: 1.45, px: 0.5, sat: 0.5, blurY: 0.05 },
+          { t: 0.18, zoom: 1.28, blurY: 0, ease: 'expo.out' },
+          { t: 1.76, zoom: 1.36, px: -0.4, ease: 'sine.inOut' } ] },
+        { id: 'f4-peito', img: 'A17-prato-vazio', start: 14.94, dur: 2.0, keys: [
+          { t: 0, zoom: 1.42, x: 0.06, px: -0.5, py: 0.3, sat: 0.5, blurX: 0.05 },
+          { t: 0.2, zoom: 1.26, blurX: 0, ease: 'expo.out' },
+          { t: 2.0, zoom: 1.34, px: 0.5, py: -0.3, ease: 'sine.inOut' } ] },
+        { id: 'f4-mao2', img: 'A6-maos-na-mesa', start: 16.94, dur: 1.76, keys: [
+          { t: 0, zoom: 1.45, x: 0.1, y: -0.04, px: 0.6, sat: 0.5, blurY: 0.05 },
+          { t: 0.18, zoom: 1.3, blurY: 0, ease: 'expo.out' },
+          { t: 1.76, zoom: 1.38, px: -0.5, ease: 'sine.inOut' } ] }
+      ];
+      Promise.all(shots.map(function (s) {
+        return A.photo(document.getElementById(s.id), { src: I(s.img), depth: D(s.img) })
+          .then(function (c) { A.camera(tl, c, s.start, s.dur, s.keys); });
+      })).catch(function (e) { console.error(e); }).then(function () {
+        tl.set({}, {}, 35.4);
+        window.__timelines['fotos'] = tl;
+      });
+    })();
+  </script>
+</template>

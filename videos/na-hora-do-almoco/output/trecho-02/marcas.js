@@ -1,0 +1,9 @@
+// marcas da folha feitas no trecho 02 (tempos do trecho); pronto=true = ja desenhadas (trechos seguintes)
+Almoco.MARCAS['trecho-02'] = function (tl, F, pronto) {
+  var A = window.Almoco;
+  A.marca(tl, F, F.acha('No centro da sala'), 4.25, 1.3, 'amarelo', pronto);
+  A.marca(tl, F, F.acha('diante da mesa'), 5.9, 1.4, 'amarelo', pronto);
+  A.marca(tl, F, F.acha('No fundo do prato'), 7.45, 1.3, 'amarelo', pronto);
+  A.marca(tl, F, F.acha('comida e tristeza'), 8.9, 1.5, 'amarelo', pronto);
+  A.nota(tl, F, F.acha('comida e tristeza'), 'não é só comida', 0, 10.6, 'preto', pronto);
+};

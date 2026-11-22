@@ -1,0 +1,47 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0e0c0a; }
+    #root .foto { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+  </style>
+  <div id="root" data-composition-id="fotos" data-width="1920" data-height="1080">
+    <!-- o prato fica embaixo de 12.85 a 18.2; o clipe do pai cobre 15.3-16.75 -->
+    <canvas id="f2-prato" class="clip foto" data-start="12.85" data-duration="5.35" data-track-index="0"></canvas>
+    <canvas id="f2-fumaca" class="clip foto" data-start="12.85" data-duration="5.35" data-track-index="1"></canvas>
+    <canvas id="f2-maos" class="clip foto" data-start="18.2" data-duration="1.4" data-track-index="2"></canvas>
+    <canvas id="f2-mesa" class="clip foto" data-start="21.0" data-duration="2.2" data-track-index="3"></canvas>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var A = window.Almoco;
+      var I = function (n) { return 'assets/img/' + n + '.png'; };
+      var D = function (n) { return 'assets/depth/' + n + '-depth.png'; };
+      var shots = [
+        { id: 'f2-prato', img: 'A3-prato-de-cima', start: 12.85, dur: 5.35, o: { grain: 0.07 }, keys: [
+          { t: 0, zoom: 2.4, x: -0.19, rot: 8, px: 0.3, py: -0.3, blurX: 0.05, bright: 1.05 },
+          { t: 0.3, zoom: 1.7, blurX: 0, ease: 'expo.out' },
+          { t: 2.45, zoom: 1.82, rot: 3, ease: 'sine.inOut' },
+          { t: 3.9, zoom: 2.35, rot: -1, bright: 1.0 },
+          { t: 4.1, zoom: 1.95, ease: 'expo.out' },
+          { t: 4.35, bright: 0.68, ease: 'power2.in' },
+          { t: 5.35, zoom: 2.15, rot: -5, px: -0.3, py: 0.3, ease: 'sine.inOut' } ] },
+        { id: 'f2-maos', img: 'A6-maos-na-mesa', start: 18.2, dur: 1.4, o: {}, keys: [
+          { t: 0, zoom: 1.32, x: 0.04, px: -0.7, focus: 0.6, blurX: 0.05 },
+          { t: 0.25, zoom: 1.14, blurX: 0, ease: 'expo.out' },
+          { t: 1.4, zoom: 1.2, x: -0.03, px: 0.7, ease: 'sine.inOut' } ] },
+        { id: 'f2-mesa', img: 'A2-mesa-vazia', start: 21.0, dur: 2.2, o: {}, keys: [
+          { t: 0, zoom: 1.45, rot: 2.2, px: 0.7, py: -0.2, y: 0.03, focus: 0.5, blurY: 0.04 },
+          { t: 0.25, zoom: 1.22, blurY: 0, ease: 'expo.out' },
+          { t: 2.2, zoom: 1.1, rot: -1.2, px: -0.7, py: 0.2, y: 0.0, ease: 'sine.inOut' } ] }
+      ];
+      A.fumaca(document.getElementById('f2-fumaca'), tl, 12.85, 5.35, { x: 960, y: 600, raio: 170, sobe: 80, alfa: 0.4, densidade: 80, seed: 17 });
+      Promise.all(shots.map(function (s) {
+        return A.photo(document.getElementById(s.id), Object.assign({ src: I(s.img), depth: D(s.img) }, s.o))
+          .then(function (c) { A.camera(tl, c, s.start, s.dur, s.keys); });
+      })).catch(function (e) { console.error(e); }).then(function () {
+        tl.set({}, {}, 29.3);
+        window.__timelines['fotos'] = tl;
+      });
+    })();
+  </script>
+</template>

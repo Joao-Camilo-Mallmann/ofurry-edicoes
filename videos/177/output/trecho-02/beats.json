@@ -1,0 +1,571 @@
+{
+  "id": "177-trecho-02",
+  "fps": 30,
+  "audio": "midia/narracao.wav",
+  "subtitlePath": "midia/narracao.json",
+  "cardOptions": {
+    "maxWords": 2,
+    "maxChars": 16
+  },
+  "captions": [
+    {
+      "from": "@inicio",
+      "until": "@Se alguém-0.1",
+      "entry": "whip",
+      "estilo": "invertida"
+    },
+    {
+      "from": "@Só que aí-0.1",
+      "until": "@Mas porque-0.1",
+      "entry": "pop",
+      "y": 0.72
+    },
+    {
+      "from": "@símbolo-0.1",
+      "until": "@Só que aí-0.1",
+      "entry": "pop",
+      "estilo": "invertida"
+    },
+    {
+      "from": "@E olha-0.1",
+      "until": "@É o 177-0.1",
+      "entry": "whip"
+    },
+    {
+      "from": "@clicar-0.1",
+      "until": "@Mas antes de eu-0.1",
+      "entry": "pop",
+      "estilo": "invertida"
+    }
+  ],
+  "camera": [
+    {
+      "at": "@liga muito",
+      "tipo": "whip"
+    },
+    {
+      "at": "@177 mil",
+      "tipo": "punch"
+    },
+    {
+      "at": "@não errei",
+      "tipo": "shake"
+    },
+    {
+      "at": "@longe dele",
+      "tipo": "tilt3d"
+    }
+  ],
+  "backdrops": [
+    {
+      "at": 0,
+      "backdrop": "grid"
+    },
+    {
+      "at": "@Se alguém",
+      "backdrop": "black"
+    },
+    {
+      "at": "@qual número",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@100 mil",
+      "backdrop": "black"
+    },
+    {
+      "at": "@Só que aí",
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@Mas porque",
+      "backdrop": "black"
+    },
+    {
+      "at": "@E olha",
+      "backdrop": "grade-video"
+    },
+    {
+      "at": "@É o 177",
+      "backdrop": "stars"
+    },
+    {
+      "at": "@E não é só",
+      "backdrop": "black"
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@qual número",
+      "file": "@sfx/General/Typewriter.mp3",
+      "gain": -22,
+      "len": 1.3,
+      "fadeOut": 0.2
+    },
+    {
+      "at": "@100 mil",
+      "file": "@sfx/General/Pop sound.mp3",
+      "gain": -20
+    },
+    {
+      "at": "@um milhão",
+      "file": "@sfx/General/Pop sound.mp3",
+      "gain": -20
+    },
+    {
+      "at": "@juros compostos",
+      "file": "@sfx/General/Click.wav",
+      "gain": -20
+    },
+    {
+      "at": "@liga muito",
+      "file": "@sfx/Comical/Swirl 01.wav",
+      "gain": -22,
+      "len": 1.2,
+      "fadeOut": 0.3
+    },
+    {
+      "at": "@É o 177",
+      "file": "@sfx/General/Digital counting.mp3",
+      "gain": -24,
+      "len": 0.8,
+      "fadeOut": 0.2
+    },
+    {
+      "at": "@177 mil",
+      "file": "@sfx/General/correct sfx.mp3",
+      "gain": -18
+    },
+    {
+      "at": "@peguei",
+      "file": "@sfx/Office Supplies/Paper Rustle.wav",
+      "gain": -22,
+      "len": 0.4
+    },
+    {
+      "at": "@clicar",
+      "file": "@sfx/General/Click.wav",
+      "gain": -19
+    },
+    {
+      "at": "@esse número vem",
+      "file": "@sfx/General/Ding.mp3",
+      "gain": -22
+    },
+    {
+      "at": "@longe dele",
+      "file": "@sfx/General/Clock Tick.mp3",
+      "gain": -22,
+      "len": 0.9,
+      "fadeOut": 0.2
+    }
+  ],
+  "beats": [
+    {
+      "kind": "broll",
+      "at": "@inicio",
+      "until": "@Se alguém",
+      "src": "../../acervo/broll/jovem-estudando-a-noite.mp4",
+      "entra": "flash",
+      "zoom": [
+        1,
+        1.12
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@Se alguém",
+      "until": "@qual número",
+      "atores": [
+        {
+          "id": "alguem",
+          "icone": "user",
+          "rotulo": "ALGUÉM",
+          "tam": 260,
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@alguém",
+              "x": 0.72,
+              "y": 0.42
+            }
+          ]
+        },
+        {
+          "id": "voce",
+          "icone": "user",
+          "rotulo": "VOCÊ",
+          "tam": 260,
+          "entra": "cair",
+          "keys": [
+            {
+              "at": "@te falar",
+              "x": 0.28,
+              "y": 0.42
+            }
+          ]
+        },
+        {
+          "id": "cofre",
+          "icone": "piggy-bank",
+          "cor": "gain",
+          "tam": 170,
+          "balanca": false,
+          "entra": "elastico",
+          "keys": [
+            {
+              "at": "@algum dinheiro",
+              "x": 0.72,
+              "y": 0.16
+            },
+            {
+              "at": "@investido",
+              "x": 0.5,
+              "y": 0.2,
+              "s": 1.2,
+              "dur": 0.6
+            }
+          ]
+        }
+      ],
+      "fluxos": [
+        {
+          "de": "alguem",
+          "para": "voce",
+          "at": "@falar",
+          "ate": "@algum dinheiro",
+          "icone": "message-circle",
+          "cor": "text",
+          "tam": 100,
+          "por": 2
+        }
+      ],
+      "textos": [
+        {
+          "at": "@dinheiro investido",
+          "texto": "DINHEIRO INVESTIDO",
+          "x": 0.5,
+          "y": 0.8,
+          "tam": 64,
+          "cor": "gain"
+        }
+      ]
+    },
+    {
+      "kind": "type-on",
+      "at": "@qual número",
+      "until": "@100 mil",
+      "text": "QUAL NÚMERO VEM NA SUA CABEÇA",
+      "eraseAt": "@chutar"
+    },
+    {
+      "kind": "cena",
+      "tipo": "numeros",
+      "at": "@100 mil",
+      "until": "@Só que aí",
+      "itens": [
+        {
+          "at": "@100 mil",
+          "valor": "100 MIL"
+        },
+        {
+          "at": "@um milhão",
+          "valor": "1 MILHÃO"
+        }
+      ],
+      "rotulo": "SÍMBOLO DE ESTABILIDADE",
+      "rotuloAt": "@viraram"
+    },
+    {
+      "kind": "broll",
+      "at": "@símbolo",
+      "until": "@Só que aí",
+      "src": "../../acervo/broll/pai-e-filho-lendo.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1.02,
+        1.14
+      ],
+      "moldura": true
+    },
+    {
+      "kind": "mascot",
+      "at": "@Só que aí",
+      "until": "@Mas porque",
+      "placement": "left-third",
+      "entra": "giro",
+      "poses": [
+        {
+          "at": "@Só que aí",
+          "pose": "../../../../public/mascote/fox4.png"
+        },
+        {
+          "at": "@eles de fato",
+          "pose": "../../../../public/mascote/fox1-antigo.webm"
+        },
+        {
+          "at": "@bonitinhos",
+          "pose": "../../../../public/mascote/fox2.png"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@Mas porque",
+      "until": "@E olha",
+      "atores": [
+        {
+          "id": "redondo",
+          "icone": "circle",
+          "tam": 300,
+          "entra": "girar",
+          "pulsaAt": [
+            "@redondos"
+          ],
+          "keys": [
+            {
+              "at": "@Mas porque",
+              "x": 0.5,
+              "y": 0.42
+            },
+            {
+              "at": "@a matemática",
+              "x": 0.68,
+              "dur": 0.6
+            },
+            {
+              "at": "@liga muito",
+              "x": 1.25,
+              "r": 540,
+              "dur": 1.3
+            }
+          ]
+        },
+        {
+          "id": "juros",
+          "icone": "trending-up",
+          "cor": "gain",
+          "tam": 300,
+          "rotulo": "JUROS COMPOSTOS",
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@juros compostos",
+              "x": 0.3,
+              "y": 0.42
+            },
+            {
+              "at": "@número redondo",
+              "x": 0.5,
+              "s": 1.2,
+              "dur": 0.8
+            }
+          ]
+        }
+      ],
+      "textos": [
+        {
+          "at": "@redondos",
+          "ate": "@juros compostos",
+          "texto": "REDONDOS",
+          "x": 0.5,
+          "y": 0.8
+        },
+        {
+          "at": "@não liga",
+          "texto": "NÃO LIGA",
+          "x": 0.5,
+          "y": 0.82,
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "foto3d",
+      "at": "@E olha",
+      "until": "@É o 177",
+      "src": "../../acervo/fotos3d/silhueta-na-praia.png",
+      "depth": "../../acervo/fotos3d/depth/silhueta-na-praia-depth.png",
+      "camera": [
+        {
+          "at": "@E olha",
+          "zoom": 1.08,
+          "px": -0.45
+        },
+        {
+          "at": "@E olha+0.01",
+          "zoom": 1.2,
+          "px": 0.45,
+          "dur": 3.9
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "contador",
+      "at": "@É o 177",
+      "until": "@E não é só",
+      "de": 100000,
+      "ate": 177000,
+      "dur": 2,
+      "prefixo": "R$ ",
+      "cor": "hl",
+      "tam": 240
+    },
+    {
+      "kind": "mascot",
+      "at": "@E você pode",
+      "until": "@E não é só",
+      "placement": "corner-right",
+      "poses": [
+        {
+          "at": "@E você pode",
+          "pose": "../../../../public/mascote/fox2.png"
+        },
+        {
+          "at": "@não errei",
+          "pose": "../../../../public/mascote/fox1.png"
+        }
+      ]
+    },
+    {
+      "kind": "cena",
+      "tipo": "palco",
+      "at": "@E não é só",
+      "until": "@Mas antes de eu",
+      "atores": [
+        {
+          "id": "dados",
+          "icone": "dices",
+          "rotulo": "ALEATÓRIO",
+          "tam": 240,
+          "entra": "cair",
+          "riscaAt": "@peguei",
+          "keys": [
+            {
+              "at": "@aleatório",
+              "x": 0.3,
+              "y": 0.5
+            }
+          ]
+        },
+        {
+          "id": "clique",
+          "icone": "mouse-pointer-click",
+          "rotulo": "CLICAR",
+          "cor": "hl",
+          "tam": 240,
+          "entra": "elastico",
+          "pulsaAt": [
+            "@atenção",
+            "@clicar"
+          ],
+          "keys": [
+            {
+              "at": "@chamar a sua",
+              "x": 0.7,
+              "y": 0.5
+            },
+            {
+              "at": "@clicar",
+              "x": 0.66,
+              "s": 1.15,
+              "dur": 0.4
+            }
+          ]
+        }
+      ],
+      "textos": [
+        {
+          "at": "@E não é só",
+          "texto": "R$ 177 MIL",
+          "x": 0.5,
+          "y": 0.17,
+          "fonte": "num",
+          "tam": 140,
+          "cor": "hl"
+        }
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@clicar",
+      "until": "@Mas antes de eu",
+      "src": "../../acervo/broll/rolando-pagina-de-vendas.mp4",
+      "entra": "whip",
+      "zoom": [
+        1,
+        1.1
+      ],
+      "moldura": true
+    },
+    {
+      "kind": "cena",
+      "tipo": "piada",
+      "at": "@clicar",
+      "until": "@Mas antes de eu",
+      "dura": 0.8,
+      "texto": "JÁ QUE CLICOU, FICA",
+      "x": 0.5,
+      "y": 0.86
+    },
+    {
+      "kind": "cena",
+      "tipo": "grafico",
+      "at": "@Mas antes de eu",
+      "until": "@fim",
+      "modo": "patrimonio",
+      "meses": 130,
+      "rotuloCabeca": false,
+      "revela": [
+        {
+          "at": "@Mas antes de eu",
+          "mes": 0
+        },
+        {
+          "at": "@Mas antes de eu+0.1",
+          "mes": 130,
+          "dur": 2.2
+        },
+        {
+          "at": "@o que acontece",
+          "mes": 36,
+          "dur": 1.4
+        }
+      ],
+      "vista": [
+        {
+          "at": 0,
+          "x": 130,
+          "y": 200000
+        },
+        {
+          "at": "@o que acontece",
+          "x": 36,
+          "y": 50000,
+          "dur": 1.4
+        }
+      ],
+      "marcos": [
+        {
+          "mes": 124,
+          "at": "@esse número vem",
+          "rotulo": "R$ 177 MIL",
+          "cor": "hl",
+          "lado": "esq",
+          "ate": "@o que acontece"
+        },
+        {
+          "mes": 12,
+          "at": "@longe dele",
+          "rotulo": "LONGE DELE",
+          "cor": "text",
+          "lado": "cima"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+/* Identidade do video "Na Hora do Almoco" */
+@font-face { font-family: 'Caveat'; src: url('../fonts/caveat-latin.woff2') format('woff2'); font-weight: 400 700; font-display: block; }
+@font-face { font-family: 'MontserratLocal'; src: url('../fonts/Montserrat-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+@font-face { font-family: 'MontserratLocal'; src: url('../fonts/Montserrat-Medium.otf') format('opentype'); font-weight: 500; font-display: block; }
+@font-face { font-family: 'MontserratLocal'; src: url('../fonts/Montserrat-SemiBold.otf') format('opentype'); font-weight: 600; font-display: block; }
+@font-face { font-family: 'MontserratLocal'; src: url('../fonts/Montserrat-Bold.otf') format('opentype'); font-weight: 700; font-display: block; }
+@font-face { font-family: 'MontserratLocal'; src: url('../fonts/Montserrat-ExtraBold.otf') format('opentype'); font-weight: 800; font-display: block; }
+@font-face { font-family: 'Bebas Neue'; src: url('../fonts/BebasNeue-Regular.otf') format('opentype'); font-weight: 400; font-display: block; }
+@font-face { font-family: 'Maquina'; src: url('../fonts/special-elite-latin.woff2') format('woff2'); font-weight: 400; font-display: block; }
+@font-face { font-family: 'Garamond'; src: url('../fonts/eb-garamond-italic-400-latin.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: block; }
+@font-face { font-family: 'Garamond'; src: url('../fonts/eb-garamond-italic-500-latin.woff2') format('woff2'); font-weight: 500; font-style: italic; font-display: block; }
+
+:root {
+  --preto: #0e0c0a;
+  --sal: #ede8de;
+  --ceu: #7e97b8;
+  --terra: #3a2418;
+  --amarelo: #f2c230;
+  --medo: #8e1b12;
+  --papel: #e9dcc2;
+  --tinta: #2b2118;
+}
+
+.titulo { font-family: 'Bebas Neue', sans-serif; font-weight: 400; }
+.rotulo { font-family: 'MontserratLocal', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.45em; }
+.mao { font-family: 'Caveat', cursive; font-weight: 600; }
+.sombra { text-shadow: 0 1px 3px rgba(0, 0, 0, 0.28); }
+.w { display: inline-block; }
+.cheio { position: absolute; inset: 0; }
+/* fontes novas (feedback 03/11): maquina de escrever na folha, serifa italica nas citacoes da letra */
+.maquina { font-family: 'Maquina', 'Courier New', monospace; font-weight: 400; }
+.serifa { font-family: 'Garamond', Georgia, serif; font-style: italic; font-weight: 400; }
+/* texto 3D: A.texto3d(el) preenche o text-shadow em camadas; .palco3d da a perspectiva */
+.t3d { display: inline-block; }
+.palco3d { perspective: 1600px; perspective-origin: 50% 45%; }
+/* overlay vintage (poeira, ruido) por cima de tudo, bem baixo */
+.vintage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; mix-blend-mode: screen; pointer-events: none; }
+
+/* folha da letra */
+.fo-palco { position: absolute; inset: 0; perspective: 2200px; perspective-origin: 50% 40%; overflow: hidden;
+  background: radial-gradient(ellipse at 50% 40%, #3b2a1d 0%, #23180f 60%, #120c08 100%); }
+.fo-papel { position: absolute; left: 50%; top: 50%; width: 1240px; height: 1760px; margin-left: -620px; margin-top: -880px;
+  background-color: #efe4cc; color: #2b2118; transform-style: preserve-3d;
+  background-image:
+    radial-gradient(ellipse at 50% 50%, rgba(255,250,235,0) 70%, rgba(120,85,40,0.12) 100%),
+    url('papel.svg');
+  box-shadow: 0 14px 34px rgba(0,0,0,0.28); }
+.fo-titulo { position: absolute; left: 120px; right: 120px; top: 110px; }
+.fo-titulo b { display: block; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 96px; line-height: 1; letter-spacing: 0.02em; }
+.fo-titulo i { display: block; font-family: 'MontserratLocal', sans-serif; font-style: normal; font-weight: 600; font-size: 24px; letter-spacing: 0.35em; text-transform: uppercase; margin-top: 10px; opacity: 0.7; }
+.fo-mao { position: absolute; inset: 0; transform-style: preserve-3d; }
+.fo-corpo { position: absolute; left: 130px; right: 340px; top: 290px; font-family: 'Maquina', 'Courier New', monospace; font-weight: 400; font-size: 30px; line-height: 1.55; color: #2b2118; }
+.fo-linha { white-space: nowrap; position: relative; opacity: 0.82; }
+/* o verso que o video analisa (com marca) fica em cor cheia; o resto da letra fica de contexto, apagado */
+.fo-linha:has(.fo-grupo), .fo-linha:has(.fo-marca), .fo-linha:has(.fo-svg) { opacity: 1; }
+.fo-borrao { display: inline-block; height: 0.42em; vertical-align: middle; border-radius: 0.21em; background: rgba(43, 33, 24, 0.22); }
+.fo-vazia { height: 0.75em; }
+.fo-w { display: inline-block; position: relative; }
+.fo-grupo { position: relative; display: inline-block; }
+.fo-marca { position: absolute; left: -8px; right: -8px; top: 16%; height: 74%; z-index: -1; transform-origin: 0 50%; border-radius: 6px 14px 8px 12px / 10px 6px 14px 8px; mix-blend-mode: multiply; }
+.fo-svg { position: absolute; overflow: visible; pointer-events: none; }
+.fo-nota { position: absolute; width: 330px; white-space: normal; text-align: left; font-family: 'Caveat', cursive; font-weight: 600; font-size: 50px; line-height: 0.95; transform: rotate(-4deg); }
