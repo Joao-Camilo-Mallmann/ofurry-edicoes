@@ -516,59 +516,31 @@
     },
     {
       "kind": "cena",
-      "tipo": "grafico",
-      "at": "@É a partir do quinto",
-      "until": "@Aqui por mês",
-      "modo": "patrimonio",
-      "meses": 66,
-      "rotuloCabeca": false,
+      "tipo": "barras",
+      "anos": 5,
+      "deAno": 1,
+      "titulo": "SEU PATRIMÔNIO ANO A ANO",
       "revela": [
         {
           "at": 0,
-          "mes": 36
+          "ano": 0
         },
         {
-          "at": "@quinto",
-          "mes": 54,
-          "dur": 1.6
-        },
-        {
-          "at": "@manter a constância",
-          "mes": 60,
-          "dur": 1.2
+          "at": "@quinto ano",
+          "ano": 5,
+          "dur": 2.2
         }
       ],
-      "vista": [
+      "destaques": [
         {
-          "at": 0,
-          "x": 66,
-          "y": 80000
-        },
-        {
-          "at": "@considerando",
-          "x": 62,
-          "y": 76000,
-          "dur": 1.5
-        }
-      ],
-      "marcos": [
-        {
-          "mes": 60,
-          "at": "@até aqui",
-          "rotulo": "ANO 5",
-          "cor": "text",
-          "lado": "baixo",
-          "ate": "@71 mil"
-        },
-        {
-          "mes": 60,
           "at": "@71 mil",
+          "ano": 5,
           "rotulo": "R$ 71 MIL",
-          "cor": "hl",
-          "lado": "baixo"
+          "cor": "hl"
         }
       ],
-      "perspectiva": true
+      "at": "@É a partir do quinto",
+      "until": "@Aqui por mês"
     },
     {
       "kind": "cena",

@@ -11,7 +11,8 @@
     {
       "from": "@inicio",
       "until": "@existe-0.1",
-      "entry": "whip"
+      "entry": "whip",
+      "estilo": "invertida"
     },
     {
       "from": "@nunca para-0.1",
@@ -31,20 +32,22 @@
       "estilo": "invertida"
     },
     {
-      "from": "@trabalha-0.1",
+      "from": "@Você basicamente-0.1",
       "until": "@guardar-0.1",
       "entry": "pop"
     },
     {
-      "from": "@uma bala-0.1",
-      "until": "@Tá sendo-0.1",
+      "from": "@Tá sendo-0.1",
+      "until": "@Dois pão",
       "entry": "pop",
-      "estilo": "invertida"
+      "y": 0.84
     },
     {
-      "from": "@Dois pão-0.1",
-      "until": "@mas olha-0.1",
-      "entry": "pop"
+      "from": "@mas olha+0.08",
+      "until": "@fim",
+      "entry": "pop",
+      "y": 0.18,
+      "estilo": "tarja"
     }
   ],
   "camera": [
@@ -55,10 +58,6 @@
     {
       "at": "@uma bala",
       "tipo": "shake"
-    },
-    {
-      "at": "@Dois pão",
-      "tipo": "punch"
     }
   ],
   "backdrops": [
@@ -144,14 +143,30 @@
       "gain": -20
     },
     {
-      "at": "@Dois pão",
-      "file": "@sfx/General/Pop sound.mp3",
-      "gain": -21
+      "at": "@Dois pão-0.25",
+      "file": "@sfx/Communications/Tune AM Radio 01.wav",
+      "gain": -23,
+      "len": 0.34,
+      "fadeOut": 0.08
+    },
+    {
+      "at": "@Dois pão+0.05",
+      "file": "@sfx/Communications/AM Radio Buzz Loop 01.wav",
+      "gain": -36,
+      "len": 1.1,
+      "fadeOut": 0.1
     },
     {
       "at": "@de queijo",
-      "file": "@sfx/General/Pop sound.mp3",
+      "file": "@sfx/General/Ding.mp3",
       "gain": -21
+    },
+    {
+      "at": "@mas olha+0.06",
+      "file": "@sfx/General/RECORD SCRATCH #2.mp3",
+      "gain": -21,
+      "len": 0.45,
+      "fadeOut": 0.12
     }
   ],
   "beats": [
@@ -178,32 +193,85 @@
     },
     {
       "kind": "cena",
-      "tipo": "grafico",
-      "at": "@existe",
-      "until": "@nunca para",
-      "modo": "rendimento",
-      "meses": 30,
-      "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
-      "perspectiva": true,
-      "semMes": true,
-      "revela": [
+      "tipo": "palco",
+      "atores": [
         {
-          "at": "@existe",
-          "mes": 0
+          "id": "cog1",
+          "icone": "cog",
+          "cor": "info",
+          "tam": 320,
+          "balanca": false,
+          "entra": "pop",
+          "keys": [
+            {
+              "at": "@existe",
+              "x": 0.54,
+              "y": 0.42,
+              "r": 0
+            },
+            {
+              "at": "@existe+0.01",
+              "r": 300,
+              "dur": 5.7
+            }
+          ]
         },
         {
-          "at": "@existe+0.2",
-          "mes": 24,
-          "dur": 5.4
+          "id": "cog2",
+          "icone": "cog",
+          "cor": "brand",
+          "tam": 190,
+          "balanca": false,
+          "entra": "elastico",
+          "keys": [
+            {
+              "at": "@em paralelo",
+              "x": 0.385,
+              "y": 0.58,
+              "r": 0
+            },
+            {
+              "at": "@em paralelo+0.01",
+              "r": -360,
+              "dur": 3.8
+            }
+          ]
+        },
+        {
+          "id": "mudo",
+          "icone": "volume-x",
+          "cor": "whisper",
+          "tam": 130,
+          "entra": "pop",
+          "keys": [
+            {
+              "at": "@silencioso",
+              "x": 0.74,
+              "y": 0.24
+            }
+          ]
         }
       ],
-      "vista": [
+      "textos": [
         {
-          "at": 0,
-          "x": 24,
-          "y": 1200
+          "at": "@outro processo",
+          "ate": "@É bem mais",
+          "texto": "OUTRO PROCESSO",
+          "x": 0.5,
+          "y": 0.84,
+          "tam": 78
+        },
+        {
+          "at": "@silencioso",
+          "texto": "BEM SILENCIOSO",
+          "x": 0.5,
+          "y": 0.84,
+          "tam": 78,
+          "cor": "hl"
         }
-      ]
+      ],
+      "at": "@existe",
+      "until": "@nunca para"
     },
     {
       "kind": "mascot",
@@ -243,40 +311,20 @@
     {
       "kind": "cena",
       "tipo": "palco",
-      "at": "@olhando",
+      "at": "@rendimento ridículo",
       "until": "@Você basicamente",
       "atores": [
-        {
-          "id": "voce",
-          "icone": "user",
-          "rotulo": "VOCÊ",
-          "tam": 260,
-          "entra": "pop",
-          "keys": [
-            {
-              "at": "@olhando",
-              "x": 0.22,
-              "y": 0.42
-            }
-          ]
-        },
         {
           "id": "extrato",
           "icone": "receipt",
           "rotulo": "EXTRATO",
-          "tam": 260,
-          "entra": "cair",
+          "tam": 300,
+          "entra": "pop",
           "keys": [
             {
-              "at": "@o extrato",
-              "x": 0.6,
-              "y": 0.42
-            },
-            {
               "at": "@rendimento ridículo",
-              "x": 0.52,
-              "s": 0.85,
-              "dur": 0.5
+              "x": 0.38,
+              "y": 0.42
             }
           ]
         },
@@ -284,7 +332,7 @@
           "id": "lupa",
           "icone": "microscope",
           "cor": "hl",
-          "tam": 230,
+          "tam": 240,
           "entra": "girar",
           "pulsaAt": [
             "@tão baixo"
@@ -292,18 +340,10 @@
           "keys": [
             {
               "at": "@ridículo",
-              "x": 0.8,
+              "x": 0.66,
               "y": 0.42
             }
           ]
-        }
-      ],
-      "setas": [
-        {
-          "de": "voce",
-          "para": "extrato",
-          "at": "@o extrato+0.2",
-          "cor": "text"
         }
       ],
       "textos": [
@@ -311,15 +351,15 @@
           "at": "@rendimento ridículo",
           "texto": "RENDIMENTO RIDÍCULO",
           "x": 0.5,
-          "y": 0.8,
-          "tam": 70,
+          "y": 0.82,
+          "tam": 76,
           "cor": "hl"
         }
       ]
     },
     {
       "kind": "broll",
-      "at": "@o extrato",
+      "at": "@olhando",
       "until": "@rendimento ridículo",
       "src": "../../acervo/broll/pessoa-digitando-celular.mp4",
       "entra": "zoom",
@@ -332,7 +372,7 @@
     {
       "kind": "cena",
       "tipo": "palco",
-      "at": "@Você basicamente",
+      "at": "@guardar",
       "until": "@é 5",
       "atores": [
         {
@@ -343,35 +383,9 @@
           "entra": "rise",
           "keys": [
             {
-              "at": "@Você basicamente",
+              "at": "@guardar",
               "x": 0.2,
               "y": 0.45
-            }
-          ]
-        },
-        {
-          "id": "mes",
-          "icone": "calendar-days",
-          "rotulo": "O MÊS INTEIRO",
-          "cor": "info",
-          "tam": 220,
-          "entra": "elastico",
-          "arco": 0.12,
-          "pulsaAt": [
-            "@mês seguinte"
-          ],
-          "keys": [
-            {
-              "at": "@o mês inteiro",
-              "x": 0.5,
-              "y": 0.45
-            },
-            {
-              "at": "@guardar",
-              "x": 0.5,
-              "y": 0.16,
-              "s": 0.55,
-              "dur": 0.6
             }
           ]
         },
@@ -441,7 +455,7 @@
     },
     {
       "kind": "broll",
-      "at": "@trabalha",
+      "at": "@Você basicamente",
       "until": "@guardar",
       "src": "../../acervo/broll/escritorio-movimentado.mp4",
       "entra": "flash",
@@ -454,15 +468,14 @@
       "kind": "cena",
       "tipo": "palco",
       "at": "@Você sua",
-      "until": "@fim",
+      "until": "@Dois pão+0.05",
       "atores": [
         {
           "id": "voce",
           "icone": "user",
           "rotulo": "VOCÊ",
-          "tam": 260,
-          "entra": "elastico",
-          "arco": 0.12,
+          "tam": 300,
+          "entra": "pop",
           "keys": [
             {
               "at": "@Você sua",
@@ -472,31 +485,103 @@
             {
               "at": "@colocar",
               "x": 0.2,
-              "dur": 0.6
+              "dur": 0.5
             }
           ]
         },
         {
-          "id": "suor",
-          "icone": "droplets",
+          "id": "g1",
+          "icone": "droplet",
           "cor": "info",
-          "tam": 110,
+          "tam": 72,
           "balanca": false,
-          "pulsaAt": [
-            "@o mês todo"
-          ],
-          "sai": "@esses mil",
-          "saiComo": "voa",
+          "entra": "pop",
+          "sai": "@colocar",
+          "saiComo": "encolhe",
           "keys": [
             {
-              "at": "@sua",
-              "x": 0.57,
-              "y": 0.27
+              "at": "@Você sua+0.45",
+              "x": 0.41,
+              "y": 0.2,
+              "o": 1
             },
             {
-              "at": "@colocar",
-              "x": 0.27,
-              "dur": 0.6
+              "at": "@Você sua+0.46",
+              "y": 0.62,
+              "o": 0,
+              "dur": 0.7
+            }
+          ]
+        },
+        {
+          "id": "g2",
+          "icone": "droplet",
+          "cor": "info",
+          "tam": 72,
+          "balanca": false,
+          "entra": "pop",
+          "sai": "@colocar",
+          "saiComo": "encolhe",
+          "keys": [
+            {
+              "at": "@Você sua+0.8",
+              "x": 0.59,
+              "y": 0.2,
+              "o": 1
+            },
+            {
+              "at": "@Você sua+0.81",
+              "y": 0.62,
+              "o": 0,
+              "dur": 0.7
+            }
+          ]
+        },
+        {
+          "id": "g3",
+          "icone": "droplet",
+          "cor": "info",
+          "tam": 72,
+          "balanca": false,
+          "entra": "pop",
+          "sai": "@colocar",
+          "saiComo": "encolhe",
+          "keys": [
+            {
+              "at": "@o mês todo",
+              "x": 0.44,
+              "y": 0.2,
+              "o": 1
+            },
+            {
+              "at": "@o mês todo+0.01",
+              "y": 0.62,
+              "o": 0,
+              "dur": 0.7
+            }
+          ]
+        },
+        {
+          "id": "g4",
+          "icone": "droplet",
+          "cor": "info",
+          "tam": 72,
+          "balanca": false,
+          "entra": "pop",
+          "sai": "@colocar",
+          "saiComo": "encolhe",
+          "keys": [
+            {
+              "at": "@o mês todo+0.35",
+              "x": 0.56,
+              "y": 0.2,
+              "o": 1
+            },
+            {
+              "at": "@o mês todo+0.36",
+              "y": 0.62,
+              "o": 0,
+              "dur": 0.7
             }
           ]
         },
@@ -521,65 +606,25 @@
           "id": "bala",
           "icone": "candy",
           "cor": "hl",
-          "tam": 170,
-          "entra": "girar",
-          "arco": 0.2,
+          "tam": 200,
+          "entra": "pop",
+          "arco": 0.25,
           "pulsaAt": [
             "@bala"
           ],
-          "sai": "@Dois pão",
-          "saiComo": "explode",
           "keys": [
             {
               "at": "@te devolve",
               "x": 0.8,
               "y": 0.45,
-              "s": 0.5
+              "s": 0.35
             },
             {
-              "at": "@te devolve+0.1",
+              "at": "@te devolve+0.05",
               "x": 0.5,
-              "y": 0.68,
-              "s": 1,
-              "dur": 1.2
-            }
-          ]
-        },
-        {
-          "id": "pao1",
-          "icone": "croissant",
-          "cor": "hl",
-          "tam": 190,
-          "entra": "cair",
-          "keys": [
-            {
-              "at": "@Dois pão",
-              "x": 0.42,
-              "y": 0.68
-            },
-            {
-              "at": "@olha lá",
-              "s": 0.7,
-              "dur": 0.4
-            }
-          ]
-        },
-        {
-          "id": "pao2",
-          "icone": "croissant",
-          "cor": "hl",
-          "tam": 190,
-          "entra": "elastico",
-          "keys": [
-            {
-              "at": "@de queijo",
-              "x": 0.58,
-              "y": 0.68
-            },
-            {
-              "at": "@olha lá",
-              "s": 0.7,
-              "dur": 0.4
+              "y": 0.45,
+              "s": 1.15,
+              "dur": 1.9
             }
           ]
         }
@@ -598,43 +643,40 @@
       ],
       "textos": [
         {
+          "at": "@o mês todo",
+          "ate": "@colocar",
+          "texto": "O MÊS TODO",
+          "x": 0.5,
+          "y": 0.84,
+          "tam": 84
+        },
+        {
           "at": "@esses mil",
           "ate": "@te devolve",
           "texto": "R$ 1.000",
           "x": 0.5,
-          "y": 0.18,
+          "y": 0.17,
           "fonte": "num",
-          "tam": 140,
+          "tam": 150,
           "cor": "gain"
         },
         {
-          "at": "@uma bala",
-          "ate": "@Dois pão",
-          "texto": "UMA BALA",
+          "at": "@te devolve",
+          "ate": "@uma bala",
+          "texto": "TE DEVOLVE",
           "x": 0.5,
-          "y": 0.18,
-          "tam": 80,
-          "cor": "hl"
+          "y": 0.17,
+          "tam": 84
         },
         {
-          "at": "@Dois pão",
-          "texto": "DOIS PÃO DE QUEIJO",
+          "at": "@uma bala",
+          "ate": "@Tá sendo",
+          "texto": "UMA BALA",
           "x": 0.5,
-          "y": 0.18,
-          "tam": 80,
+          "y": 0.17,
+          "tam": 110,
           "cor": "hl"
         }
-      ]
-    },
-    {
-      "kind": "broll",
-      "at": "@uma bala",
-      "until": "@Tá sendo",
-      "src": "../../acervo/broll/balas-stop-motion.mp4",
-      "entra": "whip",
-      "zoom": [
-        1,
-        1.1
       ]
     },
     {
@@ -648,32 +690,23 @@
       "y": 0.9
     },
     {
-      "kind": "broll",
-      "at": "@Dois pão",
-      "until": "@mas olha",
-      "src": "../../acervo/broll/cafe-da-manha-pao.mp4",
-      "entra": "zoom",
-      "zoom": [
-        1.02,
-        1.15
-      ],
-      "moldura": true
-    },
-    {
-      "kind": "mascot",
-      "at": "@Tá sendo",
+      "kind": "cena",
+      "tipo": "radio",
+      "at": "@Dois pão+0.05",
       "until": "@fim",
-      "placement": "corner-right",
-      "poses": [
-        {
-          "at": "@Tá sendo",
-          "pose": "../../../../public/mascote/fox4.png"
-        },
-        {
-          "at": "@mas olha",
-          "pose": "../../../../public/mascote/fox2.png"
-        }
-      ]
+      "texto": "DOIS PÃO DE QUEIJO",
+      "preco": "R$ 5",
+      "textoAt": "@Dois pão+0.25",
+      "precoAt": "@de queijo",
+      "saiAt": "@mas olha+0.08",
+      "src": "../../acervo/pao-de-queijo.png"
+    }
+  ],
+  "vozEfeito": [
+    {
+      "de": "@Dois pão+0.05",
+      "ate": "@mas olha+0.08",
+      "tipo": "radio"
     }
   ]
 }

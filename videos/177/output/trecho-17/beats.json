@@ -271,13 +271,12 @@
       "kind": "broll",
       "at": "@E eu sei",
       "until": "@Você vai investir",
-      "src": "../../acervo/broll/jovem-estudando-a-noite.mp4",
+      "src": "../../acervo/broll/mulher-frustrada-conta.mp4",
       "entra": "flash",
       "zoom": [
         1,
         1.12
-      ],
-      "escurece": 0.45
+      ]
     },
     {
       "kind": "cena",
@@ -509,7 +508,7 @@
       "kind": "broll",
       "at": "@prefira algum",
       "until": "@renda previsível",
-      "src": "../../acervo/broll/calendario-no-tablet.mp4",
+      "src": "../../acervo/broll/predios-em-obra-aerea.mp4",
       "entra": "whip",
       "zoom": [
         1.05,
@@ -643,32 +642,54 @@
     },
     {
       "kind": "cena",
-      "tipo": "grafico",
-      "at": "@quando que de fato",
-      "until": "@E transformar",
-      "modo": "rendimento",
-      "meses": 132,
-      "rotuloCabeca": false,
-      "viradaTexto": "CRUZOU A LINHA",
-      "perspectiva": true,
-      "revela": [
+      "tipo": "palco",
+      "atores": [
         {
-          "at": 0,
-          "mes": 96
+          "id": "linha",
+          "icone": "flag",
+          "cor": "hl",
+          "tam": 280,
+          "entra": "cair",
+          "keys": [
+            {
+              "at": "@quando que de fato",
+              "x": 0.55,
+              "y": 0.42
+            }
+          ]
         },
         {
-          "at": "@quando que de fato+0.2",
-          "mes": 132,
-          "dur": 1.4
+          "id": "voce",
+          "icone": "footprints",
+          "tam": 170,
+          "balanca": false,
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@quando que de fato",
+              "x": 0.12,
+              "y": 0.68
+            },
+            {
+              "at": "@cruzar",
+              "x": 0.88,
+              "dur": 0.7
+            }
+          ]
         }
       ],
-      "vista": [
+      "textos": [
         {
-          "at": 0,
-          "x": 132,
-          "y": 1200
+          "at": "@cruzar",
+          "texto": "CRUZOU A LINHA",
+          "x": 0.5,
+          "y": 0.88,
+          "tam": 76,
+          "cor": "hl"
         }
-      ]
+      ],
+      "at": "@quando que de fato",
+      "until": "@E transformar"
     },
     {
       "kind": "cena",

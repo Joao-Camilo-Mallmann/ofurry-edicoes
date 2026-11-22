@@ -37,15 +37,21 @@
       "file": "@mus/Yacoby - Schwartzy.mp3",
       "desde": "trecho-19",
       "from": 0
+    },
+    {
+      "file": "@mus/Infraction - No Copyright Music/Cinematic Classical Orchestra Dark Epic Trailer by Cold Cinema [No Copyright Music] ⧸ Emergence.mp4",
+      "desde": "trecho-21",
+      "from": 84,
+      "ganho": 3
     }
   ],
   "final": {
     "trecho": "trecho-21",
-    "corteEm": "@Bom eu sou-0.3",
+    "corteEm": "@Bom eu sou-0.7",
     "entraEm": "@aí>+0.5",
     "musica": "@mus/Infraction - No Copyright Music/Cinematic Classical Orchestra Dark Epic Trailer by Cold Cinema [No Copyright Music] ⧸ Emergence.mp4",
     "from": 120,
     "nivel": -17,
-    "nota": "padrao do canal: voz pura na assinatura, musica dramatica na tela final (Joao, 21/11/2026). Infraction = credito obrigatorio na descricao."
+    "nota": "Joao, 22/11/2026: musica mais dramatica a partir de 14:00 (a mesma Emergence, que continua na tela final); assinatura sem musica e sem video, so voz no preto. Infraction = credito obrigatorio na descricao."
   }
 }

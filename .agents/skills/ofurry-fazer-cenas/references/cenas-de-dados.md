@@ -106,6 +106,20 @@ dentro do bloco o vídeo vira negativo e a letra mostra o vídeo original. Use s
 janelas (uma sim, uma não). `"estilo": "tarja"` = letra preta em bloco branco com sombra laranja; 1 momento de
 destaque no preto a cada 2 trechos. O resto continua branco.
 
+## Não repetir efeito (João, 22/11/2026: "ficou sendo spammado")
+- **Cada B-roll ou foto: no máximo 2 vezes por vídeo** (vídeo e `foto3d` do mesmo clipe contam juntos).
+- **Gráfico de linha: no máximo ~5 por vídeo**, nos momentos em que a curva é o assunto. Para o resto: `barras`,
+  `calendario`, `corrida`, `etapas`, `comparar`, `palco`.
+- **Negar um ícone:** varie `riscaComo`: `risco`, `x`, `carimbo` (com `riscaTexto`), `cai`, `apaga`.
+- B-roll entra no começo da frase, nunca no meio dela; a cena fica até a fala daquela ideia terminar.
+
+## Cenas especiais
+- `radio` / `paoQueijo` (`hf/kit/radio.js`): comercial de rádio quebra-gelo e PNG recortado em stop-motion (`src`).
+- Voz de rádio só numa frase: `"vozEfeito": [{ "de": "@frase", "ate": "@frase", "tipo": "radio" }]` no beats.json.
+- Fora do roteiro: fundo `cinza` + `mascot` no centro com `"entra": "corte"`, sem mais nada na tela.
+- Assinatura: `"telaPreta": [{ "de": "@frase", "ate": "@frase" }]` cobre tudo de preto.
+- Cenas-padrão do Furry vindas do canal: `referencias/analises/02-aviso-criador-ia.md`.
+
 ## Layout: o que já sabemos
 - Gráfico ocupa x 250–1690, y 210–860: legenda por cima polui; desligue a janela de legenda durante gráfico,
   tabela, fórmula, barra e comparar (ou use `y: 0.12`, topo).

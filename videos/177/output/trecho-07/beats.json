@@ -357,7 +357,8 @@
               "r": 360,
               "dur": 0.7
             }
-          ]
+          ],
+          "riscaComo": "apaga"
         }
       ],
       "textos": [
@@ -402,17 +403,6 @@
       "y": 0.56
     },
     {
-      "kind": "broll",
-      "at": "@a partir desse",
-      "until": "@liga a máquina",
-      "src": "../../acervo/broll/engrenagens-relogio.mp4",
-      "entra": "zoom",
-      "zoom": [
-        1,
-        1.18
-      ]
-    },
-    {
       "kind": "section",
       "at": "@máquina de imprimir",
       "until": "@E ela não",
@@ -444,7 +434,9 @@
               "s": 0.7,
               "dur": 0.5
             }
-          ]
+          ],
+          "riscaComo": "carimbo",
+          "riscaTexto": "NEGADO"
         },
         {
           "id": "ferias",
@@ -466,7 +458,8 @@
               "s": 0.7,
               "dur": 0.5
             }
-          ]
+          ],
+          "riscaComo": "cai"
         },
         {
           "id": "segunda",
@@ -481,7 +474,8 @@
               "x": 0.5,
               "y": 0.42
             }
-          ]
+          ],
+          "riscaComo": "x"
         }
       ],
       "textos": [
@@ -680,31 +674,89 @@
     },
     {
       "kind": "cena",
-      "tipo": "grafico",
-      "at": "@Se você continuar",
-      "until": "@E quando você",
-      "modo": "rendimento",
-      "meses": 200,
-      "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
-      "viradaTexto": "A VIRADA · R$ 177 MIL",
-      "revela": [
+      "tipo": "palco",
+      "atores": [
         {
-          "at": 0,
-          "mes": 124
+          "id": "voce",
+          "icone": "user",
+          "rotulo": "VOCÊ",
+          "tam": 240,
+          "entra": "rise",
+          "keys": [
+            {
+              "at": "@Se você continuar",
+              "x": 0.2,
+              "y": 0.46
+            }
+          ]
         },
         {
-          "at": "@daqui a alguns",
-          "mes": 192,
-          "dur": 3.5
+          "id": "cofre",
+          "icone": "piggy-bank",
+          "cor": "gain",
+          "rotulo": "SEU DINHEIRO",
+          "tam": 260,
+          "entra": "girar",
+          "pulsaAt": [
+            "@render mais"
+          ],
+          "keys": [
+            {
+              "at": "@Se você continuar",
+              "x": 0.8,
+              "y": 0.46
+            },
+            {
+              "at": "@ela sozinha",
+              "s": 1.25,
+              "dur": 0.8
+            }
+          ]
         }
       ],
-      "vista": [
+      "fluxos": [
         {
-          "at": 0,
-          "x": 200,
-          "y": 2400
+          "de": "voce",
+          "para": "cofre",
+          "at": "@continuar",
+          "ate": "@daqui a",
+          "icone": "banknote",
+          "cor": "text",
+          "tam": 80,
+          "por": 3
+        },
+        {
+          "de": "cofre",
+          "para": "voce",
+          "at": "@render mais",
+          "ate": "@todo mês",
+          "icone": "banknote",
+          "cor": "gain",
+          "tam": 130,
+          "por": 6,
+          "arco": 0.16
         }
-      ]
+      ],
+      "textos": [
+        {
+          "at": "@ela sozinha",
+          "ate": "@render mais",
+          "texto": "SOZINHA",
+          "x": 0.5,
+          "y": 0.17,
+          "tam": 90
+        },
+        {
+          "at": "@render mais",
+          "texto": "RENDE MAIS",
+          "x": 0.5,
+          "y": 0.17,
+          "tam": 120,
+          "cor": "gain"
+        }
+      ],
+      "at": "@Se você continuar",
+      "until": "@E quando você"
     },
     {
       "kind": "broll",

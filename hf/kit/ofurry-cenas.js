@@ -846,7 +846,7 @@
   /* O "jeito Furry": icones de traco branco que entram, andam, trocam de lugar, mandam coisas um para o outro.
      p: { atores: [{ id, icone: 'wallet' (nome Lucide; o build injeta `svg`), rotulo, cor, tam: 260,
                      keys: [{ at, x, y, s, r, o, dur }]   x,y = 0..1 da tela; s escala; r rotacao (graus); o opacidade
-                     entra: 'pop'|'rise'|'whip' (no 1o key), riscaAt, sai: at, pulsaAt: [at...], balanca: false (sem idle) }],
+                     entra: 'pop'|'rise'|'whip' (no 1o key), riscaAt, riscaComo, riscaTexto, sai: at, pulsaAt: [at...], balanca: false (sem idle) }],
           fluxos: [{ de: id, para: id, at, ate, icone: 'coins' (svg injetado), cor, tam: 70, por: 3 (itens/s), viagem: 0.9, arco: -0.18 }],
           setas:  [{ de: id, para: id, at, ate, cor, rotulo }],
           textos: [{ at, ate, texto, x, y, tam: 84, cor, fonte: 'cap'|'num' }] }  */
@@ -865,9 +865,15 @@
       var box = el('div', { style: 'position:absolute;left:0;top:0;width:' + size + 'px;display:flex;flex-direction:column;align-items:center;opacity:0' }, st.cam);
       var ic = el('div', { style: 'line-height:0;color:' + color + ';filter:drop-shadow(0 0 ' + Math.round(size / 12) + 'px ' + color + 'aa)', html: a.svg || '' }, box);
       var lb = a.rotulo ? el('div', { style: FONT_CAP + 'font-size:' + Math.round(Math.max(28, size / 6.5)) + 'px;color:' + C.text + ';white-space:nowrap;margin-top:14px', text: a.rotulo }, box) : null;
-      var risco = a.riscaAt !== undefined ? svg('line', { stroke: C.loss, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-dasharray': 1000, 'stroke-dashoffset': 1000 }, sv) : null;
+      // negar um icone sem repetir sempre o mesmo risco (Joao, 22/11/2026: "esse efeito ficou sendo spammado, variar"):
+      // riscaComo: 'risco' (padrao) | 'x' | 'carimbo' (riscaTexto) | 'cai' (tomba e fica cinza) | 'apaga' (pisca e apaga)
+      var comoR = a.riscaComo || 'risco', temR = a.riscaAt !== undefined;
+      var linhaR = { stroke: C.loss, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-dasharray': 1000, 'stroke-dashoffset': 1000 };
+      var risco = temR && (comoR === 'risco' || comoR === 'x') ? svg('line', linhaR, sv) : null;
+      var risco2 = temR && comoR === 'x' ? svg('line', linhaR, sv) : null;
+      var carimbo = temR && comoR === 'carimbo' ? el('div', { 'data-layout-allow-overlap': '', style: 'position:absolute;left:0;top:0;white-space:nowrap;' + FONT_CAP + 'font-size:' + Math.round(Math.max(46, size / 4.2)) + 'px;color:' + C.loss + ';border:7px solid ' + C.loss + ';border-radius:10px;padding:2px 18px;background:rgba(0,0,0,.78);opacity:0', text: a.riscaTexto || 'NÃO' }, st.cam) : null;
       var key = a.id || 'a' + k;
-      atores[key] = { key: key, a: a, box: box, ic: ic, lb: lb, size: size, risco: risco, x: 0, y: 0, s: 1 };
+      atores[key] = { key: key, a: a, box: box, ic: ic, lb: lb, size: size, risco: risco, risco2: risco2, carimbo: carimbo, comoR: comoR, x: 0, y: 0, s: 1 };
     });
     var setas = (p.setas || []).map(function (s0) {
       var g1 = svg('g', { opacity: 0 }, sv);
@@ -919,15 +925,32 @@
           else if (saiComo === 'encolhe') sc *= 1 - sai;
         }
         (a.pulsaAt || []).forEach(function (pa) { var d = T - pa; if (d >= 0 && d < 0.35) sc *= 1 + 0.18 * Math.sin((d / 0.35) * Math.PI); });
-        o.box.style.opacity = (vis * Math.min(1, pe * 1.5) * q.o * (1 - sai)).toFixed(3);
+        var apagado = 1;
+        if (a.riscaAt !== undefined && T >= a.riscaAt) {
+          if (o.comoR === 'cai') { var uc = quica(c01((T - a.riscaAt) / 0.5)); giro += uc * 82 * (k01(o.key) % 2 > 1 ? 1 : -1); dy += uc * o.size * 0.22; }
+          if (o.comoR === 'apaga') { var ua = (T - a.riscaAt) / 0.32; apagado = ua >= 1 ? 0.22 : Math.floor(ua * 7) % 2 ? 0.15 : 0.9; }
+        }
+        o.box.style.opacity = (vis * Math.min(1, pe * 1.5) * q.o * (1 - sai) * apagado).toFixed(3);
         o.box.style.transform = 'translate(' + (q.x - o.size / 2 + dx).toFixed(1) + 'px,' + (q.y - o.size / 2 + bob + dy + (saiComo === 'desce' ? sai * 60 : 0)).toFixed(1) + 'px) rotate(' + (q.r + tilt + giro).toFixed(2) + 'deg) scale(' + sc.toFixed(4) + ')';
         o.box.style.filter = 'none';
         o.x = q.x; o.y = q.y; o.s = q.s;
-        if (o.risco) {
+        if (a.riscaAt !== undefined) {
           var r = o.size * 0.45 * q.s;
-          o.risco.setAttribute('x1', q.x - r); o.risco.setAttribute('y1', q.y + r); o.risco.setAttribute('x2', q.x + r); o.risco.setAttribute('y2', q.y - r);
-          o.risco.setAttribute('stroke-dashoffset', (1000 * (1 - prog(T, a.riscaAt, 0.22))).toFixed(1));
-          o.risco.style.opacity = vis * (1 - sai);
+          if (o.risco) {
+            o.risco.setAttribute('x1', q.x - r); o.risco.setAttribute('y1', q.y + r); o.risco.setAttribute('x2', q.x + r); o.risco.setAttribute('y2', q.y - r);
+            o.risco.setAttribute('stroke-dashoffset', (T >= a.riscaAt ? 1000 * (1 - prog(T, a.riscaAt, o.risco2 ? 0.12 : 0.22)) : 1000).toFixed(1));
+            o.risco.style.opacity = vis * (1 - sai);
+          }
+          if (o.risco2) {
+            o.risco2.setAttribute('x1', q.x - r); o.risco2.setAttribute('y1', q.y - r); o.risco2.setAttribute('x2', q.x + r); o.risco2.setAttribute('y2', q.y + r);
+            o.risco2.setAttribute('stroke-dashoffset', (T >= a.riscaAt + 0.11 ? 1000 * (1 - prog(T, a.riscaAt + 0.11, 0.12)) : 1000).toFixed(1));
+            o.risco2.style.opacity = vis * (1 - sai);
+          }
+          if (o.carimbo) {
+            var pc = T >= a.riscaAt ? prog(T, a.riscaAt, 0.13, E.out3) : 0;
+            o.carimbo.style.opacity = (T >= a.riscaAt ? Math.min(1, pc * 2) * vis * (1 - sai) : 0).toFixed(3);
+            o.carimbo.style.transform = 'translate(' + (q.x - o.carimbo.offsetWidth / 2).toFixed(1) + 'px,' + (q.y - o.carimbo.offsetHeight / 2).toFixed(1) + 'px) rotate(-12deg) scale(' + (1.8 - 0.8 * pc).toFixed(3) + ')';
+          }
           o.ic.style.color = T > a.riscaAt ? C.whisper : C[a.cor || 'text'] || a.cor;
         }
       });

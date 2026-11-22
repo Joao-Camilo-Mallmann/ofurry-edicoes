@@ -33,10 +33,6 @@
   ],
   "camera": [
     {
-      "at": "@não sei se",
-      "tipo": "shake"
-    },
-    {
       "at": "@massa mínima",
       "tipo": "punch"
     },
@@ -57,6 +53,10 @@
     {
       "at": "@os juros",
       "backdrop": "black"
+    },
+    {
+      "at": "@Eu realmente",
+      "backdrop": "cinza"
     },
     {
       "at": "@Mas a lógica",
@@ -89,12 +89,6 @@
       "gain": -24,
       "len": 1.3,
       "fadeOut": 0.3
-    },
-    {
-      "at": "@não sei se",
-      "file": "@sfx/Office Supplies/Stapler 01.wav",
-      "gain": -18,
-      "len": 0.6
     },
     {
       "at": "@precisam",
@@ -225,17 +219,16 @@
       "kind": "cena",
       "tipo": "citacao",
       "at": "@os juros",
-      "until": "@Mas a lógica",
+      "until": "@Eu realmente",
       "texto": "OS JUROS COMPOSTOS SÃO A OITAVA MARAVILHA DO MUNDO",
-      "autor": "ALBERT EINSTEIN",
-      "selo": "ATRIBUÍDA",
-      "seloAt": "@não sei se"
+      "autor": "ALBERT EINSTEIN"
     },
     {
       "kind": "mascot",
       "at": "@Eu realmente",
-      "until": "@Mas a lógica",
-      "placement": "corner-right",
+      "until": "@os juros#2",
+      "placement": "center",
+      "entra": "corte",
       "poses": [
         {
           "at": "@Eu realmente",
@@ -244,27 +237,7 @@
         {
           "at": "@se foi ele",
           "pose": "../../../../public/mascote/fox4.png"
-        }
-      ]
-    },
-    {
-      "kind": "cena",
-      "tipo": "piada",
-      "at": "@se foi ele",
-      "until": "@Mas a lógica",
-      "dura": 0.9,
-      "texto": "FONTE: GRUPO DA FAMÍLIA",
-      "tam": 60,
-      "x": 0.44,
-      "y": 0.9
-    },
-    {
-      "kind": "mascot",
-      "at": "@Mas a lógica",
-      "until": "@os juros#2",
-      "placement": "left-third",
-      "entra": "lado",
-      "poses": [
+        },
         {
           "at": "@Mas a lógica",
           "pose": "../../../../public/mascote/fox1-antigo.webm"

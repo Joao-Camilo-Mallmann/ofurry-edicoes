@@ -445,67 +445,49 @@
       ]
     },
     {
-      "kind": "cena",
-      "tipo": "foto3d",
+      "kind": "broll",
       "at": "@A maioria",
       "until": "@números redondos",
-      "src": "../../acervo/fotos3d/multidao-atravessando-rua.png",
-      "depth": "../../acervo/fotos3d/depth/multidao-atravessando-rua-depth.png",
-      "camera": [
-        {
-          "at": "@A maioria",
-          "zoom": 1.08,
-          "px": -0.45
-        },
-        {
-          "at": "@A maioria+0.01",
-          "zoom": 1.2,
-          "px": 0.45,
-          "dur": 2.2
-        }
+      "src": "../../acervo/broll/pessoas-andando-predio.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1,
+        1.12
       ]
     },
     {
       "kind": "cena",
-      "tipo": "grafico",
+      "tipo": "palco",
+      "atores": [
+        {
+          "id": "calc",
+          "icone": "calculator",
+          "tam": 320,
+          "entra": "cair",
+          "riscaAt": "@nunca calcula",
+          "riscaComo": "carimbo",
+          "riscaTexto": "NUNCA",
+          "keys": [
+            {
+              "at": "@números redondos",
+              "x": 0.5,
+              "y": 0.42
+            }
+          ]
+        }
+      ],
+      "textos": [
+        {
+          "at": "@ponto de virada",
+          "texto": "O PONTO DE VIRADA",
+          "x": 0.5,
+          "y": 0.84,
+          "tam": 80,
+          "cor": "hl"
+        }
+      ],
       "at": "@números redondos",
-      "until": "@E continua",
-      "modo": "rendimento",
-      "meses": 130,
-      "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
-      "viradaTexto": "A VIRADA · R$ 177 MIL",
-      "revela": [
-        {
-          "at": "@números redondos",
-          "mes": 0
-        },
-        {
-          "at": "@números redondos+0.05",
-          "mes": 80,
-          "dur": 1
-        },
-        {
-          "at": "@nunca calcula",
-          "mes": 126,
-          "dur": 1.8
-        }
-      ],
-      "vista": [
-        {
-          "at": 0,
-          "x": 130,
-          "y": 1200
-        }
-      ],
-      "marcos": [
-        {
-          "mes": 80,
-          "at": "@números redondos+1.1",
-          "rotulo": "R$ 100 MIL GUARDADOS",
-          "cor": "text",
-          "lado": "baixo"
-        }
-      ]
+      "until": "@E continua"
     },
     {
       "kind": "cena",

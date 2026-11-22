@@ -28,6 +28,7 @@ function useSubtitle(sheet: BeatSheet): string | undefined {
 const BackdropLayer: React.FC<{ backdrop: Backdrop }> = ({ backdrop }) => {
   if (backdrop === 'transparent') return null;
   // 'preto-puro' e 'grade-video' sao do HyperFrames; no Remotion antigo viram preto e grade
+  if (backdrop === 'cinza') return <AbsoluteFill style={{ backgroundColor: '#6e6e6e' }} />;
   if (backdrop === 'black' || backdrop === 'preto-puro') return <AbsoluteFill style={{ backgroundColor: House.colors.bg }} />;
   if (backdrop === 'grid' || backdrop === 'grade-video') return <GridFloor />;
   if (backdrop === 'stars') return <Starfield />;

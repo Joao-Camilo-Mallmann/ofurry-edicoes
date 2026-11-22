@@ -12,7 +12,7 @@ import type { HouseTone } from './theme';
 
 export type MascotPlacement = 'auto' | 'center' | 'left-third' | 'right-third' | 'corner-left' | 'corner-right';
 
-export type Backdrop = 'black' | 'preto-puro' | 'grade-video' | 'grid' | 'stars' | 'transparent' | { blur: string; video?: boolean };
+export type Backdrop = 'black' | 'preto-puro' | 'cinza' | 'grade-video' | 'grid' | 'stars' | 'transparent' | { blur: string; video?: boolean };
 
 export type Beat =
   | { kind: 'type-on'; at: number; until: number; text: string; eraseAt?: number; italic?: boolean }
@@ -26,7 +26,7 @@ export type Beat =
   | { kind: 'thumb'; at: number; until: number; src: string }
   | { kind: 'broll'; at: number; until: number; src: string; video?: boolean; de?: number; zoom?: [number, number]; entra?: 'flash' | 'zoom' | 'whip' | 'corte'; moldura?: boolean; escurece?: number; x?: number; y?: number }
   /** Cena de dados/metafora do kit hf/kit/ofurry-cenas.js (so HyperFrames). Parametros por tipo: ver o arquivo. */
-  | { kind: 'cena'; at: number; until: number; tipo: 'grafico' | 'tabela' | 'balanca' | 'maquina' | 'maquina3d' | 'calendario' | 'formula' | 'barra' | 'comparar' | 'lista' | 'numeros' | 'citacao' | 'fim' | 'palco' | 'piada' | 'foto3d' | 'barras' | 'rosca' | 'contador' | 'corrida' | 'etapas' | 'marca'; [param: string]: unknown };
+  | { kind: 'cena'; at: number; until: number; tipo: 'grafico' | 'tabela' | 'balanca' | 'maquina' | 'maquina3d' | 'calendario' | 'formula' | 'barra' | 'comparar' | 'lista' | 'numeros' | 'citacao' | 'fim' | 'palco' | 'piada' | 'foto3d' | 'barras' | 'rosca' | 'contador' | 'corrida' | 'etapas' | 'radio' | 'paoQueijo' | 'marca'; [param: string]: unknown };
 
 export interface CaptionWindow {
   from: number;
@@ -52,6 +52,8 @@ export interface BeatSheet {
   cardOptions?: CardOptions;
   /** Janelas em que a legenda cinetica aparece. Omitir = o video inteiro. */
   captions?: CaptionWindow[];
+  /** Tela 100% preta por cima de tudo, inclusive textura e legenda (assinatura so com a voz). */
+  telaPreta?: { de: number; ate: number }[];
   /** Troca de fundo ao longo do tempo. */
   backdrops: { at: number; backdrop: Backdrop }[];
   beats: Beat[];

@@ -124,53 +124,42 @@
     },
     {
       "kind": "cena",
-      "tipo": "grafico",
-      "at": "@E a partir do sexto",
-      "until": "@Guarde esse número",
-      "modo": "rendimento",
-      "meses": 130,
-      "titulo": "QUANTO O DINHEIRO RENDE POR MÊS",
-      "revela": [
+      "tipo": "calendario",
+      "titulo": "MÊS A MÊS",
+      "meses": 120,
+      "preenche": [
         {
-          "at": 0,
-          "mes": 60
+          "at": "@E a partir do sexto",
+          "m": 60
         },
         {
           "at": "@sexto",
-          "mes": 73,
-          "dur": 4.5
+          "m": 73,
+          "dur": 3.8
         },
         {
           "at": "@E também",
-          "mes": 80,
-          "dur": 1.6
-        }
-      ],
-      "vista": [
-        {
-          "at": 0,
-          "x": 96,
-          "y": 1200
+          "m": 80,
+          "dur": 1.4
         }
       ],
       "marcos": [
         {
           "mes": 73,
           "at": "@primeiros 500",
-          "rotulo": "R$ 500 · METADE DO APORTE",
           "cor": "hl",
-          "lado": "esq",
+          "rotulo": "R$ 500 POR MÊS",
           "ate": "@E também"
         },
         {
           "mes": 80,
           "at": "@primeiros 100 mil",
-          "rotulo": "R$ 100 MIL GUARDADOS",
-          "cor": "text",
-          "lado": "baixo"
+          "cor": "gain",
+          "rotulo": "R$ 100 MIL"
         }
       ],
-      "perspectiva": true
+      "at": "@E a partir do sexto",
+      "until": "@Guarde esse número"
     },
     {
       "kind": "cena",
@@ -332,20 +321,6 @@
         1,
         1.15
       ]
-    },
-    {
-      "kind": "broll",
-      "at": "@trabalhar",
-      "until": "@a seu favor",
-      "src": "../../acervo/broll/engrenagens-relogio.mp4",
-      "entra": "whip",
-      "zoom": [
-        1,
-        1.1
-      ],
-      "moldura": true,
-      "x": 0.5,
-      "y": 0.42
     }
   ],
   "camera": [

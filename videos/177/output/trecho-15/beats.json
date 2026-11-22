@@ -270,7 +270,9 @@
           ],
           "riscaAt": "@ou nenhuma+0.35",
           "sai": "@esconde+0.5",
-          "saiComo": "encolhe"
+          "saiComo": "encolhe",
+          "riscaComo": "carimbo",
+          "riscaTexto": "NEM VEM"
         },
         {
           "id": "form",
@@ -295,7 +297,8 @@
           "riscaAt": "@que o mercado",
           "sai": "@esconde+0.5",
           "entra": "girar",
-          "saiComo": "encolhe"
+          "saiComo": "encolhe",
+          "riscaComo": "x"
         },
         {
           "id": "merc",
@@ -501,7 +504,8 @@
           "sai": "@mirar",
           "entra": "elastico",
           "saiComo": "explode",
-          "arco": 0.15
+          "arco": 0.15,
+          "riscaComo": "cai"
         },
         {
           "id": "alvo",
@@ -549,60 +553,83 @@
       ]
     },
     {
-      "kind": "cena",
-      "tipo": "foto3d",
+      "kind": "broll",
       "at": "@nessa caminhada",
       "until": "@perseguir",
-      "src": "../../acervo/fotos3d/familia-caminhando-natureza.png",
-      "depth": "../../acervo/fotos3d/depth/familia-caminhando-natureza-depth.png",
-      "camera": [
-        {
-          "at": "@nessa caminhada",
-          "zoom": 1.08,
-          "px": -0.45
-        },
-        {
-          "at": "@nessa caminhada+0.01",
-          "zoom": 1.22,
-          "px": 0.45,
-          "dur": 2.3
-        }
+      "src": "../../acervo/broll/ciclista-no-parque.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1,
+        1.12
       ]
     },
     {
       "kind": "cena",
-      "tipo": "grafico",
-      "at": "@Ou qual",
-      "until": "@E para quem",
-      "modo": "rendimento",
-      "meses": 132,
-      "revela": [
+      "tipo": "palco",
+      "atores": [
         {
-          "at": 0,
-          "mes": 0
+          "id": "voce",
+          "icone": "user",
+          "rotulo": "VOCÊ",
+          "tam": 230,
+          "entra": "pop",
+          "keys": [
+            {
+              "at": "@Ou qual",
+              "x": 0.22,
+              "y": 0.46
+            }
+          ]
         },
         {
-          "at": "@Ou qual+0.1",
-          "mes": 124,
-          "dur": 2.6
+          "id": "cofre",
+          "icone": "piggy-bank",
+          "cor": "gain",
+          "rotulo": "PATRIMÔNIO",
+          "tam": 280,
+          "entra": "cair",
+          "pulsaAt": [
+            "@aportar por"
+          ],
+          "keys": [
+            {
+              "at": "@seu patrimônio",
+              "x": 0.76,
+              "y": 0.46
+            }
+          ]
         }
       ],
-      "vista": [
+      "fluxos": [
         {
-          "at": 0,
-          "x": 132,
-          "y": 1200
+          "de": "cofre",
+          "para": "voce",
+          "at": "@aportar por",
+          "ate": "@aportar por+1.0",
+          "icone": "coins",
+          "cor": "gain",
+          "tam": 90,
+          "por": 5
         }
       ],
-      "viradaTexto": "APORTA POR VOCÊ",
-      "perspectiva": true,
-      "rotuloCabeca": false
+      "textos": [
+        {
+          "at": "@aportar por",
+          "texto": "APORTA POR VOCÊ",
+          "x": 0.5,
+          "y": 0.17,
+          "tam": 90,
+          "cor": "gain"
+        }
+      ],
+      "at": "@Ou qual",
+      "until": "@E para quem"
     },
     {
       "kind": "broll",
       "at": "@E para quem",
       "until": "@todos os meses",
-      "src": "../../acervo/broll/notas-caindo-fundo-escuro.mp4",
+      "src": "../../acervo/broll/relogio-parede-fundo-preto.mp4",
       "entra": "zoom",
       "zoom": [
         1.08,

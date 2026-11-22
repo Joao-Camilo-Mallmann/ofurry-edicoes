@@ -262,7 +262,8 @@
           ],
           "riscaAt": "@exato+0.1",
           "sai": "@exato+0.6",
-          "saiComo": "explode"
+          "saiComo": "explode",
+          "riscaComo": "risco"
         }
       ]
     },
@@ -279,19 +280,6 @@
       "tam": 230,
       "rotulo": "BEM SIMILAR",
       "rotuloAt": "@bem similar"
-    },
-    {
-      "kind": "broll",
-      "at": "@Bom não vai",
-      "until": "@basicamente",
-      "src": "../../acervo/broll/detalhes-de-notas-sequencia-rapida.mp4",
-      "entra": "whip",
-      "moldura": true,
-      "zoom": [
-        1.02,
-        1.12
-      ],
-      "escurece": 0.55
     },
     {
       "kind": "cena",

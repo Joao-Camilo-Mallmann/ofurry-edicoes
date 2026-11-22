@@ -493,7 +493,8 @@
             }
           ],
           "riscaAt": "@magia+0.15",
-          "entra": "cair"
+          "entra": "cair",
+          "riscaComo": "apaga"
         }
       ],
       "textos": [

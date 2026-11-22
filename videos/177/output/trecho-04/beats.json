@@ -9,9 +9,9 @@
   },
   "captions": [
     {
-      "from": "@E essa é-0.1",
+      "from": "@a fase mais-0.1",
       "until": "@Você coloca-0.1",
-      "entry": "whip",
+      "entry": "pop",
       "estilo": "invertida"
     },
     {
@@ -47,7 +47,7 @@
       "backdrop": "black"
     },
     {
-      "at": "@E essa é",
+      "at": "@a fase mais",
       "backdrop": "grade-video"
     },
     {
@@ -76,13 +76,6 @@
     }
   ],
   "sfx": [
-    {
-      "at": "@desiste",
-      "file": "@sfx/Doors and Drawers/Close Door 01.wav",
-      "gain": -22,
-      "len": 0.8,
-      "fadeOut": 0.3
-    },
     {
       "at": "@gigantesco",
       "file": "@sfx/Mechanical/Gadget 05.wav",
@@ -137,7 +130,7 @@
       "kind": "cena",
       "tipo": "palco",
       "at": "@inicio",
-      "until": "@E essa é",
+      "until": "@a fase mais",
       "atores": [
         {
           "id": "maioria",
@@ -156,7 +149,7 @@
               "x": 0.78,
               "s": 0.4,
               "o": 0,
-              "dur": 0.35
+              "dur": 0.9
             }
           ]
         },
@@ -194,7 +187,7 @@
       "at": "@a fase mais",
       "until": "@Você coloca",
       "src": "../../acervo/broll/mulher-anotando-contas.mp4",
-      "entra": "flash",
+      "entra": "zoom",
       "zoom": [
         1,
         1.12
@@ -265,7 +258,8 @@
               "x": 0.75,
               "y": 0.52
             }
-          ]
+          ],
+          "riscaComo": "cai"
         }
       ],
       "setas": [
@@ -340,7 +334,8 @@
               "x": 0.5,
               "y": 0.42
             }
-          ]
+          ],
+          "riscaComo": "risco"
         },
         {
           "id": "porta",

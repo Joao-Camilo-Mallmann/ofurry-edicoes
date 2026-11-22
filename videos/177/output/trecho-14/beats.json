@@ -213,7 +213,8 @@
           "riscaAt": "@aporta+0.3",
           "sai": "@aporta+0.6",
           "entra": "cair",
-          "saiComo": "explode"
+          "saiComo": "explode",
+          "riscaComo": "x"
         }
       ],
       "textos": [
@@ -549,7 +550,8 @@
           "riscaAt": "@mas sim",
           "sai": "@do calendário-0.3",
           "entra": "whip",
-          "saiComo": "voa"
+          "saiComo": "voa",
+          "riscaComo": "cai"
         }
       ]
     },

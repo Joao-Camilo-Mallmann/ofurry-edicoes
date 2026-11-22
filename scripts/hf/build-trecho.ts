@@ -171,6 +171,8 @@ function buildBackdrops(): string {
     // "preto-puro" mantem o preto chapado (respiro raro). "grade-video": grade em perspectiva filmada.
     const glow = `<div class="fundo-glow" id="${id}-glow"></div>`;
     if (kind === 'preto-puro') inner = `<div class="fundo-black"></div>`;
+    // "cinza": comentario fora do roteiro (Joao, 22/11/2026): cinza chapado, so o Furry grande no centro
+    else if (kind === 'cinza') inner = `<div style="position:absolute;inset:0;background:#6e6e6e"></div>`;
     else if (kind === 'black') {
       inner = `<div class="fundo-black"></div>${glow}`;
       script += `      House.drive(tl, ${r3(start)}, ${dur}, function (t) { var T = t + ${r3(start)}; $("${id}-glow").style.backgroundPosition = (50 + Math.sin(T * 0.21) * 22).toFixed(2) + "% " + (40 + Math.cos(T * 0.17) * 18).toFixed(2) + "%, " + (50 - Math.sin(T * 0.13) * 25).toFixed(2) + "% " + (60 + Math.sin(T * 0.19) * 15).toFixed(2) + "%"; });\n`;
@@ -298,6 +300,7 @@ function estiloDe(w: CaptionWindow): CaptionWindow['estilo'] {
   });
   return furryGrande ? 'tarja' : 'invertida';
 }
+const usaRadio = () => sheet.beats.some((b) => b.kind === 'cena' && ['radio', 'paoQueijo'].includes((b as { tipo?: string }).tipo ?? ''));
 const temInvertida = () => (sheet.captions ?? []).some((w) => estiloDe(w) === 'invertida');
 
 // ---------------------------------------------------------------------------
@@ -464,9 +467,10 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
       // (o loop .webm ja respira e mexe o rabo).
       const ENTRADAS = ['rise', 'lado'];
       const pedida = (beat as { entra?: string }).entra;
-      const entra = pedida === 'lado' || pedida === 'rise' ? pedida : ENTRADAS[(hashStr(sheet.id) + mascotes) % ENTRADAS.length];
+      const entra = pedida === 'lado' || pedida === 'rise' || pedida === 'corte' ? pedida : ENTRADAS[(hashStr(sheet.id) + mascotes) % ENTRADAS.length];
       const lado = place > 0.5 ? 1 : -1;
-      if (entra === 'lado') script = `      tl.fromTo($("${id}-enter"), { x: ${lado * 520}, opacity: 0.2 }, { x: 0, opacity: 1, duration: ${r3(10 / FPS)}, ease: "expo.out" }, 0);
+      if (entra === 'corte') script = ''; // corte seco: ja esta la no primeiro quadro
+      else if (entra === 'lado') script = `      tl.fromTo($("${id}-enter"), { x: ${lado * 520}, opacity: 0.2 }, { x: 0, opacity: 1, duration: ${r3(10 / FPS)}, ease: "expo.out" }, 0);
 `;
       else script = `      House.entry(tl, $("${id}-enter"), "rise", 0, { distance: 260, frames: 8 });
 `;
@@ -592,7 +596,7 @@ function cameraEvents(beatIds: { id: string; beat: Beat }[]): CamEvt[] {
   const evs: CamEvt[] = [...(cfg.camera ?? [])];
   if (cfg.cameraAuto !== false) {
     const h = hashStr(sheet.id);
-    const ats = [...new Set(beatIds.filter(({ beat }) => beat.kind !== 'mascot' && !(beat.kind === 'cena' && (beat as { tipo?: string }).tipo === 'piada')).map(({ beat }) => r3(beat.at)))].filter((t) => t > 0.05).sort((a, b) => a - b);
+    const ats = [...new Set(beatIds.filter(({ beat }) => beat.kind !== 'mascot' && !(beat.kind === 'cena' && ['piada', 'paoQueijo'].includes((beat as { tipo?: string }).tipo ?? ''))).map(({ beat }) => r3(beat.at)))].filter((t) => t > 0.05).sort((a, b) => a - b);
     let last = -9;
     ats.forEach((t, k) => {
       if (t - last < 0.6) return;
@@ -680,6 +684,8 @@ function buildIndex(beatIds: { id: string; beat: Beat }[], audioSrc?: string): s
     ...(temInvertida() ? [host('legendas-inv', 0, dur, beatIds.length + 4, 99).replace('style="z-index:99"', 'style="z-index:99;mix-blend-mode:difference"')] : []),
     host('legendas', 0, dur, beatIds.length + 1, 100),
     ...(sheet.filmDust === false ? [] : [host('poeira', 0, dur, beatIds.length + 2, 200, ' data-house-backdrop')]),
+    // assinatura no preto (Joao, 22/11/2026: "sem musica, sem video, apenas um fundo preto")
+    ...(sheet.telaPreta ?? []).map((t, k) => `      <div id="tela-preta-${k}" class="clip" data-start="${r3(t.de)}" data-duration="${r3(t.ate - t.de)}" data-track-index="${900 + k}" data-layout-ignore style="position:absolute;inset:0;z-index:300;background:#000"></div>`),
   ];
   return `<!doctype html>
 <!-- Gerado por scripts/hf/build-trecho.ts a partir de ${basename(beatsPath)} (${sheet.id}). -->
@@ -690,7 +696,7 @@ function buildIndex(beatIds: { id: string; beat: Beat }[], audioSrc?: string): s
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <script src="assets/house/house-runtime.js"></script>
     <script src="assets/house/ofurry-cenas.js"></script>
-    ${existsSync(join(KIT, 'maquina3d.js')) ? '<script src="assets/house/maquina3d.js"></script>' : ''}
+    ${existsSync(join(KIT, 'maquina3d.js')) ? '<script src="assets/house/maquina3d.js"></script>' : ''}${usaRadio() ? '<script src="assets/house/radio.js"></script>' : ''}
     <link rel="stylesheet" href="assets/house/house.css" />
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -731,6 +737,7 @@ async function main() {
   copyFileSync(join(KIT, 'house-runtime.js'), join(ASSETS, 'house', 'house-runtime.js'));
   copyFileSync(join(KIT, 'ofurry-cenas.js'), join(ASSETS, 'house', 'ofurry-cenas.js'));
   if (existsSync(join(KIT, 'maquina3d.js'))) copyFileSync(join(KIT, 'maquina3d.js'), join(ASSETS, 'house', 'maquina3d.js'));
+  if (usaRadio()) copyFileSync(join(KIT, 'radio.js'), join(ASSETS, 'house', 'radio.js'));
   copyFileSync(join(ROOT, 'node_modules', '@fontsource', 'bebas-neue', 'files', 'bebas-neue-latin-400-normal.woff2'), join(ASSETS, 'fonts', 'bebas-neue-400.woff2'));
 
   let audioSrc: string | undefined;

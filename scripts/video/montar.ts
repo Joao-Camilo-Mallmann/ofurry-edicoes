@@ -110,9 +110,38 @@ const vozGanho = (() => {
   console.log(`Narracao em ${Iv.toFixed(1)} LUFS${Math.abs(g) > 0.3 ? ` -> ganho linear de ${g >= 0 ? '+' : ''}${g.toFixed(1)} dB na voz` : ''}`);
   return Math.abs(g) > 0.3 ? g : 0;
 })();
+// Efeito pontual na voz, pedido na cena: "vozEfeito": [{ "de": "@frase", "ate": "@frase", "tipo": "radio" }] no beats.json.
+// "radio": locutor de AM (tom um pouco mais grave + faixa estreita). O resto da fala segue sem nenhum tratamento.
+const vozEfeitos = (s: Seg): { de: number; ate: number }[] => {
+  const bp = join(s.dir, 'beats.json');
+  if (!existsSync(bp)) return [];
+  const raw = JSON.parse(readFileSync(bp, 'utf8')) as { vozEfeito?: unknown[] };
+  if (!raw.vozEfeito?.length) return [];
+  const wp = join(s.dir, 'midia', 'narracao.json');
+  const words = parseWords(readFileSync(wp, 'utf8'));
+  const errs: string[] = [];
+  const list = resolveAnchorsDeep(raw.vozEfeito, words, s.dur, errs) as { de: number; ate: number }[];
+  if (errs.length) {
+    console.error(`${s.id}: vozEfeito com ancora quebrada: ${errs.join(' | ')}`);
+    process.exit(1);
+  }
+  return list;
+};
 segs.forEach((s, i) => {
   const k = addInput(s.wav);
-  filters.push(`[${k}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:${s.dur.toFixed(3)},volume=${vozGanho.toFixed(2)}dB,adelay=${Math.round(s.out0 * 1000)}:all=1[n${i}]`);
+  const base = `[${k}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:${s.dur.toFixed(3)},asetpts=PTS-STARTPTS,volume=${vozGanho.toFixed(2)}dB`;
+  const delay = `adelay=${Math.round(s.out0 * 1000)}:all=1`;
+  const efeitos = vozEfeitos(s);
+  if (!efeitos.length) {
+    filters.push(`${base},${delay}[n${i}]`);
+  } else {
+    // rampa de 15 ms nas emendas para nao estalar
+    const r = efeitos.map((e) => `clip(min((t-${e.de.toFixed(3)})/0.015,(${e.ate.toFixed(3)}-t)/0.015),0,1)`).join('+');
+    filters.push(`${base},asplit=2[nd${i}][nw${i}]`);
+    filters.push(`[nd${i}]asetnsamples=n=32,volume='1-(${r})':eval=frame[ndd${i}]`);
+    filters.push(`[nw${i}]asetrate=48000*0.92,aresample=48000,atempo=1/0.92,highpass=f=380,lowpass=f=3200,asoftclip=type=tanh,volume=3dB,asetnsamples=n=32,volume='${r}':eval=frame[nww${i}]`);
+    filters.push(`[ndd${i}][nww${i}]amix=inputs=2:normalize=0:duration=first,${delay}[n${i}]`);
+  }
   labels.push(`[n${i}]`);
 });
 

@@ -450,7 +450,9 @@
               "x": 0.3,
               "y": 0.5
             }
-          ]
+          ],
+          "riscaComo": "carimbo",
+          "riscaTexto": "NÃO É"
         },
         {
           "id": "clique",
@@ -514,58 +516,93 @@
     },
     {
       "kind": "cena",
-      "tipo": "grafico",
-      "at": "@Mas antes de eu",
-      "until": "@fim",
-      "modo": "patrimonio",
-      "meses": 130,
-      "rotuloCabeca": false,
-      "revela": [
+      "tipo": "palco",
+      "atores": [
         {
-          "at": "@Mas antes de eu",
-          "mes": 0
-        },
-        {
-          "at": "@Mas antes de eu+0.1",
-          "mes": 130,
-          "dur": 2.2
-        },
-        {
-          "at": "@o que acontece",
-          "mes": 36,
-          "dur": 1.4
-        }
-      ],
-      "vista": [
-        {
-          "at": 0,
-          "x": 130,
-          "y": 200000
-        },
-        {
-          "at": "@o que acontece",
-          "x": 36,
-          "y": 50000,
-          "dur": 1.4
-        }
-      ],
-      "marcos": [
-        {
-          "mes": 124,
-          "at": "@esse número vem",
-          "rotulo": "R$ 177 MIL",
+          "id": "duvida",
+          "icone": "circle-question-mark",
           "cor": "hl",
-          "lado": "esq",
-          "ate": "@o que acontece"
+          "tam": 280,
+          "entra": "pop",
+          "sai": "@você primeiro",
+          "saiComo": "encolhe",
+          "pulsaAt": [
+            "@esse número vem"
+          ],
+          "keys": [
+            {
+              "at": "@Mas antes de eu",
+              "x": 0.5,
+              "y": 0.42
+            }
+          ]
         },
         {
-          "mes": 12,
-          "at": "@longe dele",
-          "rotulo": "LONGE DELE",
-          "cor": "text",
-          "lado": "cima"
+          "id": "voce",
+          "icone": "user",
+          "rotulo": "VOCÊ",
+          "tam": 220,
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@você primeiro",
+              "x": 0.1,
+              "y": 0.47
+            },
+            {
+              "at": "@você primeiro+0.1",
+              "x": 0.24,
+              "dur": 3.4
+            }
+          ]
+        },
+        {
+          "id": "meta",
+          "icone": "flag",
+          "cor": "hl",
+          "rotulo": "R$ 177 MIL",
+          "tam": 240,
+          "entra": "cair",
+          "pulsaAt": [
+            "@longe dele"
+          ],
+          "keys": [
+            {
+              "at": "@você primeiro+0.3",
+              "x": 0.84,
+              "y": 0.45
+            }
+          ]
         }
-      ]
+      ],
+      "setas": [
+        {
+          "de": "voce",
+          "para": "meta",
+          "at": "@quem ainda",
+          "cor": "text"
+        }
+      ],
+      "textos": [
+        {
+          "at": "@explicar de onde",
+          "ate": "@você primeiro",
+          "texto": "DE ONDE VEM?",
+          "x": 0.5,
+          "y": 0.82,
+          "tam": 84
+        },
+        {
+          "at": "@longe dele",
+          "texto": "AINDA LONGE",
+          "x": 0.5,
+          "y": 0.17,
+          "tam": 90,
+          "cor": "hl"
+        }
+      ],
+      "at": "@Mas antes de eu",
+      "until": "@fim"
     }
   ]
 }

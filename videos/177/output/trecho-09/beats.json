@@ -353,32 +353,38 @@
     },
     {
       "kind": "cena",
-      "tipo": "grafico",
+      "tipo": "palco",
+      "atores": [
+        {
+          "id": "marco",
+          "icone": "flag",
+          "cor": "hl",
+          "tam": 320,
+          "entra": "girar",
+          "pulsaAt": [
+            "@virada"
+          ],
+          "keys": [
+            {
+              "at": "@desse ponto",
+              "x": 0.5,
+              "y": 0.42
+            }
+          ]
+        }
+      ],
+      "textos": [
+        {
+          "at": "@ponto de virada",
+          "texto": "PONTO DE VIRADA",
+          "x": 0.5,
+          "y": 0.84,
+          "tam": 92,
+          "cor": "hl"
+        }
+      ],
       "at": "@desse ponto",
-      "until": "@fim",
-      "perspectiva": true,
-      "modo": "rendimento",
-      "meses": 132,
-      "revela": [
-        {
-          "at": "@desse ponto",
-          "mes": 0
-        },
-        {
-          "at": "@desse ponto+0.1",
-          "mes": 124,
-          "dur": 1.5
-        }
-      ],
-      "vista": [
-        {
-          "at": 0,
-          "x": 132,
-          "y": 1200
-        }
-      ],
-      "viradaTexto": "PONTO DE VIRADA",
-      "rotuloCabeca": false
+      "until": "@fim"
     },
     {
       "kind": "cena",

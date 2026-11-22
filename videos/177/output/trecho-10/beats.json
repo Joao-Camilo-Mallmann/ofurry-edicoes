@@ -40,11 +40,6 @@
       "estilo": "invertida"
     },
     {
-      "from": "@pão de queijo-0.1",
-      "until": "@e é isso-0.1",
-      "entry": "pop"
-    },
-    {
       "from": "@No final-0.1",
       "until": "@do ano-0.1",
       "entry": "whip",
@@ -367,7 +362,7 @@
       "kind": "cena",
       "tipo": "palco",
       "at": "@Literalmente",
-      "until": "@pão de queijo",
+      "until": "@No final",
       "atores": [
         {
           "id": "cofre",
@@ -402,41 +397,15 @@
       ]
     },
     {
-      "kind": "broll",
-      "at": "@pão de queijo",
-      "until": "@e é isso",
-      "src": "../../acervo/broll/cafe-da-manha-pao.mp4",
-      "entra": "zoom",
-      "zoom": [
-        1.1,
-        1.22
-      ]
-    },
-    {
       "kind": "cena",
-      "tipo": "palco",
-      "at": "@e é isso",
-      "until": "@No final",
-      "atores": [
-        {
-          "id": "pao",
-          "icone": "croissant",
-          "cor": "hl",
-          "tam": 280,
-          "rotulo": "É ISSO",
-          "entra": "cair",
-          "keys": [
-            {
-              "at": "@e é isso",
-              "x": 0.5,
-              "y": 0.42
-            }
-          ],
-          "pulsaAt": [
-            "@isso"
-          ]
-        }
-      ]
+      "tipo": "paoQueijo",
+      "at": "@pão de queijo",
+      "until": "@e é isso+0.35",
+      "src": "../../acervo/pao-de-queijo.png",
+      "x": 0.33,
+      "y": 0.56,
+      "tam": 480,
+      "rot": -8
     },
     {
       "kind": "cena",

@@ -158,7 +158,7 @@
       "kind": "broll",
       "at": "@inicio",
       "until": "@E no momento",
-      "src": "../../acervo/broll/engrenagens-relogio.mp4",
+      "src": "../../acervo/broll/ampulheta-e-relogio.mp4",
       "entra": "flash",
       "zoom": [
         1,
@@ -167,42 +167,60 @@
     },
     {
       "kind": "cena",
-      "tipo": "grafico",
-      "at": "@E no momento",
-      "until": "@Cada ano que",
-      "modo": "rendimento",
-      "meses": 250,
-      "rotuloCabeca": false,
-      "viradaTexto": "A VIRADA",
-      "revela": [
+      "tipo": "palco",
+      "atores": [
         {
-          "at": 0,
-          "mes": 100
+          "id": "ritmo",
+          "icone": "gauge",
+          "cor": "hl",
+          "tam": 320,
+          "entra": "elastico",
+          "pulsaAt": [
+            "@o ritmo",
+            "@mudar"
+          ],
+          "keys": [
+            {
+              "at": "@E no momento",
+              "x": 0.5,
+              "y": 0.42
+            }
+          ]
         },
         {
-          "at": "@cruzar essa linha",
-          "mes": 132,
-          "dur": 1.2
-        },
-        {
-          "at": "@mudar de categoria",
-          "mes": 250,
-          "dur": 1.4
+          "id": "foguete",
+          "icone": "rocket",
+          "cor": "gain",
+          "tam": 180,
+          "balanca": false,
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@mudar",
+              "x": 0.14,
+              "y": 0.82
+            },
+            {
+              "at": "@mudar+0.02",
+              "x": 0.88,
+              "y": 0.14,
+              "dur": 0.8
+            }
+          ]
         }
       ],
-      "vista": [
+      "textos": [
         {
-          "at": 0,
-          "x": 132,
-          "y": 1200
-        },
-        {
-          "at": "@ritmo vai",
-          "x": 250,
-          "y": 3600,
-          "dur": 1.4
+          "at": "@de categoria",
+          "texto": "OUTRA CATEGORIA",
+          "x": 0.5,
+          "y": 0.85,
+          "tam": 84,
+          "cor": "hl"
         }
-      ]
+      ],
+      "at": "@E no momento",
+      "until": "@Cada ano que"
     },
     {
       "kind": "cena",
@@ -643,7 +661,8 @@
               "dur": 0.25
             }
           ],
-          "riscaAt": "@crise"
+          "riscaAt": "@crise",
+          "riscaComo": "x"
         }
       ]
     },
@@ -704,7 +723,8 @@
               "y": 0.5
             }
           ],
-          "riscaAt": "@seu trabalho+0.1"
+          "riscaAt": "@seu trabalho+0.1",
+          "riscaComo": "risco"
         }
       ],
       "fluxos": [

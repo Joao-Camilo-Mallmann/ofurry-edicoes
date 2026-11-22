@@ -146,7 +146,7 @@
       "kind": "broll",
       "at": "@inicio",
       "until": "@são só três",
-      "src": "../../acervo/broll/mulher-anotando-contas.mp4",
+      "src": "../../acervo/broll/reuniao-de-trabalho.mp4",
       "entra": "flash",
       "zoom": [
         1,
@@ -253,7 +253,7 @@
       "kind": "broll",
       "at": "@Você vai pegar",
       "until": "@todo o seu",
-      "src": "../../acervo/broll/maos-contando-moedas.mp4",
+      "src": "../../acervo/broll/mercado-timelapse.mp4",
       "entra": "zoom",
       "zoom": [
         1.04,
@@ -301,40 +301,57 @@
     },
     {
       "kind": "cena",
-      "tipo": "grafico",
-      "at": "@Você tem a sua",
-      "until": "@Só uma coisa",
-      "modo": "rendimento",
-      "meses": 132,
-      "rotuloCabeca": false,
-      "viradaTexto": "PONTO DE VIRADA",
-      "revela": [
+      "tipo": "palco",
+      "atores": [
         {
-          "at": 0,
-          "mes": 0
+          "id": "voce",
+          "icone": "user",
+          "rotulo": "VOCÊ",
+          "tam": 230,
+          "entra": "whip",
+          "keys": [
+            {
+              "at": "@Você tem a sua",
+              "x": 0.18,
+              "y": 0.46
+            }
+          ]
         },
         {
-          "at": "@Você tem a sua+0.05",
-          "mes": 132,
-          "dur": 1.8
+          "id": "meta",
+          "icone": "flag",
+          "cor": "hl",
+          "rotulo": "VIRADA",
+          "tam": 240,
+          "entra": "elastico",
+          "keys": [
+            {
+              "at": "@real distância",
+              "x": 0.82,
+              "y": 0.46
+            }
+          ]
         }
       ],
-      "vista": [
+      "setas": [
         {
-          "at": 0,
-          "x": 132,
-          "y": 1200
+          "de": "voce",
+          "para": "meta",
+          "at": "@real distância+0.2",
+          "cor": "hl"
         }
       ],
-      "marcos": [
+      "textos": [
         {
-          "mes": 40,
           "at": "@real distância",
-          "rotulo": "VOCÊ HOJE",
-          "cor": "info",
-          "lado": "cima"
+          "texto": "SUA DISTÂNCIA",
+          "x": 0.5,
+          "y": 0.17,
+          "tam": 90
         }
-      ]
+      ],
+      "at": "@Você tem a sua",
+      "until": "@Só uma coisa"
     },
     {
       "kind": "cena",
@@ -394,7 +411,8 @@
               "dur": 0.2
             }
           ],
-          "riscaAt": "@aleatório+0.15"
+          "riscaAt": "@aleatório+0.15",
+          "riscaComo": "apaga"
         }
       ],
       "setas": [

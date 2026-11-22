@@ -52,7 +52,7 @@
     },
     {
       "from": "@E meu Deus-0.1",
-      "until": "@Bom eu sou-0.1",
+      "until": "@Bom eu sou-0.3",
       "entry": "pop",
       "y": 0.72
     }
@@ -155,7 +155,9 @@
               "dur": 0.25
             }
           ],
-          "riscaAt": "@aleatório+0.35"
+          "riscaAt": "@aleatório+0.35",
+          "riscaComo": "carimbo",
+          "riscaTexto": "NEM TANTO"
         },
         {
           "id": "cabeca",
@@ -564,8 +566,8 @@
     {
       "kind": "mascot",
       "at": "@E meu Deus",
-      "until": "@Bom eu sou",
-      "placement": "left-third",
+      "until": "@Bom eu sou-0.3",
+      "placement": "center",
       "entra": "lado",
       "canto": false,
       "poses": [
@@ -578,31 +580,6 @@
           "pose": "../../../../public/mascote/fox4.png"
         }
       ]
-    },
-    {
-      "kind": "mascot",
-      "at": "@Bom eu sou",
-      "until": "@aí>+0.6",
-      "placement": "right-third",
-      "entra": "rise",
-      "nameTag": false,
-      "poses": [
-        {
-          "at": "@Bom eu sou",
-          "pose": "../../../../public/mascote/fox2.png"
-        }
-      ],
-      "canto": false
-    },
-    {
-      "kind": "cena",
-      "tipo": "marca",
-      "at": "@eu sou o Furry",
-      "until": "@aí>+0.6",
-      "src": "@assets/Furry/Icon Minimalista.png",
-      "texto": "OFURRY",
-      "x": 0.28,
-      "y": 0.62
     },
     {
       "kind": "cena",
@@ -627,5 +604,11 @@
       ]
     }
   ],
-  "cauda": 15
+  "cauda": 15,
+  "telaPreta": [
+    {
+      "de": "@Bom eu sou-0.3",
+      "ate": "@aí>+0.6"
+    }
+  ]
 }
