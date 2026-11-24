@@ -55,6 +55,12 @@ de fundo + título de seção (H8) quando o bloco tem 3+ itens.
 - **Gancho (0–30 s) é a parte mais densa do vídeo**: troca a cada ~0,7 s (~30–40 trocas), alternando B-roll real,
   palco de ícones, número, gráfico, Furry e legenda cinética, cada troca na palavra. Exemplo: `videos/177/output/trecho-01`.
 - Fundos (preto, grade, estrelas) trocam a cada ideia nova; cada trecho usa pelo menos 2.
+- **Furry (João, 24/11/2026: "troca meio sem sentido... garante que ele se enquadra sempre no meio perfeitamente...
+  sempre faz a mesma animação para direita e para baixo"):** âncora fixa: todas as poses com o centro das pernas no
+  mesmo x e a mesma base e escala (`scripts/mascote-ancoras.py` → `public/mascote/ancoras.json`, o build aplica sozinho;
+  rode de novo ao incluir pose nova). Pose só troca quando a fala muda de ideia, ironiza, pergunta ou enfatiza, e cada
+  pose fica pelo menos 2,5 s (o build engole a mais curta). Entrada gira entre subir, deslizar (lado alternado),
+  crescer e corte seco; a ida para o canto alterna esquerda e direita. Nunca espelhado, nunca 3D.
 - **Não repetir o mesmo MOVIMENTO em cenas próximas** (João, 24/11/2026: "muda o iconezinho, mas o que ela faz, o
   movimento, é igual... muito enjoado", sobretudo nos primeiros 5 minutos e "muito mais nos primeiros 30 segundos").
   Trocar o ícone não conta como novidade. Entre duas cenas vizinhas muda pelo menos um destes: tipo de cena (palco,

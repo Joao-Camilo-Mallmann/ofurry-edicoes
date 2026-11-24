@@ -27,9 +27,16 @@
     },
     {
       "from": "@Ele vai parecer",
-      "until": "@E o pior",
+      "until": "@Mas eu não errei-0.1",
       "entry": "pop",
       "y": 0.72,
+      "estilo": "invertida"
+    },
+    {
+      "from": "@Mas eu não errei-0.1",
+      "until": "@E o pior",
+      "entry": "pop",
+      "y": 0.9,
       "estilo": "invertida"
     },
     {

@@ -302,6 +302,11 @@ function estiloDe(w: CaptionWindow): CaptionWindow['estilo'] {
 }
 // arquivos extras do kit: so entram nos trechos que usam a cena (nao mexem no render dos outros)
 const KIT_EXTRA: Record<string, string> = { radio: 'radio.js', paoQueijo: 'radio.js', slam: 'gancho.js' };
+// ancora do Furry por pose (scripts/mascote-ancoras.py -> public/mascote/ancoras.json)
+const ANCORAS: Record<string, { dx: number }> = (() => {
+  const f = join(ROOT, 'public', 'mascote', 'ancoras.json');
+  return existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : {};
+})();
 const kitExtras = () => [...new Set(sheet.beats.filter((b) => b.kind === 'cena').map((b) => KIT_EXTRA[(b as { tipo?: string }).tipo ?? '']).filter(Boolean))];
 const temInvertida = () => (sheet.captions ?? []).some((w) => estiloDe(w) === 'invertida');
 
@@ -435,7 +440,11 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
       const place = { center: 0.5, 'left-third': 0.3, 'right-third': 0.7, 'corner-left': 0.11, 'corner-right': 0.89 }[beat.placement ?? 'center'];
       const small = beat.placement === 'corner-left' || beat.placement === 'corner-right';
       const h = Math.round(H * (small ? 0.34 : 0.88));
-      const poses = beat.poses?.length ? beat.poses : [{ at: beat.at, pose: beat.pose }];
+      // Joao, 24/11/2026: "ele troca meio sem sentido... podia ficar mais tempo na tela". Pose nova so se ficar >= 2,5 s
+      // na tela; a mais curta e engolida pela anterior (a troca de pose tem que valer a pena).
+      const poses0 = beat.poses?.length ? beat.poses : [{ at: beat.at, pose: beat.pose }];
+      const fimGrande = beat.shrinkAt ?? beat.until;
+      const poses = poses0.filter((p, i) => i === 0 || (i < poses0.length - 1 ? poses0[i + 1].at : fimGrande) - Math.max(beat.at, p.at) >= 2.5);
       let posesHtml = '';
       poses.forEach((p, i) => {
         const s = rel(Math.max(beat.at, p.at));
@@ -446,13 +455,16 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
         const loop = p.pose?.toLowerCase().endsWith('.webm') ? asset(p.pose) : webmRel && webmRel !== p.pose && existsSync(join(baseDir, webmRel)) ? asset(webmRel) : undefined;
         const src = loop ? undefined : asset(p.pose);
         const pid = `${id}-pose${i + 1}`;
+        // ancora fixa: todas as poses com o centro das pernas no mesmo x (scripts/mascote-ancoras.py)
+        const chave = basename((loop ? p.pose?.replace(/\.png$/i, '.webm') : p.pose) ?? '').replace(/\.(webm|png)$/i, '');
+        const dx = Math.round((ANCORAS[chave]?.dx ?? 0) * (h / 1080));
         if (loop) {
           const vw = Math.round((h * 16) / 9);
-          posesHtml += `<video id="${pid}" class="clip" src="${loop}" muted playsinline data-start="${s}" data-duration="${r3(e - s)}" data-track-index="${i + 1}" style="position:absolute;bottom:0;left:50%;height:${h}px;width:${vw}px;margin-left:${-Math.round(vw / 2)}px${beat.flip ? ';transform:scaleX(-1)' : ''}"></video>`;
+          posesHtml += `<video id="${pid}" class="clip" src="${loop}" muted playsinline data-start="${s}" data-duration="${r3(e - s)}" data-track-index="${i + 1}" style="position:absolute;bottom:0;left:50%;height:${h}px;width:${vw}px;margin-left:${-Math.round(vw / 2)}px;transform:translateX(${dx}px)"></video>`;
           return;
         }
         posesHtml += src
-          ? `<img id="${pid}" class="clip" src="${src}" alt="" data-start="${s}" data-duration="${r3(e - s)}" data-track-index="${i + 1}" style="position:absolute;bottom:0;left:50%;height:${h}px;width:${h}px;margin-left:${-Math.round(h / 2)}px;object-fit:contain${beat.flip ? ';transform:scaleX(-1)' : ''}">`
+          ? `<img id="${pid}" class="clip" src="${src}" alt="" data-start="${s}" data-duration="${r3(e - s)}" data-track-index="${i + 1}" style="position:absolute;bottom:0;left:50%;height:${h}px;width:${h}px;margin-left:${-Math.round(h / 2)}px;object-fit:contain;transform:translateX(${dx}px)">`
           : `<div id="${pid}" class="clip house-placeholder" data-start="${s}" data-duration="${r3(e - s)}" data-track-index="${i + 1}" style="position:absolute;bottom:0;left:50%;height:${h}px;width:${Math.round(h * 0.62)}px;margin-left:${-Math.round(h * 0.31)}px;border-radius:40% 40% 8% 8%;font-size:${Math.max(18, Math.round(h / 22))}px">MASCOTE ${i + 1}</div>`;
       });
       // wrapper SEM data-start: o extrator de quadros do HyperFrames nao soma o offset de um pai temporizado a um <video>
@@ -467,18 +479,24 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
       // SEM 3D no Furry (Joao, 21/11/2026: "nas cenas do meu personagem nao usar 3D nele, apenas nos outros elementos;
       // ele pode ficar mais parado no centro ou do outro lado"): entra subindo ou deslizando reto e fica parado
       // (o loop .webm ja respira e mexe o rabo).
-      const ENTRADAS = ['rise', 'lado'];
+      // Joao, 24/11/2026: "ele sempre faz a mesma animacao para direita e para baixo, da para dar uma variada": a entrada
+      // gira entre subir, deslizar (lado alternado), crescer e corte seco; a saida para o canto alterna esquerda/direita.
+      const ENTRADAS = ['rise', 'lado', 'zoom', 'corte'];
       const pedida = (beat as { entra?: string }).entra;
-      const entra = pedida === 'lado' || pedida === 'rise' || pedida === 'corte' ? pedida : ENTRADAS[(hashStr(sheet.id) + mascotes) % ENTRADAS.length];
-      const lado = place > 0.5 ? 1 : -1;
+      const vez = hashStr(sheet.id) + mascotes;
+      const entra = pedida && ['lado', 'rise', 'corte', 'zoom'].includes(pedida) ? pedida : ENTRADAS[vez % ENTRADAS.length];
+      const lado = place > 0.5 ? 1 : place < 0.5 ? -1 : vez % 2 ? 1 : -1;
       if (entra === 'corte') script = ''; // corte seco: ja esta la no primeiro quadro
+      else if (entra === 'zoom') script = `      tl.fromTo($("${id}-enter"), { scale: 0.86, opacity: 0 }, { scale: 1, opacity: 1, transformOrigin: "50% 100%", duration: ${r3(9 / FPS)}, ease: "power3.out" }, 0);
+`;
       else if (entra === 'lado') script = `      tl.fromTo($("${id}-enter"), { x: ${lado * 520}, opacity: 0.2 }, { x: 0, opacity: 1, duration: ${r3(10 / FPS)}, ease: "expo.out" }, 0);
 `;
       else script = `      House.entry(tl, $("${id}-enter"), "rise", 0, { distance: 260, frames: 8 });
 `;
       if (beat.nameTag) script += `      House.entry(tl, $("${id}-tag-in"), "pop", 0.4);\n`;
       if (beat.shrinkAt !== undefined) {
-        const tx = Math.round(0.89 * W - place * W);
+        const canto = place !== 0.5 ? (place > 0.5 ? 0.89 : 0.11) : vez % 2 ? 0.11 : 0.89;
+        const tx = Math.round(canto * W - place * W);
         script += `      tl.fromTo($("${id}-pos"), { x: 0, scale: 1 }, { x: ${tx}, scale: 0.38, transformOrigin: "50% 100%", duration: ${r3(8 / FPS)}, ease: "power3.out" }, ${rel(beat.shrinkAt)});\n`;
       }
       break;
