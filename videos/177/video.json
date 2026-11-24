@@ -78,95 +78,95 @@
       "id": "trecho-10",
       "titulo": "A simulação: mês 2 e ano 1",
       "inicio": 338.1,
-      "fim": 386.05,
+      "fim": 386.145,
       "bloco": "A JORNADA DOS 10 ANOS",
       "de": "Vamos fazer aqui um exercício"
     },
     {
       "id": "trecho-11",
       "titulo": "Anos 2 a 5: a base",
-      "inicio": 386.05,
-      "fim": 454.52,
+      "inicio": 386.145,
+      "fim": 453.42,
       "bloco": "A JORNADA DOS 10 ANOS",
-      "de": "E assim vai aparecer"
+      "de": "E assim que vai aparecer"
     },
     {
       "id": "trecho-12",
       "titulo": "Mês 73, mês 80, mês 120",
-      "inicio": 454.52,
-      "fim": 503.65,
+      "inicio": 453.42,
+      "fim": 502.55,
       "bloco": "A JORNADA DOS 10 ANOS",
       "de": "E lembrando que a gente está simulando"
     },
     {
       "id": "trecho-13",
       "titulo": "177 = 123 do bolso + 54 de juros",
-      "inicio": 503.65,
-      "fim": 549.68,
+      "inicio": 502.55,
+      "fim": 548.58,
       "bloco": "A JORNADA DOS 10 ANOS",
       "de": "Tá e beleza, vamos analisar"
     },
     {
       "id": "trecho-14",
       "titulo": "Não depende do aporte: é o calendário",
-      "inicio": 549.68,
-      "fim": 587.715,
+      "inicio": 548.58,
+      "fim": 586.615,
       "bloco": "A JORNADA DOS 10 ANOS",
       "de": "E repara só, esse prazo"
     },
     {
       "id": "trecho-15",
       "titulo": "A solução: começar e esperar",
-      "inicio": 587.715,
-      "fim": 636.23,
+      "inicio": 586.615,
+      "fim": 635.13,
       "bloco": "A SOLUÇÃO",
       "de": "Então, se o que decide tudo hoje"
     },
     {
       "id": "trecho-16",
       "titulo": "Passo 1: quanto rende hoje",
-      "inicio": 636.23,
-      "fim": 679.42,
+      "inicio": 635.13,
+      "fim": 678.32,
       "bloco": "COMO APLICAR",
       "de": "Na prática é bem simples"
     },
     {
       "id": "trecho-17",
       "titulo": "Passos 2 e 3: manter e prever",
-      "inicio": 679.42,
-      "fim": 720.89,
+      "inicio": 678.32,
+      "fim": 719.79,
       "bloco": "COMO APLICAR",
       "de": "E segundo"
     },
     {
       "id": "trecho-18",
       "titulo": "Seu número mágico: aporte x 177",
-      "inicio": 720.89,
-      "fim": 741.73,
+      "inicio": 719.79,
+      "fim": 740.63,
       "bloco": "SEU NÚMERO MÁGICO",
       "de": "E olha, se você foi muito preguiçoso"
     },
     {
       "id": "trecho-19",
       "titulo": "Depois da virada",
-      "inicio": 741.73,
-      "fim": 779.6,
+      "inicio": 740.63,
+      "fim": 778.5,
       "bloco": "BENEFÍCIOS",
       "de": "E aí vai a lógica"
     },
     {
       "id": "trecho-20",
       "titulo": "O milhão, de volta",
-      "inicio": 779.6,
-      "fim": 843.19,
+      "inicio": 778.5,
+      "fim": 842.09,
       "bloco": "O MILHÃO, DE VOLTA",
       "de": "Só que pra não terminar o vídeo aqui"
     },
     {
       "id": "trecho-21",
       "titulo": "CTA e próximo vídeo",
-      "inicio": 843.19,
-      "fim": 882.76,
+      "inicio": 842.09,
+      "fim": 881.66,
       "bloco": "CTA",
       "de": "E olha, se esse número não tão aleatório"
     }
