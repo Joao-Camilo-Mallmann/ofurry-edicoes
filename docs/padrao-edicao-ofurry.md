@@ -55,6 +55,13 @@ de fundo + título de seção (H8) quando o bloco tem 3+ itens.
 - **Gancho (0–30 s) é a parte mais densa do vídeo**: troca a cada ~0,7 s (~30–40 trocas), alternando B-roll real,
   palco de ícones, número, gráfico, Furry e legenda cinética, cada troca na palavra. Exemplo: `videos/177/output/trecho-01`.
 - Fundos (preto, grade, estrelas) trocam a cada ideia nova; cada trecho usa pelo menos 2.
+- **Não repetir o mesmo MOVIMENTO em cenas próximas** (João, 24/11/2026: "muda o iconezinho, mas o que ela faz, o
+  movimento, é igual... muito enjoado", sobretudo nos primeiros 5 minutos e "muito mais nos primeiros 30 segundos").
+  Trocar o ícone não conta como novidade. Entre duas cenas vizinhas muda pelo menos um destes: tipo de cena (palco,
+  número, gráfico, tipografia, B-roll, Furry, 3D), direção ou tipo de entrada, câmera do corte e escala. No gancho, cada
+  corte traz um recurso que ainda não apareceu (`cameraAuto: false` + lista `camera` escolhida corte a corte). Recursos
+  além do palco: `slam` (tipografia em profundidade), `type-on` (digita e apaga), `contador`, `maquina3d`, close do
+  Furry com fogo (B-roll `furry-close-fogo`, cena B da referência `referencias/analises/02-aviso-criador-ia.md`).
 
 ## 4. Gramática de cenas
 

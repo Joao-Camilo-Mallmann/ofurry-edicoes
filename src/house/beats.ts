@@ -26,7 +26,7 @@ export type Beat =
   | { kind: 'thumb'; at: number; until: number; src: string }
   | { kind: 'broll'; at: number; until: number; src: string; video?: boolean; de?: number; zoom?: [number, number]; entra?: 'flash' | 'zoom' | 'whip' | 'corte'; moldura?: boolean; escurece?: number; x?: number; y?: number }
   /** Cena de dados/metafora do kit hf/kit/ofurry-cenas.js (so HyperFrames). Parametros por tipo: ver o arquivo. */
-  | { kind: 'cena'; at: number; until: number; tipo: 'grafico' | 'tabela' | 'balanca' | 'maquina' | 'maquina3d' | 'calendario' | 'formula' | 'barra' | 'comparar' | 'lista' | 'numeros' | 'citacao' | 'fim' | 'palco' | 'piada' | 'foto3d' | 'barras' | 'rosca' | 'contador' | 'corrida' | 'etapas' | 'radio' | 'paoQueijo' | 'marca'; [param: string]: unknown };
+  | { kind: 'cena'; at: number; until: number; tipo: 'grafico' | 'tabela' | 'balanca' | 'maquina' | 'maquina3d' | 'calendario' | 'formula' | 'barra' | 'comparar' | 'lista' | 'numeros' | 'citacao' | 'fim' | 'palco' | 'piada' | 'foto3d' | 'barras' | 'rosca' | 'contador' | 'corrida' | 'etapas' | 'radio' | 'paoQueijo' | 'slam' | 'marca'; [param: string]: unknown };
 
 export interface CaptionWindow {
   from: number;

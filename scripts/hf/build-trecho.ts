@@ -300,7 +300,9 @@ function estiloDe(w: CaptionWindow): CaptionWindow['estilo'] {
   });
   return furryGrande ? 'tarja' : 'invertida';
 }
-const usaRadio = () => sheet.beats.some((b) => b.kind === 'cena' && ['radio', 'paoQueijo'].includes((b as { tipo?: string }).tipo ?? ''));
+// arquivos extras do kit: so entram nos trechos que usam a cena (nao mexem no render dos outros)
+const KIT_EXTRA: Record<string, string> = { radio: 'radio.js', paoQueijo: 'radio.js', slam: 'gancho.js' };
+const kitExtras = () => [...new Set(sheet.beats.filter((b) => b.kind === 'cena').map((b) => KIT_EXTRA[(b as { tipo?: string }).tipo ?? '']).filter(Boolean))];
 const temInvertida = () => (sheet.captions ?? []).some((w) => estiloDe(w) === 'invertida');
 
 // ---------------------------------------------------------------------------
@@ -696,7 +698,7 @@ function buildIndex(beatIds: { id: string; beat: Beat }[], audioSrc?: string): s
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <script src="assets/house/house-runtime.js"></script>
     <script src="assets/house/ofurry-cenas.js"></script>
-    ${existsSync(join(KIT, 'maquina3d.js')) ? '<script src="assets/house/maquina3d.js"></script>' : ''}${usaRadio() ? '<script src="assets/house/radio.js"></script>' : ''}
+    ${existsSync(join(KIT, 'maquina3d.js')) ? '<script src="assets/house/maquina3d.js"></script>' : ''}${kitExtras().map((f) => `<script src="assets/house/${f}"></script>`).join('')}
     <link rel="stylesheet" href="assets/house/house.css" />
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -737,7 +739,7 @@ async function main() {
   copyFileSync(join(KIT, 'house-runtime.js'), join(ASSETS, 'house', 'house-runtime.js'));
   copyFileSync(join(KIT, 'ofurry-cenas.js'), join(ASSETS, 'house', 'ofurry-cenas.js'));
   if (existsSync(join(KIT, 'maquina3d.js'))) copyFileSync(join(KIT, 'maquina3d.js'), join(ASSETS, 'house', 'maquina3d.js'));
-  if (usaRadio()) copyFileSync(join(KIT, 'radio.js'), join(ASSETS, 'house', 'radio.js'));
+  for (const f of kitExtras()) copyFileSync(join(KIT, f), join(ASSETS, 'house', f));
   copyFileSync(join(ROOT, 'node_modules', '@fontsource', 'bebas-neue', 'files', 'bebas-neue-latin-400-normal.woff2'), join(ASSETS, 'fonts', 'bebas-neue-400.woff2'));
 
   let audioSrc: string | undefined;
