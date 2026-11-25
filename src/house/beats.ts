@@ -26,7 +26,7 @@ export type Beat =
   | { kind: 'thumb'; at: number; until: number; src: string }
   | { kind: 'broll'; at: number; until: number; src: string; video?: boolean; de?: number; zoom?: [number, number]; entra?: 'flash' | 'zoom' | 'whip' | 'corte'; moldura?: boolean; escurece?: number; x?: number; y?: number }
   /** Cena de dados/metafora do kit hf/kit/ofurry-cenas.js (so HyperFrames). Parametros por tipo: ver o arquivo. */
-  | { kind: 'cena'; at: number; until: number; tipo: 'grafico' | 'tabela' | 'balanca' | 'maquina' | 'maquina3d' | 'calendario' | 'formula' | 'barra' | 'comparar' | 'lista' | 'numeros' | 'citacao' | 'fim' | 'palco' | 'piada' | 'foto3d' | 'barras' | 'rosca' | 'contador' | 'corrida' | 'etapas' | 'radio' | 'paoQueijo' | 'slam' | 'marca'; [param: string]: unknown };
+  | { kind: 'cena'; at: number; until: number; tipo: 'grafico' | 'tabela' | 'balanca' | 'maquina' | 'maquina3d' | 'calendario' | 'formula' | 'barra' | 'comparar' | 'lista' | 'numeros' | 'citacao' | 'fim' | 'palco' | 'piada' | 'foto3d' | 'barras' | 'rosca' | 'contador' | 'corrida' | 'etapas' | 'radio' | 'paoQueijo' | 'slam' | 'colagem' | 'moedas3d' | 'duasCurvas' | 'marca'; [param: string]: unknown };
 
 export interface CaptionWindow {
   from: number;
@@ -54,9 +54,39 @@ export interface BeatSheet {
   captions?: CaptionWindow[];
   /** Tela 100% preta por cima de tudo, inclusive textura e legenda (assinatura so com a voz). */
   telaPreta?: { de: number; ate: number }[];
+  /** Tudo em preto e branco triste, por cima de tudo (Furry incluso): piada de "filme antigo". */
+  telaCinza?: { de: number; ate: number }[];
+  /** Luz e textura da tela neste bloco (ver docs/padrao-edicao-ofurry.md, "Luz e overlay por bloco"). */
+  look?: Look;
   /** Troca de fundo ao longo do tempo. */
   backdrops: { at: number; backdrop: Backdrop }[];
   beats: Beat[];
   filmDust?: boolean;
+}
+
+/**
+ * Cara de luz e textura de um bloco (Joao, 24/11/2026: "variar mais o efeito de luz e overlay da tela").
+ * Blocos vizinhos nao repetem a mesma combinacao pelicula + luz + extra; a luz segue a historia (fria na fase chata,
+ * quente na virada, verde no ganho).
+ */
+export interface Look {
+  /** Textura de pelicula por cima de tudo. */
+  pelicula?: 'riscos' | 'pontos' | 'filme' | 'grao' | 'poeira' | 'nenhuma';
+  /** Cor da luz ambiente que vaza pelas bordas. */
+  luz?: 'fria' | 'quente' | 'verde' | 'vermelha' | 'dourada' | 'neutra' | 'teal' | 'roxa' | 'magenta' | 'nenhuma';
+  /** 0-1: forca da luz ambiente (padrao 0,5). Nunca lava o miolo: a luz fica nas bordas. */
+  forca?: number;
+  /** De onde a luz vem. */
+  lado?: 'esq' | 'dir' | 'cima' | 'baixo' | 'cantos';
+  /** Como a luz anda no bloco: sobe (crescendo), desce (apagando) ou pulsa. */
+  curva?: 'sobe' | 'desce' | 'pulsa';
+  /** 0-1: escurecimento das bordas (padrao 0,35). */
+  vinheta?: number;
+  /** Camada extra discreta. */
+  extra?: 'scanlines' | 'bokeh' | 'nenhum';
+  /** Leak de luz nos cortes "luz". */
+  leak?: 'borda' | 'laranja' | 'frio' | 'verde' | 'dourado';
+  /** Ruido nos cortes "glitch". */
+  glitch?: 'vhs' | 'linhas';
 }
 

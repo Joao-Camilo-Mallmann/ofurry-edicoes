@@ -336,5 +336,16 @@
       "at": "@máquina",
       "tipo": "glitch"
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "riscos",
+    "luz": "dourada",
+    "forca": 0.65,
+    "lado": "cantos",
+    "curva": "sobe",
+    "vinheta": 0.3,
+    "extra": "bokeh",
+    "leak": "dourado",
+    "glitch": "vhs"
+  }
 }

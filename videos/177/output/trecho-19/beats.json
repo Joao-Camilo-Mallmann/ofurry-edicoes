@@ -288,7 +288,8 @@
           "y": 0.17,
           "tam": 68
         }
-      ]
+      ],
+      "papel": true
     },
     {
       "kind": "cena",
@@ -664,7 +665,8 @@
           "riscaAt": "@crise",
           "riscaComo": "x"
         }
-      ]
+      ],
+      "papel": true
     },
     {
       "kind": "broll",
@@ -759,6 +761,30 @@
           "cor": "hl"
         }
       ]
+    },
+    {
+      "kind": "broll",
+      "at": "@trocar de emprego",
+      "until": "@ou vai ficar",
+      "src": "../../acervo/broll/meme-akira-emprego.mp4",
+      "entra": "corte",
+      "moldura": true,
+      "zoom": [
+        1,
+        1.05
+      ],
+      "escurece": 0
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "filme",
+    "luz": "verde",
+    "forca": 0.45,
+    "lado": "baixo",
+    "curva": "sobe",
+    "vinheta": 0.3,
+    "extra": "nenhum",
+    "leak": "verde",
+    "glitch": "linhas"
+  }
 }

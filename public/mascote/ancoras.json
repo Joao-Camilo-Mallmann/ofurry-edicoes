@@ -1,26 +1,26 @@
 {
  "fox1-antigo": {
-  "centro": 891.5,
-  "dx": 68.5
+  "centro": 959.5,
+  "dx": 0.5
  },
  "fox1": {
-  "centro": 930.0,
-  "dx": 30.0
+  "centro": 960.0,
+  "dx": 0.0
  },
  "fox2-antigo": {
-  "centro": 893.5,
-  "dx": 66.5
+  "centro": 959.5,
+  "dx": 0.5
  },
  "fox2": {
-  "centro": 1054.5,
-  "dx": -94.5
+  "centro": 960.5,
+  "dx": -0.5
  },
  "fox3": {
-  "centro": 1010.0,
-  "dx": -50.0
+  "centro": 960.0,
+  "dx": 0.0
  },
  "fox4": {
-  "centro": 947.5,
-  "dx": 12.5
+  "centro": 959.5,
+  "dx": 0.5
  }
 }

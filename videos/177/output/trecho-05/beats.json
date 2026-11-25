@@ -128,6 +128,13 @@
       "at": "@outra história",
       "file": "@sfx/General/Ding.mp3",
       "gain": -21
+    },
+    {
+      "at": "@os juros-0.1",
+      "file": "@sfx/General/Vinyl.wav",
+      "gain": -24,
+      "len": 3.3,
+      "fadeOut": 0.3
     }
   ],
   "beats": [
@@ -433,5 +440,29 @@
       ],
       "moldura": true
     }
-  ]
+  ],
+  "telaCinza": [
+    {
+      "de": "@Como Einstein",
+      "ate": "@Mas a lógica"
+    }
+  ],
+  "vozEfeito": [
+    {
+      "de": "@os juros-0.05",
+      "ate": "@Eu realmente-0.05",
+      "tipo": "radio"
+    }
+  ],
+  "look": {
+    "pelicula": "filme",
+    "luz": "neutra",
+    "forca": 0.3,
+    "lado": "cima",
+    "curva": "pulsa",
+    "vinheta": 0.55,
+    "extra": "nenhum",
+    "leak": "borda",
+    "glitch": "vhs"
+  }
 }

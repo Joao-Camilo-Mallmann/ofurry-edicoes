@@ -13,7 +13,7 @@
 | Cena | Tempo | Como é | Quando usar | No kit |
 |---|---|---|---|---|
 | **A. Furry na frente da prova** | 4:10 | Furry inteiro no centro, dando de ombros, com duas capturas de tela lado a lado atrás dele, no preto | Quando a fala compara ou comenta coisas reais (apps, sites, notícias) | **Falta:** batida de mascote no centro com 1–2 prints atrás |
-| **B. Close irônico com fogo** | 4:44 (T059) | Close extremo no rosto, ocupando a tela toda, com fogo por cima e filtro quente | Só em ironia ou exagero; **1 ou 2 por vídeo**, curto | **Falta:** recorte do loop do Furry + overlay de fogo. Sem giro nem espelhamento |
+| **B. Close irônico com fogo** | 4:44 (T059) | Close extremo no rosto, ocupando a tela toda, com fogo por cima e filtro quente | **Só em momento de alta tensão** (João, 24/11/2026: "só pode ser usada em momentos de alta tensão"); 1 por vídeo no máximo | **Falta:** recorte do loop do Furry + overlay de fogo. Sem giro nem espelhamento |
 | **C. Furry + palavra na grade** | 5:37 (T067) | Furry inteiro no centro, grade 3D branca atrás, palavra da fala em caixa alta na altura do peito | **Cena genérica:** quando não há B-roll específico e o foco é o que ele fala | **Já existe:** `mascot` com `placement: center`, fundo `grid`/`grade-video`, legenda `y: 0.72` |
 
 ## O que vale copiar
@@ -24,7 +24,7 @@
 
 ## Onde dá para usar no 177 (propostas, ainda não aplicadas)
 
-- **B (close com fogo):** "vai achar que eu errei a conta" (0:20) ou "é só isso" no número mágico (12:0x).
+- **B (close com fogo):** testado no gancho (0:22) e reprovado ali: guardar para o momento de maior tensão do vídeo.
 - **A (prova atrás):** "Eu montei essa simulação" (5:49) com a tabela e o print do Tesouro atrás do Furry.
 - **C:** já é a cena do Furry no vídeo todo.
 

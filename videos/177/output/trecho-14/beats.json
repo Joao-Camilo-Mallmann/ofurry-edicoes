@@ -230,132 +230,37 @@
     },
     {
       "kind": "cena",
-      "tipo": "palco",
+      "tipo": "moedas3d",
       "at": "@500",
       "until": "@Então aquela",
-      "atores": [
+      "titulo": "MESMO PRAZO: 10 ANOS",
+      "tituloAt": "@10 anos",
+      "pilhas": [
         {
-          "id": "timer",
-          "icone": "timer",
-          "cor": "hl",
-          "tam": 220,
-          "rotulo": "PRAZO",
-          "balanca": false,
-          "keys": [
-            {
-              "at": "@500",
-              "x": 0.5,
-              "y": 0.3
-            },
-            {
-              "at": "@na média",
-              "s": 1.12,
-              "dur": 0.4
-            }
-          ],
-          "sai": "@O que muda",
-          "entra": "elastico",
-          "saiComo": "voa"
-        },
-        {
-          "id": "c500",
-          "icone": "coins",
-          "tam": 150,
-          "rotulo": "R$ 500",
-          "keys": [
-            {
-              "at": "@500",
-              "x": 0.2,
-              "y": 0.62
-            }
-          ],
-          "entra": "cair"
-        },
-        {
-          "id": "c2000",
-          "icone": "coins",
-          "tam": 280,
-          "rotulo": "R$ 2.000",
-          "keys": [
-            {
-              "at": "@2 mil",
-              "x": 0.8,
-              "y": 0.58
-            }
-          ],
-          "entra": "elastico"
-        },
-        {
-          "id": "f500",
-          "icone": "flag",
-          "cor": "hl",
-          "tam": 110,
-          "keys": [
+          "at": "@500",
+          "ate": 9,
+          "dur": 6.6,
+          "rotulo": "R$ 500 POR MÊS",
+          "cor": "text",
+          "valor": [
             {
               "at": "@tamanho do marco",
-              "x": 0.2,
-              "y": 0.3
+              "v": 88500
             }
-          ],
-          "entra": "cair"
+          ]
         },
         {
-          "id": "f2000",
-          "icone": "flag",
+          "at": "@2 mil",
+          "ate": 36,
+          "dur": 5.6,
+          "rotulo": "R$ 2.000 POR MÊS",
           "cor": "hl",
-          "tam": 300,
-          "keys": [
+          "valor": [
             {
-              "at": "@do marco",
-              "x": 0.8,
-              "y": 0.24
+              "at": "@tamanho do marco",
+              "v": 354000
             }
-          ],
-          "entra": "girar"
-        }
-      ],
-      "setas": [
-        {
-          "de": "c500",
-          "para": "timer",
-          "at": "@o tempo",
-          "ate": "@O que muda",
-          "cor": "hl"
-        },
-        {
-          "de": "c2000",
-          "para": "timer",
-          "at": "@o tempo",
-          "ate": "@O que muda",
-          "cor": "hl"
-        }
-      ],
-      "textos": [
-        {
-          "at": "@10 anos",
-          "ate": "@O que muda",
-          "texto": "10 ANOS",
-          "x": 0.5,
-          "y": 0.1,
-          "fonte": "num",
-          "tam": 150,
-          "cor": "hl"
-        },
-        {
-          "at": "@O que muda",
-          "ate": "@tamanho do marco",
-          "texto": "O QUE MUDA",
-          "x": 0.5,
-          "y": 0.1,
-          "tam": 64
-        },
-        {
-          "at": "@tamanho do marco",
-          "texto": "O TAMANHO DO MARCO",
-          "x": 0.5,
-          "y": 0.1,
-          "tam": 64,
-          "cor": "hl"
+          ]
         }
       ]
     },
@@ -553,7 +458,8 @@
           "saiComo": "voa",
           "riscaComo": "cai"
         }
-      ]
+      ],
+      "papel": true
     },
     {
       "kind": "broll",
@@ -568,5 +474,16 @@
       "moldura": true,
       "escurece": 0.08
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "poeira",
+    "luz": "roxa",
+    "forca": 0.4,
+    "lado": "cima",
+    "curva": "pulsa",
+    "vinheta": 0.35,
+    "extra": "scanlines",
+    "leak": "laranja",
+    "glitch": "vhs"
+  }
 }

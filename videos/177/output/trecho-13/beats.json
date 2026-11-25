@@ -185,23 +185,37 @@
     },
     {
       "kind": "cena",
-      "tipo": "rosca",
+      "tipo": "moedas3d",
       "at": "@Desses 177",
       "until": "@Ou seja",
-      "centro": "R$ 177 MIL",
-      "centroAt": "@177 mil",
-      "partes": [
+      "titulo": "R$ 177 MIL",
+      "tituloAt": "@Desses 177",
+      "pilhas": [
         {
-          "at": "@123 mil",
-          "valor": 123000,
+          "at": "@Desses 177+0.3",
+          "ate": 30,
+          "dur": 6,
           "rotulo": "DO SEU BOLSO",
-          "cor": "text"
+          "cor": "text",
+          "valor": [
+            {
+              "at": "@123 mil",
+              "v": 123000
+            }
+          ]
         },
         {
           "at": "@Os outros 54",
-          "valor": 54000,
+          "ate": 13,
+          "dur": 0.9,
           "rotulo": "DE JUROS",
-          "cor": "gain"
+          "cor": "gain",
+          "valor": [
+            {
+              "at": "@Os outros 54",
+              "v": 54000
+            }
+          ]
         }
       ]
     },
@@ -552,5 +566,16 @@
       ],
       "entra": "zoom"
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "grao",
+    "luz": "verde",
+    "forca": 0.5,
+    "lado": "dir",
+    "curva": "pulsa",
+    "vinheta": 0.3,
+    "extra": "nenhum",
+    "leak": "verde",
+    "glitch": "linhas"
+  }
 }

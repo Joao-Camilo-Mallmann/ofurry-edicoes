@@ -342,23 +342,20 @@
     },
     {
       "kind": "cena",
-      "tipo": "lista",
+      "tipo": "slam",
       "at": "@começar",
       "until": "@Só que pra isso",
-      "itens": [
+      "linhas": [
         {
           "at": "@começar",
-          "n": "1",
           "texto": "COMEÇAR"
         },
         {
           "at": "@manter a",
-          "n": "2",
           "texto": "MANTER"
         },
         {
           "at": "@esperar",
-          "n": "3",
           "texto": "ESPERAR"
         }
       ]
@@ -550,7 +547,8 @@
           "tam": 64,
           "cor": "hl"
         }
-      ]
+      ],
+      "papel": true
     },
     {
       "kind": "broll",
@@ -767,5 +765,16 @@
       "x": 0.5,
       "y": 0.13
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "filme",
+    "luz": "verde",
+    "forca": 0.45,
+    "lado": "baixo",
+    "curva": "sobe",
+    "vinheta": 0.3,
+    "extra": "nenhum",
+    "leak": "verde",
+    "glitch": "linhas"
+  }
 }

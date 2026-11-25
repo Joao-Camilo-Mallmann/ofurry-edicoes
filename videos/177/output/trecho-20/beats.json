@@ -465,14 +465,14 @@
       "kind": "broll",
       "at": "@vão vir",
       "until": "@Ou seja",
-      "src": "../../acervo/broll/notas-caindo-fundo-escuro.mp4",
-      "de": 2,
-      "entra": "whip",
+      "src": "../../acervo/broll/meme-gato-chocado.mp4",
+      "entra": "corte",
       "zoom": [
-        1.04,
-        1.14
+        1,
+        1.05
       ],
-      "escurece": 0.1
+      "escurece": 0,
+      "moldura": true
     },
     {
       "kind": "cena",
@@ -655,5 +655,16 @@
         }
       ]
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "poeira",
+    "luz": "dourada",
+    "forca": 0.6,
+    "lado": "cantos",
+    "curva": "sobe",
+    "vinheta": 0.3,
+    "extra": "bokeh",
+    "leak": "dourado",
+    "glitch": "vhs"
+  }
 }

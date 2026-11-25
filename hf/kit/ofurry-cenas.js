@@ -862,7 +862,7 @@
     var atores = {};
     (p.atores || []).forEach(function (a, k) {
       var size = a.tam || 260, color = C[a.cor || 'text'] || a.cor;
-      var box = el('div', { style: 'position:absolute;left:0;top:0;width:' + size + 'px;display:flex;flex-direction:column;align-items:center;opacity:0' }, st.cam);
+      var box = el('div', { 'data-ator': a.id || 'a' + k, style: 'position:absolute;left:0;top:0;width:' + size + 'px;display:flex;flex-direction:column;align-items:center;opacity:0' }, st.cam);
       var ic = el('div', { style: 'line-height:0;color:' + color + ';filter:drop-shadow(0 0 ' + Math.round(size / 12) + 'px ' + color + 'aa)', html: a.svg || '' }, box);
       var lb = a.rotulo ? el('div', { style: FONT_CAP + 'font-size:' + Math.round(Math.max(28, size / 6.5)) + 'px;color:' + C.text + ';white-space:nowrap;margin-top:14px', text: a.rotulo }, box) : null;
       // negar um icone sem repetir sempre o mesmo risco (Joao, 22/11/2026: "esse efeito ficou sendo spammado, variar"):
@@ -871,7 +871,7 @@
       var linhaR = { stroke: C.loss, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-dasharray': 1000, 'stroke-dashoffset': 1000 };
       var risco = temR && (comoR === 'risco' || comoR === 'x') ? svg('line', linhaR, sv) : null;
       var risco2 = temR && comoR === 'x' ? svg('line', linhaR, sv) : null;
-      var carimbo = temR && comoR === 'carimbo' ? el('div', { 'data-layout-allow-overlap': '', style: 'position:absolute;left:0;top:0;white-space:nowrap;' + FONT_CAP + 'font-size:' + Math.round(Math.max(46, size / 4.2)) + 'px;color:' + C.loss + ';border:7px solid ' + C.loss + ';border-radius:10px;padding:2px 18px;background:rgba(0,0,0,.78);opacity:0', text: a.riscaTexto || 'NÃO' }, st.cam) : null;
+      var carimbo = temR && comoR === 'carimbo' ? el('div', { 'data-layout-allow-overlap': '', style: 'position:absolute;left:0;top:0;white-space:nowrap;' + FONT_NUM + 'font-size:' + Math.round(Math.max(64, size / 3)) + 'px;line-height:1;color:' + C.loss + ';text-shadow:4px 4px 0 #000,-4px -4px 0 #000,4px -4px 0 #000,-4px 4px 0 #000,0 6px 0 #000,0 0 28px rgba(0,0,0,.9);opacity:0', text: a.riscaTexto || 'NÃO' }, st.cam) : null;
       var key = a.id || 'a' + k;
       atores[key] = { key: key, a: a, box: box, ic: ic, lb: lb, size: size, risco: risco, risco2: risco2, carimbo: carimbo, comoR: comoR, x: 0, y: 0, s: 1 };
     });
@@ -898,9 +898,20 @@
       var ks = o.a.keys || [{ at: t0, x: 0.5, y: 0.45 }];
       return { x: kf(ks, T, 'x', 0.5, 0.7) * W, y: kf(ks, T, 'y', 0.45, 0.7) * H, s: kf(ks, T, 's', 1, 0.7), r: kf(ks, T, 'r', 0, 0.7), o: kf(ks, T, 'o', 1, 0.4) };
     };
+    // camera do palco: cada cena escolhe um movimento (Joao, 24/11/2026: "muda o iconezinho, mas o movimento e igual");
+    // p.camera: 'aproxima' | 'afasta' | 'orbita' | 'grua' | 'holandes' | 'deriva' (padrao: sorteio fixo pelo tempo da cena)
+    var CAMS = ['aproxima', 'orbita', 'grua', 'afasta', 'holandes', 'deriva'];
+    var camModo = p.camera || CAMS[Math.floor(t0 * 3.7) % CAMS.length];
     return function (tl) {
       var T = t0 + tl;
-      st.move(T, t0, dur, 0.4);
+      var u = E.io(c01((T - t0) / Math.max(1, dur)));
+      var cm = camModo === 'aproxima' ? 'scale(' + (1 + 0.09 * u).toFixed(4) + ')'
+        : camModo === 'afasta' ? 'scale(' + (1.1 - 0.1 * u).toFixed(4) + ')'
+        : camModo === 'orbita' ? 'rotateY(' + (-9 + 18 * u).toFixed(2) + 'deg) scale(1.03)'
+        : camModo === 'grua' ? 'translateY(' + (40 - 80 * u).toFixed(1) + 'px) rotateX(' + (7 - 7 * u).toFixed(2) + 'deg)'
+        : camModo === 'holandes' ? 'rotate(' + (-3 + 3 * u).toFixed(2) + 'deg) scale(' + (1.06 - 0.03 * u).toFixed(4) + ')'
+        : 'translateX(' + (50 - 100 * u).toFixed(1) + 'px) scale(1.04)';
+      st.cam.style.transform = cm;
       Object.keys(atores).forEach(function (id) {
         var o = atores[id], a = o.a, ks = a.keys || [{ at: t0 }];
         var at = ks[0].at !== undefined ? ks[0].at : t0;
@@ -949,7 +960,7 @@
           if (o.carimbo) {
             var pc = T >= a.riscaAt ? prog(T, a.riscaAt, 0.13, E.out3) : 0;
             o.carimbo.style.opacity = (T >= a.riscaAt ? Math.min(1, pc * 2) * vis * (1 - sai) : 0).toFixed(3);
-            o.carimbo.style.transform = 'translate(' + (q.x - o.carimbo.offsetWidth / 2).toFixed(1) + 'px,' + (q.y - o.carimbo.offsetHeight / 2).toFixed(1) + 'px) rotate(-12deg) scale(' + (1.8 - 0.8 * pc).toFixed(3) + ')';
+            o.carimbo.style.transform = 'translate(' + (q.x - o.carimbo.offsetWidth / 2).toFixed(1) + 'px,' + (q.y - o.carimbo.offsetHeight / 2).toFixed(1) + 'px) scale(' + (1.8 - 0.8 * pc).toFixed(3) + ')';
           }
           o.ic.style.color = T > a.riscaAt ? C.whisper : C[a.cor || 'text'] || a.cor;
         }
@@ -1001,15 +1012,20 @@
      Batida extra POR CIMA de outra cena (vem depois no array de beats). Entra e sai SECO (corte), sem fade. */
   OF.piada = function (root, p, t0, dur) {
     var cor = C[p.cor || 'hl'] || p.cor;
-    var n = el('div', { style: "position:absolute;left:0;top:0;font-family:'Montserrat',sans-serif;font-weight:800;font-style:italic;text-transform:uppercase;font-size:" + (p.tam || 72) + 'px;line-height:1.05;color:' + cor + ';white-space:nowrap;opacity:0;transform-origin:50% 50%;' + (p.fundo === false ? 'text-shadow:0 0 18px #000,0 0 30px #000;' : 'background:#000;padding:10px 26px;box-shadow:0 0 0 4px ' + cor + ';'), text: p.texto }, root);
+    // texto reto e grande, com contorno preto; SEM caixa, borda ou inclinacao (Joao, 24/11/2026: etiqueta inclinada com
+    // moldura "e IA slop, evitar")
+    var n = el('div', { style: FONT_NUM + 'font-size:' + Math.round((p.tam || 72) * 1.45) + 'px;line-height:1;color:' + cor + ';white-space:nowrap;opacity:0;transform-origin:50% 50%;text-shadow:4px 4px 0 #000,-4px -4px 0 #000,4px -4px 0 #000,-4px 4px 0 #000,0 6px 0 #000,0 0 28px rgba(0,0,0,.9);', text: p.texto }, root);
     return function (tl) {
       var T = t0 + tl, at = p.at !== undefined ? p.at : t0, fim = p.ate !== undefined ? p.ate : at + (p.dura !== undefined ? p.dura : 0.9);
       var on = T >= at && T < fim;
       var x = (p.x !== undefined ? p.x : 0.5) * W - (p.alinha === 'left' ? 0 : n.offsetWidth / 2), y = (p.y !== undefined ? p.y : 0.5) * H - n.offsetHeight / 2;
+      // nunca sai da tela (o texto ficou maior sem a caixa)
+      x = clamp(x, 48, W - 48 - n.offsetWidth);
+      y = clamp(y, 40, H - 40 - n.offsetHeight);
       n.style.opacity = on ? '1' : '0';
       // 2 quadros de "soco" na entrada
       var k = on && T - at < 2 / 30 ? 1.12 : 1;
-      n.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) rotate(' + (p.rot !== undefined ? p.rot : -4) + 'deg) scale(' + k + ')';
+      n.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) scale(' + k + ')';
     };
   };
 
@@ -1192,7 +1208,7 @@
       return { it: it, lb: lb, trilho: trilho, bar: bar, cont: cont, y: y };
     });
     var cb = p.carimbo;
-    var stamp = cb ? el('div', { style: 'position:absolute;white-space:nowrap;' + FONT_CAP + 'font-size:72px;color:' + C.hl + ';border:8px solid ' + C.hl + ';padding:6px 26px;border-radius:12px;opacity:0;text-shadow:0 0 24px ' + C.hl + '66', text: cb.texto || 'METADE DO TEMPO' }, st.cam) : null;
+    var stamp = cb ? el('div', { style: 'position:absolute;white-space:nowrap;' + FONT_NUM + 'font-size:110px;line-height:1;color:' + C.hl + ';opacity:0;text-shadow:4px 4px 0 #000,-4px -4px 0 #000,4px -4px 0 #000,-4px 4px 0 #000,0 6px 0 #000,0 0 28px rgba(0,0,0,.9);', text: cb.texto || 'METADE DO TEMPO' }, st.cam) : null;
     return function (tl) {
       var T = t0 + tl;
       st.move(T, t0, dur, 0.7);
@@ -1214,7 +1230,7 @@
         stamp.style.opacity = ps;
         stamp.style.left = (X0 + 40) + 'px';
         stamp.style.top = (r.y - 120) + 'px';
-        stamp.style.transform = 'rotate(-6deg) scale(' + (1.7 - 0.7 * ps).toFixed(3) + ')';
+        stamp.style.transform = 'scale(' + (1.7 - 0.7 * ps).toFixed(3) + ')';
       }
     };
   };

@@ -32,6 +32,7 @@
     "video:montar": "bun run scripts/video/montar.ts",
     "broll:preparar": "bun run scripts/video/broll.ts",
     "video:produzir": "bun run scripts/video/produzir.ts",
+    "video:qa": "bun run scripts/video/qa-quadros.ts",
     "skills:link": "bun run scripts/link-skills.ts",
     "assets:inventario": "bun run scripts/assets-inventario.ts",
     "assets:overlays": "bun run scripts/assets-overlays.ts"

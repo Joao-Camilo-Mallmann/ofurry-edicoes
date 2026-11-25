@@ -442,7 +442,8 @@
           "fonte": "num",
           "cor": "gain"
         }
-      ]
+      ],
+      "papel": true
     },
     {
       "kind": "proof",
@@ -574,5 +575,16 @@
         }
       ]
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "grao",
+    "luz": "teal",
+    "forca": 0.35,
+    "lado": "esq",
+    "curva": "pulsa",
+    "vinheta": 0.35,
+    "extra": "scanlines",
+    "leak": "borda",
+    "glitch": "vhs"
+  }
 }

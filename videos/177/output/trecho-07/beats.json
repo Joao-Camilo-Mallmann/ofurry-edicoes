@@ -335,41 +335,12 @@
       "rotuloAt": "@capacidade"
     },
     {
-      "kind": "cena",
-      "tipo": "palco",
+      "kind": "number",
       "at": "@sem trabalhar",
       "until": "@E é literalmente",
-      "atores": [
-        {
-          "id": "relogio",
-          "icone": "clock",
-          "tam": 300,
-          "entra": "elastico",
-          "riscaAt": "@a mais",
-          "keys": [
-            {
-              "at": "@sem trabalhar",
-              "x": 0.5,
-              "y": 0.42
-            },
-            {
-              "at": "@uma hora",
-              "r": 360,
-              "dur": 0.7
-            }
-          ],
-          "riscaComo": "apaga"
-        }
-      ],
-      "textos": [
-        {
-          "at": "@uma hora",
-          "texto": "UMA HORA A MAIS",
-          "x": 0.5,
-          "y": 0.82,
-          "tam": 80
-        }
-      ]
+      "value": "+0 H",
+      "caption": "DE TRABALHO A MAIS",
+      "tone": "highlight"
     },
     {
       "kind": "cena",
@@ -500,11 +471,21 @@
       "kind": "cena",
       "tipo": "maquina3d",
       "at": "@Ela só trabalha",
-      "until": "@E a cada",
+      "until": "@Se você continuar",
       "ritmo": [
         {
           "at": 0,
           "v": 4
+        },
+        {
+          "at": "@aporte",
+          "v": 7,
+          "dur": 1
+        },
+        {
+          "at": "@mais forte",
+          "v": 11,
+          "dur": 1
         }
       ],
       "contador": [
@@ -516,6 +497,11 @@
           "at": "@aumentando",
           "v": 1240,
           "dur": 3
+        },
+        {
+          "at": "@mais forte",
+          "v": 1940,
+          "dur": 1.2
         }
       ],
       "escala": 1.15,
@@ -549,122 +535,6 @@
       "at": "@todos os meses",
       "until": "@E a cada",
       "text": "TODOS OS MESES"
-    },
-    {
-      "kind": "cena",
-      "tipo": "palco",
-      "at": "@E a cada",
-      "until": "@essa máquina",
-      "atores": [
-        {
-          "id": "aporte",
-          "icone": "hand-coins",
-          "cor": "gain",
-          "rotulo": "APORTE",
-          "tam": 220,
-          "entra": "rise",
-          "keys": [
-            {
-              "at": "@cada aporte",
-              "x": 0.2,
-              "y": 0.28
-            }
-          ]
-        },
-        {
-          "id": "reinv",
-          "icone": "repeat",
-          "cor": "gain",
-          "rotulo": "REINVESTIMENTO",
-          "tam": 220,
-          "entra": "cair",
-          "keys": [
-            {
-              "at": "@reinvestimento",
-              "x": 0.2,
-              "y": 0.7
-            }
-          ]
-        },
-        {
-          "id": "maq",
-          "icone": "cog",
-          "cor": "brand",
-          "tam": 300,
-          "balanca": false,
-          "entra": "girar",
-          "keys": [
-            {
-              "at": "@E a cada",
-              "x": 0.75,
-              "y": 0.48
-            },
-            {
-              "at": "@E a cada+0.1",
-              "r": 420,
-              "dur": 2.9
-            },
-            {
-              "at": "@você faz",
-              "s": 1.2,
-              "dur": 0.5
-            }
-          ]
-        }
-      ],
-      "fluxos": [
-        {
-          "de": "aporte",
-          "para": "maq",
-          "at": "@aporte e",
-          "ate": "@essa máquina",
-          "icone": "coins",
-          "cor": "gain",
-          "tam": 90,
-          "por": 3
-        },
-        {
-          "de": "reinv",
-          "para": "maq",
-          "at": "@reinvestimento",
-          "ate": "@essa máquina",
-          "icone": "coins",
-          "cor": "gain",
-          "tam": 90,
-          "por": 3,
-          "arco": 0.18
-        }
-      ]
-    },
-    {
-      "kind": "cena",
-      "tipo": "maquina3d",
-      "at": "@essa máquina",
-      "until": "@Se você continuar",
-      "ritmo": [
-        {
-          "at": 0,
-          "v": 4
-        },
-        {
-          "at": "@mais forte",
-          "v": 10,
-          "dur": 1
-        }
-      ],
-      "contador": [
-        {
-          "at": 0,
-          "v": 1240
-        },
-        {
-          "at": "@mais forte",
-          "v": 1940,
-          "dur": 1.2
-        }
-      ],
-      "escala": 1.15,
-      "y": 0.56
     },
     {
       "kind": "section",
@@ -809,5 +679,16 @@
         }
       ]
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "poeira",
+    "luz": "quente",
+    "forca": 0.6,
+    "lado": "baixo",
+    "curva": "sobe",
+    "vinheta": 0.3,
+    "extra": "bokeh",
+    "leak": "laranja",
+    "glitch": "vhs"
+  }
 }

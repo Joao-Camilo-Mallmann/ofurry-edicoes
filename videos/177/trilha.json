@@ -1,16 +1,26 @@
 {
-  "nota": "Musicas da biblioteca de audio do YouTube (sem credito obrigatorio). Uma curva so: cada faixa comeca no trecho indicado e emenda na proxima com crossfade. Nenhuma faixa precisa de loop (todas cabem no pedaco).",
+  "nota": "Joao, 24/11/2026: \"musica boa para cada momento\", usando as que ele colocou em Musicas. Curva de energia que sobe ao longo do video: gancho tenso -> curiosidade -> problema melancolico -> explicacao -> maquina ligando -> reflexao -> jornada -> VIRADA epica (pico da Decision no \"o jogo vira\") -> analise -> solucao esperancosa -> passos -> beneficios/milhao em crescendo -> final dramatico. Storyteller e Emergence sao do Infraction (credito obrigatorio). Trocas em 2,5 s na pausa entre blocos (Joao, 24/11/2026: \"a transicao do 3:49 nao ficou suave\": 6 s misturavam duas musicas de ritmos diferentes).",
   "abaixoDaVoz": 21,
-  "xfade": 6,
+  "xfade": 2.5,
   "faixas": [
     {
-      "file": "@mus/Auckland - VYEN.mp3",
+      "file": "@mus/Traversing - Godmode.mp3",
       "desde": "trecho-01",
       "from": 0
     },
     {
+      "file": "@mus/Kayak - The Grey Room _ Density & Time.mp3",
+      "desde": "trecho-02",
+      "from": 0
+    },
+    {
+      "file": "@mus/Falling Rain - Myuu.mp3",
+      "desde": "trecho-03",
+      "from": 0
+    },
+    {
       "file": "@mus/Yacoby - Schwartzy.mp3",
-      "desde": "trecho-04",
+      "desde": "trecho-05",
       "from": 0
     },
     {
@@ -19,13 +29,23 @@
       "from": 0
     },
     {
+      "file": "@mus/No.4 Piano Journey - Esther Abrami.mp3",
+      "desde": "trecho-10",
+      "from": 0
+    },
+    {
+      "file": "@mus/Decision - The Tower of Light.mp3",
+      "desde": "trecho-12",
+      "from": 77
+    },
+    {
       "file": "@mus/Touching Moment - Wayne Jones(1).mp3",
-      "desde": "trecho-11",
+      "desde": "trecho-13",
       "from": 0
     },
     {
       "file": "@mus/No.10 _A New Beginning - Esther Abrami.mp3",
-      "desde": "trecho-13",
+      "desde": "trecho-15",
       "from": 0
     },
     {
@@ -34,9 +54,9 @@
       "from": 0
     },
     {
-      "file": "@mus/Yacoby - Schwartzy.mp3",
+      "file": "@mus/Infraction - No Copyright Music/Cinematic Adventure Epic Podcast by Infraction [No Copyright Music] ⧸ Storyteller.mp4",
       "desde": "trecho-19",
-      "from": 0
+      "from": 30
     },
     {
       "file": "@mus/Infraction - No Copyright Music/Cinematic Classical Orchestra Dark Epic Trailer by Cold Cinema [No Copyright Music] ⧸ Emergence.mp4",

@@ -355,7 +355,8 @@
           "tam": 80,
           "cor": "hl"
         }
-      ]
+      ],
+      "papel": true
     },
     {
       "kind": "cena",
@@ -689,7 +690,8 @@
         }
       ],
       "at": "@quando que de fato",
-      "until": "@E transformar"
+      "until": "@E transformar",
+      "papel": true
     },
     {
       "kind": "cena",
@@ -718,5 +720,16 @@
         }
       ]
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "riscos",
+    "luz": "magenta",
+    "forca": 0.4,
+    "lado": "dir",
+    "curva": "pulsa",
+    "vinheta": 0.35,
+    "extra": "nenhum",
+    "leak": "laranja",
+    "glitch": "linhas"
+  }
 }

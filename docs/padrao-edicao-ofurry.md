@@ -57,17 +57,24 @@ de fundo + título de seção (H8) quando o bloco tem 3+ itens.
 - Fundos (preto, grade, estrelas) trocam a cada ideia nova; cada trecho usa pelo menos 2.
 - **Furry (João, 24/11/2026: "troca meio sem sentido... garante que ele se enquadra sempre no meio perfeitamente...
   sempre faz a mesma animação para direita e para baixo"):** âncora fixa: todas as poses com o centro das pernas no
-  mesmo x e a mesma base e escala (`scripts/mascote-ancoras.py` → `public/mascote/ancoras.json`, o build aplica sozinho;
-  rode de novo ao incluir pose nova). Pose só troca quando a fala muda de ideia, ironiza, pergunta ou enfatiza, e cada
+  mesmo x e a mesma base e escala. Desde 24/11/2026 as animações de origem já vêm alinhadas
+  (`scripts/mascote-alinhar-originais.py`, cópia dos originais em `D:\YT\!Assets\Furry\_originais-antes-do-alinhamento`);
+  pose nova: rode esse script e depois `scripts/mascote-ancoras.py` (o build ainda corrige o que sobrar). Pose só troca quando a fala muda de ideia, ironiza, pergunta ou enfatiza, e cada
   pose fica pelo menos 2,5 s (o build engole a mais curta). Entrada gira entre subir, deslizar (lado alternado),
   crescer e corte seco; a ida para o canto alterna esquerda e direita. Nunca espelhado, nunca 3D.
+- **Proibido etiqueta inclinada com borda ou moldura** (piada, carimbo, selo): "é IA slop" (João, 24/11/2026). Piada
+  relâmpago e carimbo são texto reto, grande, com contorno preto. Ícone animado anima uma vez, na entrada (em loop
+  ele passa a maior parte do tempo meio girado e parece quebrado).
+- **Texto nunca cortado pelo personagem** a ponto de não dar para ler, e o **Furry só perde a cor quando o João pedir** (a
+  colagem P&B com palavras atrás dele foi reprovada em 24/11/2026). **Comparação se mostra com imagem ou gráfico**,
+  nunca com dois blocos de texto lado a lado ("esse modelo ficou maçante de texto nessa disposição").
 - **Não repetir o mesmo MOVIMENTO em cenas próximas** (João, 24/11/2026: "muda o iconezinho, mas o que ela faz, o
   movimento, é igual... muito enjoado", sobretudo nos primeiros 5 minutos e "muito mais nos primeiros 30 segundos").
   Trocar o ícone não conta como novidade. Entre duas cenas vizinhas muda pelo menos um destes: tipo de cena (palco,
   número, gráfico, tipografia, B-roll, Furry, 3D), direção ou tipo de entrada, câmera do corte e escala. No gancho, cada
   corte traz um recurso que ainda não apareceu (`cameraAuto: false` + lista `camera` escolhida corte a corte). Recursos
-  além do palco: `slam` (tipografia em profundidade), `type-on` (digita e apaga), `contador`, `maquina3d`, close do
-  Furry com fogo (B-roll `furry-close-fogo`, cena B da referência `referencias/analises/02-aviso-criador-ia.md`).
+  além do palco: `slam` (tipografia em profundidade), `type-on` (digita e apaga), `contador`, `maquina3d`. O close do Furry com fogo
+  (B-roll `furry-close-fogo`, cena B da referência) **só em momento de alta tensão**, nunca no gancho comum (João, 24/11/2026).
 
 ## 4. Gramática de cenas
 
@@ -110,6 +117,50 @@ coloque três pequenos.
   graça, fox4 ombros. Cada pose dura até 8 s (tamanho do loop).
 - Nunca: marca d'água (o `main-black-grid.mp4` tem "Veo"), card cinza de SaaS, ícone de estilo misturado, texto em
   inglês, "-R$" em verde.
+
+### Luz e overlay por bloco (desde 24/11/2026)
+
+João: "variar mais o efeito de luz e overlay da tela também". Antes todo trecho tinha a mesma pelicula e o mesmo leak.
+Agora cada trecho declara `"look"` no beats.json: pelicula (`riscos`, `pontos`, `filme`, `grao`, `poeira`), luz ambiente
+nas bordas (`fria`, `quente`, `verde`, `vermelha`, `dourada`, `neutra`, `teal`, `roxa`, `magenta`, `nenhuma`) com `forca`, `lado` e `curva`
+(`sobe`, `desce`, `pulsa`), `vinheta`, `extra` (`scanlines`, `bokeh`), o leak dos cortes "luz" (`borda`, `laranja`,
+`frio`, `verde`, `dourado`, entrando de um lado diferente a cada corte) e o ruído dos cortes "glitch" (`vhs`, `linhas`).
+Catálogo visual: `D:\YT\!Assets\Overlays\catalogo.png`.
+
+- **Regra:** dois trechos seguidos nunca têm a mesma combinação pelicula + luz + extra (o `hf:build` avisa).
+- **A luz conta a história:** fria e apagando na fase chata; quente e subindo quando a máquina liga e na virada;
+  verde no ganho; dourada no número mágico e no milhão; vermelha no erro; cinza só no Einstein (`telaCinza`).
+- **Luz do fundo preto também é do bloco** (João: "sempre luz amarela no mesmo ângulo"): o brilho do fundo `black`
+  usa a cor do `look` e muda de jeito a cada troca de fundo: `deriva` perto de um canto, `varre` de um lado ao outro,
+  `pulsa` parada num lugar, `contraluz` embaixo no centro (atrás do Furry); lado, tamanho e formato também variam.
+  Laranja/amarelo da marca só nos blocos de destaque (gancho, máquina, virada, número mágico, milhão, CTA).
+- **Revelação pulsa:** em todo corte `flash` ou `punch` a luz da borda pulsa forte e volta em ~1 s.
+- **Sem lavar a tela:** a luz fica nas bordas, o bokeh só nas faixas laterais, e tudo apaga nas cenas de papel. Depois
+  do render, `bun run video:qa <id>` acusa tela clara sem conteúdo.
+
+| Parte (177) | Bloco | Pelicula | Luz | Extra | Leak |
+|---|---|---|---|---|---|
+| 01 | gancho | riscos | vermelha, pulsa | - | laranja |
+| 02 | contexto | grão | roxa, sobe | - | borda |
+| 03 | o problema (R$ 5) | pontos | fria, desce | - | frio |
+| 04 | o problema (desiste) | grão | fria, desce | scanlines | frio |
+| 05 | Einstein | filme | neutra (tudo cinza por cima) | - | borda |
+| 06 | a conta | riscos | teal | scanlines | borda |
+| 07 | a máquina liga | poeira | quente, sobe | bokeh | laranja |
+| 08 | o erro | riscos | vermelha | - | borda |
+| 09 | pergunta | grão | nenhuma (respiro) | - | borda |
+| 10 | jornada: mês 2, ano 1 | pontos | fria, sobe | scanlines | frio |
+| 11 | anos 2 a 5 | filme | teal, sobe | - | borda |
+| 12 | a virada (mês 73/80/120) | riscos | dourada, forte | bokeh | dourado |
+| 13 | 123 + 54 | grão | verde | - | verde |
+| 14 | o calendário | poeira | roxa | scanlines | laranja |
+| 15 | a solução | filme | verde, sobe | - | verde |
+| 16 | passo 1 | grão | teal | scanlines | borda |
+| 17 | passos 2 e 3 | riscos | magenta | - | laranja |
+| 18 | número mágico | pontos | dourada | bokeh | dourado |
+| 19 | benefícios | filme | verde, sobe | - | verde |
+| 20 | o milhão | poeira | dourada, forte | bokeh | dourado |
+| 21 | CTA | riscos | quente, desce | - | borda |
 
 ## 6. Som
 

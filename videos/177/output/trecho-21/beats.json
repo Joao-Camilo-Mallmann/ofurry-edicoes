@@ -201,7 +201,7 @@
           "cor": "brand",
           "keys": [
             {
-              "at": "@like",
+              "at": "@deixa um like",
               "x": 0.2,
               "y": 0.42
             },
@@ -321,7 +321,8 @@
           "tam": 68,
           "cor": "loss"
         }
-      ]
+      ],
+      "papel": true
     },
     {
       "kind": "broll",
@@ -610,5 +611,16 @@
       "de": "@Bom eu sou-0.3",
       "ate": "@aí>+0.6"
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "riscos",
+    "luz": "quente",
+    "forca": 0.35,
+    "lado": "esq",
+    "curva": "desce",
+    "vinheta": 0.35,
+    "extra": "nenhum",
+    "leak": "borda",
+    "glitch": "vhs"
+  }
 }

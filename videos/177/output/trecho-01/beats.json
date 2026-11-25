@@ -36,7 +36,7 @@
       "from": "@Mas eu não errei-0.1",
       "until": "@E o pior",
       "entry": "pop",
-      "y": 0.9,
+      "y": 0.72,
       "estilo": "invertida"
     },
     {
@@ -137,13 +137,6 @@
       "gain": -24,
       "len": 1,
       "fadeOut": 0.2
-    },
-    {
-      "at": "@Mas eu não errei",
-      "file": "@sfx/Ambiente SFX/Campfire.mp3",
-      "gain": -24,
-      "len": 1.4,
-      "fadeOut": 0.4
     },
     {
       "at": "@qual é esse número",
@@ -328,14 +321,17 @@
       ]
     },
     {
-      "kind": "broll",
+      "kind": "mascot",
       "at": "@Mas eu não errei",
       "until": "@é que muita",
-      "src": "../../acervo/broll/furry-close-fogo.mp4",
-      "entra": "flash",
-      "zoom": [
-        1,
-        1.1
+      "placement": "center",
+      "entra": "corte",
+      "canto": false,
+      "poses": [
+        {
+          "at": "@Mas eu não errei",
+          "pose": "../../../../public/mascote/fox2.png"
+        }
       ]
     },
     {
@@ -411,7 +407,7 @@
       "until": "@fim",
       "linhas": [
         {
-          "at": "@qual é esse número",
+          "at": "@Fica comigo",
           "texto": "QUAL É O NÚMERO"
         },
         {
@@ -461,7 +457,7 @@
     },
     {
       "at": "@Mas eu não errei",
-      "tipo": "flash"
+      "tipo": "punch"
     },
     {
       "at": "@é que muita",
@@ -483,5 +479,16 @@
       "at": "@Fica comigo",
       "tipo": "punch"
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "riscos",
+    "luz": "vermelha",
+    "forca": 0.45,
+    "lado": "cantos",
+    "curva": "pulsa",
+    "vinheta": 0.4,
+    "extra": "nenhum",
+    "leak": "laranja",
+    "glitch": "vhs"
+  }
 }

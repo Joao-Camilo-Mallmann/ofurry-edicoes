@@ -367,24 +367,37 @@
     },
     {
       "kind": "cena",
-      "tipo": "comparar",
+      "tipo": "moedas3d",
       "at": "@É um valor",
       "until": "@E é por isso",
-      "vs": "VS",
-      "itens": [
+      "titulo": "QUANTO RENDE POR MÊS",
+      "tituloAt": "@É um valor",
+      "pilhas": [
         {
           "at": "@É um valor",
-          "titulo": "R$ 100 MIL",
-          "valor": "R$ 565",
-          "sub": "POR MÊS",
-          "cor": "text"
+          "ate": 11,
+          "dur": 1.2,
+          "rotulo": "COM R$ 100 MIL",
+          "cor": "text",
+          "valor": [
+            {
+              "at": "@É um valor+0.6",
+              "v": 565
+            }
+          ]
         },
         {
           "at": "@os mil reais",
-          "titulo": "R$ 177 MIL",
-          "valor": "R$ 1.000",
-          "sub": "POR MÊS",
-          "cor": "gain"
+          "ate": 20,
+          "dur": 1.2,
+          "rotulo": "COM R$ 177 MIL",
+          "cor": "gain",
+          "valor": [
+            {
+              "at": "@os mil reais+0.6",
+              "v": 1000
+            }
+          ]
         }
       ]
     },
@@ -449,5 +462,16 @@
         }
       ]
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "riscos",
+    "luz": "teal",
+    "forca": 0.4,
+    "lado": "dir",
+    "curva": "pulsa",
+    "vinheta": 0.35,
+    "extra": "scanlines",
+    "leak": "borda",
+    "glitch": "linhas"
+  }
 }

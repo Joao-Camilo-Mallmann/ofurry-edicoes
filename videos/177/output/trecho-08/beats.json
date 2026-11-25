@@ -176,28 +176,28 @@
     },
     {
       "kind": "cena",
-      "tipo": "numeros",
+      "tipo": "slam",
       "at": "@Eu já tenho",
       "until": "@mas não dizem",
-      "itens": [
+      "numerada": false,
+      "linhas": [
         {
           "at": "@10 mil",
-          "valor": "10 MIL",
-          "riscaAt": "@fim"
+          "texto": "R$ 10 MIL",
+          "tam": 190
         },
         {
           "at": "@50 mil",
-          "valor": "50 MIL",
-          "riscaAt": "@fim"
+          "texto": "R$ 50 MIL",
+          "tam": 190
         },
         {
           "at": "@100 mil",
-          "valor": "100 MIL",
-          "riscaAt": "@fim"
+          "texto": "R$ 100 MIL",
+          "tam": 190,
+          "cor": "hl"
         }
-      ],
-      "rotulo": "BONS MARCOS",
-      "rotuloAt": "@bons marcos"
+      ]
     },
     {
       "kind": "cena",
@@ -332,115 +332,39 @@
     },
     {
       "kind": "cena",
-      "tipo": "palco",
+      "tipo": "duasCurvas",
       "at": "@Duas pessoas",
-      "until": "@Tudo depende",
-      "atores": [
-        {
-          "id": "p1",
-          "icone": "user",
-          "rotulo": "PESSOA 1",
-          "tam": 230,
-          "entra": "cair",
-          "arco": 0.15,
-          "pulsaAt": [
-            "@mesmo patrimônio"
-          ],
-          "keys": [
-            {
-              "at": "@Duas pessoas",
-              "x": 0.3,
-              "y": 0.46
-            },
-            {
-              "at": "@momentos diferentes",
-              "x": 0.2,
-              "y": 0.68,
-              "s": 0.8,
-              "dur": 0.7
-            }
-          ]
-        },
-        {
-          "id": "p2",
-          "icone": "user",
-          "rotulo": "PESSOA 2",
-          "tam": 230,
-          "entra": "elastico",
-          "arco": 0.15,
-          "pulsaAt": [
-            "@mesmo patrimônio"
-          ],
-          "keys": [
-            {
-              "at": "@Duas pessoas+0.3",
-              "x": 0.7,
-              "y": 0.46
-            },
-            {
-              "at": "@momentos diferentes",
-              "x": 0.8,
-              "y": 0.3,
-              "s": 0.8,
-              "dur": 0.7
-            }
-          ]
-        }
-      ],
-      "setas": [
-        {
-          "de": "p1",
-          "para": "p2",
-          "at": "@da curva",
-          "cor": "gain"
-        }
-      ],
-      "textos": [
-        {
-          "at": "@100 mil reais",
-          "ate": "@momentos diferentes",
-          "texto": "R$ 100 MIL",
-          "x": 0.5,
-          "y": 0.2,
-          "fonte": "num",
-          "tam": 150,
-          "cor": "hl"
-        },
-        {
-          "at": "@momentos diferentes",
-          "texto": "MOMENTOS DIFERENTES",
-          "x": 0.5,
-          "y": 0.9,
-          "tam": 70
-        }
-      ]
-    },
-    {
-      "kind": "cena",
-      "tipo": "lista",
-      "at": "@Tudo depende",
       "until": "@A maioria",
-      "titulo": "TUDO DEPENDE",
-      "itens": [
+      "linha": 100000,
+      "meses": 180,
+      "curvas": [
         {
-          "at": "@quanto tempo",
-          "n": "1",
-          "texto": "QUANTO TEMPO RENDE"
+          "at": "@Duas pessoas",
+          "aporte": 1000,
+          "rotulo": "A",
+          "sub": "COMEÇO DA CURVA",
+          "cor": "text",
+          "dur": 1.6
         },
         {
-          "at": "@qual é a taxa",
-          "n": "2",
-          "texto": "QUAL É A TAXA"
+          "at": "@mas estar",
+          "aporte": 330,
+          "rotulo": "B",
+          "sub": "PERTO DA VIRADA",
+          "cor": "gain",
+          "dur": 2
         }
       ],
-      "ativo": [
+      "destaques": [
         {
           "at": "@quanto tempo",
-          "i": 0
+          "texto": "QUANTO TEMPO RENDE",
+          "alvo": "tempo"
         },
         {
           "at": "@qual é a taxa",
-          "i": 1
+          "texto": "E A QUE TAXA",
+          "alvo": "taxa"
         }
       ]
     },
@@ -558,7 +482,8 @@
           "tam": 84,
           "cor": "loss"
         }
-      ]
+      ],
+      "papel": true
     },
     {
       "kind": "cena",
@@ -575,33 +500,29 @@
       "kind": "mascot",
       "at": "@Quantas vezes",
       "until": "@fim",
-      "placement": "right-third",
-      "entra": "giro",
+      "placement": "center",
+      "entra": "rise",
       "poses": [
         {
           "at": "@Quantas vezes",
           "pose": "../../../../public/mascote/fox1.png"
         },
         {
-          "at": "@virar nossa vida",
-          "pose": "../../../../public/mascote/fox2-antigo.webm"
-        },
-        {
           "at": "@mas nunca",
           "pose": "../../../../public/mascote/fox4.png"
         }
       ]
-    },
-    {
-      "kind": "broll",
-      "at": "@nunca se",
-      "until": "@fim",
-      "src": "../../acervo/broll/nevoa-no-topo-da-montanha.mp4",
-      "entra": "zoom",
-      "zoom": [
-        1,
-        1.12
-      ]
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "riscos",
+    "luz": "vermelha",
+    "forca": 0.4,
+    "lado": "esq",
+    "curva": "pulsa",
+    "vinheta": 0.4,
+    "extra": "nenhum",
+    "leak": "borda",
+    "glitch": "vhs"
+  }
 }

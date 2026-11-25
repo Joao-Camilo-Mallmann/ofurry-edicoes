@@ -111,7 +111,8 @@ const vozGanho = (() => {
   return Math.abs(g) > 0.3 ? g : 0;
 })();
 // Efeito pontual na voz, pedido na cena: "vozEfeito": [{ "de": "@frase", "ate": "@frase", "tipo": "radio" }] no beats.json.
-// "radio": locutor de AM (tom um pouco mais grave + faixa estreita). O resto da fala segue sem nenhum tratamento.
+// "radio": radio velho (faixa estreita e saturada, SEM mudar o tom: Joao achou a voz grave ruim). O resto da fala segue
+// sem nenhum tratamento.
 const vozEfeitos = (s: Seg): { de: number; ate: number }[] => {
   const bp = join(s.dir, 'beats.json');
   if (!existsSync(bp)) return [];
@@ -139,7 +140,7 @@ segs.forEach((s, i) => {
     const r = efeitos.map((e) => `clip(min((t-${e.de.toFixed(3)})/0.015,(${e.ate.toFixed(3)}-t)/0.015),0,1)`).join('+');
     filters.push(`${base},asplit=2[nd${i}][nw${i}]`);
     filters.push(`[nd${i}]asetnsamples=n=32,volume='1-(${r})':eval=frame[ndd${i}]`);
-    filters.push(`[nw${i}]asetrate=48000*0.92,aresample=48000,atempo=1/0.92,highpass=f=380,lowpass=f=3200,asoftclip=type=tanh,volume=3dB,asetnsamples=n=32,volume='${r}':eval=frame[nww${i}]`);
+    filters.push(`[nw${i}]highpass=f=550,lowpass=f=2700,volume=6dB,asoftclip=type=tanh,volume=-1dB,asetnsamples=n=32,volume='${r}':eval=frame[nww${i}]`);
     filters.push(`[ndd${i}][nww${i}]amix=inputs=2:normalize=0:duration=first,${delay}[n${i}]`);
   }
   labels.push(`[n${i}]`);
@@ -253,7 +254,9 @@ segs.forEach((s) => {
     const trim = fx.len ? `atrim=${(fx.from ?? 0).toFixed(3)}:${((fx.from ?? 0) + fx.len).toFixed(3)},asetpts=PTS-STARTPTS,` : fx.from ? `atrim=start=${fx.from},asetpts=PTS-STARTPTS,` : '';
     const fo = fx.fadeOut ?? 0.08;
     const fade = fx.len ? `afade=t=out:st=${Math.max(0, fx.len - fo).toFixed(3)}:d=${fo},` : '';
-    filters.push(`[${k}:a]aresample=48000,aformat=channel_layouts=stereo,${trim}${fade}volume=${(fx.gain ?? -16).toFixed(1)}dB,adelay=${Math.round(at * 1000)}:all=1[s${nSfx}]`);
+    // "radio": true passa o efeito/musica pelo filtro de radio velho
+    const radio = (fx as { radio?: boolean }).radio ? 'highpass=f=500,lowpass=f=2800,volume=6dB,asoftclip=type=tanh,' : '';
+    filters.push(`[${k}:a]aresample=48000,aformat=channel_layouts=stereo,${trim}${radio}${fade}volume=${(fx.gain ?? -16).toFixed(1)}dB,adelay=${Math.round(at * 1000)}:all=1[s${nSfx}]`);
     labels.push(`[s${nSfx}]`);
     nSfx++;
   }

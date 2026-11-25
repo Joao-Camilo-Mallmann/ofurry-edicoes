@@ -114,6 +114,17 @@ destaque no preto a cada 2 trechos. O resto continua branco.
 - B-roll entra no começo da frase, nunca no meio dela; a cena fica até a fala daquela ideia terminar.
 
 ## Cenas especiais
+- **Ícones vivos no palco:** ator com versão em `src/lucide-animated/icons` (469) já anima em loop sozinho; prefira esses
+  nomes (`user`, `wallet`, `hand-coins`, `trending-up`, `circle-dollar-sign`, `badge-percent`, `alarm-clock`, `rocket`...).
+- **Fundo de papel** (`"papel": true` na batida): quadriculado claro e cores da cena invertidas; a legenda vira tarja.
+  Use quando duas cenas de ícones ficariam seguidas no preto. A inversão fica DENTRO da cena (div `-cena`); filtro no
+  host da composição sai certo no snapshot mas some no MP4 (bug do 14:10 no 177: papel em branco, sem ícones).
+- **Luz e textura do bloco:** todo beats.json novo leva `"look"` (pelicula, luz, extra, leak, glitch); nunca a mesma
+  combinação do trecho vizinho. Tabela e regras: `docs/padrao-edicao-ofurry.md`, "Luz e overlay por bloco".
+- **Antes de mandar qualquer cópia:** `bun run video:qa <id>` (ou `<arquivo.mp4> --de=s --ate=s`) sinaliza tela clara
+  sem conteúdo (sai com erro), preto fora da assinatura e quadro parado > 4 s.
+- **Meme** da pasta `D:\YT\!Assets\Meme` (gif/mp4 → clipe 1920x1080 com fundo borrado) como `broll` com `moldura` e
+  `entra: corte`, 1–2 s, só em humor ou sátira; cada meme 1 vez por vídeo.
 - `radio` / `paoQueijo` (`hf/kit/radio.js`): comercial de rádio quebra-gelo e PNG recortado em stop-motion (`src`).
 - Voz de rádio só numa frase: `"vozEfeito": [{ "de": "@frase", "ate": "@frase", "tipo": "radio" }]` no beats.json.
 - Fora do roteiro: fundo `cinza` + `mascot` no centro com `"entra": "corte"`, sem mais nada na tela.

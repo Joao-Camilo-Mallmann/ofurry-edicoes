@@ -300,5 +300,16 @@
         }
       ]
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "pontos",
+    "luz": "dourada",
+    "forca": 0.55,
+    "lado": "cantos",
+    "curva": "sobe",
+    "vinheta": 0.35,
+    "extra": "bokeh",
+    "leak": "dourado",
+    "glitch": "vhs"
+  }
 }

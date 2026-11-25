@@ -36,6 +36,12 @@
       "until": "@Mas antes de eu-0.1",
       "entry": "pop",
       "estilo": "invertida"
+    },
+    {
+      "from": "@Mas antes de eu-0.1",
+      "until": "@fim",
+      "entry": "pop",
+      "y": 0.72
     }
   ],
   "camera": [
@@ -292,8 +298,8 @@
     {
       "kind": "mascot",
       "at": "@Só que aí",
-      "until": "@Mas porque",
-      "placement": "left-third",
+      "until": "@Só que a matemática",
+      "placement": "center",
       "entra": "giro",
       "poses": [
         {
@@ -301,84 +307,48 @@
           "pose": "../../../../public/mascote/fox4.png"
         },
         {
-          "at": "@eles de fato",
-          "pose": "../../../../public/mascote/fox1-antigo.webm"
-        },
-        {
-          "at": "@bonitinhos",
-          "pose": "../../../../public/mascote/fox2.png"
+          "at": "@Mas porque",
+          "pose": "../../../../public/mascote/fox4.png"
         }
       ]
     },
     {
       "kind": "cena",
       "tipo": "palco",
-      "at": "@Mas porque",
+      "at": "@Só que a matemática",
       "until": "@E olha",
       "atores": [
         {
           "id": "redondo",
           "icone": "circle",
-          "tam": 300,
+          "rotulo": "NÚMERO REDONDO",
+          "cor": "info",
+          "tam": 240,
           "entra": "girar",
-          "pulsaAt": [
-            "@redondos"
-          ],
+          "riscaAt": "@não liga",
+          "riscaComo": "apaga",
           "keys": [
             {
-              "at": "@Mas porque",
-              "x": 0.5,
-              "y": 0.42
-            },
-            {
-              "at": "@a matemática",
-              "x": 0.68,
-              "dur": 0.6
-            },
-            {
-              "at": "@liga muito",
-              "x": 1.25,
-              "r": 540,
-              "dur": 1.3
+              "at": "@Só que a matemática",
+              "x": 0.32,
+              "y": 0.44
             }
           ]
         },
         {
           "id": "juros",
           "icone": "trending-up",
-          "cor": "gain",
-          "tam": 300,
           "rotulo": "JUROS COMPOSTOS",
-          "entra": "whip",
+          "cor": "gain",
+          "tam": 280,
+          "entra": "rise",
           "keys": [
             {
               "at": "@juros compostos",
-              "x": 0.3,
+              "x": 0.68,
               "y": 0.42
-            },
-            {
-              "at": "@número redondo",
-              "x": 0.5,
-              "s": 1.2,
-              "dur": 0.8
             }
           ]
-        }
-      ],
-      "textos": [
-        {
-          "at": "@redondos",
-          "ate": "@juros compostos",
-          "texto": "REDONDOS",
-          "x": 0.5,
-          "y": 0.8
-        },
-        {
-          "at": "@não liga",
-          "texto": "NÃO LIGA",
-          "x": 0.5,
-          "y": 0.82,
-          "cor": "hl"
         }
       ]
     },
@@ -515,94 +485,32 @@
       "y": 0.86
     },
     {
-      "kind": "cena",
-      "tipo": "palco",
-      "atores": [
-        {
-          "id": "duvida",
-          "icone": "circle-question-mark",
-          "cor": "hl",
-          "tam": 280,
-          "entra": "pop",
-          "sai": "@você primeiro",
-          "saiComo": "encolhe",
-          "pulsaAt": [
-            "@esse número vem"
-          ],
-          "keys": [
-            {
-              "at": "@Mas antes de eu",
-              "x": 0.5,
-              "y": 0.42
-            }
-          ]
-        },
-        {
-          "id": "voce",
-          "icone": "user",
-          "rotulo": "VOCÊ",
-          "tam": 220,
-          "entra": "whip",
-          "keys": [
-            {
-              "at": "@você primeiro",
-              "x": 0.1,
-              "y": 0.47
-            },
-            {
-              "at": "@você primeiro+0.1",
-              "x": 0.24,
-              "dur": 3.4
-            }
-          ]
-        },
-        {
-          "id": "meta",
-          "icone": "flag",
-          "cor": "hl",
-          "rotulo": "R$ 177 MIL",
-          "tam": 240,
-          "entra": "cair",
-          "pulsaAt": [
-            "@longe dele"
-          ],
-          "keys": [
-            {
-              "at": "@você primeiro+0.3",
-              "x": 0.84,
-              "y": 0.45
-            }
-          ]
-        }
-      ],
-      "setas": [
-        {
-          "de": "voce",
-          "para": "meta",
-          "at": "@quem ainda",
-          "cor": "text"
-        }
-      ],
-      "textos": [
-        {
-          "at": "@explicar de onde",
-          "ate": "@você primeiro",
-          "texto": "DE ONDE VEM?",
-          "x": 0.5,
-          "y": 0.82,
-          "tam": 84
-        },
-        {
-          "at": "@longe dele",
-          "texto": "AINDA LONGE",
-          "x": 0.5,
-          "y": 0.17,
-          "tam": 90,
-          "cor": "hl"
-        }
-      ],
+      "kind": "mascot",
       "at": "@Mas antes de eu",
-      "until": "@fim"
+      "until": "@fim",
+      "placement": "center",
+      "entra": "zoom",
+      "poses": [
+        {
+          "at": "@Mas antes de eu",
+          "pose": "../../../../public/mascote/fox1.png"
+        },
+        {
+          "at": "@você primeiro",
+          "pose": "../../../../public/mascote/fox3.png"
+        }
+      ]
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "grao",
+    "luz": "roxa",
+    "forca": 0.4,
+    "lado": "esq",
+    "curva": "sobe",
+    "vinheta": 0.3,
+    "extra": "nenhum",
+    "leak": "borda",
+    "glitch": "linhas"
+  }
 }

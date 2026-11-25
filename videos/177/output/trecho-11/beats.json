@@ -333,108 +333,25 @@
       ]
     },
     {
-      "kind": "cena",
-      "tipo": "palco",
+      "kind": "broll",
       "at": "@jogando",
+      "until": "@esperando",
+      "src": "../../acervo/broll/notas-caindo-fundo-escuro.mp4",
+      "entra": "corte",
+      "zoom": [
+        1.0,
+        1.15
+      ]
+    },
+    {
+      "kind": "broll",
+      "at": "@esperando",
       "until": "@Mas aqui o papo",
-      "atores": [
-        {
-          "id": "voce",
-          "icone": "user",
-          "rotulo": "VOCÊ",
-          "keys": [
-            {
-              "at": "@jogando",
-              "x": 0.18,
-              "y": 0.45
-            }
-          ],
-          "pulsaAt": [
-            "@voltar para"
-          ],
-          "entra": "elastico"
-        },
-        {
-          "id": "lugar",
-          "icone": "circle-help",
-          "cor": "whisper",
-          "tam": 220,
-          "rotulo": "ALGUM LUGAR",
-          "keys": [
-            {
-              "at": "@algum lugar",
-              "x": 0.78,
-              "y": 0.45
-            },
-            {
-              "at": "@muito distante",
-              "x": 0.9,
-              "y": 0.4,
-              "s": 0.55,
-              "dur": 1
-            }
-          ],
-          "entra": "girar"
-        },
-        {
-          "id": "ampulheta",
-          "icone": "hourglass",
-          "cor": "hl",
-          "tam": 150,
-          "balanca": false,
-          "keys": [
-            {
-              "at": "@esperando",
-              "x": 0.5,
-              "y": 0.16
-            },
-            {
-              "at": "@futuro",
-              "r": 180,
-              "dur": 0.6
-            },
-            {
-              "at": "@realmente comece",
-              "r": 360,
-              "dur": 0.6
-            }
-          ],
-          "entra": "cair"
-        }
-      ],
-      "fluxos": [
-        {
-          "de": "voce",
-          "para": "lugar",
-          "at": "@seu dinheiro",
-          "ate": "@esperando",
-          "icone": "banknote",
-          "cor": "gain",
-          "tam": 80,
-          "por": 3,
-          "arco": -0.35
-        },
-        {
-          "de": "lugar",
-          "para": "voce",
-          "at": "@voltar",
-          "ate": "@voltar+0.8",
-          "icone": "coins",
-          "cor": "gain",
-          "tam": 60,
-          "por": 2
-        }
-      ],
-      "textos": [
-        {
-          "at": "@futuro",
-          "ate": "@ele realmente",
-          "texto": "FUTURO DISTANTE",
-          "x": 0.5,
-          "y": 0.8,
-          "tam": 60,
-          "cor": "info"
-        }
+      "src": "../../acervo/broll/nevoa-no-topo-da-montanha.mp4",
+      "entra": "zoom",
+      "zoom": [
+        1.0,
+        1.22
       ]
     },
     {
@@ -501,7 +418,8 @@
           "y": 0.13,
           "tam": 72
         }
-      ]
+      ],
+      "papel": true
     },
     {
       "kind": "broll",
@@ -777,6 +695,30 @@
           "cor": "hl"
         }
       ]
+    },
+    {
+      "kind": "broll",
+      "at": "@muita gente desiste",
+      "until": "@porque você investiu",
+      "src": "../../acervo/broll/meme-cachorro-sirene.mp4",
+      "entra": "corte",
+      "moldura": true,
+      "zoom": [
+        1,
+        1.05
+      ],
+      "escurece": 0
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "filme",
+    "luz": "teal",
+    "forca": 0.35,
+    "lado": "esq",
+    "curva": "sobe",
+    "vinheta": 0.35,
+    "extra": "nenhum",
+    "leak": "borda",
+    "glitch": "vhs"
+  }
 }

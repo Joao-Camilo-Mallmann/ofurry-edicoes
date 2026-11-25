@@ -441,5 +441,16 @@
         }
       ]
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "grao",
+    "luz": "fria",
+    "forca": 0.55,
+    "lado": "baixo",
+    "curva": "desce",
+    "vinheta": 0.5,
+    "extra": "scanlines",
+    "leak": "frio",
+    "glitch": "linhas"
+  }
 }

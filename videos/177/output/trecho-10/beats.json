@@ -596,5 +596,16 @@
       "x": 0.5,
       "y": 0.2
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "pontos",
+    "luz": "fria",
+    "forca": 0.55,
+    "lado": "dir",
+    "curva": "sobe",
+    "vinheta": 0.4,
+    "extra": "scanlines",
+    "leak": "frio",
+    "glitch": "linhas"
+  }
 }

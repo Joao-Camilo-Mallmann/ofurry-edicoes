@@ -14,7 +14,7 @@
 import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { basename, dirname, extname, join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
-import type { Backdrop, Beat, BeatSheet, CaptionWindow } from '../../src/house/beats';
+import type { Backdrop, Beat, BeatSheet, CaptionWindow, Look } from '../../src/house/beats';
 import { CaptionCard, cardsFromSubtitle } from '../../src/house/captions';
 import { House, HouseTone, toneColor, toneFromValue } from '../../src/house/theme';
 import { lintBeatSheet } from '../../src/house/lint';
@@ -142,6 +142,40 @@ const glow = (color: string, size: number) => `filter: drop-shadow(0 0 ${Math.ro
 // ---------------------------------------------------------------------------
 // Fundo
 // ---------------------------------------------------------------------------
+/**
+ * Luz do fundo preto de um trecho de fundo (backdrop i). Quatro jeitos, escolhidos pelo trecho + troca de fundo:
+ * deriva (anda devagar perto de um canto), varre (atravessa a tela de um lado ao outro), pulsa (parada num lugar,
+ * respira mais forte) e contraluz (embaixo no centro, atras do Furry). Lado, tamanho e angulo tambem mudam.
+ */
+function glowFundo(i: number, start: number, dur: number): { css: string; js: (id: string) => string } | undefined {
+  const L = lookAtual();
+  const cor = L.luz !== 'nenhuma' ? LUZES[L.luz] : undefined;
+  if (!cor) return undefined;
+  const h = hashStr(`${sheet.id}-fundo-${i}`);
+  const MODOS = ['deriva', 'varre', 'pulsa', 'contraluz'] as const;
+  const modo = MODOS[(hashStr(sheet.id) + i) % 4];
+  const forca = Math.max(0.15, Math.min(1, L.forca));
+  const a = Math.round((0.07 + 0.13 * forca) * 255).toString(16).padStart(2, '0');
+  const tam = 110 + (h % 7) * 15; // 110% a 200%
+  const elip = ['circle', 'ellipse 60% 40%', 'ellipse 40% 60%', 'ellipse 70% 30%'][(h >>> 3) % 4];
+  const css = `background-image:radial-gradient(${elip}, ${cor}${a} 0%, transparent 60%);background-size:${tam}% ${tam}%`;
+  // pontos de partida variados: cantos, lados, cima, baixo
+  const PONTOS: [number, number][] = [[0, 0], [100, 0], [0, 100], [100, 100], [50, 0], [50, 100], [0, 50], [100, 50]];
+  const [px, py] = PONTOS[(h >>> 6) % PONTOS.length];
+  const s0 = r3(start);
+  const dir = (h >>> 9) % 2 ? 1 : -1;
+  const js = (id: string) => {
+    let corpo = '';
+    if (modo === 'deriva') corpo = `x = ${px} + Math.sin(T * 0.21) * 14; y = ${py} + Math.cos(T * 0.17) * 12; o = 1;`;
+    else if (modo === 'varre') corpo = `var u = t / ${dur}; x = ${dir > 0 ? '-10 + 120 * u' : '110 - 120 * u'}; y = ${py === 50 ? 30 : py} + Math.sin(T * 0.3) * 8; o = Math.min(1, t / 1.5, (${dur} - t) / 1.5 + 0.3);`;
+    else if (modo === 'pulsa') corpo = `x = ${px}; y = ${py}; o = 0.45 + 0.55 * (0.5 + 0.5 * Math.sin(T * 1.7));`;
+    else corpo = `x = 50 + Math.sin(T * 0.13) * 6; y = 100; o = 0.8 + 0.2 * Math.sin(T * 0.9);`;
+    return `      House.drive(tl, ${s0}, ${dur}, function (t) { var T = t + ${s0}, x, y, o; ${corpo} var g = $("${id}"); g.style.backgroundPosition = x.toFixed(2) + "% " + y.toFixed(2) + "%"; g.style.opacity = Math.max(0, Math.min(1, o)).toFixed(3); });
+`;
+  };
+  return { css, js };
+}
+
 function buildBackdrops(): string {
   const bds = [...sheet.backdrops].sort((a, b) => a.at - b.at);
   let markup = '';
@@ -154,7 +188,7 @@ function buildBackdrops(): string {
     .fundo-plane { position: absolute; inset: 0;
       background-image: linear-gradient(#fff 1.5px, transparent 1.5px), linear-gradient(90deg, #fff 1.5px, transparent 1.5px); background-size: 90px 90px; }
     .fundo-plate { position: absolute; inset: 0; width: ${W}px; height: ${H}px; object-fit: cover; }
-    .fundo-glow { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,153,0,0.10) 0%, transparent 38%), radial-gradient(circle, rgba(46,224,74,0.06) 0%, transparent 34%); background-size: 160% 160%, 150% 150%; background-repeat: no-repeat; }
+    .fundo-glow { position: absolute; inset: 0; background-repeat: no-repeat; }
     #fundo-vinheta { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%); z-index: 50; }
   `;
   // base preta fixa embaixo de tudo: o "grade-video" (video a 55%) sem ela deixava o fundo CINZA (Joao, 21/11/2026:
@@ -169,19 +203,23 @@ function buildBackdrops(): string {
     let inner = '';
     // "black" agora e preto VIVO: luz ambiente da marca andando devagar (o Joao achou "muito fundo preto").
     // "preto-puro" mantem o preto chapado (respiro raro). "grade-video": grade em perspectiva filmada.
-    const glow = `<div class="fundo-glow" id="${id}-glow"></div>`;
+    // luz de fundo do bloco: cor, lugar, tamanho e movimento variam por trecho e por troca de fundo (Joao, 24/11/2026:
+    // "sempre luz amarela no mesmo angulo"). Laranja/amarelo da marca so nos blocos de destaque (look.luz).
+    const luzFundo = glowFundo(i, start, dur);
+    const glow = luzFundo ? `<div class="fundo-glow" id="${id}-glow" style="${luzFundo.css}"></div>` : '';
     if (kind === 'preto-puro') inner = `<div class="fundo-black"></div>`;
     // "cinza": comentario fora do roteiro (Joao, 22/11/2026): cinza chapado, so o Furry grande no centro
     else if (kind === 'cinza') inner = `<div style="position:absolute;inset:0;background:#6e6e6e"></div>`;
     else if (kind === 'black') {
       inner = `<div class="fundo-black"></div>${glow}`;
-      script += `      House.drive(tl, ${r3(start)}, ${dur}, function (t) { var T = t + ${r3(start)}; $("${id}-glow").style.backgroundPosition = (50 + Math.sin(T * 0.21) * 22).toFixed(2) + "% " + (40 + Math.cos(T * 0.17) * 18).toFixed(2) + "%, " + (50 - Math.sin(T * 0.13) * 25).toFixed(2) + "% " + (60 + Math.sin(T * 0.19) * 15).toFixed(2) + "%"; });\n`;
+      if (luzFundo) script += luzFundo.js(`${id}-glow`);
     }
     else if (kind === 'grade-video') {
       const src = asset('@assets/Overlays/fundos/grade-perspectiva.mp4');
       // o video e o proprio clip (sem pai temporizado: regra do extrator de quadros)
       markup += src ? `    <video id="${id}-v" class="clip" src="${src}" muted playsinline data-start="${r3(start)}" data-duration="${dur}" data-media-start="${r3(start % 40)}" data-track-index="${i + 40}" style="position:absolute;inset:0;width:${W}px;height:${H}px;object-fit:cover;opacity:0.55"></video>\n` : '';
       inner = glow;
+      if (luzFundo) script += luzFundo.js(`${id}-glow`);
     }
     else if (kind === 'grid') {
       inner = `<div class="fundo-black"></div><div class="fundo-plane-wrap" data-layout-ignore><div id="${id}-plano" class="fundo-plane"></div></div>`;
@@ -207,6 +245,11 @@ function buildBackdrops(): string {
       inner = src ? `<img class="fundo-plate" src="${src}" alt="">` : `<div class="fundo-black"></div>`;
     }
     markup += `    <div id="${id}" class="clip" data-start="${r3(start)}" data-duration="${dur}" data-track-index="${i}" style="position:absolute;inset:0">${inner}</div>\n`;
+  });
+  // papel claro quadriculado nas batidas com "papel": true (Joao, 24/11/2026: "pode ser um fundo branco")
+  sheet.beats.forEach((b, k) => {
+    if (!(b as { papel?: boolean }).papel) return;
+    markup += `    <div class="clip" data-start="${r3(b.at)}" data-duration="${r3(b.until - b.at)}" data-track-index="${60 + k}" data-layout-ignore style="position:absolute;inset:0;background-color:#eeeae2;background-image:linear-gradient(rgba(0,0,0,.08) 2px,transparent 2px),linear-gradient(90deg,rgba(0,0,0,.08) 2px,transparent 2px);background-size:64px 64px"></div>\n`;
   });
   markup += `    <div id="fundo-vinheta" data-layout-ignore></div>\n`;
   return scene('fundo', css, markup, script);
@@ -290,6 +333,7 @@ function buildCaptions(invertidas = false): string {
 }
 // A invertida (blend difference) inverteria as cores do Furry por baixo do bloco: com ele GRANDE na tela vira tarja.
 function estiloDe(w: CaptionWindow): CaptionWindow['estilo'] {
+  if (sheet.beats.some((b) => (b as { papel?: boolean }).papel && b.at < w.until && b.until > w.from)) return 'tarja';
   if (w.estilo !== 'invertida') return w.estilo;
   const furryGrande = sheet.beats.some((b) => {
     if (b.kind !== 'mascot') return false;
@@ -301,12 +345,14 @@ function estiloDe(w: CaptionWindow): CaptionWindow['estilo'] {
   return furryGrande ? 'tarja' : 'invertida';
 }
 // arquivos extras do kit: so entram nos trechos que usam a cena (nao mexem no render dos outros)
-const KIT_EXTRA: Record<string, string> = { radio: 'radio.js', paoQueijo: 'radio.js', slam: 'gancho.js' };
+const KIT_EXTRA: Record<string, string> = { radio: 'radio.js', paoQueijo: 'radio.js', slam: 'gancho.js', colagem: 'colagem.js', moedas3d: 'moedas3d.js', duasCurvas: 'curvas.js' };
 // ancora do Furry por pose (scripts/mascote-ancoras.py -> public/mascote/ancoras.json)
 const ANCORAS: Record<string, { dx: number }> = (() => {
   const f = join(ROOT, 'public', 'mascote', 'ancoras.json');
   return existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : {};
 })();
+// estatico -> parente no Lucide Animated (mesmo sentido), para o palco ter mais icone vivo
+const LUCIDE_ANIMADO_PARENTE: Record<string, string> = { coins: 'circle-dollar-sign', percent: 'badge-percent', calendar: 'calendar-days', banknote: 'dollar-sign', 'circle-help': 'circle-help' };
 const kitExtras = () => [...new Set(sheet.beats.filter((b) => b.kind === 'cena').map((b) => KIT_EXTRA[(b as { tipo?: string }).tipo ?? '']).filter(Boolean))];
 const temInvertida = () => (sheet.captions ?? []).some((w) => estiloDe(w) === 'invertida');
 
@@ -550,19 +596,37 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
       const { kind: _k, at: _a, until: _u, tipo, opcional: _o, ...params } = beat as Record<string, any>;
       // arquivos citados pela cena (foto3d: src/depth) vao para assets/media
       for (const key of ['src', 'depth']) if (typeof params[key] === 'string') params[key] = asset(params[key]) ?? '';
-      // icones Lucide citados pela cena (palco: atores[].icone, fluxos[].icone) viram SVG estatico injetado
+      // icones Lucide citados pela cena (palco: atores[].icone animado quando existe, fluxos[].icone estatico)
+      const atoresAnimados: { id?: string; keys?: { at?: number }[] }[] = [];
       for (const list of [params.atores, params.fluxos]) {
         if (!Array.isArray(list)) continue;
-        for (const it of list) if (typeof it.icone === 'string') it.svg = (await iconSvg(it.icone, it.tam ?? (list === params.fluxos ? 100 : 260), false)).svg;
+        for (const it of list) {
+          if (typeof it.icone !== 'string') continue;
+          // atores: Lucide Animated quando existe (ou o parente animado mais proximo); fluxos seguem estaticos
+          const ator = list === params.atores;
+          const nome = ator ? (LUCIDE_ANIMADO_PARENTE[it.icone] ?? it.icone) : it.icone;
+          const r = await iconSvg(nome, it.tam ?? (ator ? 260 : 100), ator);
+          it.svg = r.svg;
+          if (ator && r.animated) atoresAnimados.push(it);
+        }
       }
-      markup = `    <div id="${id}-cena" class="clip" data-start="0" data-duration="${dur}" data-track-index="0" style="position:absolute;inset:0" data-layout-allow-overflow></div>
+      // cena no papel: cores invertidas DENTRO da cena (filtro no host da composicao some no render final)
+      const papel = (beat as { papel?: boolean }).papel ? ';filter:invert(1) hue-rotate(180deg)' : '';
+      markup = `    <div id="${id}-cena" class="clip" data-start="0" data-duration="${dur}" data-track-index="0" style="position:absolute;inset:0${papel}" data-layout-allow-overflow></div>
 `;
       if (tipo === 'foto3d') {
         // assincrona: a timeline so e registrada depois que imagem e mapa carregam
         script = `      /*async*/ OF.foto3d($("${id}-cena"), ${js(params)}, ${r3(beat.at)}, ${dur}).then(function (render) { House.drive(tl, 0, ${dur}, render); }).catch(function (e) { console.error(e); }).then(function () { window.__timelines["${id}"] = tl; });
 `;
-      } else script = `      House.drive(tl, 0, ${dur}, OF.${tipo}($("${id}-cena"), ${js(params)}, ${r3(beat.at)}, ${dur}));
-`;
+      } else {
+        script = `      House.drive(tl, 0, ${dur}, OF.${tipo}($("${id}-cena"), ${js(params)}, ${r3(beat.at)}, ${dur}));\n`;
+        // ator com Lucide Animated: a animacao toca em loop desde a entrada dele (icone "vivo", nao parado)
+        (params.atores as { id?: string; keys?: { at?: number }[] }[] | undefined)?.forEach((a, k) => {
+          if (!atoresAnimados.includes(a)) return;
+          const ent = Math.max(0, Math.min(dur - 0.1, (a.keys?.[0]?.at ?? beat.at) - beat.at));
+          script += `      House.lucide(tl, $("${id}-cena").querySelector('[data-ator="${a.id ?? 'a' + k}"]'), ${r3(ent)}, ${r3(dur - ent)}, { delay: 0.15 });\n`;
+        });
+      }
       break;
     }
     case 'broll': {
@@ -612,14 +676,16 @@ async function buildBeat(beat: Beat, id: string): Promise<string> {
 type CamEvt = { at: number; tipo: string };
 function cameraEvents(beatIds: { id: string; beat: Beat }[]): CamEvt[] {
   const cfg = sheet as BeatSheet & { camera?: CamEvt[]; cameraAuto?: boolean };
-  const CICLO = ['punch', 'whip', 'tilt3d', 'shake', 'punch', 'glitch', 'roll', 'whip', 'luz', 'punch', 'flash', 'tilt3d'];
+  // 8 efeitos diferentes em ordem fixa: dois cortes seguidos nunca repetem (Joao, 24/11/2026)
+  const CICLO = ['tilt3d', 'whip', 'glitch', 'punch', 'roll', 'luz', 'shake', 'flash'];
   const evs: CamEvt[] = [...(cfg.camera ?? [])];
   if (cfg.cameraAuto !== false) {
     const h = hashStr(sheet.id);
     const ats = [...new Set(beatIds.filter(({ beat }) => beat.kind !== 'mascot' && !(beat.kind === 'cena' && ['piada', 'paoQueijo'].includes((beat as { tipo?: string }).tipo ?? ''))).map(({ beat }) => r3(beat.at)))].filter((t) => t > 0.05).sort((a, b) => a - b);
     let last = -9;
+    const manuais = (cfg.camera ?? []).map((c) => c.at);
     ats.forEach((t, k) => {
-      if (t - last < 0.6) return;
+      if (t - last < 0.6 || manuais.some((m) => Math.abs(m - t) < 0.4)) return;
       last = t;
       evs.push({ at: t, tipo: CICLO[(h + k) % CICLO.length] });
     });
@@ -627,28 +693,128 @@ function cameraEvents(beatIds: { id: string; beat: Beat }[]): CamEvt[] {
   return evs.sort((a, b) => a.at - b.at);
 }
 
+// ---------------------------------------------------------------------------
+// Luz e textura por bloco ("look" no beats.json)
+// Joao, 24/11/2026: "variar mais o efeito de luz e overlay da tela tambem". Cada bloco tem uma cara (pelicula + luz
+// ambiente + extra) e blocos vizinhos nao repetem a mesma combinacao. A luz segue a historia e fica nas BORDAS: nunca
+// lava o miolo onde estao numero e legenda, e some nas cenas de papel (lembra do bug da tela branca).
+// ---------------------------------------------------------------------------
+const LOOK_PADRAO: Required<Look> = { pelicula: 'riscos', luz: 'nenhuma', forca: 0.5, lado: 'cantos', curva: 'pulsa', vinheta: 0, extra: 'nenhum', leak: 'borda', glitch: 'vhs' };
+const PELICULAS: Record<string, { src: string; op: number; dur: number }> = {
+  riscos: { src: 'pelicula/riscos-e-poeira.mp4', op: 0.35, dur: 59 },
+  pontos: { src: 'pelicula/pontos-e-vinheta.mp4', op: 0.28, dur: 59 },
+  filme: { src: 'pelicula/filme-antigo.mp4', op: 0.5, dur: 59 },
+  grao: { src: 'pelicula/grao-fino.mp4', op: 0.45, dur: 59 },
+  poeira: { src: 'pelicula/poeira-pulsando.mp4', op: 0.28, dur: 39 },
+};
+const LUZES: Record<string, string> = { fria: '#2f7dff', quente: '#ff8a1f', verde: '#22d36b', vermelha: '#ff3344', dourada: '#ffc23a', neutra: '#d8d2c8', teal: '#16c2c2', roxa: '#8a5cff', magenta: '#e0409a' };
+const LEAKS: Record<string, { src: string; dur: number; ini: number; op: number }> = {
+  borda: { src: 'luz/light-leak-borda.mp4', dur: 0.75, ini: 0, op: 0.7 },
+  frio: { src: 'luz/light-leak-frio.mp4', dur: 0.75, ini: 0, op: 0.7 },
+  verde: { src: 'luz/light-leak-verde.mp4', dur: 0.75, ini: 0, op: 0.65 },
+  laranja: { src: 'luz/light-leak-laranja.mp4', dur: 1.1, ini: 0.5, op: 0.5 },
+  dourado: { src: 'luz/light-leak-dourado.mp4', dur: 1.1, ini: 0.5, op: 0.5 },
+};
+const GLITCHES: Record<string, string> = { vhs: 'glitch/vhs-ruido.mp4', linhas: 'glitch/linhas-horizontais.mp4' };
+
+function lookAtual(): Required<Look> {
+  return { ...LOOK_PADRAO, ...(sheet.look ?? {}) } as Required<Look>;
+}
+
+/** Avisa se o bloco vizinho (trecho anterior ou seguinte) tem a mesma cara de luz e textura. */
+function avisaLookVizinho(): void {
+  const m = basename(baseDir).match(/^trecho-(\d+)$/);
+  if (!m || !sheet.look) return;
+  const chave = (l: Look) => { const x = { ...LOOK_PADRAO, ...l }; return `${x.pelicula} + luz ${x.luz} + ${x.extra}`; };
+  const minha = chave(sheet.look);
+  for (const d of [-1, 1]) {
+    const viz = join(dirname(baseDir), `trecho-${String(Number(m[1]) + d).padStart(2, '0')}`, 'beats.json');
+    if (!existsSync(viz)) continue;
+    const l = (JSON.parse(readFileSync(viz, 'utf8')) as { look?: Look }).look;
+    if (l && chave(l) === minha) console.warn(`  aviso: mesma luz/textura do trecho vizinho ${basename(dirname(viz))} (${minha}); varie pelicula, luz ou extra`);
+  }
+}
+
 function buildTextura(evs: CamEvt[]): string {
-  // overlays REAIS da despensa (D:/YT/!Assets/Overlays): riscos de pelicula o tempo todo; vhs/luz/flash nas transicoes
+  // overlays REAIS da despensa (D:/YT/!Assets/Overlays) + luz ambiente em codigo; tudo no host com blend "screen"
   const dur = r3(sheet.duration);
+  const L = lookAtual();
+  avisaLookVizinho();
   let markup = '';
-  const pel = asset('@assets/Overlays/pelicula/riscos-e-poeira.mp4');
-  if (pel) {
-    for (let t0 = 0, k = 0; t0 < dur; t0 += 59, k++) {
-      const d = r3(Math.min(59, dur - t0));
-      markup += `    <video id="tex-pel-${k}" class="clip" src="${pel}" muted playsinline data-start="${r3(t0)}" data-duration="${d}" data-media-start="${(hashStr(sheet.id) % 30) / 10}" data-track-index="${k}" style="position:absolute;inset:0;width:${W}px;height:${H}px;object-fit:cover;mix-blend-mode:screen;opacity:0.35"></video>\n`;
+  let script = '';
+  const pel = L.pelicula !== 'nenhuma' ? PELICULAS[L.pelicula] : undefined;
+  const pelSrc = pel && asset(`@assets/Overlays/${pel.src}`);
+  if (pel && pelSrc) {
+    for (let t0 = 0, k = 0; t0 < dur; t0 += pel.dur, k++) {
+      const d = r3(Math.min(pel.dur, dur - t0));
+      markup += `    <video id="tex-pel-${k}" class="clip" src="${pelSrc}" muted playsinline data-start="${r3(t0)}" data-duration="${d}" data-media-start="${(hashStr(sheet.id) % 30) / 10}" data-track-index="${k}" style="position:absolute;inset:0;width:${W}px;height:${H}px;object-fit:cover;mix-blend-mode:screen;opacity:${pel.op}"></video>\n`;
     }
   }
-  const vhs = asset('@assets/Overlays/glitch/vhs-ruido.mp4');
-  const luz = asset('@assets/Overlays/luz/light-leak-borda.mp4'); // recorte so com a luz vazando pela borda
+  // cenas de papel: a luz ambiente apaga (screen sobre o papel claro lavaria a tela)
+  const papeis = sheet.beats.filter((b) => (b as { papel?: boolean }).papel).map((b) => [r3(b.at), r3(b.until)]);
+  const cor = L.luz !== 'nenhuma' ? LUZES[L.luz] : undefined;
+  if (cor) {
+    const POS: Record<string, [string, string?]> = { esq: ['0% 50%'], dir: ['100% 50%'], cima: ['50% 0%'], baixo: ['50% 100%'], cantos: ['0% 0%', '100% 100%'] };
+    const [pa, pb] = POS[L.lado] ?? POS.cantos;
+    markup += `    <div id="luz-a" data-layout-ignore style="position:absolute;inset:-5%;opacity:0;background:radial-gradient(ellipse 70% 80% at ${pa}, ${cor} 0%, ${cor}55 30%, transparent 62%)"></div>\n`;
+    if (pb) markup += `    <div id="luz-b" data-layout-ignore style="position:absolute;inset:-5%;opacity:0;background:radial-gradient(ellipse 55% 65% at ${pb}, ${cor} 0%, ${cor}44 28%, transparent 58%)"></div>\n`;
+  }
+  if (L.extra === 'scanlines') {
+    markup += `    <div id="scan" data-layout-ignore style="position:absolute;inset:0;opacity:0.55;background:repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 6px)"></div>\n`;
+  }
+  const bolhas: { x: number; y: number; r: number; v: number }[] = [];
+  if (L.extra === 'bokeh') {
+    // bolhas so nas faixas laterais: o miolo fica limpo para numero e legenda
+    let s = hashStr(sheet.id + 'bokeh');
+    const rnd = () => ((s = (s * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff);
+    for (let i = 0; i < 9; i++) {
+      const lado = i % 2 ? 0.78 + rnd() * 0.2 : 0.02 + rnd() * 0.2;
+      bolhas.push({ x: lado * W, y: rnd() * H, r: 30 + rnd() * 70, v: 6 + rnd() * 14 });
+    }
+    const c = cor ?? LUZES.quente;
+    bolhas.forEach((b, i) => {
+      markup += `    <div id="bk-${i}" data-layout-ignore style="position:absolute;left:0;top:0;width:${Math.round(b.r * 2)}px;height:${Math.round(b.r * 2)}px;border-radius:50%;opacity:0;background:radial-gradient(circle, ${c}cc 0%, ${c}55 45%, transparent 70%)"></div>\n`;
+    });
+  }
+  if (cor || bolhas.length || L.extra === 'scanlines') {
+    const base = r3(0.08 + 0.22 * Math.max(0, Math.min(1, L.forca)));
+    const pulsos = evs.filter((e) => e.tipo === 'flash' || e.tipo === 'punch').map((e) => r3(e.at));
+    script += `      var PUL = ${js(pulsos)}, LA = $("luz-a"), LB = $("luz-b"), SC = $("scan"), PAP = ${js(papeis)}, BK = ${js(bolhas.map((b) => [Math.round(b.x), Math.round(b.y), Math.round(b.r), r3(b.v)]))};
+      function apaga(t) { var k = 1; for (var i = 0; i < PAP.length; i++) { var a = PAP[i][0], b = PAP[i][1]; if (t > a - 0.25 && t < b + 0.25) k = Math.min(k, Math.max(0, Math.min(1, Math.max(a - t, t - b) / 0.25))); } return k; }
+      House.drive(tl, 0, ${dur}, function (t) {
+        var u = t / ${dur};
+        var curva = ${L.curva === 'sobe' ? '0.45 + 0.55 * u' : L.curva === 'desce' ? '1 - 0.55 * u' : '0.8 + 0.2 * Math.sin(t * 0.9)'};
+        var entra = Math.min(1, t / 1.2), k = apaga(t);
+        // revelacao (flash/punch): a luz da borda pulsa forte e volta
+        for (var q = 0; q < PUL.length; q++) { var dq = t - PUL[q]; if (dq >= 0 && dq < 1.2) curva *= 1 + 1.3 * Math.exp(-dq / 0.3); }
+        if (LA) { LA.style.opacity = (${base} * curva * entra * k).toFixed(3); LA.style.transform = "translate(" + (Math.sin(t * 0.21) * 40).toFixed(1) + "px," + (Math.cos(t * 0.17) * 30).toFixed(1) + "px)"; }
+        if (LB) { LB.style.opacity = (${base} * 0.8 * (1.6 - curva) * entra * k).toFixed(3); LB.style.transform = "translate(" + (Math.cos(t * 0.19) * 36).toFixed(1) + "px," + (Math.sin(t * 0.23) * 26).toFixed(1) + "px)"; }
+        if (SC) { SC.style.backgroundPosition = "0 " + (t * 18).toFixed(1) + "px"; SC.style.opacity = (0.55 * k).toFixed(3); }
+        for (var i = 0; i < BK.length; i++) {
+          var b = BK[i], y = ((b[1] - t * b[3]) % ${H + 200} + ${H + 200}) % ${H + 200} - 100;
+          var n = $("bk-" + i);
+          n.style.transform = "translate(" + (b[0] - b[2] + Math.sin(t * 0.3 + i) * 14).toFixed(1) + "px," + (y - b[2]).toFixed(1) + "px)";
+          n.style.opacity = (0.22 * entra * k * (0.7 + 0.3 * Math.sin(t * 0.8 + i * 1.7))).toFixed(3);
+        }
+      });
+`;
+  }
+  // cortes: leak e glitch na cor do bloco, com o leak entrando de um lado diferente a cada vez
+  const lk = LEAKS[L.leak] ?? LEAKS.borda;
+  const vhs = asset(`@assets/Overlays/${GLITCHES[L.glitch] ?? GLITCHES.vhs}`);
+  const luz = asset(`@assets/Overlays/${lk.src}`);
+  const GIROS = ['none', 'scaleX(-1)', 'scaleY(-1)', 'scale(-1,-1)'];
+  let nLuz = hashStr(sheet.id) % 4;
   evs.forEach((e, k) => {
     // flash e feito em codigo (branco limpo): o overlay 5 do PC e creme e vira laranja chapado em "screen"
     const src = e.tipo === 'glitch' ? vhs : e.tipo === 'luz' ? luz : undefined;
     if (!src) return;
-    const d = e.tipo === 'glitch' ? 0.2 : e.tipo === 'luz' ? 0.75 : 0.35;
+    const d = e.tipo === 'glitch' ? 0.2 : lk.dur;
     const s0 = Math.max(0, e.at - (e.tipo === 'luz' ? 0.3 : 0.03));
-    markup += `    <video id="tex-tr-${k}" class="clip" src="${src}" muted playsinline data-start="${r3(s0)}" data-duration="${r3(Math.min(d, dur - s0))}" data-media-start="${e.tipo === 'glitch' ? ((k * 7) % 30) / 10 : 0}" data-track-index="${10 + k}" style="position:absolute;inset:0;width:${W}px;height:${H}px;object-fit:cover;mix-blend-mode:screen;opacity:${e.tipo === 'glitch' ? 0.6 : e.tipo === 'luz' ? 0.7 : 0.8}"></video>\n`;
+    const giro = e.tipo === 'luz' ? GIROS[nLuz++ % 4] : 'none';
+    markup += `    <video id="tex-tr-${k}" class="clip" src="${src}" muted playsinline data-start="${r3(s0)}" data-duration="${r3(Math.min(d, dur - s0))}" data-media-start="${e.tipo === 'glitch' ? (L.glitch === 'linhas' ? ((k * 7) % 20) / 10 : ((k * 7) % 30) / 10) : lk.ini}" data-track-index="${10 + k}" style="position:absolute;inset:0;width:${W}px;height:${H}px;object-fit:cover;mix-blend-mode:screen;transform:${giro};opacity:${e.tipo === 'glitch' ? 0.6 : lk.op}"></video>\n`;
   });
-  return scene('textura', '', markup, '');
+  return scene('textura', '', markup, script);
 }
 
 function cameraScript(evs: CamEvt[]): string {
@@ -690,7 +856,7 @@ function buildIndex(beatIds: { id: string; beat: Beat }[], audioSrc?: string): s
   // a camera move o fundo e as cenas; legenda, textura e poeira ficam por cima, fora da camera
   // O Furry fica FORA da camera (sem tremida, giro ou inclinacao nele: "nao usar 3D nele") e por cima das cenas.
   const ehMascote = (b: Beat) => b.kind === 'mascot';
-  const naCamera = [host('fundo', 0, dur, 0, 1, ' data-house-backdrop'), ...beatIds.map(({ id, beat }, i) => ({ id, beat, i })).filter(({ beat }) => !ehMascote(beat)).map(({ id, beat, i }) => host(id, beat.at, beat.until - beat.at, i + 1, 10 + i))];
+  const naCamera = [host('fundo', 0, dur, 0, 1, ' data-house-backdrop'), ...beatIds.map(({ id, beat }, i) => ({ id, beat, i })).filter(({ beat }) => !ehMascote(beat)).map(({ id, beat, i }) => { const h0 = host(id, beat.at, beat.until - beat.at, i + 1, 10 + i); return h0; })];
   const mascotes = beatIds.map(({ id, beat }, i) => ({ id, beat, i })).filter(({ beat }) => ehMascote(beat)).map(({ id, beat, i }) => host(id, beat.at, beat.until - beat.at, i + 1, 80 + i));
   const hosts = [
     `      <div id="camera-mao" style="position:absolute;inset:0;z-index:1"><div id="camera" style="position:absolute;inset:0;transform-origin:50% 50%">`,
@@ -699,12 +865,16 @@ function buildIndex(beatIds: { id: string; beat: Beat }[], audioSrc?: string): s
     ...mascotes,
     // blend "screen" NO HOST: dentro da sub-composicao o blend so enxerga o vazio e o preto do overlay escurecia o video todo
     host('textura', 0, dur, beatIds.length + 3, 90, ' data-house-backdrop').replace('style="z-index:90"', 'style="z-index:90;mix-blend-mode:screen"'),
+    // vinheta do bloco (escurece so as bordas; blend normal, fora da camera)
+    ...(lookAtual().vinheta ? [`      <div id="vinheta" data-layout-ignore style="position:absolute;inset:0;z-index:91;pointer-events:none;background:radial-gradient(ellipse 75% 70% at 50% 50%, transparent 55%, rgba(0,0,0,${lookAtual().vinheta}) 100%)"></div>`] : []),
     `      <div id="camera-rgb" style="position:absolute;inset:0;z-index:95;opacity:0;pointer-events:none;background:repeating-linear-gradient(0deg, rgba(255,0,60,0.22) 0px, rgba(255,0,60,0.22) 6px, transparent 6px, transparent 14px, rgba(0,229,255,0.2) 14px, rgba(0,229,255,0.2) 19px, transparent 19px, transparent 31px);mix-blend-mode:screen"></div>`,
     `      <div id="camera-flash" style="position:absolute;inset:0;z-index:96;opacity:0;pointer-events:none;background:#fff"></div>`,
     ...(temInvertida() ? [host('legendas-inv', 0, dur, beatIds.length + 4, 99).replace('style="z-index:99"', 'style="z-index:99;mix-blend-mode:difference"')] : []),
     host('legendas', 0, dur, beatIds.length + 1, 100),
     ...(sheet.filmDust === false ? [] : [host('poeira', 0, dur, beatIds.length + 2, 200, ' data-house-backdrop')]),
     // assinatura no preto (Joao, 22/11/2026: "sem musica, sem video, apenas um fundo preto")
+    // cinza triste por cima de tudo, Furry incluso (Joao, 24/11/2026: "tudo poderia ficar cinza... nao deixar o Furry colorido")
+    ...(sheet.telaCinza ?? []).map((t, k) => `      <div id="tela-cinza-${k}" class="clip" data-start="${r3(t.de)}" data-duration="${r3(t.ate - t.de)}" data-track-index="${920 + k}" data-layout-ignore style="position:absolute;inset:0;z-index:150;backdrop-filter:grayscale(1) brightness(0.78) contrast(1.12);-webkit-backdrop-filter:grayscale(1) brightness(0.78) contrast(1.12);background:rgba(40,40,40,0.18)"></div>`),
     ...(sheet.telaPreta ?? []).map((t, k) => `      <div id="tela-preta-${k}" class="clip" data-start="${r3(t.de)}" data-duration="${r3(t.ate - t.de)}" data-track-index="${900 + k}" data-layout-ignore style="position:absolute;inset:0;z-index:300;background:#000"></div>`),
   ];
   return `<!doctype html>

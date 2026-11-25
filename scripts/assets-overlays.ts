@@ -23,6 +23,14 @@ const ITENS: Item[] = [
   { saida: 'luz/light-leak-laranja.mp4', fonte: 'MESTRES DO VINTADE/overlay 4.mp4', o_que: 'vazamento de luz laranja (cor da marca)', uso: 'transicao "luz" de 0,6-1 s (screen)' },
   { saida: 'luz/light-leak-borda.mp4', fonte: 'MESTRES DO VINTADE/overlay 4.mp4', o_que: 'so a luz vazando pela borda (recorte de 0,95 s a 1,95 s)', uso: 'transicao "luz" sem cobrir a tela (o kit usa este)', de: 0.95, dur: 1 },
   { saida: 'luz/flash-branco.mp4', fonte: 'MESTRES DO VINTADE/overlay 5.wmv', o_que: 'flash branco que some', uso: 'corte com flash (screen)' },
+  // Joao, 24/11/2026: "variar mais o efeito de luz e overlay da tela" -> uma pelicula, um leak e um glitch por bloco
+  { saida: 'pelicula/pontos-e-vinheta.mp4', fonte: 'MESTRES DO VINTADE/NOISE (1).wmv', o_que: 'pontos de poeira, risco fino e borda clara de projetor', uso: 'pelicula de bloco (screen, 0,25-0,35)', loop: 6 },
+  { saida: 'pelicula/filme-antigo.mp4', fonte: 'PACK - EFEITOS SONOROS/General/old film overlay.mp4', o_que: 'riscos finos e manchas de filme antigo, discreto', uso: 'pelicula de bloco (screen, 0,4-0,6)' },
+  { saida: 'pelicula/grao-fino.mp4', fonte: 'MESTRES DO VINTADE/Noise 2.mov', o_que: 'grao fino escuro, quase sem risco', uso: 'pelicula limpa para bloco de respiro (screen, 0,5)', loop: 4 },
+  { saida: 'glitch/linhas-horizontais.mp4', fonte: 'MESTRES DO VINTADE/Noise 3_1_4K.mp4', o_que: 'faixa de linhas horizontais de fita', uso: 'transicao glitch alternativa a vhs-ruido (screen)' },
+  { saida: 'luz/light-leak-frio.mp4', fonte: 'MESTRES DO VINTADE/overlay 4.mp4', o_que: 'o leak da borda em azul frio', uso: 'transicao "luz" em bloco frio (fase chata)', de: 0.95, dur: 1, vf: 'scale=1920:1080,fps=30,hue=h=180:s=1.2,format=yuv420p' },
+  { saida: 'luz/light-leak-verde.mp4', fonte: 'MESTRES DO VINTADE/overlay 4.mp4', o_que: 'o leak da borda em verde (ganho)', uso: 'transicao "luz" em bloco de ganho', de: 0.95, dur: 1, vf: 'scale=1920:1080,fps=30,hue=h=120,format=yuv420p' },
+  { saida: 'luz/light-leak-dourado.mp4', fonte: 'MESTRES DO VINTADE/overlay 4.mp4', o_que: 'o leak inteiro puxado para dourado', uso: 'transicao "luz" na virada e no milhao', vf: 'scale=1920:1080,fps=30,hue=h=40:s=1.2,format=yuv420p' },
   { saida: 'fundos/grade-perspectiva.mp4', fonte: 'Furry/secodary-Background.mp4', o_que: 'grade branca em perspectiva sobre preto, andando', uso: 'fundo vivo no lugar do preto (backdrop "grade-video")', loop: 6 },
 ];
 let feitos = 0;
@@ -48,6 +56,9 @@ Gerado por \`bun run assets:overlays\` (repo animation-to-yt / ofurry-edicoes) a
 \`!Assets\` (os originais não são tocados). 1920x1080, 30 fps, sem som. Para refazer: \`bun run assets:overlays --refazer\`.
 
 Uso no código: \`@assets/Overlays/<arquivo>\`. Quase tudo entra com **blend "screen"** (o preto some, só a luz/risco aparece).
+
+Ver todos de uma vez: \`catalogo.png\` (um quadro de cada, com o nome). No kit, a pelicula, a luz e o leak de cada bloco
+vêm do \`"look"\` do beats.json (ver \`docs/padrao-edicao-ofurry.md\`, "Luz e overlay por bloco").
 
 | Arquivo | O que é | Uso | Original |
 |---|---|---|---|

@@ -5,7 +5,7 @@
  * O pao e um PNG recortado (src) que entra no corte seco e treme em stop-motion, como figurinha colada.
  *
  * OF.radio:     { src, radio: 'RÁDIO OFURRY', fm: '177,0 FM', texto: 'DOIS PÃO DE QUEIJO', preco: 'R$ 5', textoAt, precoAt, saiAt }
- *               Em saiAt o comercial some de uma vez e sobram os dois paes pequenos no preto.
+ *               Em saiAt o comercial CONGELA e fica cinza ("perdeu a graca", Joao 24/11/2026).
  * OF.paoQueijo: { src, x, y, tam, rot } so a foto, colada torta e parada por cima da cena anterior (overlay).
  */
 (function (g) {
@@ -69,19 +69,21 @@
     return function (tl) {
       var T = t0 + tl;
       var fora = T >= saiAt;
-      comercial.style.opacity = fora ? '0' : '1';
-      raios.style.transform = 'rotate(' + ((T - t0) * 34).toFixed(2) + 'deg)';
-      ponto.style.opacity = Math.sin((T - t0) * 18) > -0.3 ? '1' : '0.25';
+      var Tq = Math.min(T, saiAt); // depois do saiAt tudo para: a piada perdeu a graca
+      var cinza = fora ? 'grayscale(1) brightness(0.55) contrast(0.9)' : 'none';
+      comercial.style.filter = cinza;
+      raios.style.transform = 'rotate(' + ((Tq - t0) * 34).toFixed(2) + 'deg)';
+      ponto.style.opacity = Math.sin((Tq - t0) * 18) > -0.3 ? '1' : '0.25';
       var pt = T >= textoAt ? prog(T, textoAt, 0.16, E.back) : 0;
       titulo.style.opacity = T >= textoAt ? Math.min(1, pt * 1.6).toFixed(3) : '0';
       titulo.style.transform = 'scale(' + (0.6 + 0.4 * pt).toFixed(3) + ')';
       var ps = T >= precoAt ? prog(T, precoAt, 0.18, E.back) : 0;
       selo.style.opacity = T >= precoAt ? '1' : '0';
-      selo.style.transform = 'rotate(' + (-12 + Math.sin((T - t0) * 9) * 4).toFixed(2) + 'deg) scale(' + (ps * (1 + Math.sin((T - t0) * 16) * 0.04)).toFixed(3) + ')';
+      selo.style.transform = 'rotate(' + (-12 + Math.sin((Tq - t0) * 9) * 4).toFixed(2) + 'deg) scale(' + (ps * (1 + Math.sin((Tq - t0) * 16) * 0.04)).toFixed(3) + ')';
 
       paes.forEach(function (o, k) {
-        var j = treme(T, k), x = o.x + j.x, y = o.y + j.y, r = o.rot + j.r, esc = 1;
-        if (fora) { x = o.xFim; y = 370; r = o.rot; esc = 0.5; } // sobra no preto: pequenos e parados
+        var j = treme(Tq, k), x = o.x + j.x, y = o.y + j.y, r = o.rot + j.r, esc = 1;
+        o.n.style.filter = cinza;
         o.n.style.opacity = T >= o.at ? '1' : '0';
         o.n.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) rotate(' + r.toFixed(2) + 'deg) scale(' + esc + ')';
       });

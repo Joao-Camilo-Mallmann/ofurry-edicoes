@@ -396,5 +396,16 @@
       "x": 0.5,
       "y": 0.33
     }
-  ]
+  ],
+  "look": {
+    "pelicula": "grao",
+    "luz": "nenhuma",
+    "forca": 0.25,
+    "lado": "cima",
+    "curva": "pulsa",
+    "vinheta": 0.3,
+    "extra": "nenhum",
+    "leak": "borda",
+    "glitch": "linhas"
+  }
 }
